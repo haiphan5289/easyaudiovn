@@ -1,0 +1,436 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3D9337224855A9498902CE8C /* Pods_EasyAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C63E1C2D8E890A4E84F0DA64 /* Pods_EasyAudio.framework */; };
+		93A0C6F527EE1AD0008E6B98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0C6F427EE1AD0008E6B98 /* AppDelegate.swift */; };
+		93A0C6F727EE1AD0008E6B98 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0C6F627EE1AD0008E6B98 /* SceneDelegate.swift */; };
+		93A0C6F927EE1AD0008E6B98 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0C6F827EE1AD0008E6B98 /* ViewController.swift */; };
+		93A0C6FC27EE1AD0008E6B98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93A0C6FA27EE1AD0008E6B98 /* Main.storyboard */; };
+		93A0C6FE27EE1AD3008E6B98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93A0C6FD27EE1AD3008E6B98 /* Assets.xcassets */; };
+		93A0C70127EE1AD3008E6B98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93A0C6FF27EE1AD3008E6B98 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6125231AC2F13B4FFC10B136 /* Pods-EasyAudio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyAudio.release.xcconfig"; path = "Target Support Files/Pods-EasyAudio/Pods-EasyAudio.release.xcconfig"; sourceTree = "<group>"; };
+		93A0C6F127EE1AD0008E6B98 /* EasyAudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyAudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A0C6F427EE1AD0008E6B98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		93A0C6F627EE1AD0008E6B98 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		93A0C6F827EE1AD0008E6B98 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		93A0C6FB27EE1AD0008E6B98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		93A0C6FD27EE1AD3008E6B98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		93A0C70027EE1AD3008E6B98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		93A0C70227EE1AD3008E6B98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C63E1C2D8E890A4E84F0DA64 /* Pods_EasyAudio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyAudio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEB81A7D3AA1216C8BEF0032 /* Pods-EasyAudio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyAudio.debug.xcconfig"; path = "Target Support Files/Pods-EasyAudio/Pods-EasyAudio.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		93A0C6EE27EE1AD0008E6B98 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D9337224855A9498902CE8C /* Pods_EasyAudio.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		34BF24632EF44BF137D62411 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DEB81A7D3AA1216C8BEF0032 /* Pods-EasyAudio.debug.xcconfig */,
+				6125231AC2F13B4FFC10B136 /* Pods-EasyAudio.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9155D7A2B8F19C982B2A1C50 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C63E1C2D8E890A4E84F0DA64 /* Pods_EasyAudio.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		93A0C6E827EE1AD0008E6B98 = {
+			isa = PBXGroup;
+			children = (
+				93A0C6F327EE1AD0008E6B98 /* EasyAudio */,
+				93A0C6F227EE1AD0008E6B98 /* Products */,
+				34BF24632EF44BF137D62411 /* Pods */,
+				9155D7A2B8F19C982B2A1C50 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		93A0C6F227EE1AD0008E6B98 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				93A0C6F127EE1AD0008E6B98 /* EasyAudio.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		93A0C6F327EE1AD0008E6B98 /* EasyAudio */ = {
+			isa = PBXGroup;
+			children = (
+				93A0C6F427EE1AD0008E6B98 /* AppDelegate.swift */,
+				93A0C6F627EE1AD0008E6B98 /* SceneDelegate.swift */,
+				93A0C6F827EE1AD0008E6B98 /* ViewController.swift */,
+				93A0C6FA27EE1AD0008E6B98 /* Main.storyboard */,
+				93A0C6FD27EE1AD3008E6B98 /* Assets.xcassets */,
+				93A0C6FF27EE1AD3008E6B98 /* LaunchScreen.storyboard */,
+				93A0C70227EE1AD3008E6B98 /* Info.plist */,
+			);
+			path = EasyAudio;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		93A0C6F027EE1AD0008E6B98 /* EasyAudio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93A0C70527EE1AD3008E6B98 /* Build configuration list for PBXNativeTarget "EasyAudio" */;
+			buildPhases = (
+				E11401E377AA82AE173372F2 /* [CP] Check Pods Manifest.lock */,
+				93A0C6ED27EE1AD0008E6B98 /* Sources */,
+				93A0C6EE27EE1AD0008E6B98 /* Frameworks */,
+				93A0C6EF27EE1AD0008E6B98 /* Resources */,
+				719DC8CAA5FAF66C95D7653A /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EasyAudio;
+			productName = EasyAudio;
+			productReference = 93A0C6F127EE1AD0008E6B98 /* EasyAudio.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		93A0C6E927EE1AD0008E6B98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					93A0C6F027EE1AD0008E6B98 = {
+						CreatedOnToolsVersion = 13.2;
+					};
+				};
+			};
+			buildConfigurationList = 93A0C6EC27EE1AD0008E6B98 /* Build configuration list for PBXProject "EasyAudio" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 93A0C6E827EE1AD0008E6B98;
+			productRefGroup = 93A0C6F227EE1AD0008E6B98 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				93A0C6F027EE1AD0008E6B98 /* EasyAudio */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		93A0C6EF27EE1AD0008E6B98 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93A0C70127EE1AD3008E6B98 /* LaunchScreen.storyboard in Resources */,
+				93A0C6FE27EE1AD3008E6B98 /* Assets.xcassets in Resources */,
+				93A0C6FC27EE1AD0008E6B98 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		719DC8CAA5FAF66C95D7653A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasyAudio/Pods-EasyAudio-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasyAudio/Pods-EasyAudio-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EasyAudio/Pods-EasyAudio-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E11401E377AA82AE173372F2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EasyAudio-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		93A0C6ED27EE1AD0008E6B98 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93A0C6F927EE1AD0008E6B98 /* ViewController.swift in Sources */,
+				93A0C6F527EE1AD0008E6B98 /* AppDelegate.swift in Sources */,
+				93A0C6F727EE1AD0008E6B98 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		93A0C6FA27EE1AD0008E6B98 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93A0C6FB27EE1AD0008E6B98 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		93A0C6FF27EE1AD3008E6B98 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93A0C70027EE1AD3008E6B98 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		93A0C70327EE1AD3008E6B98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		93A0C70427EE1AD3008E6B98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		93A0C70627EE1AD3008E6B98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DEB81A7D3AA1216C8BEF0032 /* Pods-EasyAudio.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZX8LBHXXZB;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EasyAudio/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = haiphan.EasyAudio;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		93A0C70727EE1AD3008E6B98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6125231AC2F13B4FFC10B136 /* Pods-EasyAudio.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZX8LBHXXZB;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EasyAudio/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = haiphan.EasyAudio;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		93A0C6EC27EE1AD0008E6B98 /* Build configuration list for PBXProject "EasyAudio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93A0C70327EE1AD3008E6B98 /* Debug */,
+				93A0C70427EE1AD3008E6B98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93A0C70527EE1AD3008E6B98 /* Build configuration list for PBXNativeTarget "EasyAudio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93A0C70627EE1AD3008E6B98 /* Debug */,
+				93A0C70727EE1AD3008E6B98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 93A0C6E927EE1AD0008E6B98 /* Project object */;
+}
