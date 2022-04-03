@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="NavigationItemView" customModule="Filza__File_Manager_Document" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZAf-Mw-KOd">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q55-AU-KHm">
+                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="vyY-YZ-AaA"/>
+                            </constraints>
+                            <color key="tintColor" name="ColorApp"/>
+                            <state key="normal" image="ic_close"/>
+                        </button>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="oZj-8o-PH8">
+                            <rect key="frame" x="50" y="0.0" width="314" height="50"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLw-4j-ccB">
+                                    <rect key="frame" x="0.0" y="0.0" width="104.5" height="50"/>
+                                    <color key="tintColor" name="ColorApp"/>
+                                    <state key="normal" image="ic_reminder"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jkQ-Uf-1hA">
+                                    <rect key="frame" x="104.5" y="0.0" width="105" height="50"/>
+                                    <color key="tintColor" name="ColorApp"/>
+                                    <state key="normal" image="ic_pin"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zqh-Il-b5f">
+                                    <rect key="frame" x="209.5" y="0.0" width="104.5" height="50"/>
+                                    <color key="tintColor" name="ColorApp"/>
+                                    <state key="normal" image="ic_export"/>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDb-9J-uuV">
+                            <rect key="frame" x="364" y="0.0" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="4Nq-4x-O5R"/>
+                            </constraints>
+                            <color key="tintColor" name="ColorApp"/>
+                            <state key="normal" image="ic_done"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="ZAf-Mw-KOd" secondAttribute="bottom" id="0R8-wa-mVu"/>
+                <constraint firstItem="ZAf-Mw-KOd" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="6ob-53-8SE"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ZAf-Mw-KOd" secondAttribute="trailing" id="uCf-B7-9Dg"/>
+                <constraint firstItem="ZAf-Mw-KOd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="vo2-cX-elS"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outletCollection property="bts" destination="Q55-AU-KHm" collectionClass="NSMutableArray" id="BQC-df-HkC"/>
+                <outletCollection property="bts" destination="dLw-4j-ccB" collectionClass="NSMutableArray" id="A1a-yb-5kJ"/>
+                <outletCollection property="bts" destination="jkQ-Uf-1hA" collectionClass="NSMutableArray" id="VnV-kc-wqU"/>
+                <outletCollection property="bts" destination="zqh-Il-b5f" collectionClass="NSMutableArray" id="lpq-Js-Ghb"/>
+                <outletCollection property="bts" destination="XDb-9J-uuV" collectionClass="NSMutableArray" id="CHW-Mh-egH"/>
+            </connections>
+            <point key="canvasLocation" x="-19" y="83"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_close" width="24" height="24"/>
+        <image name="ic_done" width="24" height="24"/>
+        <image name="ic_export" width="24" height="24"/>
+        <image name="ic_pin" width="24" height="24"/>
+        <image name="ic_reminder" width="24" height="24"/>
+        <namedColor name="ColorApp">
+            <color red="0.57400000095367432" green="0.56599998474121094" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
