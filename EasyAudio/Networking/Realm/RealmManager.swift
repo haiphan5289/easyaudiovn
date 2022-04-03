@@ -40,52 +40,52 @@ class RealmManager {
         print("schemaVersion after migration:\(RLMRealmConfiguration.default().schemaVersion)")
         RLMRealm.default()
     }
-    
-    private func getFoldersRealm() -> [FolderRealm]  {
-        let arr = realm.objects(FolderRealm.self).toArray(ofType: FolderRealm.self)
-        return arr
-    }
-
-    func updateOrInsertConfig(model: FolderModel) {
-        let list = self.getFoldersRealm()
-
-        if let index = list.firstIndex(where: { $0.id == model.id  }) {
-            try! realm.write {
-                list[index].data = try? model.toData()
-                NotificationCenter.default.post(name: NSNotification.Name(PushNotificationKeys.addedFolder.rawValue), object: model, userInfo: nil)
-            }
-        } else {
-            let itemAdd = FolderRealm.init(model: model)
-            try! realm.write {
-                realm.add(itemAdd)
-                NotificationCenter.default.post(name: NSNotification.Name(PushNotificationKeys.addedFolder.rawValue), object: model, userInfo: nil)
-            }
-        }
-    }
-    
-    func deleteFolder(model: FolderModel) {
-        let list = self.getFoldersRealm()
-        if let index = list.firstIndex(where: { $0.id == model.id  }) {
-            try! realm.write {
-                realm.delete(list[index])
-                NotificationCenter.default.post(name: NSNotification.Name(PushNotificationKeys.deleteFolder.rawValue), object: list[index], userInfo: nil)
-            }
-        }
-    }
-    
-    func getFolders() -> [FolderModel] {
-        let listRealm = self.getFoldersRealm()
-        var list: [FolderModel] = []
-        
-        listRealm.forEach { model in
-            guard let model = model.data?.toCodableObject() as FolderModel? else {
-                return
-            }
-            list.append(model)
-        }
-        
-        return list
-    }
+//    
+//    private func getFoldersRealm() -> [FolderRealm]  {
+//        let arr = realm.objects(FolderRealm.self).toArray(ofType: FolderRealm.self)
+//        return arr
+//    }
+//
+//    func updateOrInsertConfig(model: FolderModel) {
+//        let list = self.getFoldersRealm()
+//
+//        if let index = list.firstIndex(where: { $0.id == model.id  }) {
+//            try! realm.write {
+//                list[index].data = try? model.toData()
+//                NotificationCenter.default.post(name: NSNotification.Name(PushNotificationKeys.addedFolder.rawValue), object: model, userInfo: nil)
+//            }
+//        } else {
+//            let itemAdd = FolderRealm.init(model: model)
+//            try! realm.write {
+//                realm.add(itemAdd)
+//                NotificationCenter.default.post(name: NSNotification.Name(PushNotificationKeys.addedFolder.rawValue), object: model, userInfo: nil)
+//            }
+//        }
+//    }
+//    
+//    func deleteFolder(model: FolderModel) {
+//        let list = self.getFoldersRealm()
+//        if let index = list.firstIndex(where: { $0.id == model.id  }) {
+//            try! realm.write {
+//                realm.delete(list[index])
+//                NotificationCenter.default.post(name: NSNotification.Name(PushNotificationKeys.deleteFolder.rawValue), object: list[index], userInfo: nil)
+//            }
+//        }
+//    }
+//    
+//    func getFolders() -> [FolderModel] {
+//        let listRealm = self.getFoldersRealm()
+//        var list: [FolderModel] = []
+//        
+//        listRealm.forEach { model in
+//            guard let model = model.data?.toCodableObject() as FolderModel? else {
+//                return
+//            }
+//            list.append(model)
+//        }
+//        
+//        return list
+//    }
     
     
 }

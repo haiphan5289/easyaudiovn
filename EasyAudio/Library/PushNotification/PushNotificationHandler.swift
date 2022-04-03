@@ -100,35 +100,6 @@ class PushNotificationHandler {
         return (decoded as! [String : Any])
     }
     
-    func showPopUp(_ model: PushNotificationModel) {
-//        HelperAlert.showAlerWithTitle(model.aps?.alert?.title, message: model.aps?.alert?.body, getTopViewVC())
-//        HelperAlert.showAlerWithTitle(model.aps?.alert?.title, message: model.aps?.alert?.body, cancelTitle: "OK", { () -> (Void) in
-//            
-//        }, getTopViewVC())
-    }
-    
-    func handleNotification(_ model: PushNotificationModel) {
-        UIApplication.shared.applicationIconBadgeNumber = 0
-        guard let statusString = model.type else {
-//            HelperAlert.showAlerWithTitle(model.aps?.alert?.title, message: model.aps?.alert?.body, getTopViewVC())
-            return
-        }
-        guard let status = Int(statusString), let _status = NOTIFICATION_TYPE.init(rawValue: status) else {
-//            HelperAlert.showAlerWithTitle(model.aps?.alert?.title, message: model.aps?.alert?.body, getTopViewVC())
-            return
-        }
-        
-//        HelperAlert.showAlerWithTitle(model.aps?.alert?.title, message: model.aps?.alert?.body, cancelTitle: "Ok", { () -> (Void) in
-//            if _status == .TYPE_ORDER {
-//                //Xử lý order
-//                SHARE_APPLICATION_DELEGATE.tabbar?.selectedIndex = 1
-//                NotificationCenter.default.post(name: NSNotification.Name(PushNotificationKeys.didUpdateOrder.rawValue), object: nil)
-//            }
-//
-//        }, getTopViewVC())
-        
-    }
-    
 //    func getOrderDetail(_ id: Int) {
 //        let viewModel = OrderViewModel()
 //        viewModel.orderDetail(id: id) { [weak self] (success, order, message) in
@@ -190,67 +161,66 @@ class PushNotificationHandler {
     
 }
 
-import Codextended
-struct PushNotificationModel: Codable {
-    
-    public var aps: RemoteModel?
-     public var order_id: String?
-    public var type: String?
-
-    init(from decoder: Decoder) throws {
-        aps = try? decoder.decode("aps")
-        order_id = try? decoder.decode("order_id")
-        type = try? decoder.decode("type")
-
-    }
-}
-
-struct NotificationData: Codable {
-    var order_id: Int?
-    var type: Int?
-
-    
-    init(from decoder: Decoder) throws {
-        order_id = try? decoder.decode("order_id")
-        type = try? decoder.decode("type")
-     
-
-    }
-}
-
-struct RemoteModel: Codable {
-    
-    var alert: RemoteAlert?
-    var badge: Int?
-    var sound: String?
-    
-    
-    init(from decoder: Decoder) throws {
-        alert = try? decoder.decode("alert")
-        badge = try? decoder.decode("badge")
-        sound = try? decoder.decode("sound")
-    }
-    
-}
-
-struct RemoteAlert: Codable {
-    var body: String?
-    var title: String?
-    
-    init(from decoder: Decoder) throws {
-        body = try? decoder.decode("body")
-        title = try? decoder.decode("title")
-    }
-}
-
-func getTopViewVC() -> UIViewController {
-    if var topController = UIApplication.shared.keyWindow?.rootViewController {
-        while let presentedViewController = topController.presentedViewController {
-            topController = presentedViewController
-        }
-        return topController
-        // topController should now be your topmost view controller
-    }
-    return (UIApplication.shared.keyWindow?.rootViewController)!
-    
-}
+//struct PushNotificationModel: Codable {
+//    
+//    public var aps: RemoteModel?
+//     public var order_id: String?
+//    public var type: String?
+//
+//    init(from decoder: Decoder) throws {
+//        aps = try? decoder.decode("aps")
+//        order_id = try? decoder.decode("order_id")
+//        type = try? decoder.decode("type")
+//
+//    }
+//}
+//
+//struct NotificationData: Codable {
+//    var order_id: Int?
+//    var type: Int?
+//
+//    
+//    init(from decoder: Decoder) throws {
+//        order_id = try? decoder.decode("order_id")
+//        type = try? decoder.decode("type")
+//     
+//
+//    }
+//}
+//
+//struct RemoteModel: Codable {
+//    
+//    var alert: RemoteAlert?
+//    var badge: Int?
+//    var sound: String?
+//    
+//    
+//    init(from decoder: Decoder) throws {
+//        alert = try? decoder.decode("alert")
+//        badge = try? decoder.decode("badge")
+//        sound = try? decoder.decode("sound")
+//    }
+//    
+//}
+//
+//struct RemoteAlert: Codable {
+//    var body: String?
+//    var title: String?
+//    
+//    init(from decoder: Decoder) throws {
+//        body = try? decoder.decode("body")
+//        title = try? decoder.decode("title")
+//    }
+//}
+//
+//func getTopViewVC() -> UIViewController {
+//    if var topController = UIApplication.shared.keyWindow?.rootViewController {
+//        while let presentedViewController = topController.presentedViewController {
+//            topController = presentedViewController
+//        }
+//        return topController
+//        // topController should now be your topmost view controller
+//    }
+//    return (UIApplication.shared.keyWindow?.rootViewController)!
+//    
+//}

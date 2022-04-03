@@ -9,10 +9,5 @@
 import Foundation
 
 enum AppSettings {
-    @Storage(key: "isFirstApp", defaultValue: true)
-    static var isFirstApp: Bool
-    
-    @Storage(key: "pinFolders", defaultValue: [])
-    static var pinFolders: [FolderModel]
     
 }

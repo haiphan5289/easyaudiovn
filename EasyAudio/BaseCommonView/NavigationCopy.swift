@@ -32,11 +32,11 @@ class NavigationCopy: UIViewController {
     private func setupNavigation() {
         self.buttonLeft.contentEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
         self.buttonLeft.setTitle("Cancel", for: .normal)
-        self.buttonLeft.setTitleColor(Asset.primary.color, for: .normal)
+//        self.buttonLeft.setTitleColor(Asset.primary.color, for: .normal)
         let leftBarButton = UIBarButtonItem(customView: buttonLeft)
         
         self.buttonRight.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -16)
-        self.buttonRight.setImage(Asset.icSearchArrow.image, for: .normal)
+//        self.buttonRight.setImage(Asset.icSearchArrow.image, for: .normal)
         let rightBarButton = UIBarButtonItem(customView: self.buttonRight)
         
         navigationItem.leftBarButtonItem = leftBarButton

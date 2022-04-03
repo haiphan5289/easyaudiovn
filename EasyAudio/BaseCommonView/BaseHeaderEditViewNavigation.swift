@@ -36,9 +36,9 @@ class BaseHeaderMutilSelectavigation: UIViewController {
         
 //        btExport.setImage(Asset.icExportEditAudio.image, for: .normal)
         btMore.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -16)
-        btMore.setImage(Asset.icMoreActionMulti.image, for: .normal)
+//        btMore.setImage(Asset.icMoreActionMulti.image, for: .normal)
         btImport.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -16)
-        btImport.setImage(Asset.icImport.image, for: .normal)
+//        btImport.setImage(Asset.icImport.image, for: .normal)
         let rightBarButton = UIBarButtonItem(customView: btMore)
         let importBarButton = UIBarButtonItem(customView: btImport)
         

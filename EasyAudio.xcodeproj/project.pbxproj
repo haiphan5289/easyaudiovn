@@ -82,10 +82,6 @@
 		9372377227F9E38C0077EDED /* LabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9372374F27F9E38B0077EDED /* LabelExtension.swift */; };
 		9372377327F9E38C0077EDED /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9372375027F9E38C0077EDED /* DateExtension.swift */; };
 		9372377627F9E3A50077EDED /* KeyboardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9372377527F9E3A50077EDED /* KeyboardInfo.swift */; };
-		9372377F27F9E3B70077EDED /* FontsFree-Net-SFProText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9372377A27F9E3B70077EDED /* FontsFree-Net-SFProText-Regular.ttf */; };
-		9372378027F9E3B70077EDED /* FontsFree-Net-SFProText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9372377B27F9E3B70077EDED /* FontsFree-Net-SFProText-Semibold.ttf */; };
-		9372378127F9E3B70077EDED /* FontsFree-Net-SFProText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9372377C27F9E3B70077EDED /* FontsFree-Net-SFProText-Medium.ttf */; };
-		9372378227F9E3B70077EDED /* FontsFree-Net-SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9372377E27F9E3B70077EDED /* FontsFree-Net-SFProDisplay-Bold.ttf */; };
 		9372378B27F9E3F30077EDED /* SongExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9372378427F9E3F30077EDED /* SongExporter.swift */; };
 		9372378C27F9E3F30077EDED /* ManageApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9372378527F9E3F30077EDED /* ManageApp.swift */; };
 		9372378D27F9E3F30077EDED /* InAppPurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9372378727F9E3F30077EDED /* InAppPurchase.swift */; };
@@ -94,14 +90,12 @@
 		9372379027F9E3F30077EDED /* FirebaseManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9372378A27F9E3F30077EDED /* FirebaseManage.swift */; };
 		9372379B27F9E3FB0077EDED /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9372379327F9E3FA0077EDED /* Storage.swift */; };
 		9372379C27F9E3FB0077EDED /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9372379427F9E3FA0077EDED /* AppSettings.swift */; };
-		9372379D27F9E3FB0077EDED /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9372379627F9E3FA0077EDED /* Constants.swift */; };
 		9372379E27F9E3FB0077EDED /* ResultURLModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9372379827F9E3FA0077EDED /* ResultURLModel.swift */; };
 		9372379F27F9E3FB0077EDED /* RangeTimeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9372379A27F9E3FA0077EDED /* RangeTimeSlider.swift */; };
 		937237C627F9E4080077EDED /* ViewHeaderDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 937237A227F9E4080077EDED /* ViewHeaderDialog.xib */; };
 		937237C727F9E4080077EDED /* ViewHeaderDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937237A327F9E4080077EDED /* ViewHeaderDialog.swift */; };
 		937237C827F9E4080077EDED /* NavigationItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 937237A527F9E4080077EDED /* NavigationItemView.xib */; };
 		937237C927F9E4080077EDED /* NavigationItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937237A627F9E4080077EDED /* NavigationItemView.swift */; };
-		937237CA27F9E4080077EDED /* CopyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937237A827F9E4080077EDED /* CopyView.swift */; };
 		937237CB27F9E4080077EDED /* ImportOptionsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 937237AA27F9E4080077EDED /* ImportOptionsVC.xib */; };
 		937237CC27F9E4080077EDED /* ImportOptionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937237AB27F9E4080077EDED /* ImportOptionsVC.swift */; };
 		937237CD27F9E4080077EDED /* RecordingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 937237AD27F9E4080077EDED /* RecordingView.xib */; };
@@ -132,10 +126,9 @@
 		937237F627F9E4170077EDED /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937237F127F9E4170077EDED /* BaseNavigationViewController.swift */; };
 		937237F727F9E4170077EDED /* NavigationCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937237F227F9E4170077EDED /* NavigationCopy.swift */; };
 		937237F827F9E4170077EDED /* BaseHeaderEditViewNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937237F327F9E4170077EDED /* BaseHeaderEditViewNavigation.swift */; };
-		9372380127F9E41E0077EDED /* FontsFree-Net-SFProText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 937237FC27F9E41E0077EDED /* FontsFree-Net-SFProText-Regular.ttf */; };
-		9372380227F9E41E0077EDED /* FontsFree-Net-SFProText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 937237FD27F9E41E0077EDED /* FontsFree-Net-SFProText-Semibold.ttf */; };
-		9372380327F9E41E0077EDED /* FontsFree-Net-SFProText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 937237FE27F9E41E0077EDED /* FontsFree-Net-SFProText-Medium.ttf */; };
-		9372380427F9E41E0077EDED /* FontsFree-Net-SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9372380027F9E41E0077EDED /* FontsFree-Net-SFProDisplay-Bold.ttf */; };
+		93892B3C27F9E85100A9FECE /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93892B3927F9E85100A9FECE /* Constant.swift */; };
+		93892B3D27F9E85100A9FECE /* GetHeightSafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93892B3A27F9E85100A9FECE /* GetHeightSafeArea.swift */; };
+		93892B3E27F9E85100A9FECE /* SettingDefaultFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93892B3B27F9E85100A9FECE /* SettingDefaultFont.swift */; };
 		93A0C6F527EE1AD0008E6B98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0C6F427EE1AD0008E6B98 /* AppDelegate.swift */; };
 		93A0C6F727EE1AD0008E6B98 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0C6F627EE1AD0008E6B98 /* SceneDelegate.swift */; };
 		93A0C6F927EE1AD0008E6B98 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0C6F827EE1AD0008E6B98 /* ViewController.swift */; };
@@ -220,10 +213,6 @@
 		9372374F27F9E38B0077EDED /* LabelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelExtension.swift; sourceTree = "<group>"; };
 		9372375027F9E38C0077EDED /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		9372377527F9E3A50077EDED /* KeyboardInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardInfo.swift; sourceTree = "<group>"; };
-		9372377A27F9E3B70077EDED /* FontsFree-Net-SFProText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FontsFree-Net-SFProText-Regular.ttf"; sourceTree = "<group>"; };
-		9372377B27F9E3B70077EDED /* FontsFree-Net-SFProText-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FontsFree-Net-SFProText-Semibold.ttf"; sourceTree = "<group>"; };
-		9372377C27F9E3B70077EDED /* FontsFree-Net-SFProText-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FontsFree-Net-SFProText-Medium.ttf"; sourceTree = "<group>"; };
-		9372377E27F9E3B70077EDED /* FontsFree-Net-SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FontsFree-Net-SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
 		9372378427F9E3F30077EDED /* SongExporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongExporter.swift; sourceTree = "<group>"; };
 		9372378527F9E3F30077EDED /* ManageApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageApp.swift; sourceTree = "<group>"; };
 		9372378727F9E3F30077EDED /* InAppPurchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InAppPurchase.swift; sourceTree = "<group>"; };
@@ -232,14 +221,12 @@
 		9372378A27F9E3F30077EDED /* FirebaseManage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManage.swift; sourceTree = "<group>"; };
 		9372379327F9E3FA0077EDED /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		9372379427F9E3FA0077EDED /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
-		9372379627F9E3FA0077EDED /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9372379827F9E3FA0077EDED /* ResultURLModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultURLModel.swift; sourceTree = "<group>"; };
 		9372379A27F9E3FA0077EDED /* RangeTimeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeTimeSlider.swift; sourceTree = "<group>"; };
 		937237A227F9E4080077EDED /* ViewHeaderDialog.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewHeaderDialog.xib; sourceTree = "<group>"; };
 		937237A327F9E4080077EDED /* ViewHeaderDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewHeaderDialog.swift; sourceTree = "<group>"; };
 		937237A527F9E4080077EDED /* NavigationItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigationItemView.xib; sourceTree = "<group>"; };
 		937237A627F9E4080077EDED /* NavigationItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationItemView.swift; sourceTree = "<group>"; };
-		937237A827F9E4080077EDED /* CopyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyView.swift; sourceTree = "<group>"; };
 		937237AA27F9E4080077EDED /* ImportOptionsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImportOptionsVC.xib; sourceTree = "<group>"; };
 		937237AB27F9E4080077EDED /* ImportOptionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportOptionsVC.swift; sourceTree = "<group>"; };
 		937237AD27F9E4080077EDED /* RecordingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordingView.xib; sourceTree = "<group>"; };
@@ -270,10 +257,9 @@
 		937237F127F9E4170077EDED /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
 		937237F227F9E4170077EDED /* NavigationCopy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationCopy.swift; sourceTree = "<group>"; };
 		937237F327F9E4170077EDED /* BaseHeaderEditViewNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseHeaderEditViewNavigation.swift; sourceTree = "<group>"; };
-		937237FC27F9E41E0077EDED /* FontsFree-Net-SFProText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FontsFree-Net-SFProText-Regular.ttf"; sourceTree = "<group>"; };
-		937237FD27F9E41E0077EDED /* FontsFree-Net-SFProText-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FontsFree-Net-SFProText-Semibold.ttf"; sourceTree = "<group>"; };
-		937237FE27F9E41E0077EDED /* FontsFree-Net-SFProText-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FontsFree-Net-SFProText-Medium.ttf"; sourceTree = "<group>"; };
-		9372380027F9E41E0077EDED /* FontsFree-Net-SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FontsFree-Net-SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
+		93892B3927F9E85100A9FECE /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		93892B3A27F9E85100A9FECE /* GetHeightSafeArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetHeightSafeArea.swift; sourceTree = "<group>"; };
+		93892B3B27F9E85100A9FECE /* SettingDefaultFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingDefaultFont.swift; sourceTree = "<group>"; };
 		93A0C6F127EE1AD0008E6B98 /* EasyAudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyAudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A0C6F427EE1AD0008E6B98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93A0C6F627EE1AD0008E6B98 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -439,41 +425,6 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
-		9372377727F9E3B70077EDED /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				9372377827F9E3B70077EDED /* font */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		9372377827F9E3B70077EDED /* font */ = {
-			isa = PBXGroup;
-			children = (
-				9372377927F9E3B70077EDED /* fontSFPro */,
-				9372377D27F9E3B70077EDED /* display */,
-			);
-			path = font;
-			sourceTree = "<group>";
-		};
-		9372377927F9E3B70077EDED /* fontSFPro */ = {
-			isa = PBXGroup;
-			children = (
-				9372377A27F9E3B70077EDED /* FontsFree-Net-SFProText-Regular.ttf */,
-				9372377B27F9E3B70077EDED /* FontsFree-Net-SFProText-Semibold.ttf */,
-				9372377C27F9E3B70077EDED /* FontsFree-Net-SFProText-Medium.ttf */,
-			);
-			path = fontSFPro;
-			sourceTree = "<group>";
-		};
-		9372377D27F9E3B70077EDED /* display */ = {
-			isa = PBXGroup;
-			children = (
-				9372377E27F9E3B70077EDED /* FontsFree-Net-SFProDisplay-Bold.ttf */,
-			);
-			path = display;
-			sourceTree = "<group>";
-		};
 		9372378327F9E3F30077EDED /* ManageApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -498,8 +449,8 @@
 		9372379127F9E3FA0077EDED /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				93892B3827F9E85100A9FECE /* Constant */,
 				9372379227F9E3FA0077EDED /* AppConfig */,
-				9372379527F9E3FA0077EDED /* Constant */,
 				9372379727F9E3FA0077EDED /* ResultURLModel */,
 				9372379927F9E3FA0077EDED /* RangeTimeSlider */,
 			);
@@ -513,14 +464,6 @@
 				9372379427F9E3FA0077EDED /* AppSettings.swift */,
 			);
 			path = AppConfig;
-			sourceTree = "<group>";
-		};
-		9372379527F9E3FA0077EDED /* Constant */ = {
-			isa = PBXGroup;
-			children = (
-				9372379627F9E3FA0077EDED /* Constants.swift */,
-			);
-			path = Constant;
 			sourceTree = "<group>";
 		};
 		9372379727F9E3FA0077EDED /* ResultURLModel */ = {
@@ -544,7 +487,6 @@
 			children = (
 				937237A127F9E4080077EDED /* ViewHeaderDialog */,
 				937237A427F9E4080077EDED /* NavigationItem */,
-				937237A727F9E4080077EDED /* CopyView */,
 				937237A927F9E4080077EDED /* ImportOptions */,
 				937237AC27F9E4080077EDED /* Recoding */,
 				937237AF27F9E4080077EDED /* ContentMenus */,
@@ -573,14 +515,6 @@
 				937237A627F9E4080077EDED /* NavigationItemView.swift */,
 			);
 			path = NavigationItem;
-			sourceTree = "<group>";
-		};
-		937237A727F9E4080077EDED /* CopyView */ = {
-			isa = PBXGroup;
-			children = (
-				937237A827F9E4080077EDED /* CopyView.swift */,
-			);
-			path = CopyView;
 			sourceTree = "<group>";
 		};
 		937237A927F9E4080077EDED /* ImportOptions */ = {
@@ -723,40 +657,21 @@
 			path = BaseCommonView;
 			sourceTree = "<group>";
 		};
-		937237F927F9E41E0077EDED /* Resources */ = {
+		9372380527F9E4A40077EDED /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				937237FA27F9E41E0077EDED /* font */,
 			);
-			name = Resources;
-			path = ../../ManageFiles/ManageFiles/Resources;
+			path = Modules;
 			sourceTree = "<group>";
 		};
-		937237FA27F9E41E0077EDED /* font */ = {
+		93892B3827F9E85100A9FECE /* Constant */ = {
 			isa = PBXGroup;
 			children = (
-				937237FB27F9E41E0077EDED /* fontSFPro */,
-				937237FF27F9E41E0077EDED /* display */,
+				93892B3927F9E85100A9FECE /* Constant.swift */,
+				93892B3A27F9E85100A9FECE /* GetHeightSafeArea.swift */,
+				93892B3B27F9E85100A9FECE /* SettingDefaultFont.swift */,
 			);
-			path = font;
-			sourceTree = "<group>";
-		};
-		937237FB27F9E41E0077EDED /* fontSFPro */ = {
-			isa = PBXGroup;
-			children = (
-				937237FC27F9E41E0077EDED /* FontsFree-Net-SFProText-Regular.ttf */,
-				937237FD27F9E41E0077EDED /* FontsFree-Net-SFProText-Semibold.ttf */,
-				937237FE27F9E41E0077EDED /* FontsFree-Net-SFProText-Medium.ttf */,
-			);
-			path = fontSFPro;
-			sourceTree = "<group>";
-		};
-		937237FF27F9E41E0077EDED /* display */ = {
-			isa = PBXGroup;
-			children = (
-				9372380027F9E41E0077EDED /* FontsFree-Net-SFProDisplay-Bold.ttf */,
-			);
-			path = display;
+			path = Constant;
 			sourceTree = "<group>";
 		};
 		93A0C6E827EE1AD0008E6B98 = {
@@ -783,16 +698,15 @@
 				937236D727F9E1670077EDED /* swiftgen.yml */,
 				937236DF27F9E2580077EDED /* SwiftGen */,
 				937236D927F9E2320077EDED /* Localizable */,
-				937237F927F9E41E0077EDED /* Resources */,
 				937236E227F9E3710077EDED /* Categories */,
 				9372372C27F9E38B0077EDED /* Library */,
 				9372377427F9E3A50077EDED /* Helper */,
-				9372377727F9E3B70077EDED /* Resources */,
 				937237DD27F9E40F0077EDED /* Networking */,
 				937237A027F9E4080077EDED /* Views */,
 				9372379127F9E3FA0077EDED /* Common */,
 				937237EE27F9E4170077EDED /* BaseCommonView */,
 				9372378327F9E3F30077EDED /* ManageApp */,
+				9372380527F9E4A40077EDED /* Modules */,
 				93A0C6F427EE1AD0008E6B98 /* AppDelegate.swift */,
 				93A0C6F627EE1AD0008E6B98 /* SceneDelegate.swift */,
 				93A0C6F827EE1AD0008E6B98 /* ViewController.swift */,
@@ -865,26 +779,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				937237D527F9E4080077EDED /* font.xib in Resources */,
-				9372380427F9E41E0077EDED /* FontsFree-Net-SFProDisplay-Bold.ttf in Resources */,
-				9372378127F9E3B70077EDED /* FontsFree-Net-SFProText-Medium.ttf in Resources */,
-				9372377F27F9E3B70077EDED /* FontsFree-Net-SFProText-Regular.ttf in Resources */,
 				937237C827F9E4080077EDED /* NavigationItemView.xib in Resources */,
 				937237CD27F9E4080077EDED /* RecordingView.xib in Resources */,
 				937236E127F9E3140077EDED /* Localizable.strings in Resources */,
-				9372380127F9E41E0077EDED /* FontsFree-Net-SFProText-Regular.ttf in Resources */,
-				9372378027F9E3B70077EDED /* FontsFree-Net-SFProText-Semibold.ttf in Resources */,
 				93A0C70127EE1AD3008E6B98 /* LaunchScreen.storyboard in Resources */,
-				9372380227F9E41E0077EDED /* FontsFree-Net-SFProText-Semibold.ttf in Resources */,
 				937237C627F9E4080077EDED /* ViewHeaderDialog.xib in Resources */,
 				93A0C6FE27EE1AD3008E6B98 /* Assets.xcassets in Resources */,
-				9372380327F9E41E0077EDED /* FontsFree-Net-SFProText-Medium.ttf in Resources */,
 				937237D927F9E4080077EDED /* FontCell.xib in Resources */,
 				937237CB27F9E4080077EDED /* ImportOptionsVC.xib in Resources */,
 				937237D127F9E4080077EDED /* QuickActionsView.xib in Resources */,
 				937237D227F9E4080077EDED /* NavigationSaveView.xib in Resources */,
 				937237D827F9E4080077EDED /* FontSize.xib in Resources */,
 				937237DC27F9E4080077EDED /* ListFont.xib in Resources */,
-				9372378227F9E3B70077EDED /* FontsFree-Net-SFProDisplay-Bold.ttf in Resources */,
 				93A0C6FC27EE1AD0008E6B98 /* Main.storyboard in Resources */,
 				937236D827F9E1670077EDED /* swiftgen.yml in Resources */,
 			);
@@ -944,9 +850,9 @@
 				9372371A27F9E3710077EDED /* UISliderExtensions.swift in Sources */,
 				937237CF27F9E4080077EDED /* ContextMenu.swift in Sources */,
 				9372375F27F9E38C0077EDED /* CustomButton.swift in Sources */,
+				93892B3C27F9E85100A9FECE /* Constant.swift in Sources */,
 				9372372A27F9E3710077EDED /* UIDatePickerExtensions.swift in Sources */,
 				937237C727F9E4080077EDED /* ViewHeaderDialog.swift in Sources */,
-				937237CA27F9E4080077EDED /* CopyView.swift in Sources */,
 				9372372127F9E3710077EDED /* UIWindowExtensions.swift in Sources */,
 				9372378B27F9E3F30077EDED /* SongExporter.swift in Sources */,
 				937237F727F9E4170077EDED /* NavigationCopy.swift in Sources */,
@@ -958,7 +864,6 @@
 				937237DA27F9E4080077EDED /* FontCell.swift in Sources */,
 				9372376D27F9E38C0077EDED /* StringExtension.swift in Sources */,
 				9372375327F9E38C0077EDED /* RowDetailGeneric.swift in Sources */,
-				9372379D27F9E3FB0077EDED /* Constants.swift in Sources */,
 				9372378D27F9E3F30077EDED /* InAppPurchase.swift in Sources */,
 				9372371727F9E3710077EDED /* ColorExtensions.swift in Sources */,
 				9372372027F9E3710077EDED /* ActivityExt.swift in Sources */,
@@ -991,6 +896,7 @@
 				9372375127F9E38C0077EDED /* UIApplication+Extension.swift in Sources */,
 				937237EC27F9E40F0077EDED /* RealmManager.swift in Sources */,
 				9372379B27F9E3FB0077EDED /* Storage.swift in Sources */,
+				93892B3E27F9E85100A9FECE /* SettingDefaultFont.swift in Sources */,
 				9372376C27F9E38C0077EDED /* ReadMoreTextViewExtension.swift in Sources */,
 				9372378E27F9E3F30077EDED /* Configuration.swift in Sources */,
 				9372372527F9E3710077EDED /* UIApplicationExtensions.swift in Sources */,
@@ -1022,6 +928,7 @@
 				9372375727F9E38C0077EDED /* UILableExtension.swift in Sources */,
 				9372376827F9E38C0077EDED /* ViewExtension.swift in Sources */,
 				937237F627F9E4170077EDED /* BaseNavigationViewController.swift in Sources */,
+				93892B3D27F9E85100A9FECE /* GetHeightSafeArea.swift in Sources */,
 				9372375227F9E38C0077EDED /* Obserable+Extension.swift in Sources */,
 				9372376027F9E38C0077EDED /* CustomSegment.swift in Sources */,
 				9372371F27F9E3710077EDED /* UIGestureRecognizerExtensions.swift in Sources */,

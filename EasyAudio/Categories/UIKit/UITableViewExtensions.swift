@@ -8,8 +8,7 @@
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
-import SwiftPullToRefresh
-import CRRefresh
+
 // MARK: - Properties
 public extension UITableView {
     
@@ -314,23 +313,4 @@ extension UITableView {
 //            emptyView.lbTitle.text = _message
 //        }
 //    }
-    
-    func crHeadRefresh(completion: @escaping(()->Void)) {
-        self.cr.addHeadRefresh(animator: FastAnimator()) {
-            //            isShowLoadding = false
-            completion()
-        }
-    }
-    
-    func crFootRefresh(completion: @escaping(()->Void)) {
-        self.cr.addFootRefresh(animator: FastAnimator()) {
-            //            isShowLoadding = false
-            completion()
-        }
-    }
-    
-    func crEndRefresh() {
-        self.cr.endHeaderRefresh()
-        self.cr.endLoadingMore()
-    }
 }
