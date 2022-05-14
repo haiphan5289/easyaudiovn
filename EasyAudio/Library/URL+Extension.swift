@@ -33,8 +33,12 @@ extension URL {
     
     func getDuration() -> Double {
         let asset = AVURLAsset(url: self)
-        let durationInSeconds = asset.duration.seconds
-        return durationInSeconds
+        let durationInSeconds = asset.duration.seconds.rounded(toPlaces: 2)
+        return durationInSeconds.rounded()
+    }
+    
+    func getTime() -> String {
+        return Int(self.getDuration()).getTextFromSecond()
     }
     
     func getName() -> String {

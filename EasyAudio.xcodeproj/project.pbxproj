@@ -130,12 +130,20 @@
 		93892B3D27F9E85100A9FECE /* GetHeightSafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93892B3A27F9E85100A9FECE /* GetHeightSafeArea.swift */; };
 		93892B3E27F9E85100A9FECE /* SettingDefaultFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93892B3B27F9E85100A9FECE /* SettingDefaultFont.swift */; };
 		93892B4127F9EAE000A9FECE /* TabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93892B4027F9EAE000A9FECE /* TabbarVC.swift */; };
+		93950B2327FC7B8B00D79127 /* video_select_print.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 93950B2227FC7B8B00D79127 /* video_select_print.mp4 */; };
 		93A0C6F527EE1AD0008E6B98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0C6F427EE1AD0008E6B98 /* AppDelegate.swift */; };
 		93A0C6F727EE1AD0008E6B98 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0C6F627EE1AD0008E6B98 /* SceneDelegate.swift */; };
 		93A0C6F927EE1AD0008E6B98 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0C6F827EE1AD0008E6B98 /* ViewController.swift */; };
 		93A0C6FC27EE1AD0008E6B98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93A0C6FA27EE1AD0008E6B98 /* Main.storyboard */; };
 		93A0C6FE27EE1AD3008E6B98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93A0C6FD27EE1AD3008E6B98 /* Assets.xcassets */; };
 		93A0C70127EE1AD3008E6B98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93A0C6FF27EE1AD3008E6B98 /* LaunchScreen.storyboard */; };
+		93CE5F2627FAF10000455E01 /* AudioVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93CE5F2327FAF10000455E01 /* AudioVC.xib */; };
+		93CE5F2727FAF10000455E01 /* AudioVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE5F2427FAF10000455E01 /* AudioVM.swift */; };
+		93CE5F2827FAF10000455E01 /* AudioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE5F2527FAF10000455E01 /* AudioVC.swift */; };
+		93CE5F2B27FAF8E700455E01 /* Strings-Gen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE5F2927FAF8E600455E01 /* Strings-Gen.swift */; };
+		93CE5F2C27FAF8E700455E01 /* Assets-Gen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE5F2A27FAF8E600455E01 /* Assets-Gen.swift */; };
+		93CE5F3D27FB471100455E01 /* AudioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE5F3B27FB471100455E01 /* AudioCell.swift */; };
+		93CE5F3E27FB471100455E01 /* AudioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93CE5F3C27FB471100455E01 /* AudioCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -262,6 +270,7 @@
 		93892B3A27F9E85100A9FECE /* GetHeightSafeArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetHeightSafeArea.swift; sourceTree = "<group>"; };
 		93892B3B27F9E85100A9FECE /* SettingDefaultFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingDefaultFont.swift; sourceTree = "<group>"; };
 		93892B4027F9EAE000A9FECE /* TabbarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarVC.swift; sourceTree = "<group>"; };
+		93950B2227FC7B8B00D79127 /* video_select_print.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_select_print.mp4; sourceTree = "<group>"; };
 		93A0C6F127EE1AD0008E6B98 /* EasyAudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyAudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A0C6F427EE1AD0008E6B98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93A0C6F627EE1AD0008E6B98 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -270,6 +279,13 @@
 		93A0C6FD27EE1AD3008E6B98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93A0C70027EE1AD3008E6B98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		93A0C70227EE1AD3008E6B98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93CE5F2327FAF10000455E01 /* AudioVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioVC.xib; sourceTree = "<group>"; };
+		93CE5F2427FAF10000455E01 /* AudioVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioVM.swift; sourceTree = "<group>"; };
+		93CE5F2527FAF10000455E01 /* AudioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioVC.swift; sourceTree = "<group>"; };
+		93CE5F2927FAF8E600455E01 /* Strings-Gen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings-Gen.swift"; sourceTree = "<group>"; };
+		93CE5F2A27FAF8E600455E01 /* Assets-Gen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets-Gen.swift"; sourceTree = "<group>"; };
+		93CE5F3B27FB471100455E01 /* AudioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCell.swift; sourceTree = "<group>"; };
+		93CE5F3C27FB471100455E01 /* AudioCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioCell.xib; sourceTree = "<group>"; };
 		C63E1C2D8E890A4E84F0DA64 /* Pods_EasyAudio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyAudio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEB81A7D3AA1216C8BEF0032 /* Pods-EasyAudio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyAudio.debug.xcconfig"; path = "Target Support Files/Pods-EasyAudio/Pods-EasyAudio.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -314,6 +330,8 @@
 		937236DF27F9E2580077EDED /* SwiftGen */ = {
 			isa = PBXGroup;
 			children = (
+				93CE5F2A27FAF8E600455E01 /* Assets-Gen.swift */,
+				93CE5F2927FAF8E600455E01 /* Strings-Gen.swift */,
 			);
 			path = SwiftGen;
 			sourceTree = "<group>";
@@ -662,6 +680,7 @@
 		9372380527F9E4A40077EDED /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				93CE5F2227FAF0F000455E01 /* Audio */,
 				93892B3F27F9EAB700A9FECE /* Tabbar */,
 			);
 			path = Modules;
@@ -718,6 +737,7 @@
 				937237EE27F9E4170077EDED /* BaseCommonView */,
 				9372378327F9E3F30077EDED /* ManageApp */,
 				9372380527F9E4A40077EDED /* Modules */,
+				93950B2227FC7B8B00D79127 /* video_select_print.mp4 */,
 				93A0C6F427EE1AD0008E6B98 /* AppDelegate.swift */,
 				93A0C6F627EE1AD0008E6B98 /* SceneDelegate.swift */,
 				93A0C6F827EE1AD0008E6B98 /* ViewController.swift */,
@@ -727,6 +747,26 @@
 				93A0C70227EE1AD3008E6B98 /* Info.plist */,
 			);
 			path = EasyAudio;
+			sourceTree = "<group>";
+		};
+		93CE5F2227FAF0F000455E01 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				93CE5F3A27FB468C00455E01 /* AudioCell */,
+				93CE5F2327FAF10000455E01 /* AudioVC.xib */,
+				93CE5F2427FAF10000455E01 /* AudioVM.swift */,
+				93CE5F2527FAF10000455E01 /* AudioVC.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		93CE5F3A27FB468C00455E01 /* AudioCell */ = {
+			isa = PBXGroup;
+			children = (
+				93CE5F3B27FB471100455E01 /* AudioCell.swift */,
+				93CE5F3C27FB471100455E01 /* AudioCell.xib */,
+			);
+			path = AudioCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -796,12 +836,15 @@
 				93A0C70127EE1AD3008E6B98 /* LaunchScreen.storyboard in Resources */,
 				937237C627F9E4080077EDED /* ViewHeaderDialog.xib in Resources */,
 				93A0C6FE27EE1AD3008E6B98 /* Assets.xcassets in Resources */,
+				93950B2327FC7B8B00D79127 /* video_select_print.mp4 in Resources */,
+				93CE5F2627FAF10000455E01 /* AudioVC.xib in Resources */,
 				937237D927F9E4080077EDED /* FontCell.xib in Resources */,
 				937237CB27F9E4080077EDED /* ImportOptionsVC.xib in Resources */,
 				937237D127F9E4080077EDED /* QuickActionsView.xib in Resources */,
 				937237D227F9E4080077EDED /* NavigationSaveView.xib in Resources */,
 				937237D827F9E4080077EDED /* FontSize.xib in Resources */,
 				937237DC27F9E4080077EDED /* ListFont.xib in Resources */,
+				93CE5F3E27FB471100455E01 /* AudioCell.xib in Resources */,
 				93A0C6FC27EE1AD0008E6B98 /* Main.storyboard in Resources */,
 				937236D827F9E1670077EDED /* swiftgen.yml in Resources */,
 			);
@@ -857,6 +900,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9372372B27F9E3710077EDED /* UITextField+Extensions.swift in Sources */,
+				93CE5F2727FAF10000455E01 /* AudioVM.swift in Sources */,
 				937237EB27F9E40F0077EDED /* Request.swift in Sources */,
 				9372371A27F9E3710077EDED /* UISliderExtensions.swift in Sources */,
 				937237CF27F9E4080077EDED /* ContextMenu.swift in Sources */,
@@ -868,6 +912,7 @@
 				9372378B27F9E3F30077EDED /* SongExporter.swift in Sources */,
 				937237F727F9E4170077EDED /* NavigationCopy.swift in Sources */,
 				9372375E27F9E38C0077EDED /* UIColor+Extensions.swift in Sources */,
+				93CE5F2B27FAF8E700455E01 /* Strings-Gen.swift in Sources */,
 				9372376427F9E38C0077EDED /* URL+Extension.swift in Sources */,
 				937237E827F9E40F0077EDED /* OptionalMessageDTO.swift in Sources */,
 				9372372227F9E3710077EDED /* UILabelExtensions.swift in Sources */,
@@ -910,8 +955,10 @@
 				9372379B27F9E3FB0077EDED /* Storage.swift in Sources */,
 				93892B3E27F9E85100A9FECE /* SettingDefaultFont.swift in Sources */,
 				9372376C27F9E38C0077EDED /* ReadMoreTextViewExtension.swift in Sources */,
+				93CE5F2C27FAF8E700455E01 /* Assets-Gen.swift in Sources */,
 				9372378E27F9E3F30077EDED /* Configuration.swift in Sources */,
 				9372372527F9E3710077EDED /* UIApplicationExtensions.swift in Sources */,
+				93CE5F2827FAF10000455E01 /* AudioVC.swift in Sources */,
 				937237CC27F9E4080077EDED /* ImportOptionsVC.swift in Sources */,
 				9372375827F9E38C0077EDED /* CALayerExtension.swift in Sources */,
 				9372375427F9E38C0077EDED /* UIFont+Extension.swift in Sources */,
@@ -954,6 +1001,7 @@
 				9372370B27F9E3710077EDED /* UIScrollViewExtensions.swift in Sources */,
 				9372376927F9E38C0077EDED /* UIAllertVC+Extension.swift in Sources */,
 				9372378C27F9E3F30077EDED /* ManageApp.swift in Sources */,
+				93CE5F3D27FB471100455E01 /* AudioCell.swift in Sources */,
 				9372379027F9E3F30077EDED /* FirebaseManage.swift in Sources */,
 				9372376127F9E38C0077EDED /* Drive+Extension.swift in Sources */,
 				9372372427F9E3710077EDED /* UIButtonExtensions.swift in Sources */,

@@ -25,7 +25,9 @@ class ManageApp {
             return "$\(self.price.roundTo())"
         }
     }
+    static var shared = ManageApp()
     
+    @VariableReplay var audios: [URL] = []
     private let disposeBag = DisposeBag()
     private init() {
         //        self.removeAllRecording()

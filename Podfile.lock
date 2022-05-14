@@ -272,6 +272,8 @@ PODS:
   - DKPhotoGallery/Resource (0.0.17):
     - SDWebImage
     - SwiftyGif
+  - EasyBaseAudio (1.0.16)
+  - EasyBaseCodes (1.0.5)
   - Eureka (5.3.4)
   - FDWaveformView (5.0.1)
   - Firebase (6.34.0):
@@ -433,6 +435,8 @@ DEPENDENCIES:
   - AlamofireImage (~> 4.1.0)
   - Cosmos
   - DKImagePickerController
+  - EasyBaseAudio
+  - EasyBaseCodes
   - Eureka
   - FDWaveformView
   - Firebase
@@ -468,6 +472,8 @@ SPEC REPOS:
     - DKCamera
     - DKImagePickerController
     - DKPhotoGallery
+    - EasyBaseAudio
+    - EasyBaseCodes
     - Eureka
     - FDWaveformView
     - Firebase
@@ -520,6 +526,8 @@ SPEC CHECKSUMS:
   DKCamera: a902b66921fca14b7a75266feb8c7568aa7caa71
   DKImagePickerController: b5eb7f7a388e4643264105d648d01f727110fc3d
   DKPhotoGallery: fdfad5125a9fdda9cc57df834d49df790dbb4179
+  EasyBaseAudio: 53c17691d1aa6c28f872d83acf4ceae71dbab318
+  EasyBaseCodes: a31ba18cf14f969177407455f025f23c696facdd
   Eureka: 60cf058f86a8fb3ed26165ba5292b9850361b0a6
   FDWaveformView: c188be613947273cc83d6f0056505f60e6c4b9ac
   Firebase: c23a36d9e4cdf7877dfcba8dd0c58add66358999
@@ -562,6 +570,6 @@ SPEC CHECKSUMS:
   ViewAnimator: a9ceed80266e00fd435ec4fb99b2df64d580d0e4
   WMSegmentControl: 4bb3a61e28cd0a0fcfcf932bec1f5795835b9f3f
 
-PODFILE CHECKSUM: 874f04eda4040da6d1d43a7b81156a75c6152eae
+PODFILE CHECKSUM: dd12b3764ab770de4c436bed74085729b24c0a15
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

@@ -35,6 +35,8 @@ pod 'FirebaseFirestoreSwift'
 pod 'FirebaseAuth'
 pod 'Firebase/RemoteConfig'
 pod 'DKImagePickerController'
+pod 'EasyBaseCodes'
+pod 'EasyBaseAudio'
 
 
 end

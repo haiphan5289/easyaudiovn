@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.moveToTabbar()
         
-        UIFont.overrideInitialize()
+//        UIFont.overrideInitialize()
         return true
     }
     
