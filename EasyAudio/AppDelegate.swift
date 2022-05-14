@@ -17,15 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         self.moveToTabbar()
-        
-//        UIFont.overrideInitialize()
+        UIFont.overrideInitialize()
         return true
     }
     
     private func moveToTabbar() {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let vc = TabbarVC()
-        self.window?.rootViewController = vc
+        let navi: UINavigationController = UINavigationController(rootViewController: vc)
+        self.window?.rootViewController = navi
         self.window?.makeKeyAndVisible()
     }
 

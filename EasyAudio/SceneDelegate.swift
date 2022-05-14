@@ -23,7 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private func moveToTabbar(window: UIWindowScene) {
         self.window = UIWindow(windowScene: window)
         let vc = TabbarVC()
-        self.window?.rootViewController = vc
+        let navi: UINavigationController = UINavigationController(rootViewController: vc)
+        self.window?.rootViewController = navi
         self.window?.makeKeyAndVisible()
     }
 

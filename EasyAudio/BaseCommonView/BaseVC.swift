@@ -1,16 +1,15 @@
 //
-//  BaseNavigationLargeTitle.swift
-//  Audio
+//  BaseVC.swift
+//  EasyAudio
 //
-//  Created by paxcreation on 3/26/21.
+//  Created by haiphan on 14/05/2022.
 //
 
+import Foundation
 import UIKit
 import RxSwift
-import RxCocoa
 
-class BaseNavigationLargeTitle: UIViewController {
-    
+class BaseVC: UIViewController {
     let buttonLeft = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: 44, height: 44)))
     let buttonPlus = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: 44, height: 44)))
     let btSearch = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: 44, height: 44)))
@@ -25,14 +24,17 @@ class BaseNavigationLargeTitle: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = false
-        self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
                                                                         NSAttributedString.Key.font: UIFont.myBoldSystemFont(ofSize: 17)]
     }
     
     func setupSingleButtonBack() {
+        buttonLeft.setImage(Asset.icBack.image, for: .normal)
+        buttonLeft.contentEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
+        let leftBarButton = UIBarButtonItem(customView: buttonLeft)
         
+        navigationItem.leftBarButtonItem = leftBarButton
     }
     
     func setupNavigation() {
@@ -58,5 +60,4 @@ class BaseNavigationLargeTitle: UIViewController {
             self.navigationController?.popViewController()
         }.disposed(by: disposebag)
     }
-    
 }
