@@ -19,14 +19,24 @@ class BaseVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupRX()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = false
-        self.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
                                                                         NSAttributedString.Key.font: UIFont.myBoldSystemFont(ofSize: 17)]
+        if #available(iOS 15, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            if let navBar = self.navigationController {
+                let bar = navBar.navigationBar
+                bar.standardAppearance = appearance
+                bar.scrollEdgeAppearance = appearance
+            }
+
+        }
     }
     
     func setupSingleButtonBack() {

@@ -12,18 +12,119 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecordingVC" customModule="EasyAudio" customModuleProvider="target">
             <connections>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outletCollection property="bts" destination="SaA-fa-hL3" collectionClass="NSMutableArray" id="LqS-19-RV3"/>
+                <outletCollection property="bts" destination="qeh-3D-Vif" collectionClass="NSMutableArray" id="w3p-KM-lXR"/>
+                <outletCollection property="bts" destination="dsH-XA-hWp" collectionClass="NSMutableArray" id="5wM-y2-u7K"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xeo-NQ-oi3">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V9G-b3-NuV">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="768"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ieF-0g-fzK">
+                            <rect key="frame" x="0.0" y="768" width="414" height="50"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9on-hT-C40">
+                                    <rect key="frame" x="124" y="0.0" width="166" height="50"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SaA-fa-hL3">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="SaA-fa-hL3" secondAttribute="height" id="w6q-la-wGG"/>
+                                            </constraints>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" image="ic_play"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="25"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" red="1" green="0.0" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeh-3D-Vif">
+                                            <rect key="frame" x="58" y="0.0" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="qeh-3D-Vif" secondAttribute="height" id="Oyd-ud-fXx"/>
+                                            </constraints>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" image="ic_pause"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="25"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" red="1" green="0.0" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dsH-XA-hWp">
+                                            <rect key="frame" x="116" y="0.0" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="dsH-XA-hWp" secondAttribute="height" id="T0W-8Z-Dpj"/>
+                                            </constraints>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" image="ic_stop"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="25"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" red="1" green="0.0" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="dsH-XA-hWp" firstAttribute="width" secondItem="dsH-XA-hWp" secondAttribute="height" id="iHY-Nz-u9i"/>
+                                        <constraint firstItem="qeh-3D-Vif" firstAttribute="width" secondItem="qeh-3D-Vif" secondAttribute="height" id="qCJ-EF-UOg"/>
+                                    </constraints>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="9on-hT-C40" firstAttribute="top" secondItem="ieF-0g-fzK" secondAttribute="top" id="RbY-DU-zpd"/>
+                                <constraint firstItem="9on-hT-C40" firstAttribute="centerX" secondItem="ieF-0g-fzK" secondAttribute="centerX" id="cZR-Fv-fct"/>
+                                <constraint firstAttribute="height" constant="50" id="fs1-qq-OB8"/>
+                                <constraint firstAttribute="bottom" secondItem="9on-hT-C40" secondAttribute="bottom" id="mBa-C3-tWb"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="xeo-NQ-oi3" secondAttribute="bottom" id="8N3-zi-rO7"/>
+                <constraint firstItem="xeo-NQ-oi3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="FS7-s5-lMk"/>
+                <constraint firstItem="xeo-NQ-oi3" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="jmD-Eu-dei"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xeo-NQ-oi3" secondAttribute="trailing" id="yIk-EI-EbN"/>
+            </constraints>
             <point key="canvasLocation" x="139" y="141"/>
         </view>
     </objects>
     <resources>
+        <image name="ic_pause" width="24" height="24"/>
+        <image name="ic_play" width="32" height="32"/>
+        <image name="ic_stop" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

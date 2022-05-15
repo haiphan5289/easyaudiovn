@@ -19,6 +19,7 @@ final class ConstantApp {
 //    let fileRealmDefault: String = "default.realm"
     let server: String = ""
     let folderImport: String = "Import"
+    let folderRecording: String = "Recording"
 //    let convertFolder: String = "Convert"
 //    let backupiCloud: String = "backupiCloud"
 //    let radiusImageCell: Int = 10

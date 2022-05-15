@@ -47,6 +47,10 @@ extension AudioVC {
         if let url = urlSample {
             ManageApp.shared.audios.append(url)
         }
+        
+        AudioManage.shared.createFolder(path: ConstantApp.shared.folderImport, success: nil, failure: nil)
+        AudioManage.shared.createFolder(path: ConstantApp.shared.folderRecording, success: nil, failure: nil)
+        AudioManage.shared.removeFilesFolder(folderName: ConstantApp.shared.folderImport)
     }
     
     private func setupRX() {
