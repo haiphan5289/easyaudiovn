@@ -9,6 +9,7 @@ import UIKit
 
 class font: UIViewController {
 
+    @IBOutlet weak var lbBold: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 

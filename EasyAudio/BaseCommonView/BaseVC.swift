@@ -14,11 +14,9 @@ class BaseVC: UIViewController {
     let buttonPlus = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: 44, height: 44)))
     let btSearch = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: 44, height: 44)))
     var titleLarge: String = ""
-    private let disposebag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupRX()
         
     }
     
@@ -36,6 +34,44 @@ class BaseVC: UIViewController {
                 bar.scrollEdgeAppearance = appearance
             }
 
+        }
+    }
+    
+    func removeBorderNavi(bgColor: UIColor = .white, textColor: UIColor = .black, font: UIFont = UIFont.myBoldSystemFont(ofSize: 17)) {
+        if #available(iOS 15, *) {
+            let appearance = UINavigationBarAppearance()
+            let atts = [NSAttributedString.Key.font: font, NSAttributedString.Key.foregroundColor: textColor]
+            appearance.configureWithOpaqueBackground()
+            appearance.configureWithTransparentBackground()
+            appearance.titleTextAttributes = atts
+            appearance.backgroundColor = bgColor
+            if let navBar = self.navigationController {
+                let bar = navBar.navigationBar
+                bar.standardAppearance = appearance
+                bar.scrollEdgeAppearance = appearance
+            }
+        } else {
+//            self.navigationController?.hideHairline()
+        }
+    }
+    
+    func setupNavi(bgColor: UIColor = .white, textColor: UIColor = .black, font: UIFont = UIFont.myBoldSystemFont(ofSize: 17)) {
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.navigationBar.barTintColor = bgColor
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: textColor,
+                                                                        NSAttributedString.Key.font: font]
+        if #available(iOS 15.0, *) {
+            let atts = [NSAttributedString.Key.font: font, NSAttributedString.Key.foregroundColor: textColor]
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.titleTextAttributes = atts
+            appearance.backgroundColor = bgColor
+            
+            if let navBar = self.navigationController {
+                let bar = navBar.navigationBar
+                bar.standardAppearance = appearance
+                bar.scrollEdgeAppearance = appearance
+            }
         }
     }
     
@@ -63,11 +99,5 @@ class BaseVC: UIViewController {
         navigationItem.leftBarButtonItem = leftBarButton
         navigationItem.rightBarButtonItems = [rightBarButton, btSeatchBar]
         
-    }
-    
-    private func setupRX() {
-        self.buttonLeft.rx.tap.bind { _ in
-            self.navigationController?.popViewController()
-        }.disposed(by: disposebag)
     }
 }

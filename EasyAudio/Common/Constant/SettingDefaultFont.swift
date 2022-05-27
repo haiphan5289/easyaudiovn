@@ -10,7 +10,7 @@ import UIKit
 
 struct SettingDefaultFont {
     static let DEFAULT_NAME_FONT = "SFProText-Regular"
-    static let DEFAULT_NAME_BOLD = "SF Pro Display Bold"
+    static let DEFAULT_NAME_BOLD = "SFProDisplay-Bold"
     static let DEFAULT_NAME_SEMIBOLD = "SFProText-Semibold"
     static let DEFAULT_NAME_MEDIUM = "SFProText-Medium"
 }

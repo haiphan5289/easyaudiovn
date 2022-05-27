@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecordingVC" customModule="EasyAudio" customModuleProvider="target">
             <connections>
+                <outlet property="centerView" destination="Beg-2g-DAC" id="tKV-WJ-KsS"/>
+                <outlet property="contentView" destination="ieF-0g-fzK" id="9Kg-tL-haM"/>
+                <outlet property="processView" destination="6lB-IM-hYY" id="YyU-rX-baD"/>
+                <outlet property="scrollView" destination="kAV-B3-DlQ" id="KQ0-Dv-Oex"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="bts" destination="SaA-fa-hL3" collectionClass="NSMutableArray" id="LqS-19-RV3"/>
                 <outletCollection property="bts" destination="qeh-3D-Vif" collectionClass="NSMutableArray" id="w3p-KM-lXR"/>
@@ -22,15 +27,39 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xeo-NQ-oi3">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xeo-NQ-oi3">
+                    <rect key="frame" x="0.0" y="54" width="414" height="808"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V9G-b3-NuV">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="768"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        </view>
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAV-B3-DlQ">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="750"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6lB-IM-hYY">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="750"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="600" id="dRS-Q6-uMc"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Beg-2g-DAC">
+                                    <rect key="frame" x="599" y="-10" width="1" height="818"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="1" id="QfI-BO-oZZ"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="6lB-IM-hYY" firstAttribute="trailing" secondItem="FKZ-gr-5nB" secondAttribute="trailing" id="AUd-zO-Eey"/>
+                                <constraint firstItem="6lB-IM-hYY" firstAttribute="bottom" secondItem="FKZ-gr-5nB" secondAttribute="bottom" id="KnH-5H-ybn"/>
+                                <constraint firstItem="6lB-IM-hYY" firstAttribute="leading" secondItem="FKZ-gr-5nB" secondAttribute="leading" id="LQy-EO-Hjv"/>
+                                <constraint firstItem="6lB-IM-hYY" firstAttribute="height" secondItem="kAV-B3-DlQ" secondAttribute="height" id="byJ-ZP-QCR"/>
+                                <constraint firstItem="6lB-IM-hYY" firstAttribute="top" secondItem="FKZ-gr-5nB" secondAttribute="top" id="toP-Gf-aeh"/>
+                            </constraints>
+                            <viewLayoutGuide key="contentLayoutGuide" id="FKZ-gr-5nB"/>
+                            <viewLayoutGuide key="frameLayoutGuide" id="VvQ-iW-Dt1"/>
+                        </scrollView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ieF-0g-fzK">
-                            <rect key="frame" x="0.0" y="768" width="414" height="50"/>
+                            <rect key="frame" x="0.0" y="758" width="414" height="50"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9on-hT-C40">
                                     <rect key="frame" x="124" y="0.0" width="166" height="50"/>
@@ -99,7 +128,7 @@
                                     </constraints>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="9on-hT-C40" firstAttribute="top" secondItem="ieF-0g-fzK" secondAttribute="top" id="RbY-DU-zpd"/>
                                 <constraint firstItem="9on-hT-C40" firstAttribute="centerX" secondItem="ieF-0g-fzK" secondAttribute="centerX" id="cZR-Fv-fct"/>
@@ -111,20 +140,26 @@
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" name="lineColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="xeo-NQ-oi3" secondAttribute="bottom" id="8N3-zi-rO7"/>
                 <constraint firstItem="xeo-NQ-oi3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="FS7-s5-lMk"/>
-                <constraint firstItem="xeo-NQ-oi3" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="jmD-Eu-dei"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Beg-2g-DAC" secondAttribute="bottom" id="T7x-Qx-1OR"/>
+                <constraint firstItem="xeo-NQ-oi3" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="jmD-Eu-dei"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Beg-2g-DAC" secondAttribute="trailing" id="uJT-uz-OFq"/>
+                <constraint firstItem="Beg-2g-DAC" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="xJp-8i-cOO"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xeo-NQ-oi3" secondAttribute="trailing" id="yIk-EI-EbN"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="141"/>
+            <point key="canvasLocation" x="149" y="140"/>
         </view>
     </objects>
     <resources>
         <image name="ic_pause" width="24" height="24"/>
         <image name="ic_play" width="32" height="32"/>
         <image name="ic_stop" width="24" height="24"/>
+        <namedColor name="lineColor">
+            <color red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

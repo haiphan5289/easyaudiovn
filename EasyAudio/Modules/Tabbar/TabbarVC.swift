@@ -54,12 +54,12 @@ extension TabbarVC {
     private func setupUI() {
         self.tabBar.isTranslucent = false
         UITabBar.appearance().tintColor = Asset.appColor.color
-        UITabBar.appearance().barTintColor = .gray
+        UITabBar.appearance().barTintColor = Asset.lineColor.color
         //self.view.backgroundColor = Asset.colorApp.color
         if #available(iOS 15.0, *) {
             let appearance: UITabBarAppearance = UITabBarAppearance()
             appearance.configureWithOpaqueBackground()
-            appearance.backgroundColor = .white
+            appearance.backgroundColor = Asset.lineColor.color
             tabBar.standardAppearance = appearance
             tabBar.scrollEdgeAppearance = appearance
         }
