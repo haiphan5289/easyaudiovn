@@ -20,6 +20,7 @@
                 <outlet property="leadingAudioView" destination="4eO-QV-oJ2" id="FvF-Nm-8JU"/>
                 <outlet property="leadingSV" destination="QhV-zR-y5A" id="45l-C1-NPk"/>
                 <outlet property="playView" destination="1Jf-KD-t8E" id="hec-wg-iKc"/>
+                <outlet property="scrollView" destination="klz-au-SHF" id="hlW-65-NRo"/>
                 <outlet property="timeStackView" destination="78X-Ga-tBh" id="saE-JL-pgf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="widthAudioSV" destination="AMB-rq-Be5" id="LHH-An-udf"/>
@@ -28,6 +29,10 @@
                 <outletCollection property="bts" destination="llS-gf-7DM" collectionClass="NSMutableArray" id="C8H-1w-Brh"/>
                 <outletCollection property="bts" destination="8Dx-q2-joI" collectionClass="NSMutableArray" id="0IQ-N3-1CU"/>
                 <outletCollection property="bts" destination="Sfg-Q5-29M" collectionClass="NSMutableArray" id="YfK-sB-gzc"/>
+                <outletCollection property="btsMusic" destination="Agy-fu-OKH" collectionClass="NSMutableArray" id="hQA-Lt-6LI"/>
+                <outletCollection property="btsMusic" destination="EyV-Y0-iUV" collectionClass="NSMutableArray" id="Cfl-3r-MWd"/>
+                <outletCollection property="btsMusic" destination="zFJ-Xj-K2x" collectionClass="NSMutableArray" id="kfM-XN-74f"/>
+                <outletCollection property="btsMusic" destination="zFH-ax-4NQ" collectionClass="NSMutableArray" id="XZf-Tg-Pfi"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -91,7 +96,7 @@
                             <rect key="frame" x="0.0" y="672" width="414" height="50"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="g9V-zA-pVN">
-                                    <rect key="frame" x="79" y="0.0" width="256" height="50"/>
+                                    <rect key="frame" x="123" y="0.0" width="168" height="50"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llS-gf-7DM">
                                             <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
@@ -116,8 +121,8 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Dx-q2-joI">
-                                            <rect key="frame" x="88" y="0.0" width="80" height="50"/>
+                                        <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Dx-q2-joI">
+                                            <rect key="frame" x="84" y="0.0" width="0.0" height="50"/>
                                             <color key="backgroundColor" name="AppColor"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" title="Split " image="ic_split">
@@ -130,7 +135,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sfg-Q5-29M">
-                                            <rect key="frame" x="176" y="0.0" width="80" height="50"/>
+                                            <rect key="frame" x="88" y="0.0" width="80" height="50"/>
                                             <color key="backgroundColor" name="AppColor"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" title="Add ">
@@ -204,6 +209,21 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </button>
+                                        <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFJ-Xj-K2x">
+                                            <rect key="frame" x="110" y="0.0" width="64" height="64"/>
+                                            <color key="backgroundColor" name="AppColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="64" id="D2O-QS-iuV"/>
+                                                <constraint firstAttribute="width" constant="64" id="SYU-8w-w4y"/>
+                                            </constraints>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" image="ic_pause"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="32"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFH-ax-4NQ">
                                             <rect key="frame" x="114" y="15" width="34" height="34"/>
                                             <color key="backgroundColor" name="AppColor"/>
@@ -266,6 +286,7 @@
     <resources>
         <image name="backward.fill" catalog="system" width="128" height="79"/>
         <image name="forward.fill" catalog="system" width="128" height="79"/>
+        <image name="ic_pause" width="24" height="24"/>
         <image name="ic_play" width="32" height="32"/>
         <image name="ic_split" width="32" height="32"/>
         <image name="plus.square" catalog="system" width="128" height="114"/>

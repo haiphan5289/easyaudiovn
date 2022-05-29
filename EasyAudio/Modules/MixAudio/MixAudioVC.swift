@@ -14,6 +14,7 @@ import SnapKit
 import MobileCoreServices
 import EasyBaseAudio
 import SVProgressHUD
+import AVFoundation
 
 class MixAudioVC: BaseVC {
     
@@ -21,9 +22,32 @@ class MixAudioVC: BaseVC {
         case trash, split, add
     }
     
+    enum ActionMusic: Int, CaseIterable {
+        case backWard, play, pause, forWard
+    }
+    
     struct Constant {
         static let heightAudio: CGFloat = 80
         static let widthTime: Int = 60
+        static let spaceMoveScroll: CGFloat = 6
+        static let adjustTime: CGFloat = 5
+        static let plusMusic: CGFloat = adjustTime * 60
+    }
+    
+    enum IncreaseStatus {
+        case normal, finish, start
+        
+        static func getStatus(currentTime: CGFloat, duration: CGFloat) -> Self {
+            if currentTime >= duration {
+                return .finish
+            }
+            
+            if currentTime <= 0 {
+                return .start
+            }
+            
+            return .normal
+        }
     }
     
     struct ScaleVideo {
@@ -47,6 +71,8 @@ class MixAudioVC: BaseVC {
     @IBOutlet var bts: [UIButton]!
     @IBOutlet weak var playView: UIView!
     @IBOutlet weak var centerView: UIView!
+    @IBOutlet var btsMusic: [UIButton]!
+    @IBOutlet weak var scrollView: UIScrollView!
     // Add here your view model
     private var viewModel: MixAudioVM = MixAudioVM()
     @VariableReplay private var sourcesURL: [MutePoint] = []
@@ -56,6 +82,8 @@ class MixAudioVC: BaseVC {
     private var exportURL: URL?
     private let detectABVideo: PublishSubject<ScaleVideo> = PublishSubject.init()
     private var selectIndex: Int?
+    private var audioPlayer: AVAudioPlayer = AVAudioPlayer()
+    private var detectTime: Disposable?
     
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
@@ -120,6 +148,36 @@ extension MixAudioVC {
                 case .split: break
                 }
             }.disposed(by: self.disposeBag)
+            
+            ActionMusic.allCases.forEach { type in
+                let bt = self.btsMusic[type.rawValue]
+                bt.rx.tap.bind { [weak self] in
+                    guard let wSelf = self, let url = wSelf.exportURL else { return }
+                    switch type {
+                    case .play:
+                        var detectTime = (wSelf.detectCenterView() - UIScreen.main.bounds.width / 2) / CGFloat(Constant.widthTime)
+                        if detectTime <= 0 {
+                            detectTime = 0
+                        }
+                        wSelf.playAudio(url: url, currentTime: detectTime)
+                        wSelf.btsMusic[ActionMusic.play.rawValue].isHidden = true
+                        wSelf.btsMusic[ActionMusic.pause.rawValue].isHidden = false
+                        wSelf.autoRunTime()
+                    case .pause:
+                        wSelf.pauseAudio()
+                        wSelf.btsMusic[ActionMusic.play.rawValue].isHidden = false
+                        wSelf.btsMusic[ActionMusic.pause.rawValue].isHidden = true
+                    case .backWard, .forWard:
+                        var current = wSelf.audioPlayer.currentTime
+                        if type == .backWard {
+                            current -= Constant.adjustTime
+                        } else {
+                            current += Constant.adjustTime
+                        }
+                        wSelf.continueAudio(currenTime: current)
+                    }
+                }.disposed(by: self.disposeBag)
+            }
         }
         
         self.buttonLeft.rx.tap.bind { [weak self] in
@@ -262,6 +320,88 @@ extension MixAudioVC {
     private func detectCenterView() -> CGFloat {
         return self.playView.convert(self.centerView.frame, to: nil).origin.x
     }
+    
+    private func playAudio(url: URL, currentTime: CGFloat) {
+        do {
+            self.audioPlayer = try AVAudioPlayer(contentsOf: url)
+            self.audioPlayer.delegate = self
+            self.audioPlayer.prepareToPlay()
+            self.audioPlayer.play()
+            self.audioPlayer.currentTime = TimeInterval(currentTime)
+            self.autoRunTime()
+        } catch {
+        }
+    }
+    
+    private func finishAudio() {
+        self.scrollView.setContentOffset(.zero, animated: true)
+        self.clearAction()
+        self.stopAudio()
+        self.btsMusic[ActionMusic.play.rawValue].isHidden = false
+        self.btsMusic[ActionMusic.pause.rawValue].isHidden = true
+    }
+    
+    private func playAudio() {
+        self.audioPlayer.play()
+    }
+    
+    private func stopAudio() {
+        self.audioPlayer.stop()
+    }
+    
+    private func pauseAudio() {
+        self.audioPlayer.pause()
+        self.clearAction()
+    }
+    
+    private func continueAudio(currenTime: CGFloat) {
+        switch IncreaseStatus.getStatus(currentTime: currenTime, duration: self.audioPlayer.duration) {
+        case .finish:
+            self.audioPlayer.stop()
+            self.finishAudio()
+        case .start:
+            self.audioPlayer.currentTime = TimeInterval(0)
+            self.audioPlayer.play()
+            self.scrollView.setContentOffset(.zero, animated: true)
+        case .normal:
+            if currenTime >= self.audioPlayer.currentTime {
+                UIView.animate(withDuration: 0.1) {
+                    self.scrollView.contentOffset.x += Constant.plusMusic
+                } completion: { _ in
+                    self.view.layoutIfNeeded()
+                }
+            } else {
+                UIView.animate(withDuration: 0.1) {
+                    self.scrollView.contentOffset.x -= Constant.plusMusic
+                } completion: { _ in
+                    self.view.layoutIfNeeded()
+                }
+            }
+            self.audioPlayer.currentTime = TimeInterval(currenTime)
+            self.audioPlayer.play()
+        }
+    }
+    
+    private func clearAction() {
+        detectTime?.dispose()
+    }
+    private func autoRunTime() {
+        detectTime?.dispose()
+        
+        detectTime = Observable<Int>.interval(.milliseconds(100), scheduler: MainScheduler.asyncInstance)
+            .bind(onNext: { [weak self] (time) in
+                guard let wSelf = self else { return }
+                wSelf.autoScrollView()
+            })
+    }
+    
+    private func autoScrollView() {
+        UIView.animate(withDuration: 0.1) {
+            self.scrollView.contentOffset.x += Constant.spaceMoveScroll
+        } completion: { _ in
+            self.view.layoutIfNeeded()
+        }
+    }
 }
 extension MixAudioVC: AdditionAudioDelegate {
     func action(action: AdditionAudioVC.Action) {
@@ -344,6 +484,11 @@ extension MixAudioVC: UIDocumentPickerDelegate {
             }
         }
 
+    }
+}
+extension MixAudioVC: AVAudioPlayerDelegate {
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        self.finishAudio()
     }
 }
 extension MixAudioVC: ABVideoRangeSliderDelegate {
