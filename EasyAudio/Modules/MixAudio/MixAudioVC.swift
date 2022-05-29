@@ -11,13 +11,25 @@ import UIKit
 import RxCocoa
 import RxSwift
 import SnapKit
+import MobileCoreServices
 import EasyBaseAudio
+import SVProgressHUD
 
 class MixAudioVC: BaseVC {
+    
+    enum Action: Int, CaseIterable {
+        case trash, split, add
+    }
     
     struct Constant {
         static let heightAudio: CGFloat = 80
         static let widthTime: Int = 60
+    }
+    
+    struct ScaleVideo {
+        let video: ABVideoRangeSlider
+        let startTiem: Float64
+        let endTime: Float64
     }
     
     var inputURL: URL?
@@ -32,9 +44,18 @@ class MixAudioVC: BaseVC {
     @IBOutlet weak var widthAudioSV: NSLayoutConstraint!
     @IBOutlet weak var widthContent: NSLayoutConstraint!
     @IBOutlet weak var audioStackView: UIStackView!
+    @IBOutlet var bts: [UIButton]!
+    @IBOutlet weak var playView: UIView!
+    @IBOutlet weak var centerView: UIView!
     // Add here your view model
     private var viewModel: MixAudioVM = MixAudioVM()
     @VariableReplay private var sourcesURL: [MutePoint] = []
+    @VariableReplay private var splitAudios: [SplitAudioModel] = []
+    private var videoURLs: [ABVideoRangeSlider] = []
+//    private var selecAudio: UIView?
+    private var exportURL: URL?
+    private let detectABVideo: PublishSubject<ScaleVideo> = PublishSubject.init()
+    private var selectIndex: Int?
     
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
@@ -62,7 +83,7 @@ extension MixAudioVC {
         if let url = self.inputURL {
             let mutePoint: MutePoint = MutePoint(start: 0, end: Float(url.getDuration()), url: url)
             self.sourcesURL.append(mutePoint)
-            self.addViewToStackView(url: url)
+            self.addViewToStackView(url: url, distanceToLeft: 0)
         }
     }
     
@@ -76,6 +97,30 @@ extension MixAudioVC {
             wSelf.widthContent.constant = CGFloat(Int(maxTime) * Constant.widthTime) + 300
             wSelf.setupTimeLineView(second: Int(maxTime))
         }.disposed(by: self.disposeBag)
+        
+        self.$splitAudios.asObservable().bind { [weak self] list in
+            guard let wSelf = self else { return }
+            let l = list.sorted(by: { $0.endSecond > $1.endSecond })
+            wSelf.exportURL(list: l)
+        }.disposed(by: self.disposeBag)
+        
+        Action.allCases.forEach { type in
+            let bt = self.bts[type.rawValue]
+            bt.rx.tap.bind { [weak self] in
+                guard let wSelf = self else { return }
+                switch type {
+                case .add:
+                    let vc = AdditionAudioVC.createVC()
+                    vc.modalTransitionStyle = .crossDissolve
+                    vc.modalPresentationStyle = .overFullScreen
+                    vc.delegate = self
+                    wSelf.present(vc, animated: true, completion: nil)
+                case .trash:
+                    wSelf.deleteAudio()
+                case .split: break
+                }
+            }.disposed(by: self.disposeBag)
+        }
         
         self.buttonLeft.rx.tap.bind { [weak self] in
             guard let wSelf = self else { return }
@@ -102,15 +147,54 @@ extension MixAudioVC {
         self.widthSV.constant = CGFloat(second * Constant.widthTime)
     }
     
-    private func addViewToStackView(url: URL) {
+    private func exportURL(list: [SplitAudioModel]) {
+        guard let first = list.first, let url = first.url else { return }
+        var l = list
+        l.removeFirst()
+        let audioEffect = AudioEffect()
+        let randomIndex = Int.random(in: 0...999999)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            audioEffect.mergeAudiosSplits(musicUrl: url,
+                                          timeStart: 0,
+                                          timeEnd: first.endSecond,
+                                          index: 1,
+                                          listAudioProtocol: l,
+                                          deplayTime: first.startAudio(),
+                                          nameMusic: "\(randomIndex)",
+                                          folderName: ConstantApp.FolderName.folderEdit.rawValue,
+                                          nameId: AudioManage.shared.parseDatetoString()) { (outputURL, _) in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    AudioManage.shared.covertToAudio(url: outputURL, folder: ConstantApp.FolderName.folderEdit.rawValue, type: .m4a) { [weak self] outputURL in
+                        guard let wSelf = self else { return }
+                        print("====== export \(outputURL)")
+                        wSelf.exportURL = outputURL
+                    } failure: { [weak self] error in
+                        guard let wSelf = self else { return }
+                        wSelf.showAlert(title: nil, message: error)
+                    }
+                }
+            } failure: { [weak self] (err, txt) in
+                guard let wSelf = self else { return }
+                wSelf.showAlert(title: nil, message: txt)
+            }
+        }
+    }
+    
+    private func addViewToStackView(url: URL, distanceToLeft: Int) {
+        
+        self.videoURLs.forEach { v in
+            v.hideViews(hide: true)
+            v.waveForm.changeColor(isSelect: false)
+        }
+        
         let v: UIView = UIView()
-        v.clipsToBounds = true
         let abRangeVideo: ABVideoRangeSlider = ABVideoRangeSlider(frame: .zero)
         self.audioStackView.addArrangedSubview(v)
         v.addSubview(abRangeVideo)
         abRangeVideo.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview().inset(10)
-            make.left.right.equalToSuperview().inset(10)
+            make.left.equalToSuperview().inset(distanceToLeft > 0 ? distanceToLeft : 10)
+            make.width.equalTo((url.getDuration() * Double(Constant.widthTime)) - 40)
         }
         abRangeVideo.layoutIfNeeded()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
@@ -119,11 +203,152 @@ extension MixAudioVC {
             abRangeVideo.hideTimeLine(hide: true)
             abRangeVideo.delegate = self
         }
+        
+        let bt: UIButton = UIButton(type: .custom)
+        bt.setTitle(nil, for: .normal)
+        v.addSubview(bt)
+        bt.snp.makeConstraints { make in
+            make.edges.equalTo(abRangeVideo)
+        }
+        
+        let startSecond = distanceToLeft / Constant.widthTime
+        let splitAudio: SplitAudioModel = SplitAudioModel(view: v,
+                                                          startSecond: CGFloat(startSecond),
+                                                          endSecond: Double(startSecond) + url.getDuration(),
+                                                          url: url)
+        
+        bt.rx.tap.bind { [weak self] in
+            guard let wSelf = self else { return }
+            wSelf.videoURLs.forEach { v in
+                v.hideViews(hide: true)
+                v.waveForm.changeColor(isSelect: false)
+            }
+            abRangeVideo.hideViews(hide: false)
+            abRangeVideo.waveForm.changeColor(isSelect: true)
+//            wSelf.selecAudio = v
+            wSelf.selectIndex(splitView: splitAudio)
+        }.disposed(by: self.disposeBag)
+        
+
+        self.splitAudios.append(splitAudio)
+        self.videoURLs.append(abRangeVideo)
+//        self.selecAudio = v
+        self.selectIndex(splitView: splitAudio)
+    }
+    
+    private func deleteAudio() {
+        guard let index = self.selectIndex, index <= self.sourcesURL.count else {
+            return
+        }
+        self.sourcesURL.remove(at: index)
+        let splitAudio = self.splitAudios[index]
+        if let index = self.splitAudios.firstIndex(where: { $0.view == splitAudio.view }) {
+            self.splitAudios.remove(at: index)
+        }
+        
+        if let index = self.audioStackView.subviews.firstIndex(where: { $0 == splitAudio.view }) {
+            self.audioStackView.subviews[index].removeFromSuperview()
+        }
+    }
+    
+    private func selectIndex(splitView: SplitAudioModel) {
+        if let index = self.splitAudios.firstIndex(where: { $0.view == splitView.view }) {
+            self.selectIndex = index
+        } else {
+            self.selectIndex = nil
+        }
+    }
+    
+    private func detectCenterView() -> CGFloat {
+        return self.playView.convert(self.centerView.frame, to: nil).origin.x
+    }
+}
+extension MixAudioVC: AdditionAudioDelegate {
+    func action(action: AdditionAudioVC.Action) {
+        switch action {
+        case .photoLibrary:
+            let vc = UIImagePickerController()
+            vc.sourceType = .photoLibrary
+            vc.mediaTypes = ["public.movie"]
+            vc.delegate = self
+            self.present(vc, animated: true, completion: nil)
+        case .iCloud:
+            let types = [kUTTypeMovie, kUTTypeVideo, kUTTypeAudio, kUTTypeQuickTimeMovie, kUTTypeMPEG, kUTTypeMPEG2Video]
+            let documentPicker = UIDocumentPickerViewController(documentTypes: types as [String], in: .import)
+            documentPicker.delegate = self
+            documentPicker.allowsMultipleSelection = false
+            //                        documentPicker.shouldShowFileExtensions = true
+            self.present(documentPicker, animated: true, completion: nil)
+        case .recording:
+            let vc = AudioImportVC.createVC()
+            vc.folderName = ConstantApp.FolderName.folderRecording.rawValue
+            vc.delegate = self
+            self.present(vc, animated: true, completion: nil)
+        case .wifi: break
+        }
+    }
+}
+extension MixAudioVC: AudioImportDelegate {
+    func selectAudio(url: URL) {
+        let startTime: CGFloat = (self.detectCenterView() - UIScreen.main.bounds.width / 2) / CGFloat(Constant.widthTime)
+        let mutePoint: MutePoint = MutePoint(start: Float(startTime), end: Float(url.getDuration()), url: url)
+        self.sourcesURL.append(mutePoint)
+        
+        let distanceToLeft: CGFloat = (self.detectCenterView() - UIScreen.main.bounds.width / 2)
+        self.addViewToStackView(url: url, distanceToLeft: Int(distanceToLeft))
+    }
+}
+extension MixAudioVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        self.dismiss(animated: true) {
+            if let imageURL = info[UIImagePickerController.InfoKey.imageURL] as? URL {
+    //            ManageApp.shared.secureCopyItemfromLibrary(at: imageURL, folderName: ConstantApp.shared.folderPhotos) { outputURL in
+    //                picker.dismiss(animated: true) {
+    //                    ManageApp.shared.createFolderModeltoFiles(url: outputURL)
+    //                }
+    //            } failure: { [weak self] text in
+    //                guard let wSelf = self else { return }
+    //                wSelf.msgError.onNext(text)
+    //            }
+//                let vc = ImportFilesVC.createVC()
+//                vc.modalTransitionStyle = .crossDissolve
+//                vc.modalPresentationStyle = .overFullScreen
+//                vc.inputURL = imageURL
+//                self.present(vc, animated: true, completion: nil)
+
+            }
+        }
+    }
+    
+}
+extension MixAudioVC: UIDocumentPickerDelegate {
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        guard let first = urls.first else {
+            return
+        }
+        SVProgressHUD.show()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            AudioManage.shared.covertToCAF(folderConvert: ConstantApp.FolderName.folderImport.rawValue, url: first, type: .caf) { [weak self] outputURLBrowser in
+                guard let wSelf = self else { return }
+                DispatchQueue.main.async {
+//                    wSelf.imports.append(outputURLBrowser)
+//                    wSelf.tableView.reloadData()
+//                    SVProgressHUD.dismiss()
+//                    wSelf.playAudio(url: outputURLBrowser, rate: 1, currentTime: 0)
+                }
+                
+            } failure: { [weak self] text in
+                SVProgressHUD.dismiss()
+                guard let wSelf = self else { return }
+                wSelf.showAlert(title: nil, message: text)
+            }
+        }
+
     }
 }
 extension MixAudioVC: ABVideoRangeSliderDelegate {
     func didChangeValue(videoRangeSlider: ABVideoRangeSlider, startTime: Float64, endTime: Float64) {
-        
+        self.detectABVideo.onNext(ScaleVideo(video: videoRangeSlider, startTiem: startTime, endTime: startTime))
     }
     
     func indicatorDidChangePosition(videoRangeSlider: ABVideoRangeSlider, position: Float64) {

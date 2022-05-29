@@ -61,7 +61,7 @@ public class ABVideoRangeSlider: UIView {
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        self.setup()
+//        self.setup()
         self.addSubview(waveForm)
         waveForm.translatesAutoresizingMaskIntoConstraints = false
         
@@ -150,6 +150,7 @@ public class ABVideoRangeSlider: UIView {
         
         startTimeView = ABTimeView(size: CGSize(width: 40, height: 13), position: 1)
         startTimeView.layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        startTimeView.clipsToBounds = true
         self.addSubview(startTimeView)
         
         endTimeView = ABTimeView(size: CGSize(width: 40, height: 13), position: 1)
@@ -175,8 +176,10 @@ public class ABVideoRangeSlider: UIView {
     public func hideTimeLine(hide: Bool) {
         let views = [self.endTimeView, self.startTimeView]
         views.forEach { v in
+            v.clipsToBounds = true
             v.isHidden = hide
         }
+        startTimeView.isHidden = true
     }
     
     public func hideViews(hide: Bool) {
@@ -334,7 +337,11 @@ public class ABVideoRangeSlider: UIView {
         
         self.delegate?.didChangeValue(videoRangeSlider: self, startTime: startSeconds, endTime: endSeconds)
         self.delegate?.updateFrameSlide(videoRangeSlider: self, startIndicator: startIndicator.frame.origin.x, endIndicator: endIndicator.frame.origin.x)
-        self.waveForm.drawReadUpdate(rect: self.waveForm.frame, from: startIndicator.frame.origin.x, to: endIndicator.frame.origin.x, listPoint: self.waveForm.listPointOrigin, listPosition: self.waveForm.listPoint)
+        self.waveForm.drawReadUpdate(rect: self.waveForm.frame,
+                                     from: startIndicator.frame.origin.x,
+                                     to: endIndicator.frame.origin.x,
+                                     listPoint: self.waveForm.listPointOrigin,
+                                     listPosition: self.waveForm.listPoint)
     
         if self.progressPercentage != progressPercentage{
             let progressSeconds = secondsFromValue(value: progressPercentage)

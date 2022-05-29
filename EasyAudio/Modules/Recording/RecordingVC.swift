@@ -64,7 +64,7 @@ extension RecordingVC {
     private func setupUI() {
         // Add here the setup for the UI
         title = "Recording"
-        self.recording = Recording(folderName: "\(ConstantApp.shared.folderRecording)")
+        self.recording = Recording(folderName: "\(ConstantApp.FolderName.folderRecording.rawValue)")
         self.recording.delegate = self
         do {
             try self.recording.prepare()

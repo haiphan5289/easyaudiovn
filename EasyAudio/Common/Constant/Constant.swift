@@ -9,6 +9,11 @@ import Foundation
 import UIKit
 
 final class ConstantApp {
+    
+    enum FolderName: String, CaseIterable {
+        case folderImport, folderRecording, folderEdit
+    }
+    
     static var shared = ConstantApp()
     
     private init() {}
@@ -18,8 +23,6 @@ final class ConstantApp {
 //    let fileRealmNote: String = "default.realm.note"
 //    let fileRealmDefault: String = "default.realm"
     let server: String = ""
-    let folderImport: String = "Import"
-    let folderRecording: String = "Recording"
 //    let convertFolder: String = "Convert"
 //    let backupiCloud: String = "backupiCloud"
 //    let radiusImageCell: Int = 10

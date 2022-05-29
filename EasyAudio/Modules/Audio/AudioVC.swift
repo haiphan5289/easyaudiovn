@@ -47,16 +47,17 @@ extension AudioVC {
         self.tableView.register(AudioCell.nib, forCellReuseIdentifier: AudioCell.identifier)
         self.tableView.delegate = self
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            let urlSample = Bundle.main.url(forResource: "video_select_print", withExtension: ".mp4")
-            if let url = urlSample {
-                ManageApp.shared.audios.append(url)
-            }
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//            let urlSample = Bundle.main.url(forResource: "video_select_print", withExtension: ".mp4")
+//            if let url = urlSample {
+//                ManageApp.shared.audios.append(url)
+//            }
+//        }
         
-        AudioManage.shared.createFolder(path: ConstantApp.shared.folderImport, success: nil, failure: nil)
-        AudioManage.shared.createFolder(path: ConstantApp.shared.folderRecording, success: nil, failure: nil)
-        AudioManage.shared.removeFilesFolder(folderName: ConstantApp.shared.folderImport)
+        ConstantApp.FolderName.allCases.forEach { folder in
+            AudioManage.shared.createFolder(path: folder.rawValue, success: nil, failure: nil)
+        }
+        AudioManage.shared.removeFilesFolder(folderName: ConstantApp.FolderName.folderImport.rawValue)
 //        AudioManage.shared.removeFilesFolder(folderName: ConstantApp.shared.folderRecording)
     }
     
@@ -116,7 +117,7 @@ extension AudioVC: AdditionAudioDelegate {
             self.present(documentPicker, animated: true, completion: nil)
         case .recording:
             let vc = AudioImportVC.createVC()
-            vc.folderName = ConstantApp.shared.folderRecording
+            vc.folderName = ConstantApp.FolderName.folderRecording.rawValue
             vc.delegate = self
             self.present(vc, animated: true, completion: nil)
         case .wifi: break
@@ -161,7 +162,7 @@ extension AudioVC: UIDocumentPickerDelegate {
         }
         SVProgressHUD.show()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            AudioManage.shared.covertToCAF(folderConvert: ConstantApp.shared.folderImport, url: first, type: .caf) { [weak self] outputURLBrowser in
+            AudioManage.shared.covertToCAF(folderConvert: ConstantApp.FolderName.folderImport.rawValue, url: first, type: .caf) { [weak self] outputURLBrowser in
                 guard let wSelf = self else { return }
                 DispatchQueue.main.async {
 //                    wSelf.imports.append(outputURLBrowser)

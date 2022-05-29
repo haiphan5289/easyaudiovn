@@ -14,15 +14,20 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MixAudioVC" customModule="EasyAudio" customModuleProvider="target">
             <connections>
                 <outlet property="audioStackView" destination="DAI-Gq-wkg" id="i3h-pJ-gDD"/>
+                <outlet property="centerView" destination="9GQ-ou-F2e" id="LLo-y8-l8W"/>
                 <outlet property="hBottomView" destination="MHA-UK-JgH" id="CP5-Xe-cMJ"/>
                 <outlet property="heightAudioSV" destination="VyI-Jo-aBs" id="K4H-n0-aXM"/>
                 <outlet property="leadingAudioView" destination="4eO-QV-oJ2" id="FvF-Nm-8JU"/>
                 <outlet property="leadingSV" destination="QhV-zR-y5A" id="45l-C1-NPk"/>
+                <outlet property="playView" destination="1Jf-KD-t8E" id="hec-wg-iKc"/>
                 <outlet property="timeStackView" destination="78X-Ga-tBh" id="saE-JL-pgf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="widthAudioSV" destination="AMB-rq-Be5" id="LHH-An-udf"/>
                 <outlet property="widthContent" destination="FSC-IU-bqe" id="xlD-rU-BRx"/>
                 <outlet property="widthSV" destination="amk-tJ-OCv" id="ZmM-S3-PYE"/>
+                <outletCollection property="bts" destination="llS-gf-7DM" collectionClass="NSMutableArray" id="C8H-1w-Brh"/>
+                <outletCollection property="bts" destination="8Dx-q2-joI" collectionClass="NSMutableArray" id="0IQ-N3-1CU"/>
+                <outletCollection property="bts" destination="Sfg-Q5-29M" collectionClass="NSMutableArray" id="YfK-sB-gzc"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

@@ -46,7 +46,7 @@ extension AudioImportVC {
         self.viewModel = AudioImportVM(folderName: self.folderName)
         self.tableView.register(AudioCell.nib, forCellReuseIdentifier: AudioCell.identifier)
         self.tableView.delegate = self
-        self.lbTitle.text = ConstantApp.shared.folderRecording
+        self.lbTitle.text = ConstantApp.FolderName.folderRecording.rawValue
     }
     
     private func setupRX() {
