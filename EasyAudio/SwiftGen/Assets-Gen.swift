@@ -30,6 +30,8 @@ internal enum Asset {
   internal static let icIcloud = ImageAsset(name: "ic_icloud")
   internal static let icPhotoLibrary = ImageAsset(name: "ic_photo_library")
   internal static let icBack = ImageAsset(name: "ic_back")
+  internal static let icClose = ImageAsset(name: "ic_close")
+  internal static let icEmptyView = ImageAsset(name: "ic_emptyView")
   internal static let appColor = ColorAsset(name: "AppColor")
   internal static let blackOpacity60 = ColorAsset(name: "blackOpacity60")
   internal static let lineColor = ColorAsset(name: "lineColor")

@@ -16,6 +16,10 @@ import SVProgressHUD
 
 class AudioVC: UIViewController {
     
+    struct Constant {
+        static let heightCell: CGFloat = 90
+    }
+    
     // Add here outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btAdd: UIButton!
@@ -43,21 +47,24 @@ extension AudioVC {
         self.tableView.register(AudioCell.nib, forCellReuseIdentifier: AudioCell.identifier)
         self.tableView.delegate = self
         
-        let urlSample = Bundle.main.url(forResource: "video_select_print", withExtension: ".mp4")
-        if let url = urlSample {
-            ManageApp.shared.audios.append(url)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            let urlSample = Bundle.main.url(forResource: "video_select_print", withExtension: ".mp4")
+            if let url = urlSample {
+                ManageApp.shared.audios.append(url)
+            }
         }
         
         AudioManage.shared.createFolder(path: ConstantApp.shared.folderImport, success: nil, failure: nil)
         AudioManage.shared.createFolder(path: ConstantApp.shared.folderRecording, success: nil, failure: nil)
         AudioManage.shared.removeFilesFolder(folderName: ConstantApp.shared.folderImport)
+//        AudioManage.shared.removeFilesFolder(folderName: ConstantApp.shared.folderRecording)
     }
     
     private func setupRX() {
         // Add here the setup for the RX
         ManageApp.shared.$audios.bind { [weak self] list in
             guard let wSelf = self else { return }
-            print("===== \(list.count)")
+            list.isEmpty ? wSelf.tableView.setEmptyMessage(emptyView: EmptyView(frame: .zero)) : wSelf.tableView.restore()
         }.disposed(by: self.disposeBag)
         
         ManageApp.shared.$audios.asObservable()
@@ -107,8 +114,20 @@ extension AudioVC: AdditionAudioDelegate {
             documentPicker.allowsMultipleSelection = false
             //                        documentPicker.shouldShowFileExtensions = true
             self.present(documentPicker, animated: true, completion: nil)
-        case .wifi, .recording: break
+        case .recording:
+            let vc = AudioImportVC.createVC()
+            vc.folderName = ConstantApp.shared.folderRecording
+            vc.delegate = self
+            self.present(vc, animated: true, completion: nil)
+        case .wifi: break
         }
+    }
+}
+extension AudioVC: AudioImportDelegate {
+    func selectAudio(url: URL) {
+        let vc = MixAudioVC.createVC()
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, completion: nil)
     }
 }
 extension AudioVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -161,7 +180,7 @@ extension AudioVC: UIDocumentPickerDelegate {
 }
 extension AudioVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
+        return Constant.heightCell
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

@@ -291,26 +291,16 @@ extension UITableView {
         case top,bottom
     }
     
-//    func setupEmptyView(_ title : String?, desc : String?) {
-//        guard let emptyView = self.backgroundView as? EmptyView else {
-//            let view = EmptyView.loadFromNib(named: "EmptyView") as! EmptyView
-//            self.backgroundView = view
-//            view.snp.makeConstraints { (make) in
-//                make.width.height.equalToSuperview()
-//            }
-//            view.isHidden = true
-//            view.setuiWithTitle(title, desc: desc)
-//            return
-//        }
-//        emptyView.isHidden = true
-//        emptyView.setuiWithTitle(title, desc: desc)
-//    }
-//    
-//    func showEmptyView(_ show : Bool, message : String? = nil) {
-//        guard let emptyView = self.backgroundView  as? EmptyView else {return}
-//        emptyView.isHidden = !show
-//        if let _message = message {
-//            emptyView.lbTitle.text = _message
-//        }
-//    }
+    func setEmptyMessage(emptyView: UIView) {
+        var f = emptyView.frame
+        f = CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height)
+        emptyView.frame = f
+        
+        self.backgroundView = emptyView
+        self.separatorStyle = .none
+    }
+    
+    func restore() {
+        self.backgroundView = nil
+    }
 }
