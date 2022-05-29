@@ -127,6 +127,7 @@ extension AudioVC: AudioImportDelegate {
     func selectAudio(url: URL) {
         let vc = MixAudioVC.createVC()
         vc.hidesBottomBarWhenPushed = true
+        vc.inputURL = url
         self.navigationController?.pushViewController(vc, completion: nil)
     }
 }

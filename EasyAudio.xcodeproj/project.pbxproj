@@ -141,6 +141,8 @@
 		93987FF828432ACB0057270F /* MixAudioVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93987FF528432ACB0057270F /* MixAudioVC.xib */; };
 		93987FF928432ACB0057270F /* MixAudioVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93987FF628432ACB0057270F /* MixAudioVM.swift */; };
 		93987FFA28432ACB0057270F /* MixAudioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93987FF728432ACB0057270F /* MixAudioVC.swift */; };
+		93987FFD284358600057270F /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93987FFC284358600057270F /* TimeView.swift */; };
+		93987FFF2843586F0057270F /* TimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93987FFE2843586F0057270F /* TimeView.xib */; };
 		93A0C6F527EE1AD0008E6B98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0C6F427EE1AD0008E6B98 /* AppDelegate.swift */; };
 		93A0C6F727EE1AD0008E6B98 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0C6F627EE1AD0008E6B98 /* SceneDelegate.swift */; };
 		93A0C6F927EE1AD0008E6B98 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0C6F827EE1AD0008E6B98 /* ViewController.swift */; };
@@ -300,6 +302,8 @@
 		93987FF528432ACB0057270F /* MixAudioVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MixAudioVC.xib; sourceTree = "<group>"; };
 		93987FF628432ACB0057270F /* MixAudioVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixAudioVM.swift; sourceTree = "<group>"; };
 		93987FF728432ACB0057270F /* MixAudioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixAudioVC.swift; sourceTree = "<group>"; };
+		93987FFC284358600057270F /* TimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeView.swift; sourceTree = "<group>"; };
+		93987FFE2843586F0057270F /* TimeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeView.xib; sourceTree = "<group>"; };
 		93A0C6F127EE1AD0008E6B98 /* EasyAudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyAudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A0C6F427EE1AD0008E6B98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93A0C6F627EE1AD0008E6B98 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -543,6 +547,7 @@
 		937237A027F9E4080077EDED /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				93987FFB2843581D0057270F /* Time */,
 				93987FF1284321EB0057270F /* EmptyView */,
 				93913AED282FE4A9009DDCF6 /* ShowFont */,
 				937237A127F9E4080077EDED /* ViewHeaderDialog */,
@@ -778,6 +783,15 @@
 			path = MixAudio;
 			sourceTree = "<group>";
 		};
+		93987FFB2843581D0057270F /* Time */ = {
+			isa = PBXGroup;
+			children = (
+				93987FFC284358600057270F /* TimeView.swift */,
+				93987FFE2843586F0057270F /* TimeView.xib */,
+			);
+			path = Time;
+			sourceTree = "<group>";
+		};
 		93A0C6E827EE1AD0008E6B98 = {
 			isa = PBXGroup;
 			children = (
@@ -953,6 +967,7 @@
 				93CE5F2627FAF10000455E01 /* AudioVC.xib in Resources */,
 				937237CB27F9E4080077EDED /* ImportOptionsVC.xib in Resources */,
 				937237D127F9E4080077EDED /* QuickActionsView.xib in Resources */,
+				93987FFF2843586F0057270F /* TimeView.xib in Resources */,
 				937237D227F9E4080077EDED /* NavigationSaveView.xib in Resources */,
 				93CE5F3E27FB471100455E01 /* AudioCell.xib in Resources */,
 				93913B05282FE4CF009DDCF6 /* FontsFree-Net-SFProText-Regular.ttf in Resources */,
@@ -1121,6 +1136,7 @@
 				9372371627F9E3710077EDED /* UISegmentedControlExtensions.swift in Sources */,
 				937237EA27F9E40F0077EDED /* ReadJson.swift in Sources */,
 				9372371B27F9E3710077EDED /* UIViewControllerExtensions.swift in Sources */,
+				93987FFD284358600057270F /* TimeView.swift in Sources */,
 				9372370B27F9E3710077EDED /* UIScrollViewExtensions.swift in Sources */,
 				9372376927F9E38C0077EDED /* UIAllertVC+Extension.swift in Sources */,
 				93913AEA282FE0F4009DDCF6 /* RecordingVC.swift in Sources */,

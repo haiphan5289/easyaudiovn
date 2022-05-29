@@ -62,12 +62,13 @@ public class ABVideoRangeSlider: UIView {
     public override init(frame: CGRect) {
         super.init(frame: frame)
         self.setup()
-        var f = self.waveForm.frame
-        f.origin.x = 0
-        f.origin.y = 10
-        f.size = CGSize(width: self.frame.size.width, height: self.frame.size.height - 10)
-        self.waveForm.frame = f
         self.addSubview(waveForm)
+        waveForm.translatesAutoresizingMaskIntoConstraints = false
+        
+        waveForm.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        waveForm.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        waveForm.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+        waveForm.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10).isActive = true
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -232,6 +233,7 @@ public class ABVideoRangeSlider: UIView {
     }
     
     public func setVideoURL(videoURL: URL, colorShow: UIColor, colorDisappear: UIColor) {
+        self.setup()
         self.duration = ABVideoHelper.videoDuration(videoURL: videoURL)
         self.videoURL = videoURL
         self.waveForm.listPointtoDraw(file: videoURL,
