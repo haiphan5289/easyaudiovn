@@ -11,7 +11,12 @@ import UIKit
 
 // MARK: - Methods
 public extension UINavigationController {
-
+    
+    func popToViewController(ofClass: AnyClass, animated: Bool = true) {
+      if let vc = viewControllers.last(where: { $0.isKind(of: ofClass) }) {
+        popToViewController(vc, animated: animated)
+      }
+    }
     /// SwifterSwift: Pop ViewController with completion handler.
     ///
     /// - Parameters:

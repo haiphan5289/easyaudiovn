@@ -37,6 +37,7 @@ class AudioVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
+        self.viewModel.getURLs()
     }
     
 }
@@ -64,12 +65,12 @@ extension AudioVC {
     
     private func setupRX() {
         // Add here the setup for the RX
-        ManageApp.shared.$audios.bind { [weak self] list in
+        self.viewModel.sourceURLs.bind { [weak self] list in
             guard let wSelf = self else { return }
             list.isEmpty ? wSelf.tableView.setEmptyMessage(emptyView: EmptyView(frame: .zero)) : wSelf.tableView.restore()
         }.disposed(by: self.disposeBag)
         
-        ManageApp.shared.$audios.asObservable()
+        self.viewModel.sourceURLs.asObservable()
             .bind(to: tableView.rx.items(cellIdentifier: AudioCell.identifier, cellType: AudioCell.self)) {(row, element, cell) in
                 cell.setupValue(url: element)
             }.disposed(by: disposeBag)

@@ -168,6 +168,9 @@
 		93CE5F2C27FAF8E700455E01 /* Assets-Gen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE5F2A27FAF8E600455E01 /* Assets-Gen.swift */; };
 		93CE5F3D27FB471100455E01 /* AudioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE5F3B27FB471100455E01 /* AudioCell.swift */; };
 		93CE5F3E27FB471100455E01 /* AudioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93CE5F3C27FB471100455E01 /* AudioCell.xib */; };
+		93F836442845123A004AE334 /* CheckUIVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93F836412845123A004AE334 /* CheckUIVC.xib */; };
+		93F836452845123A004AE334 /* CheckUIVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F836422845123A004AE334 /* CheckUIVM.swift */; };
+		93F836462845123A004AE334 /* CheckUIVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F836432845123A004AE334 /* CheckUIVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -334,6 +337,9 @@
 		93CE5F2A27FAF8E600455E01 /* Assets-Gen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets-Gen.swift"; sourceTree = "<group>"; };
 		93CE5F3B27FB471100455E01 /* AudioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCell.swift; sourceTree = "<group>"; };
 		93CE5F3C27FB471100455E01 /* AudioCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioCell.xib; sourceTree = "<group>"; };
+		93F836412845123A004AE334 /* CheckUIVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckUIVC.xib; sourceTree = "<group>"; };
+		93F836422845123A004AE334 /* CheckUIVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUIVM.swift; sourceTree = "<group>"; };
+		93F836432845123A004AE334 /* CheckUIVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUIVC.swift; sourceTree = "<group>"; };
 		C63E1C2D8E890A4E84F0DA64 /* Pods_EasyAudio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyAudio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEB81A7D3AA1216C8BEF0032 /* Pods-EasyAudio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyAudio.debug.xcconfig"; path = "Target Support Files/Pods-EasyAudio/Pods-EasyAudio.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -675,6 +681,7 @@
 		9372380527F9E4A40077EDED /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				93F8364028451228004AE334 /* CheckUI */,
 				939880002843BBC40057270F /* Export */,
 				93987FF428432AB60057270F /* MixAudio */,
 				93A9D7BB28426168009F9D49 /* AudioImport */,
@@ -905,6 +912,16 @@
 			path = AudioCell;
 			sourceTree = "<group>";
 		};
+		93F8364028451228004AE334 /* CheckUI */ = {
+			isa = PBXGroup;
+			children = (
+				93F836412845123A004AE334 /* CheckUIVC.xib */,
+				93F836422845123A004AE334 /* CheckUIVM.swift */,
+				93F836432845123A004AE334 /* CheckUIVC.swift */,
+			);
+			path = CheckUI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -984,6 +1001,7 @@
 				93CE5F2627FAF10000455E01 /* AudioVC.xib in Resources */,
 				937237CB27F9E4080077EDED /* ImportOptionsVC.xib in Resources */,
 				937237D127F9E4080077EDED /* QuickActionsView.xib in Resources */,
+				93F836442845123A004AE334 /* CheckUIVC.xib in Resources */,
 				93987FFF2843586F0057270F /* TimeView.xib in Resources */,
 				937237D227F9E4080077EDED /* NavigationSaveView.xib in Resources */,
 				939880042843BBD50057270F /* ExportVC.xib in Resources */,
@@ -1123,6 +1141,7 @@
 				93A0C6F527EE1AD0008E6B98 /* AppDelegate.swift in Sources */,
 				9372371227F9E3710077EDED /* UITextViewExtensions.swift in Sources */,
 				9372375C27F9E38C0077EDED /* Collection+Extension.swift in Sources */,
+				93F836452845123A004AE334 /* CheckUIVM.swift in Sources */,
 				9372375B27F9E38C0077EDED /* ViewControllerExtension.swift in Sources */,
 				9372376627F9E38C0077EDED /* String+Extension.swift in Sources */,
 				9372370E27F9E3710077EDED /* UIStackViewExtensions.swift in Sources */,
@@ -1150,6 +1169,7 @@
 				9372376027F9E38C0077EDED /* CustomSegment.swift in Sources */,
 				9372371F27F9E3710077EDED /* UIGestureRecognizerExtensions.swift in Sources */,
 				9372370D27F9E3710077EDED /* UINavigationItemExtensions.swift in Sources */,
+				93F836462845123A004AE334 /* CheckUIVC.swift in Sources */,
 				9372375D27F9E38C0077EDED /* UIButton+Extension.swift in Sources */,
 				9372372327F9E3710077EDED /* UISwitchExtensions.swift in Sources */,
 				9372371127F9E3710077EDED /* UIImage+Extensions.swift in Sources */,

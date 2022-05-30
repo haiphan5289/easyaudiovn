@@ -151,6 +151,7 @@ extension MixAudioVC {
                     wSelf.deleteAudio()
                 case .export:
                     let vc = ExportVC.createVC()
+                    vc.inputURL = wSelf.exportURL
                     wSelf.navigationController?.pushViewController(vc, animated: true)
                 case .split: break
                 }
