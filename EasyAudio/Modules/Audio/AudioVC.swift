@@ -48,6 +48,7 @@ extension AudioVC {
         self.tableView.register(AudioCell.nib, forCellReuseIdentifier: AudioCell.identifier)
         self.tableView.delegate = self
         
+        
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
 //            let urlSample = Bundle.main.url(forResource: "video_select_print", withExtension: ".mp4")
 //            if let url = urlSample {
@@ -178,12 +179,70 @@ extension AudioVC: UIDocumentPickerDelegate {
     }
 }
 extension AudioVC: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView,
+                            contextMenuConfigurationForRowAt indexPath: IndexPath,
+                            point: CGPoint) -> UIContextMenuConfiguration? {
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: { suggestedActions in
+            // Context menu with title.
+
+            // Use the IndexPathContextMenu protocol to produce the UIActions.
+            let shareAction = self.shareAction(indexPath)
+            let deleteAction = self.deleteAction(indexPath)
+
+            return UIMenu(title: "",
+                          children: [shareAction,
+                                     deleteAction])
+        })
+    }
+    
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return Constant.heightCell
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0.1
+    }
+    
+}
+extension AudioVC: IndexPathContextMenu {
+    func deleteFolderPerform(_ indexPath: IndexPath) {
+        
+    }
+    
+    func renameActionPerform(_ indexPath: IndexPath) {
+    }
+    
+    func editActionPerform(_ indexPath: IndexPath) {
+        
+    }
+    
+    func starActionPerform(_ indexPath: IndexPath) {
+        
+    }
+    
+    func duplicateActionPerform(_ indexPath: IndexPath) {
+        
+    }
+    
+    func saveToCameraActionPerform(_ indexPath: IndexPath) {
+        
+    }
+    
+    func moveToTrashActionPerform(_ indexPath: IndexPath) {
+        
+    }
+    
+    func deleteAcionPerform(_ indexPath: IndexPath) {
+        let url = self.viewModel.sourceURLs.value[indexPath.row]
+        AudioManage.shared.deleteFile(filePath: url)
+        self.viewModel.getURLs()
+    }
+    
+    func shareActionPerform(_ indexPath: IndexPath) {
+        let url = self.viewModel.sourceURLs.value[indexPath.row]
+        self.presentActivty(url: url)
     }
     
 }

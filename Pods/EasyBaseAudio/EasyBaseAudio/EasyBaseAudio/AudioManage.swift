@@ -437,7 +437,7 @@ public class AudioManage {
 
     }
 
-    func deleteFile(filePath:URL) {
+    public func deleteFile(filePath:URL) {
         guard FileManager.default.fileExists(atPath: filePath.path) else {
             return
         }
