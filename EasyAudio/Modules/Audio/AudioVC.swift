@@ -13,6 +13,7 @@ import RxSwift
 import MobileCoreServices
 import EasyBaseAudio
 import SVProgressHUD
+import VisionKit
 
 class AudioVC: UIViewController {
     
@@ -75,6 +76,15 @@ extension AudioVC {
             .bind(to: tableView.rx.items(cellIdentifier: AudioCell.identifier, cellType: AudioCell.self)) {(row, element, cell) in
                 cell.setupValue(url: element)
             }.disposed(by: disposeBag)
+        
+        self.tableView.rx.itemSelected.bind { [weak self] idx in
+            guard let wSelf = self else { return }
+            let urlFile = URL(string: wSelf.viewModel.sourceURLs.value[idx.row].absoluteString)
+            var documentInteractionController: UIDocumentInteractionController!
+            documentInteractionController = UIDocumentInteractionController.init(url: urlFile!)
+            documentInteractionController?.delegate = wSelf
+            documentInteractionController?.presentPreview(animated: true)
+        }.disposed(by: disposeBag)
         
         self.btAdd.rx.tap.bind { [weak self] _ in
             guard let wSelf = self else { return }
@@ -245,4 +255,9 @@ extension AudioVC: IndexPathContextMenu {
         self.presentActivty(url: url)
     }
     
+}
+extension AudioVC: UIDocumentInteractionControllerDelegate {
+    func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {
+        return self
+    }
 }
