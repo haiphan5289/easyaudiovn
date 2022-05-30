@@ -11,7 +11,7 @@ import UIKit
 final class ConstantApp {
     
     enum FolderName: String, CaseIterable {
-        case folderImport, folderRecording, folderEdit
+        case folderImport, folderRecording, folderEdit, folderAudio
     }
     
     static var shared = ConstantApp()

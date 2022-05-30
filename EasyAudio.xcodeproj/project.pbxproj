@@ -143,6 +143,9 @@
 		93987FFA28432ACB0057270F /* MixAudioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93987FF728432ACB0057270F /* MixAudioVC.swift */; };
 		93987FFD284358600057270F /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93987FFC284358600057270F /* TimeView.swift */; };
 		93987FFF2843586F0057270F /* TimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93987FFE2843586F0057270F /* TimeView.xib */; };
+		939880042843BBD50057270F /* ExportVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 939880012843BBD50057270F /* ExportVC.xib */; };
+		939880052843BBD50057270F /* ExportVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939880022843BBD50057270F /* ExportVM.swift */; };
+		939880062843BBD50057270F /* ExportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939880032843BBD50057270F /* ExportVC.swift */; };
 		93A0C6F527EE1AD0008E6B98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0C6F427EE1AD0008E6B98 /* AppDelegate.swift */; };
 		93A0C6F727EE1AD0008E6B98 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0C6F627EE1AD0008E6B98 /* SceneDelegate.swift */; };
 		93A0C6F927EE1AD0008E6B98 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0C6F827EE1AD0008E6B98 /* ViewController.swift */; };
@@ -304,6 +307,9 @@
 		93987FF728432ACB0057270F /* MixAudioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixAudioVC.swift; sourceTree = "<group>"; };
 		93987FFC284358600057270F /* TimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeView.swift; sourceTree = "<group>"; };
 		93987FFE2843586F0057270F /* TimeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeView.xib; sourceTree = "<group>"; };
+		939880012843BBD50057270F /* ExportVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExportVC.xib; sourceTree = "<group>"; };
+		939880022843BBD50057270F /* ExportVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportVM.swift; sourceTree = "<group>"; };
+		939880032843BBD50057270F /* ExportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportVC.swift; sourceTree = "<group>"; };
 		93A0C6F127EE1AD0008E6B98 /* EasyAudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyAudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A0C6F427EE1AD0008E6B98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93A0C6F627EE1AD0008E6B98 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -669,6 +675,7 @@
 		9372380527F9E4A40077EDED /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				939880002843BBC40057270F /* Export */,
 				93987FF428432AB60057270F /* MixAudio */,
 				93A9D7BB28426168009F9D49 /* AudioImport */,
 				93913AE4282FE0E1009DDCF6 /* Recording */,
@@ -790,6 +797,16 @@
 				93987FFE2843586F0057270F /* TimeView.xib */,
 			);
 			path = Time;
+			sourceTree = "<group>";
+		};
+		939880002843BBC40057270F /* Export */ = {
+			isa = PBXGroup;
+			children = (
+				939880012843BBD50057270F /* ExportVC.xib */,
+				939880022843BBD50057270F /* ExportVM.swift */,
+				939880032843BBD50057270F /* ExportVC.swift */,
+			);
+			path = Export;
 			sourceTree = "<group>";
 		};
 		93A0C6E827EE1AD0008E6B98 = {
@@ -969,6 +986,7 @@
 				937237D127F9E4080077EDED /* QuickActionsView.xib in Resources */,
 				93987FFF2843586F0057270F /* TimeView.xib in Resources */,
 				937237D227F9E4080077EDED /* NavigationSaveView.xib in Resources */,
+				939880042843BBD50057270F /* ExportVC.xib in Resources */,
 				93CE5F3E27FB471100455E01 /* AudioCell.xib in Resources */,
 				93913B05282FE4CF009DDCF6 /* FontsFree-Net-SFProText-Regular.ttf in Resources */,
 				93A20682282FD15300F262EC /* ActionHomeVC.xib in Resources */,
@@ -1044,6 +1062,7 @@
 				9372372127F9E3710077EDED /* UIWindowExtensions.swift in Sources */,
 				9372378B27F9E3F30077EDED /* SongExporter.swift in Sources */,
 				937237F727F9E4170077EDED /* NavigationCopy.swift in Sources */,
+				939880052843BBD50057270F /* ExportVM.swift in Sources */,
 				9372375E27F9E38C0077EDED /* UIColor+Extensions.swift in Sources */,
 				93CE5F2B27FAF8E700455E01 /* Strings-Gen.swift in Sources */,
 				9372376427F9E38C0077EDED /* URL+Extension.swift in Sources */,
@@ -1051,6 +1070,7 @@
 				9372372227F9E3710077EDED /* UILabelExtensions.swift in Sources */,
 				937237F427F9E4170077EDED /* BaseNavigationLargeTitle.swift in Sources */,
 				9372376D27F9E38C0077EDED /* StringExtension.swift in Sources */,
+				939880062843BBD50057270F /* ExportVC.swift in Sources */,
 				9372375327F9E38C0077EDED /* RowDetailGeneric.swift in Sources */,
 				93A20684282FD15300F262EC /* ActionHomeVC.swift in Sources */,
 				93A2068B282FD8F000F262EC /* AdditionAudioVC.swift in Sources */,

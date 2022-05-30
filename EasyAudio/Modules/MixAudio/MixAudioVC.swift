@@ -19,8 +19,7 @@ import AVFoundation
 class MixAudioVC: BaseVC {
     
     enum Action: Int, CaseIterable {
-        case trash, split, add
-    }
+        case trash, split, add, export    }
     
     enum ActionMusic: Int, CaseIterable {
         case backWard, play, pause, forWard
@@ -145,6 +144,9 @@ extension MixAudioVC {
                     wSelf.present(vc, animated: true, completion: nil)
                 case .trash:
                     wSelf.deleteAudio()
+                case .export:
+                    let vc = ExportVC.createVC()
+                    wSelf.navigationController?.pushViewController(vc, animated: true)
                 case .split: break
                 }
             }.disposed(by: self.disposeBag)
@@ -402,6 +404,15 @@ extension MixAudioVC {
             self.view.layoutIfNeeded()
         }
     }
+    
+    private func setupURL(url: URL) {
+        let startTime: CGFloat = (self.detectCenterView() - UIScreen.main.bounds.width / 2) / CGFloat(Constant.widthTime)
+        let mutePoint: MutePoint = MutePoint(start: Float(startTime), end: Float(url.getDuration()), url: url)
+        self.sourcesURL.append(mutePoint)
+        
+        let distanceToLeft: CGFloat = (self.detectCenterView() - UIScreen.main.bounds.width / 2)
+        self.addViewToStackView(url: url, distanceToLeft: Int(distanceToLeft))
+    }
 }
 extension MixAudioVC: AdditionAudioDelegate {
     func action(action: AdditionAudioVC.Action) {
@@ -430,32 +441,18 @@ extension MixAudioVC: AdditionAudioDelegate {
 }
 extension MixAudioVC: AudioImportDelegate {
     func selectAudio(url: URL) {
-        let startTime: CGFloat = (self.detectCenterView() - UIScreen.main.bounds.width / 2) / CGFloat(Constant.widthTime)
-        let mutePoint: MutePoint = MutePoint(start: Float(startTime), end: Float(url.getDuration()), url: url)
-        self.sourcesURL.append(mutePoint)
-        
-        let distanceToLeft: CGFloat = (self.detectCenterView() - UIScreen.main.bounds.width / 2)
-        self.addViewToStackView(url: url, distanceToLeft: Int(distanceToLeft))
+        self.setupURL(url: url)
     }
 }
 extension MixAudioVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        self.dismiss(animated: true) {
-            if let imageURL = info[UIImagePickerController.InfoKey.imageURL] as? URL {
-    //            ManageApp.shared.secureCopyItemfromLibrary(at: imageURL, folderName: ConstantApp.shared.folderPhotos) { outputURL in
-    //                picker.dismiss(animated: true) {
-    //                    ManageApp.shared.createFolderModeltoFiles(url: outputURL)
-    //                }
-    //            } failure: { [weak self] text in
-    //                guard let wSelf = self else { return }
-    //                wSelf.msgError.onNext(text)
-    //            }
-//                let vc = ImportFilesVC.createVC()
-//                vc.modalTransitionStyle = .crossDissolve
-//                vc.modalPresentationStyle = .overFullScreen
-//                vc.inputURL = imageURL
-//                self.present(vc, animated: true, completion: nil)
-
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        let videoURL = info[UIImagePickerController.InfoKey.mediaURL] as! URL
+        AudioManage.shared.converVideofromPhotoLibraryToMP4(videoURL: videoURL, folderName: ConstantApp.FolderName.folderImport.rawValue) { [weak self] outputURL in
+            guard let wSelf = self else { return }
+            DispatchQueue.main.async {
+                picker.dismiss(animated: true) {
+                    wSelf.setupURL(url: outputURL)
+                }
             }
         }
     }
@@ -471,10 +468,8 @@ extension MixAudioVC: UIDocumentPickerDelegate {
             AudioManage.shared.covertToCAF(folderConvert: ConstantApp.FolderName.folderImport.rawValue, url: first, type: .caf) { [weak self] outputURLBrowser in
                 guard let wSelf = self else { return }
                 DispatchQueue.main.async {
-//                    wSelf.imports.append(outputURLBrowser)
-//                    wSelf.tableView.reloadData()
-//                    SVProgressHUD.dismiss()
-//                    wSelf.playAudio(url: outputURLBrowser, rate: 1, currentTime: 0)
+                    wSelf.setupURL(url: outputURLBrowser)
+                    SVProgressHUD.dismiss()
                 }
                 
             } failure: { [weak self] text in

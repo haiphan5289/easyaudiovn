@@ -33,6 +33,7 @@
                 <outletCollection property="btsMusic" destination="EyV-Y0-iUV" collectionClass="NSMutableArray" id="Cfl-3r-MWd"/>
                 <outletCollection property="btsMusic" destination="zFJ-Xj-K2x" collectionClass="NSMutableArray" id="kfM-XN-74f"/>
                 <outletCollection property="btsMusic" destination="zFH-ax-4NQ" collectionClass="NSMutableArray" id="XZf-Tg-Pfi"/>
+                <outletCollection property="bts" destination="a1h-cb-ZXE" collectionClass="NSMutableArray" id="RjH-6G-WNw"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -96,7 +97,7 @@
                             <rect key="frame" x="0.0" y="672" width="414" height="50"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="g9V-zA-pVN">
-                                    <rect key="frame" x="123" y="0.0" width="168" height="50"/>
+                                    <rect key="frame" x="79" y="0.0" width="256" height="50"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llS-gf-7DM">
                                             <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
@@ -147,6 +148,20 @@
                                                         <color systemColor="tertiaryLabelColor"/>
                                                     </hierarchicalColors>
                                                 </imageReference>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1h-cb-ZXE">
+                                            <rect key="frame" x="176" y="0.0" width="80" height="50"/>
+                                            <color key="backgroundColor" name="AppColor"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title="Export ">
+                                                <color key="titleColor" systemColor="labelColor"/>
+                                                <imageReference key="image" image="square.and.arrow.up" catalog="system" renderingMode="original"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -290,6 +305,7 @@
         <image name="ic_play" width="32" height="32"/>
         <image name="ic_split" width="32" height="32"/>
         <image name="plus.square" catalog="system" width="128" height="114"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="trash" catalog="system" width="121" height="128"/>
         <namedColor name="AppColor">
             <color red="0.0" green="0.5690000057220459" blue="0.57499998807907104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
