@@ -58,6 +58,7 @@ extension AudioVC {
             AudioManage.shared.createFolder(path: folder.rawValue, success: nil, failure: nil)
         }
         AudioManage.shared.removeFilesFolder(folderName: ConstantApp.FolderName.folderImport.rawValue)
+        AudioManage.shared.removeFilesFolder(folderName: ConstantApp.FolderName.folderEdit.rawValue)
 //        AudioManage.shared.removeFilesFolder(folderName: ConstantApp.shared.folderRecording)
     }
     
@@ -81,6 +82,13 @@ extension AudioVC {
             vc.modalPresentationStyle = .overFullScreen
             wSelf.present(vc, animated: true, completion: nil)
         }.disposed(by: self.disposeBag)
+    }
+    
+    private func moveToEdit(url: URL) {
+        let vc = MixAudioVC.createVC()
+        vc.hidesBottomBarWhenPushed = true
+        vc.inputURL = url
+        self.navigationController?.pushViewController(vc, completion: nil)
     }
 }
 extension AudioVC: ActionHomeDelegate {
@@ -126,30 +134,20 @@ extension AudioVC: AdditionAudioDelegate {
 }
 extension AudioVC: AudioImportDelegate {
     func selectAudio(url: URL) {
-        let vc = MixAudioVC.createVC()
-        vc.hidesBottomBarWhenPushed = true
-        vc.inputURL = url
-        self.navigationController?.pushViewController(vc, completion: nil)
+        self.moveToEdit(url: url)
     }
 }
 extension AudioVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         self.dismiss(animated: true) {
-            if let imageURL = info[UIImagePickerController.InfoKey.imageURL] as? URL {
-    //            ManageApp.shared.secureCopyItemfromLibrary(at: imageURL, folderName: ConstantApp.shared.folderPhotos) { outputURL in
-    //                picker.dismiss(animated: true) {
-    //                    ManageApp.shared.createFolderModeltoFiles(url: outputURL)
-    //                }
-    //            } failure: { [weak self] text in
-    //                guard let wSelf = self else { return }
-    //                wSelf.msgError.onNext(text)
-    //            }
-//                let vc = ImportFilesVC.createVC()
-//                vc.modalTransitionStyle = .crossDissolve
-//                vc.modalPresentationStyle = .overFullScreen
-//                vc.inputURL = imageURL
-//                self.present(vc, animated: true, completion: nil)
-
+            let videoURL = info[UIImagePickerController.InfoKey.mediaURL] as! URL
+            AudioManage.shared.converVideofromPhotoLibraryToMP4(videoURL: videoURL, folderName: ConstantApp.FolderName.folderEdit.rawValue) { [weak self] outputURL in
+                guard let wSelf = self else { return }
+                DispatchQueue.main.async {
+                    picker.dismiss(animated: true) {
+                        wSelf.moveToEdit(url: outputURL)
+                    }
+                }
             }
         }
     }
@@ -162,13 +160,11 @@ extension AudioVC: UIDocumentPickerDelegate {
         }
         SVProgressHUD.show()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            AudioManage.shared.covertToCAF(folderConvert: ConstantApp.FolderName.folderImport.rawValue, url: first, type: .caf) { [weak self] outputURLBrowser in
+            AudioManage.shared.covertToCAF(folderConvert: ConstantApp.FolderName.folderEdit.rawValue, url: first, type: .caf) { [weak self] outputURLBrowser in
                 guard let wSelf = self else { return }
                 DispatchQueue.main.async {
-//                    wSelf.imports.append(outputURLBrowser)
-//                    wSelf.tableView.reloadData()
-//                    SVProgressHUD.dismiss()
-//                    wSelf.playAudio(url: outputURLBrowser, rate: 1, currentTime: 0)
+                    wSelf.moveToEdit(url: outputURLBrowser)
+                    SVProgressHUD.dismiss()
                 }
                 
             } failure: { [weak self] text in

@@ -97,6 +97,11 @@ class MixAudioVC: BaseVC {
         self.setupNavi(bgColor: .white, textColor: .black, font: UIFont.myBoldSystemFont(ofSize: 18))
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.finishAudio()
+    }
+    
 }
 extension MixAudioVC {
     
@@ -447,7 +452,7 @@ extension MixAudioVC: AudioImportDelegate {
 extension MixAudioVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         let videoURL = info[UIImagePickerController.InfoKey.mediaURL] as! URL
-        AudioManage.shared.converVideofromPhotoLibraryToMP4(videoURL: videoURL, folderName: ConstantApp.FolderName.folderImport.rawValue) { [weak self] outputURL in
+        AudioManage.shared.converVideofromPhotoLibraryToMP4(videoURL: videoURL, folderName: ConstantApp.FolderName.folderEdit.rawValue) { [weak self] outputURL in
             guard let wSelf = self else { return }
             DispatchQueue.main.async {
                 picker.dismiss(animated: true) {
@@ -465,7 +470,7 @@ extension MixAudioVC: UIDocumentPickerDelegate {
         }
         SVProgressHUD.show()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            AudioManage.shared.covertToCAF(folderConvert: ConstantApp.FolderName.folderImport.rawValue, url: first, type: .caf) { [weak self] outputURLBrowser in
+            AudioManage.shared.covertToCAF(folderConvert: ConstantApp.FolderName.folderEdit.rawValue, url: first, type: .caf) { [weak self] outputURLBrowser in
                 guard let wSelf = self else { return }
                 DispatchQueue.main.async {
                     wSelf.setupURL(url: outputURLBrowser)
