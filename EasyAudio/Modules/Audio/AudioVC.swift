@@ -115,7 +115,12 @@ extension AudioVC: ActionHomeDelegate {
         case .recording:
             let vc = RecordingVC.createVC()
             self.navigationController?.pushViewController(vc, completion: nil)
-        case .merge, .mute, .wifi: break
+        case .wifi:
+            let vc = ImportWifiVC.createVC()
+            vc.hidesBottomBarWhenPushed = true
+            vc.delegate = self
+            self.navigationController?.pushViewController(vc, animated: true)
+        case .merge, .mute: break
         }
     }
 }
@@ -140,8 +145,17 @@ extension AudioVC: AdditionAudioDelegate {
             vc.folderName = ConstantApp.FolderName.folderRecording.rawValue
             vc.delegate = self
             self.present(vc, animated: true, completion: nil)
-        case .wifi: break
+        case .wifi:
+            let vc = ImportWifiVC.createVC()
+            vc.hidesBottomBarWhenPushed = true
+            vc.delegate = self
+            self.navigationController?.pushViewController(vc, animated: true)
         }
+    }
+}
+extension AudioVC: ImportWifiDelegate {
+    func addURL(url: URL) {
+        self.moveToEdit(url: url)
     }
 }
 extension AudioVC: AudioImportDelegate {

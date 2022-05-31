@@ -8,6 +8,49 @@
 
 /* Begin PBXBuildFile section */
 		3D9337224855A9498902CE8C /* Pods_EasyAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C63E1C2D8E890A4E84F0DA64 /* Pods_EasyAudio.framework */; };
+		9359055328464E6A00B560D7 /* ImportWifiVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9359055028464E6A00B560D7 /* ImportWifiVC.xib */; };
+		9359055428464E6A00B560D7 /* ImportWifiVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9359055128464E6A00B560D7 /* ImportWifiVM.swift */; };
+		9359055528464E6A00B560D7 /* ImportWifiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9359055228464E6A00B560D7 /* ImportWifiVC.swift */; };
+		93590558284651F500B560D7 /* SGWiFiUploadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 93590557284651F500B560D7 /* SGWiFiUploadManager.m */; };
+		935905622846524600B560D7 /* SGWiFiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9359055E2846524600B560D7 /* SGWiFiViewController.m */; };
+		935905632846524600B560D7 /* SGWiFiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 935905602846524600B560D7 /* SGWiFiView.m */; };
+		935905692846525400B560D7 /* SGHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 935905642846525100B560D7 /* SGHTTPConnection.m */; };
+		9359056A2846525400B560D7 /* SGConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 935905662846525200B560D7 /* SGConst.m */; };
+		935905B02846526700B560D7 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9359056C2846526300B560D7 /* GCDAsyncSocket.m */; };
+		935905B12846526700B560D7 /* CocoaAsyncSocket-About.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9359056D2846526300B560D7 /* CocoaAsyncSocket-About.txt */; };
+		935905B22846526700B560D7 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 935905702846526400B560D7 /* DDTTYLogger.m */; };
+		935905B32846526700B560D7 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 935905732846526400B560D7 /* DDASLLogger.m */; };
+		935905B42846526700B560D7 /* CocoaLumberjack-About.txt in Resources */ = {isa = PBXBuildFile; fileRef = 935905742846526400B560D7 /* CocoaLumberjack-About.txt */; };
+		935905B52846526700B560D7 /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 935905792846526400B560D7 /* ContextFilterLogFormatter.m */; };
+		935905B62846526700B560D7 /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9359057A2846526400B560D7 /* DispatchQueueLogFormatter.m */; };
+		935905B72846526700B560D7 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9359057B2846526400B560D7 /* README.txt */; };
+		935905B82846526700B560D7 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 9359057C2846526400B560D7 /* DDLog.m */; };
+		935905B92846526700B560D7 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9359057E2846526400B560D7 /* DDAbstractDatabaseLogger.m */; };
+		935905BA2846526700B560D7 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9359057F2846526400B560D7 /* DDFileLogger.m */; };
+		935905BB2846526700B560D7 /* HYBIPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 935905822846526500B560D7 /* HYBIPHelper.m */; };
+		935905BC2846526700B560D7 /* HTTPErrorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9359058C2846526600B560D7 /* HTTPErrorResponse.m */; };
+		935905BD2846526700B560D7 /* HTTPDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9359058D2846526600B560D7 /* HTTPDataResponse.m */; };
+		935905BE2846526700B560D7 /* HTTPDynamicFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9359058F2846526600B560D7 /* HTTPDynamicFileResponse.m */; };
+		935905BF2846526700B560D7 /* HTTPFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 935905902846526600B560D7 /* HTTPFileResponse.m */; };
+		935905C02846526700B560D7 /* HTTPAsyncFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 935905912846526600B560D7 /* HTTPAsyncFileResponse.m */; };
+		935905C12846526700B560D7 /* HTTPRedirectResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 935905922846526600B560D7 /* HTTPRedirectResponse.m */; };
+		935905C22846526700B560D7 /* HTTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 935905982846526600B560D7 /* HTTPMessage.m */; };
+		935905C32846526700B560D7 /* HTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 935905992846526600B560D7 /* HTTPConnection.m */; };
+		935905C42846526700B560D7 /* WebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9359059A2846526600B560D7 /* WebSocket.m */; };
+		935905C52846526700B560D7 /* MultipartMessageHeaderField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9359059F2846526600B560D7 /* MultipartMessageHeaderField.m */; };
+		935905C62846526700B560D7 /* MultipartFormDataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 935905A02846526600B560D7 /* MultipartFormDataParser.m */; };
+		935905C72846526700B560D7 /* MultipartMessageHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 935905A12846526600B560D7 /* MultipartMessageHeader.m */; };
+		935905C82846526700B560D7 /* HTTPAuthenticationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 935905A32846526600B560D7 /* HTTPAuthenticationRequest.m */; };
+		935905C92846526700B560D7 /* DDNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 935905A52846526600B560D7 /* DDNumber.m */; };
+		935905CA2846526700B560D7 /* DDData.m in Sources */ = {isa = PBXBuildFile; fileRef = 935905A62846526600B560D7 /* DDData.m */; };
+		935905CB2846526700B560D7 /* DDRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 935905A92846526600B560D7 /* DDRange.m */; };
+		935905CC2846526700B560D7 /* HTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 935905AB2846526600B560D7 /* HTTPServer.m */; };
+		935905CD2846526700B560D7 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935905AD2846526700B560D7 /* Manager.swift */; };
+		935905CE2846526700B560D7 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 935905AE2846526700B560D7 /* index.html */; };
+		935905CF2846526700B560D7 /* upload.html in Resources */ = {isa = PBXBuildFile; fileRef = 935905AF2846526700B560D7 /* upload.html */; };
+		935905D42846590E00B560D7 /* MergeFilesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 935905D12846590E00B560D7 /* MergeFilesVC.xib */; };
+		935905D52846590E00B560D7 /* MergeFilesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935905D22846590E00B560D7 /* MergeFilesVM.swift */; };
+		935905D62846590E00B560D7 /* MergeFilesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935905D32846590E00B560D7 /* MergeFilesVC.swift */; };
 		937236D827F9E1670077EDED /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 937236D727F9E1670077EDED /* swiftgen.yml */; };
 		937236E127F9E3140077EDED /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 937236E027F9E3140077EDED /* Localizable.strings */; };
 		9372370827F9E3710077EDED /* UISearchBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937236E427F9E3710077EDED /* UISearchBarExtensions.swift */; };
@@ -175,6 +218,83 @@
 
 /* Begin PBXFileReference section */
 		6125231AC2F13B4FFC10B136 /* Pods-EasyAudio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyAudio.release.xcconfig"; path = "Target Support Files/Pods-EasyAudio/Pods-EasyAudio.release.xcconfig"; sourceTree = "<group>"; };
+		9359055028464E6A00B560D7 /* ImportWifiVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImportWifiVC.xib; sourceTree = "<group>"; };
+		9359055128464E6A00B560D7 /* ImportWifiVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWifiVM.swift; sourceTree = "<group>"; };
+		9359055228464E6A00B560D7 /* ImportWifiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWifiVC.swift; sourceTree = "<group>"; };
+		93590556284651F400B560D7 /* EasyAudio-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EasyAudio-Bridging-Header.h"; sourceTree = "<group>"; };
+		93590557284651F500B560D7 /* SGWiFiUploadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGWiFiUploadManager.m; sourceTree = "<group>"; };
+		9359055D2846524600B560D7 /* SGWiFiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGWiFiViewController.h; sourceTree = "<group>"; };
+		9359055E2846524600B560D7 /* SGWiFiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGWiFiViewController.m; sourceTree = "<group>"; };
+		935905602846524600B560D7 /* SGWiFiView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGWiFiView.m; sourceTree = "<group>"; };
+		935905612846524600B560D7 /* SGWiFiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGWiFiView.h; sourceTree = "<group>"; };
+		935905642846525100B560D7 /* SGHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGHTTPConnection.m; sourceTree = "<group>"; };
+		935905652846525200B560D7 /* SGWiFiUploadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGWiFiUploadManager.h; sourceTree = "<group>"; };
+		935905662846525200B560D7 /* SGConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGConst.m; sourceTree = "<group>"; };
+		935905672846525300B560D7 /* SGHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGHTTPConnection.h; sourceTree = "<group>"; };
+		935905682846525400B560D7 /* SGConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGConst.h; sourceTree = "<group>"; };
+		9359056C2846526300B560D7 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		9359056D2846526300B560D7 /* CocoaAsyncSocket-About.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "CocoaAsyncSocket-About.txt"; sourceTree = "<group>"; };
+		9359056E2846526300B560D7 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		935905702846526400B560D7 /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
+		935905712846526400B560D7 /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
+		935905722846526400B560D7 /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
+		935905732846526400B560D7 /* DDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogger.m; sourceTree = "<group>"; };
+		935905742846526400B560D7 /* CocoaLumberjack-About.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "CocoaLumberjack-About.txt"; sourceTree = "<group>"; };
+		935905752846526400B560D7 /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
+		935905772846526400B560D7 /* ContextFilterLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContextFilterLogFormatter.h; sourceTree = "<group>"; };
+		935905782846526400B560D7 /* DispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DispatchQueueLogFormatter.h; sourceTree = "<group>"; };
+		935905792846526400B560D7 /* ContextFilterLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContextFilterLogFormatter.m; sourceTree = "<group>"; };
+		9359057A2846526400B560D7 /* DispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueLogFormatter.m; sourceTree = "<group>"; };
+		9359057B2846526400B560D7 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		9359057C2846526400B560D7 /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLog.m; sourceTree = "<group>"; };
+		9359057D2846526400B560D7 /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
+		9359057E2846526400B560D7 /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
+		9359057F2846526400B560D7 /* DDFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileLogger.m; sourceTree = "<group>"; };
+		935905802846526400B560D7 /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
+		935905822846526500B560D7 /* HYBIPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYBIPHelper.m; sourceTree = "<group>"; };
+		935905832846526500B560D7 /* HYBIPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYBIPHelper.h; sourceTree = "<group>"; };
+		935905852846526600B560D7 /* HTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPConnection.h; sourceTree = "<group>"; };
+		935905862846526600B560D7 /* HTTPLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPLogging.h; sourceTree = "<group>"; };
+		935905872846526600B560D7 /* HTTPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPMessage.h; sourceTree = "<group>"; };
+		935905882846526600B560D7 /* WebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebSocket.h; sourceTree = "<group>"; };
+		935905892846526600B560D7 /* HTTPAuthenticationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPAuthenticationRequest.h; sourceTree = "<group>"; };
+		9359058B2846526600B560D7 /* HTTPAsyncFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPAsyncFileResponse.h; sourceTree = "<group>"; };
+		9359058C2846526600B560D7 /* HTTPErrorResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPErrorResponse.m; sourceTree = "<group>"; };
+		9359058D2846526600B560D7 /* HTTPDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPDataResponse.m; sourceTree = "<group>"; };
+		9359058E2846526600B560D7 /* HTTPRedirectResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPRedirectResponse.h; sourceTree = "<group>"; };
+		9359058F2846526600B560D7 /* HTTPDynamicFileResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPDynamicFileResponse.m; sourceTree = "<group>"; };
+		935905902846526600B560D7 /* HTTPFileResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPFileResponse.m; sourceTree = "<group>"; };
+		935905912846526600B560D7 /* HTTPAsyncFileResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPAsyncFileResponse.m; sourceTree = "<group>"; };
+		935905922846526600B560D7 /* HTTPRedirectResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPRedirectResponse.m; sourceTree = "<group>"; };
+		935905932846526600B560D7 /* HTTPDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPDataResponse.h; sourceTree = "<group>"; };
+		935905942846526600B560D7 /* HTTPErrorResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPErrorResponse.h; sourceTree = "<group>"; };
+		935905952846526600B560D7 /* HTTPFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPFileResponse.h; sourceTree = "<group>"; };
+		935905962846526600B560D7 /* HTTPDynamicFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPDynamicFileResponse.h; sourceTree = "<group>"; };
+		935905972846526600B560D7 /* HTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPServer.h; sourceTree = "<group>"; };
+		935905982846526600B560D7 /* HTTPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPMessage.m; sourceTree = "<group>"; };
+		935905992846526600B560D7 /* HTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPConnection.m; sourceTree = "<group>"; };
+		9359059A2846526600B560D7 /* WebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebSocket.m; sourceTree = "<group>"; };
+		9359059B2846526600B560D7 /* HTTPResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPResponse.h; sourceTree = "<group>"; };
+		9359059D2846526600B560D7 /* MultipartFormDataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipartFormDataParser.h; sourceTree = "<group>"; };
+		9359059E2846526600B560D7 /* MultipartMessageHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipartMessageHeader.h; sourceTree = "<group>"; };
+		9359059F2846526600B560D7 /* MultipartMessageHeaderField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipartMessageHeaderField.m; sourceTree = "<group>"; };
+		935905A02846526600B560D7 /* MultipartFormDataParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipartFormDataParser.m; sourceTree = "<group>"; };
+		935905A12846526600B560D7 /* MultipartMessageHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipartMessageHeader.m; sourceTree = "<group>"; };
+		935905A22846526600B560D7 /* MultipartMessageHeaderField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipartMessageHeaderField.h; sourceTree = "<group>"; };
+		935905A32846526600B560D7 /* HTTPAuthenticationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPAuthenticationRequest.m; sourceTree = "<group>"; };
+		935905A52846526600B560D7 /* DDNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDNumber.m; sourceTree = "<group>"; };
+		935905A62846526600B560D7 /* DDData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDData.m; sourceTree = "<group>"; };
+		935905A72846526600B560D7 /* DDRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDRange.h; sourceTree = "<group>"; };
+		935905A82846526600B560D7 /* DDNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDNumber.h; sourceTree = "<group>"; };
+		935905A92846526600B560D7 /* DDRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDRange.m; sourceTree = "<group>"; };
+		935905AA2846526600B560D7 /* DDData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDData.h; sourceTree = "<group>"; };
+		935905AB2846526600B560D7 /* HTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPServer.m; sourceTree = "<group>"; };
+		935905AD2846526700B560D7 /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		935905AE2846526700B560D7 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		935905AF2846526700B560D7 /* upload.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = upload.html; sourceTree = "<group>"; };
+		935905D12846590E00B560D7 /* MergeFilesVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MergeFilesVC.xib; sourceTree = "<group>"; };
+		935905D22846590E00B560D7 /* MergeFilesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MergeFilesVM.swift; sourceTree = "<group>"; };
+		935905D32846590E00B560D7 /* MergeFilesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MergeFilesVC.swift; sourceTree = "<group>"; };
 		937236D727F9E1670077EDED /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		937236E027F9E3140077EDED /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		937236E427F9E3710077EDED /* UISearchBarExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISearchBarExtensions.swift; sourceTree = "<group>"; };
@@ -371,6 +491,207 @@
 				C63E1C2D8E890A4E84F0DA64 /* Pods_EasyAudio.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9359054F28464E5300B560D7 /* ImportWifi */ = {
+			isa = PBXGroup;
+			children = (
+				9359055028464E6A00B560D7 /* ImportWifiVC.xib */,
+				9359055128464E6A00B560D7 /* ImportWifiVM.swift */,
+				9359055228464E6A00B560D7 /* ImportWifiVC.swift */,
+			);
+			path = ImportWifi;
+			sourceTree = "<group>";
+		};
+		935905592846521700B560D7 /* Wifi */ = {
+			isa = PBXGroup;
+			children = (
+				9359055A2846523900B560D7 /* WifiUpload */,
+				9359056B2846526300B560D7 /* CocoaAsyncSocket */,
+				9359056F2846526400B560D7 /* CocoaLumberjack */,
+				935905842846526600B560D7 /* Core */,
+				935905812846526500B560D7 /* HYBIPHelper */,
+				935905AC2846526700B560D7 /* Web */,
+			);
+			path = Wifi;
+			sourceTree = "<group>";
+		};
+		9359055A2846523900B560D7 /* WifiUpload */ = {
+			isa = PBXGroup;
+			children = (
+				9359055B2846524600B560D7 /* WiFiPage */,
+				93590557284651F500B560D7 /* SGWiFiUploadManager.m */,
+				935905682846525400B560D7 /* SGConst.h */,
+				935905662846525200B560D7 /* SGConst.m */,
+				935905672846525300B560D7 /* SGHTTPConnection.h */,
+				935905642846525100B560D7 /* SGHTTPConnection.m */,
+				935905652846525200B560D7 /* SGWiFiUploadManager.h */,
+			);
+			path = WifiUpload;
+			sourceTree = "<group>";
+		};
+		9359055B2846524600B560D7 /* WiFiPage */ = {
+			isa = PBXGroup;
+			children = (
+				9359055C2846524600B560D7 /* Controller */,
+				9359055F2846524600B560D7 /* View */,
+			);
+			path = WiFiPage;
+			sourceTree = "<group>";
+		};
+		9359055C2846524600B560D7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9359055D2846524600B560D7 /* SGWiFiViewController.h */,
+				9359055E2846524600B560D7 /* SGWiFiViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9359055F2846524600B560D7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				935905602846524600B560D7 /* SGWiFiView.m */,
+				935905612846524600B560D7 /* SGWiFiView.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9359056B2846526300B560D7 /* CocoaAsyncSocket */ = {
+			isa = PBXGroup;
+			children = (
+				9359056C2846526300B560D7 /* GCDAsyncSocket.m */,
+				9359056D2846526300B560D7 /* CocoaAsyncSocket-About.txt */,
+				9359056E2846526300B560D7 /* GCDAsyncSocket.h */,
+			);
+			path = CocoaAsyncSocket;
+			sourceTree = "<group>";
+		};
+		9359056F2846526400B560D7 /* CocoaLumberjack */ = {
+			isa = PBXGroup;
+			children = (
+				935905702846526400B560D7 /* DDTTYLogger.m */,
+				935905712846526400B560D7 /* DDLog.h */,
+				935905722846526400B560D7 /* DDAbstractDatabaseLogger.h */,
+				935905732846526400B560D7 /* DDASLLogger.m */,
+				935905742846526400B560D7 /* CocoaLumberjack-About.txt */,
+				935905752846526400B560D7 /* DDFileLogger.h */,
+				935905762846526400B560D7 /* Extensions */,
+				9359057C2846526400B560D7 /* DDLog.m */,
+				9359057D2846526400B560D7 /* DDTTYLogger.h */,
+				9359057E2846526400B560D7 /* DDAbstractDatabaseLogger.m */,
+				9359057F2846526400B560D7 /* DDFileLogger.m */,
+				935905802846526400B560D7 /* DDASLLogger.h */,
+			);
+			path = CocoaLumberjack;
+			sourceTree = "<group>";
+		};
+		935905762846526400B560D7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				935905772846526400B560D7 /* ContextFilterLogFormatter.h */,
+				935905782846526400B560D7 /* DispatchQueueLogFormatter.h */,
+				935905792846526400B560D7 /* ContextFilterLogFormatter.m */,
+				9359057A2846526400B560D7 /* DispatchQueueLogFormatter.m */,
+				9359057B2846526400B560D7 /* README.txt */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		935905812846526500B560D7 /* HYBIPHelper */ = {
+			isa = PBXGroup;
+			children = (
+				935905822846526500B560D7 /* HYBIPHelper.m */,
+				935905832846526500B560D7 /* HYBIPHelper.h */,
+			);
+			path = HYBIPHelper;
+			sourceTree = "<group>";
+		};
+		935905842846526600B560D7 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				935905852846526600B560D7 /* HTTPConnection.h */,
+				935905862846526600B560D7 /* HTTPLogging.h */,
+				935905872846526600B560D7 /* HTTPMessage.h */,
+				935905882846526600B560D7 /* WebSocket.h */,
+				935905892846526600B560D7 /* HTTPAuthenticationRequest.h */,
+				9359058A2846526600B560D7 /* Responses */,
+				935905972846526600B560D7 /* HTTPServer.h */,
+				935905982846526600B560D7 /* HTTPMessage.m */,
+				935905992846526600B560D7 /* HTTPConnection.m */,
+				9359059A2846526600B560D7 /* WebSocket.m */,
+				9359059B2846526600B560D7 /* HTTPResponse.h */,
+				9359059C2846526600B560D7 /* Mime */,
+				935905A32846526600B560D7 /* HTTPAuthenticationRequest.m */,
+				935905A42846526600B560D7 /* Categories */,
+				935905AB2846526600B560D7 /* HTTPServer.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		9359058A2846526600B560D7 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				9359058B2846526600B560D7 /* HTTPAsyncFileResponse.h */,
+				9359058C2846526600B560D7 /* HTTPErrorResponse.m */,
+				9359058D2846526600B560D7 /* HTTPDataResponse.m */,
+				9359058E2846526600B560D7 /* HTTPRedirectResponse.h */,
+				9359058F2846526600B560D7 /* HTTPDynamicFileResponse.m */,
+				935905902846526600B560D7 /* HTTPFileResponse.m */,
+				935905912846526600B560D7 /* HTTPAsyncFileResponse.m */,
+				935905922846526600B560D7 /* HTTPRedirectResponse.m */,
+				935905932846526600B560D7 /* HTTPDataResponse.h */,
+				935905942846526600B560D7 /* HTTPErrorResponse.h */,
+				935905952846526600B560D7 /* HTTPFileResponse.h */,
+				935905962846526600B560D7 /* HTTPDynamicFileResponse.h */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		9359059C2846526600B560D7 /* Mime */ = {
+			isa = PBXGroup;
+			children = (
+				9359059D2846526600B560D7 /* MultipartFormDataParser.h */,
+				9359059E2846526600B560D7 /* MultipartMessageHeader.h */,
+				9359059F2846526600B560D7 /* MultipartMessageHeaderField.m */,
+				935905A02846526600B560D7 /* MultipartFormDataParser.m */,
+				935905A12846526600B560D7 /* MultipartMessageHeader.m */,
+				935905A22846526600B560D7 /* MultipartMessageHeaderField.h */,
+			);
+			path = Mime;
+			sourceTree = "<group>";
+		};
+		935905A42846526600B560D7 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				935905A52846526600B560D7 /* DDNumber.m */,
+				935905A62846526600B560D7 /* DDData.m */,
+				935905A72846526600B560D7 /* DDRange.h */,
+				935905A82846526600B560D7 /* DDNumber.h */,
+				935905A92846526600B560D7 /* DDRange.m */,
+				935905AA2846526600B560D7 /* DDData.h */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		935905AC2846526700B560D7 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				935905AD2846526700B560D7 /* Manager.swift */,
+				935905AE2846526700B560D7 /* index.html */,
+				935905AF2846526700B560D7 /* upload.html */,
+			);
+			path = Web;
+			sourceTree = "<group>";
+		};
+		935905D0284658EA00B560D7 /* MergeFiles */ = {
+			isa = PBXGroup;
+			children = (
+				935905D12846590E00B560D7 /* MergeFilesVC.xib */,
+				935905D22846590E00B560D7 /* MergeFilesVM.swift */,
+				935905D32846590E00B560D7 /* MergeFilesVC.swift */,
+			);
+			path = MergeFiles;
 			sourceTree = "<group>";
 		};
 		937236D927F9E2320077EDED /* Localizable */ = {
@@ -681,6 +1002,8 @@
 		9372380527F9E4A40077EDED /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				935905D0284658EA00B560D7 /* MergeFiles */,
+				9359054F28464E5300B560D7 /* ImportWifi */,
 				93F8364028451228004AE334 /* CheckUI */,
 				939880002843BBC40057270F /* Export */,
 				93987FF428432AB60057270F /* MixAudio */,
@@ -837,6 +1160,7 @@
 		93A0C6F327EE1AD0008E6B98 /* EasyAudio */ = {
 			isa = PBXGroup;
 			children = (
+				935905592846521700B560D7 /* Wifi */,
 				937236D727F9E1670077EDED /* swiftgen.yml */,
 				93913AF2282FE4CF009DDCF6 /* Resources */,
 				937236DF27F9E2580077EDED /* SwiftGen */,
@@ -858,6 +1182,7 @@
 				93A0C6FD27EE1AD3008E6B98 /* Assets.xcassets */,
 				93A0C6FF27EE1AD3008E6B98 /* LaunchScreen.storyboard */,
 				93A0C70227EE1AD3008E6B98 /* Info.plist */,
+				93590556284651F400B560D7 /* EasyAudio-Bridging-Header.h */,
 			);
 			path = EasyAudio;
 			sourceTree = "<group>";
@@ -956,6 +1281,7 @@
 				TargetAttributes = {
 					93A0C6F027EE1AD0008E6B98 = {
 						CreatedOnToolsVersion = 13.2;
+						LastSwiftMigration = 1320;
 					};
 				};
 			};
@@ -987,13 +1313,16 @@
 				93A20689282FD8F000F262EC /* AdditionAudioVC.xib in Resources */,
 				93913B03282FE4CF009DDCF6 /* Sample Text File.txt in Resources */,
 				937236E127F9E3140077EDED /* Localizable.strings in Resources */,
+				935905CE2846526700B560D7 /* index.html in Resources */,
 				93A0C70127EE1AD3008E6B98 /* LaunchScreen.storyboard in Resources */,
 				93913B08282FE4CF009DDCF6 /* FontsFree-Net-SFProDisplay-Bold.ttf in Resources */,
 				93913B06282FE4CF009DDCF6 /* FontsFree-Net-SFProText-Semibold.ttf in Resources */,
 				937237C627F9E4080077EDED /* ViewHeaderDialog.xib in Resources */,
 				93913B01282FE4CF009DDCF6 /* Sample PDF.pdf in Resources */,
+				935905B72846526700B560D7 /* README.txt in Resources */,
 				93913AF1282FE4A9009DDCF6 /* font.xib in Resources */,
 				93913B02282FE4CF009DDCF6 /* Sample Image.jpg in Resources */,
+				9359055328464E6A00B560D7 /* ImportWifiVC.xib in Resources */,
 				93A0C6FE27EE1AD3008E6B98 /* Assets.xcassets in Resources */,
 				93913B04282FE4CF009DDCF6 /* Sample Sound.mp3 in Resources */,
 				93950B2327FC7B8B00D79127 /* video_select_print.mp4 in Resources */,
@@ -1001,8 +1330,10 @@
 				93CE5F2627FAF10000455E01 /* AudioVC.xib in Resources */,
 				937237CB27F9E4080077EDED /* ImportOptionsVC.xib in Resources */,
 				937237D127F9E4080077EDED /* QuickActionsView.xib in Resources */,
+				935905B12846526700B560D7 /* CocoaAsyncSocket-About.txt in Resources */,
 				93F836442845123A004AE334 /* CheckUIVC.xib in Resources */,
 				93987FFF2843586F0057270F /* TimeView.xib in Resources */,
+				935905CF2846526700B560D7 /* upload.html in Resources */,
 				937237D227F9E4080077EDED /* NavigationSaveView.xib in Resources */,
 				939880042843BBD50057270F /* ExportVC.xib in Resources */,
 				93CE5F3E27FB471100455E01 /* AudioCell.xib in Resources */,
@@ -1013,7 +1344,9 @@
 				93A9D7BF284261D7009F9D49 /* AudioImportVC.xib in Resources */,
 				93913AE8282FE0F4009DDCF6 /* RecordingVC.xib in Resources */,
 				937236D827F9E1670077EDED /* swiftgen.yml in Resources */,
+				935905B42846526700B560D7 /* CocoaLumberjack-About.txt in Resources */,
 				93913B00282FE4CF009DDCF6 /* Sample Video.mp4 in Resources */,
+				935905D42846590E00B560D7 /* MergeFilesVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1068,11 +1401,14 @@
 			files = (
 				9372372B27F9E3710077EDED /* UITextField+Extensions.swift in Sources */,
 				93CE5F2727FAF10000455E01 /* AudioVM.swift in Sources */,
+				935905BE2846526700B560D7 /* HTTPDynamicFileResponse.m in Sources */,
 				937237EB27F9E40F0077EDED /* Request.swift in Sources */,
 				93913AE9282FE0F4009DDCF6 /* RecordingVM.swift in Sources */,
 				9372371A27F9E3710077EDED /* UISliderExtensions.swift in Sources */,
 				937237CF27F9E4080077EDED /* ContextMenu.swift in Sources */,
 				9372375F27F9E38C0077EDED /* CustomButton.swift in Sources */,
+				93590558284651F500B560D7 /* SGWiFiUploadManager.m in Sources */,
+				935905D52846590E00B560D7 /* MergeFilesVM.swift in Sources */,
 				93892B3C27F9E85100A9FECE /* Constant.swift in Sources */,
 				9372372A27F9E3710077EDED /* UIDatePickerExtensions.swift in Sources */,
 				93A2068A282FD8F000F262EC /* AdditionAudioVM.swift in Sources */,
@@ -1083,29 +1419,40 @@
 				939880052843BBD50057270F /* ExportVM.swift in Sources */,
 				9372375E27F9E38C0077EDED /* UIColor+Extensions.swift in Sources */,
 				93CE5F2B27FAF8E700455E01 /* Strings-Gen.swift in Sources */,
+				935905CD2846526700B560D7 /* Manager.swift in Sources */,
 				9372376427F9E38C0077EDED /* URL+Extension.swift in Sources */,
+				9359055528464E6A00B560D7 /* ImportWifiVC.swift in Sources */,
 				937237E827F9E40F0077EDED /* OptionalMessageDTO.swift in Sources */,
 				9372372227F9E3710077EDED /* UILabelExtensions.swift in Sources */,
 				937237F427F9E4170077EDED /* BaseNavigationLargeTitle.swift in Sources */,
+				935905CB2846526700B560D7 /* DDRange.m in Sources */,
 				9372376D27F9E38C0077EDED /* StringExtension.swift in Sources */,
+				9359055428464E6A00B560D7 /* ImportWifiVM.swift in Sources */,
 				939880062843BBD50057270F /* ExportVC.swift in Sources */,
 				9372375327F9E38C0077EDED /* RowDetailGeneric.swift in Sources */,
 				93A20684282FD15300F262EC /* ActionHomeVC.swift in Sources */,
+				935905CC2846526700B560D7 /* HTTPServer.m in Sources */,
 				93A2068B282FD8F000F262EC /* AdditionAudioVC.swift in Sources */,
 				9372378D27F9E3F30077EDED /* InAppPurchase.swift in Sources */,
+				935905B62846526700B560D7 /* DispatchQueueLogFormatter.m in Sources */,
 				9372371727F9E3710077EDED /* ColorExtensions.swift in Sources */,
 				9372372027F9E3710077EDED /* ActivityExt.swift in Sources */,
 				9372371827F9E3710077EDED /* UINavigationBarExtensions.swift in Sources */,
+				9359056A2846525400B560D7 /* SGConst.m in Sources */,
 				93987FF3284322080057270F /* EmptyView.swift in Sources */,
 				93892B4127F9EAE000A9FECE /* TabbarVC.swift in Sources */,
 				9372371C27F9E3710077EDED /* UIImageExtensions.swift in Sources */,
 				9372377227F9E38C0077EDED /* LabelExtension.swift in Sources */,
+				935905B92846526700B560D7 /* DDAbstractDatabaseLogger.m in Sources */,
 				9372377127F9E38C0077EDED /* ProductViewModel.swift in Sources */,
 				9372379E27F9E3FB0077EDED /* ResultURLModel.swift in Sources */,
 				9372379C27F9E3FB0077EDED /* AppSettings.swift in Sources */,
+				935905692846525400B560D7 /* SGHTTPConnection.m in Sources */,
 				937237F527F9E4170077EDED /* BaseNavigationSimpleVC.swift in Sources */,
 				9372376727F9E38C0077EDED /* PropertyWapper.swift in Sources */,
 				937237CE27F9E4080077EDED /* RecordingView.swift in Sources */,
+				935905BD2846526700B560D7 /* HTTPDataResponse.m in Sources */,
+				935905632846524600B560D7 /* SGWiFiView.m in Sources */,
 				937237E727F9E40F0077EDED /* APILink.swift in Sources */,
 				9372370F27F9E3710077EDED /* UIView+Extension.swift in Sources */,
 				9372375627F9E38C0077EDED /* UIWindow+Extension.swift in Sources */,
@@ -1113,23 +1460,29 @@
 				9372370927F9E3710077EDED /* UITableViewExtensions.swift in Sources */,
 				9372371927F9E3710077EDED /* UIActivityExtensions.swift in Sources */,
 				9372378F27F9E3F30077EDED /* BackUponCloud.swift in Sources */,
+				935905CA2846526700B560D7 /* DDData.m in Sources */,
 				93A0C6F927EE1AD0008E6B98 /* ViewController.swift in Sources */,
 				9372375927F9E38C0077EDED /* UITextViewExtension.swift in Sources */,
 				9372370C27F9E3710077EDED /* UILayoutPriorityExtensions.swift in Sources */,
 				9372371327F9E3710077EDED /* UIBarButtonItemExtensions.swift in Sources */,
 				9372372727F9E3710077EDED /* UIRefreshControlExtensions.swift in Sources */,
 				9372371D27F9E3710077EDED /* UINavigationControllerExtensions.swift in Sources */,
+				935905B82846526700B560D7 /* DDLog.m in Sources */,
 				9372371027F9E3710077EDED /* UICollectionViewExtensions.swift in Sources */,
+				935905C42846526700B560D7 /* WebSocket.m in Sources */,
 				9372375127F9E38C0077EDED /* UIApplication+Extension.swift in Sources */,
+				935905B22846526700B560D7 /* DDTTYLogger.m in Sources */,
 				937237EC27F9E40F0077EDED /* RealmManager.swift in Sources */,
 				9372379B27F9E3FB0077EDED /* Storage.swift in Sources */,
 				93892B3E27F9E85100A9FECE /* SettingDefaultFont.swift in Sources */,
+				935905BB2846526700B560D7 /* HYBIPHelper.m in Sources */,
 				9372376C27F9E38C0077EDED /* ReadMoreTextViewExtension.swift in Sources */,
 				93CE5F2C27FAF8E700455E01 /* Assets-Gen.swift in Sources */,
 				9372378E27F9E3F30077EDED /* Configuration.swift in Sources */,
 				9372372527F9E3710077EDED /* UIApplicationExtensions.swift in Sources */,
 				93987FF928432ACB0057270F /* MixAudioVM.swift in Sources */,
 				93A20683282FD15300F262EC /* ActionHomeVM.swift in Sources */,
+				935905C52846526700B560D7 /* MultipartMessageHeaderField.m in Sources */,
 				93CE5F2827FAF10000455E01 /* AudioVC.swift in Sources */,
 				937237CC27F9E4080077EDED /* ImportOptionsVC.swift in Sources */,
 				9372375827F9E38C0077EDED /* CALayerExtension.swift in Sources */,
@@ -1140,31 +1493,44 @@
 				937237C927F9E4080077EDED /* NavigationItemView.swift in Sources */,
 				93A0C6F527EE1AD0008E6B98 /* AppDelegate.swift in Sources */,
 				9372371227F9E3710077EDED /* UITextViewExtensions.swift in Sources */,
+				935905C02846526700B560D7 /* HTTPAsyncFileResponse.m in Sources */,
 				9372375C27F9E38C0077EDED /* Collection+Extension.swift in Sources */,
+				935905C62846526700B560D7 /* MultipartFormDataParser.m in Sources */,
 				93F836452845123A004AE334 /* CheckUIVM.swift in Sources */,
 				9372375B27F9E38C0077EDED /* ViewControllerExtension.swift in Sources */,
 				9372376627F9E38C0077EDED /* String+Extension.swift in Sources */,
+				935905C82846526700B560D7 /* HTTPAuthenticationRequest.m in Sources */,
 				9372370E27F9E3710077EDED /* UIStackViewExtensions.swift in Sources */,
 				9372376A27F9E38C0077EDED /* Font+Extension.swift in Sources */,
 				9372371E27F9E3710077EDED /* UIViewExtensions.swift in Sources */,
 				9372372827F9E3710077EDED /* UIAlertControllerExtensions.swift in Sources */,
 				9372371527F9E3710077EDED /* UITabBarExtensions.swift in Sources */,
+				935905C92846526700B560D7 /* DDNumber.m in Sources */,
+				935905C22846526700B560D7 /* HTTPMessage.m in Sources */,
+				935905B02846526700B560D7 /* GCDAsyncSocket.m in Sources */,
 				937237D027F9E4080077EDED /* QuickActionsView.swift in Sources */,
 				9372375527F9E38C0077EDED /* UITapgesture+Extension.swift in Sources */,
 				9372375A27F9E38C0077EDED /* NumberExtension.swift in Sources */,
+				935905622846524600B560D7 /* SGWiFiViewController.m in Sources */,
 				937237ED27F9E40F0077EDED /* RealmModel.swift in Sources */,
 				93987FFA28432ACB0057270F /* MixAudioVC.swift in Sources */,
 				93A9D7C0284261D7009F9D49 /* AudioImportVM.swift in Sources */,
+				935905B32846526700B560D7 /* DDASLLogger.m in Sources */,
 				9372376327F9E38C0077EDED /* ArrayExxtension.swift in Sources */,
+				935905C12846526700B560D7 /* HTTPRedirectResponse.m in Sources */,
 				9372376227F9E38C0077EDED /* DecimalNumber+Extension.swift in Sources */,
 				93A0C6F727EE1AD0008E6B98 /* SceneDelegate.swift in Sources */,
+				935905D62846590E00B560D7 /* MergeFilesVC.swift in Sources */,
 				9372379F27F9E3FB0077EDED /* RangeTimeSlider.swift in Sources */,
 				9372376E27F9E38C0077EDED /* CodableExtension.swift in Sources */,
 				9372375727F9E38C0077EDED /* UILableExtension.swift in Sources */,
 				9372376827F9E38C0077EDED /* ViewExtension.swift in Sources */,
 				937237F627F9E4170077EDED /* BaseNavigationViewController.swift in Sources */,
+				935905BC2846526700B560D7 /* HTTPErrorResponse.m in Sources */,
 				93892B3D27F9E85100A9FECE /* GetHeightSafeArea.swift in Sources */,
+				935905BA2846526700B560D7 /* DDFileLogger.m in Sources */,
 				93A9D7C1284261D7009F9D49 /* AudioImportVC.swift in Sources */,
+				935905C72846526700B560D7 /* MultipartMessageHeader.m in Sources */,
 				9372375227F9E38C0077EDED /* Obserable+Extension.swift in Sources */,
 				9372376027F9E38C0077EDED /* CustomSegment.swift in Sources */,
 				9372371F27F9E3710077EDED /* UIGestureRecognizerExtensions.swift in Sources */,
@@ -1184,6 +1550,8 @@
 				93CE5F3D27FB471100455E01 /* AudioCell.swift in Sources */,
 				93913AEC282FE181009DDCF6 /* BaseVC.swift in Sources */,
 				9372379027F9E3F30077EDED /* FirebaseManage.swift in Sources */,
+				935905C32846526700B560D7 /* HTTPConnection.m in Sources */,
+				935905BF2846526700B560D7 /* HTTPFileResponse.m in Sources */,
 				9372376127F9E38C0077EDED /* Drive+Extension.swift in Sources */,
 				9372372427F9E3710077EDED /* UIButtonExtensions.swift in Sources */,
 				937237F827F9E4170077EDED /* BaseHeaderEditViewNavigation.swift in Sources */,
@@ -1195,6 +1563,7 @@
 				9372372927F9E3710077EDED /* UIFontExtensions.swift in Sources */,
 				9372376B27F9E38C0077EDED /* UIViewController+Rx.swift in Sources */,
 				937237D327F9E4080077EDED /* NavigationSaveView.swift in Sources */,
+				935905B52846526700B560D7 /* ContextFilterLogFormatter.m in Sources */,
 				9372370827F9E3710077EDED /* UISearchBarExtensions.swift in Sources */,
 				9372377627F9E3A50077EDED /* KeyboardInfo.swift in Sources */,
 			);
@@ -1344,6 +1713,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZX8LBHXXZB;
@@ -1364,6 +1734,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = haiphan.EasyAudio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "EasyAudio/EasyAudio-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1375,6 +1747,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZX8LBHXXZB;
@@ -1395,6 +1768,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = haiphan.EasyAudio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "EasyAudio/EasyAudio-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
