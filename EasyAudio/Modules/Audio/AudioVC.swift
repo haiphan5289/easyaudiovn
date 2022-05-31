@@ -120,7 +120,11 @@ extension AudioVC: ActionHomeDelegate {
             vc.hidesBottomBarWhenPushed = true
             vc.delegate = self
             self.navigationController?.pushViewController(vc, animated: true)
-        case .merge, .mute: break
+        case .merge:
+            let vc = MergeFilesVC.createVC()
+            vc.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(vc, animated: true)
+        case .mute: break
         }
     }
 }

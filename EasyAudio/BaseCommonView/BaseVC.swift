@@ -37,7 +37,7 @@ class BaseVC: UIViewController {
         }
     }
     
-    func removeBorderNavi(bgColor: UIColor = .white, textColor: UIColor = .black, font: UIFont = UIFont.myBoldSystemFont(ofSize: 17)) {
+    func removeBorderNavi(bgColor: UIColor = Asset.appColor.color, textColor: UIColor = .black, font: UIFont = UIFont.myBoldSystemFont(ofSize: 17)) {
         if #available(iOS 15, *) {
             let appearance = UINavigationBarAppearance()
             let atts = [NSAttributedString.Key.font: font, NSAttributedString.Key.foregroundColor: textColor]
@@ -55,7 +55,7 @@ class BaseVC: UIViewController {
         }
     }
     
-    func setupNavi(bgColor: UIColor = .white, textColor: UIColor = .black, font: UIFont = UIFont.myBoldSystemFont(ofSize: 17)) {
+    func setupNavi(bgColor: UIColor = Asset.appColor.color, textColor: UIColor = .black, font: UIFont = UIFont.myBoldSystemFont(ofSize: 17)) {
         self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.navigationBar.barTintColor = bgColor
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: textColor,

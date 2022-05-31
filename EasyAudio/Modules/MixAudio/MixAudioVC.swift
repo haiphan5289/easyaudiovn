@@ -94,7 +94,7 @@ class MixAudioVC: BaseVC {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setupSingleButtonBack()
-        self.setupNavi(bgColor: .white, textColor: .black, font: UIFont.myBoldSystemFont(ofSize: 18))
+        self.setupNavi(bgColor: Asset.appColor.color, textColor: .black, font: UIFont.mySystemFont(ofSize: 18))
     }
     
     override func viewWillDisappear(_ animated: Bool) {

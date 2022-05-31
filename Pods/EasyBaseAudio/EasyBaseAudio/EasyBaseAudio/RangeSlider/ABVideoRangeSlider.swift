@@ -56,19 +56,14 @@ public class ABVideoRangeSlider: UIView {
     
     override public func awakeFromNib() {
         super.awakeFromNib()
+        self.layoutWaveFormView()
         self.setup()
     }
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
-//        self.setup()
-        self.addSubview(waveForm)
-        waveForm.translatesAutoresizingMaskIntoConstraints = false
-        
-        waveForm.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        waveForm.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        waveForm.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
-        waveForm.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10).isActive = true
+        self.layoutWaveFormView()
+        self.setup()
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -235,7 +230,21 @@ public class ABVideoRangeSlider: UIView {
         }
     }
     
+    private func layoutWaveFormView() {
+        self.addSubview(waveForm)
+        waveForm.translatesAutoresizingMaskIntoConstraints = false
+        
+        waveForm.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        waveForm.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        waveForm.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+        waveForm.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10).isActive = true
+    }
+    
     public func setVideoURL(videoURL: URL, colorShow: UIColor, colorDisappear: UIColor) {
+        self.subviews.forEach { v in
+            v.removeFromSuperview()
+        }
+        self.layoutWaveFormView()
         self.setup()
         self.duration = ABVideoHelper.videoDuration(videoURL: videoURL)
         self.videoURL = videoURL
@@ -403,6 +412,11 @@ public class ABVideoRangeSlider: UIView {
         
         self.delegate?.didChangeValue(videoRangeSlider: self, startTime: startSeconds, endTime: endSeconds)
         self.delegate?.updateFrameSlide(videoRangeSlider: self, startIndicator: startIndicator.frame.origin.x, endIndicator: endIndicator.frame.origin.x)
+        self.waveForm.drawReadUpdate(rect: self.waveForm.frame,
+                                     from: startIndicator.frame.origin.x,
+                                     to: endIndicator.frame.origin.x,
+                                     listPoint: self.waveForm.listPointOrigin,
+                                     listPosition: self.waveForm.listPoint)
         
         if self.progressPercentage != progressPercentage{
             let progressSeconds = secondsFromValue(value: progressPercentage)

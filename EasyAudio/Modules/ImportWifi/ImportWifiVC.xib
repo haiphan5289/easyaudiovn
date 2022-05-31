@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Bud-fC-xFq">
-                    <rect key="frame" x="36" y="370.5" width="342" height="165"/>
+                    <rect key="frame" x="36" y="270.5" width="342" height="165"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to import Audio by Wifi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5k-6Q-xul">
                             <rect key="frame" x="0.0" y="0.0" width="342" height="26.5"/>
@@ -66,7 +66,7 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Bud-fC-xFq" secondAttribute="trailing" constant="36" id="VED-Wl-G33"/>
-                <constraint firstItem="Bud-fC-xFq" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="cgI-z3-nRQ"/>
+                <constraint firstItem="Bud-fC-xFq" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" constant="-100" id="cgI-z3-nRQ"/>
                 <constraint firstItem="Bud-fC-xFq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="36" id="dKk-eN-UyH"/>
                 <constraint firstItem="Bud-fC-xFq" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="eTU-4x-VpL"/>
             </constraints>
