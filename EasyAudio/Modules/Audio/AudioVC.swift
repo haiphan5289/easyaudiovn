@@ -140,9 +140,14 @@ extension AudioVC: AdditionAudioDelegate {
             documentPicker.allowsMultipleSelection = false
             //                        documentPicker.shouldShowFileExtensions = true
             self.present(documentPicker, animated: true, completion: nil)
-        case .recording:
+        case .recording, .audio:
             let vc = AudioImportVC.createVC()
-            vc.folderName = ConstantApp.FolderName.folderRecording.rawValue
+            if action == .recording {
+                vc.folderName = ConstantApp.FolderName.folderRecording.rawValue
+            } else {
+                vc.folderName = ConstantApp.FolderName.folderAudio.rawValue
+            }
+            
             vc.delegate = self
             self.present(vc, animated: true, completion: nil)
         case .wifi:

@@ -18,7 +18,7 @@ protocol AdditionAudioDelegate {
 class AdditionAudioVC: UIViewController {
     
     enum Action: Int, CaseIterable {
-        case photoLibrary, iCloud, recording, wifi
+        case photoLibrary, iCloud, recording, wifi, audio
     }
     var delegate: AdditionAudioDelegate?
     
