@@ -15,6 +15,7 @@
             <connections>
                 <outlet property="audioAB" destination="3vJ-Xn-LWY" id="5xr-tz-iDl"/>
                 <outlet property="audioSlider" destination="OIi-Cc-EJj" id="Kjz-SR-CoC"/>
+                <outlet property="btExport" destination="6wb-pa-nNL" id="met-xS-ltE"/>
                 <outlet property="btPlay" destination="1hR-Ur-ZnN" id="64r-n4-m1v"/>
                 <outlet property="lbTime" destination="fkR-0x-fIB" id="DWF-KG-WaT"/>
                 <outlet property="videoAB" destination="cYH-bb-EIz" id="Hcb-Vu-T4p"/>
@@ -244,8 +245,36 @@
                             </subviews>
                         </stackView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sWM-ce-xot">
-                            <rect key="frame" x="0.0" y="421" width="382" height="381"/>
+                            <rect key="frame" x="0.0" y="421" width="382" height="293"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l6c-M1-yej">
+                            <rect key="frame" x="0.0" y="738" width="382" height="64"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6wb-pa-nNL">
+                                    <rect key="frame" x="16" y="0.0" width="350" height="48"/>
+                                    <color key="backgroundColor" name="AppColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="48" id="olB-lV-vDD"/>
+                                    </constraints>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Export File">
+                                        <color key="titleColor" systemColor="labelColor"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="8"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="6wb-pa-nNL" secondAttribute="trailing" constant="16" id="7Ss-Eg-jRt"/>
+                                <constraint firstItem="6wb-pa-nNL" firstAttribute="leading" secondItem="l6c-M1-yej" secondAttribute="leading" constant="16" id="EDc-GF-ofv"/>
+                                <constraint firstItem="6wb-pa-nNL" firstAttribute="top" secondItem="l6c-M1-yej" secondAttribute="top" id="iyg-ma-hTA"/>
+                                <constraint firstAttribute="bottom" secondItem="6wb-pa-nNL" secondAttribute="bottom" constant="16" id="xT5-ON-r8V"/>
+                            </constraints>
                         </view>
                     </subviews>
                 </stackView>

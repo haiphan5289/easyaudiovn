@@ -30,6 +30,7 @@ class MergeFilesVC: BaseVC {
     @IBOutlet weak var btPlay: UIButton!
     @IBOutlet weak var audioSlider: UISlider!
     @IBOutlet weak var lbTime: UILabel!
+    @IBOutlet weak var btExport: UIButton!
     
     // Add here your view model
     private var currentAction: Action = .video
@@ -117,6 +118,20 @@ extension MergeFilesVC {
             wSelf.audioSlider.value = 0
             wSelf.audioSlider.minimumValue = 0
             wSelf.audioSlider.maximumValue = Float(wSelf.audioPlayer.duration)
+        }.disposed(by: self.disposeBag)
+        
+        self.btExport.rx.tap.bind { [weak self] _ in
+            guard let wSelf = self, let url = wSelf.outputURL else { return }
+            AudioManage.shared.secureCopyItem(at: url, folderName: ConstantApp.FolderName.folderVideo.rawValue) { [weak self] in
+                guard let wSelf = self else { return }
+                let vc = TabbarVC()
+                vc.selectedIndex = 1
+                wSelf.navigationController?.popToViewController(vc, animated: true)
+            } failure: { [weak self] text in
+                guard let wSelf = self else { return }
+                wSelf.showAlert(title: nil, message: text)
+            }
+
         }.disposed(by: self.disposeBag)
         
         self.buttonLeft.rx.tap.bind { [weak self] in
