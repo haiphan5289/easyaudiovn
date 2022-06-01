@@ -321,7 +321,226 @@ public class AudioManage {
     }
     
     
-    //MARK: TRIM AUDIO
+    //MARK: Merge AUDIO
+    public func cropVideo(sourceURL: URL,
+                   rangeTimeSlider: RangeTimeSlider,
+                   savePhotos: Bool = false,
+                   folderName: String,
+                   success: @escaping ((URL) -> Void), failure: @escaping ((Error) -> Void)) {
+        let asset = AVAsset(url: sourceURL)
+        let outputURL = self.createURL(folder: folderName, name: "CropVideo-\(self.parseDatetoString())", type: .mp4)
+        removeFileAtURLIfExists(url: outputURL)
+        
+        guard let exportSession = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetHighestQuality) else { return }
+        exportSession.outputURL = outputURL
+        exportSession.outputFileType = .mp4
+        let timeRange = CMTimeRange(start: CMTime(seconds: rangeTimeSlider.start, preferredTimescale: 1),
+                                    end: CMTime(seconds: rangeTimeSlider.end, preferredTimescale: 1))
+        
+        exportSession.timeRange = timeRange
+        
+        exportSession.exportAsynchronously {
+            switch exportSession.status {
+            case .completed:
+                success(outputURL)
+            default:
+                if let e = exportSession.error {
+                    failure(e)
+                }
+            }
+        }
+    }
+    
+    public func trimAudio(sourceURL: URL,
+                   rangeTimdeSlider: RangeTimeSlider,
+                   folderName: String,
+                   success: @escaping ((URL) -> Void), failure: @escaping ((Error?) -> Void)) {
+                
+        let asset = AVURLAsset(url: sourceURL)
+        
+        let composition = AVMutableComposition()
+        
+        //    let videoCompTrack = composition.addMutableTrack(withMediaType: AVMediaType.audio, preferredTrackID: kCMPersistentTrackID_Invalid)
+        let audioCompTrack = composition.addMutableTrack(withMediaType: AVMediaType.audio, preferredTrackID: kCMPersistentTrackID_Invalid)
+        
+        //    let assetVideoTrack = asset.tracksWithMediaType(AVMediaType.video)[0]
+        if let assetAudioTrack = asset.tracks(withMediaType: AVMediaType.audio).first {
+            var accumulatedTime = CMTime.zero
+            let startTime = CMTime(seconds: rangeTimdeSlider.start, preferredTimescale: 1)
+            let endTime = CMTime(seconds: (rangeTimdeSlider.end > 0 ? rangeTimdeSlider.end : sourceURL.getDuration()) , preferredTimescale: 1)
+            let durationOfCurrentSlice = CMTimeSubtract(endTime, startTime)
+            let timeRangeForCurrentSlice = CMTimeRangeMake(start: startTime, duration: durationOfCurrentSlice)
+            
+            do {
+                //      try videoCompTrack.insertTimeRange(timeRangeForCurrentSlice, ofTrack: assetVideoTrack, atTime: accumulatedTime)
+                try audioCompTrack?.insertTimeRange(timeRangeForCurrentSlice, of: assetAudioTrack, at: accumulatedTime)
+            }
+            catch let error {
+                print("Error insert time range \(error)")
+            }
+            
+            accumulatedTime = CMTimeAdd(accumulatedTime, durationOfCurrentSlice)
+            
+            let outputURL = self.createURL(folder: folderName, name: "TrimAudio-\(self.parseDatetoString())", type: .mp4)
+            removeFileAtURLIfExists(url: outputURL)
+            let exportSession = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetHighestQuality)!
+            exportSession.outputURL = outputURL
+            exportSession.outputFileType = AVFileType.mp4
+            exportSession.shouldOptimizeForNetworkUse = true
+            
+            exportSession.exportAsynchronously {
+                switch exportSession.status {
+                case .completed:
+                    success(outputURL)
+                default:
+                    failure(exportSession.error)
+                }
+            }
+        }
+        
+    }
+    
+    public func splitAudio(url: URL) {
+        // Get the file as an AVAsset
+        let asset: AVAsset = AVAsset(url: url)
+        
+        // Get the length of the audio file asset
+        let duration = CMTimeGetSeconds(asset.duration)
+        // Determine how many segments we want
+        let numOfSegments = Int(ceil(duration / 300) - 1)
+        // For each segment, we need to split it up
+        for index in 0...numOfSegments {
+            splitAudio(asset: asset, segment: index)
+        }
+    }
+    
+    public func splitAudio(asset: AVAsset, segment: Int) {
+        // Create a new AVAssetExportSession
+        let exporter = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetAppleM4A)!
+        // Set the output file type to m4a
+        exporter.outputFileType = AVFileType.m4a
+        // Create our time range for exporting
+        let startTime = CMTimeMake(value: Int64(5 * 60 * segment), timescale: 1)
+        let endTime = CMTimeMake(value: Int64(5 * 60 * (segment+1)), timescale: 1)
+        // Set the time range for our export session
+        exporter.timeRange = CMTimeRangeFromTimeToTime(start: startTime, end: endTime)
+        // Set the output file path
+        exporter.outputURL = URL(string: "file:///Users/campionfellin/Desktop/audio-\(segment).m4a")
+        
+        guard exporter.outputURL != nil else {
+            return
+        }
+        // Do the actual exporting
+        exporter.exportAsynchronously(completionHandler: {
+            switch exporter.status {
+            case AVAssetExportSession.Status.failed:
+                print("Export failed.")
+            default:
+                print("Export complete.")
+            //                    self.playAudio(url: outputURL)
+            }
+        })
+        return
+    }
+    /// Merges video and sound while keeping sound of the video too
+    ///
+    /// - Parameters:
+    ///   - videoUrl: URL to video file
+    ///   - audioUrl: URL to audio file
+    ///   - shouldFlipHorizontally: pass True if video was recorded using frontal camera otherwise pass False
+    ///   - completion: completion of saving: error or url with final video
+    public func mergeAudioIntoVideo(videoUrl: URL,
+                             audioUrl: URL,
+                             folderName: String,
+                             success: @escaping ((URL) -> Void), failure: @escaping ((Error?) -> Void))
+    {
+        let mixComposition : AVMutableComposition = AVMutableComposition()
+        var mutableCompositionVideoTrack : [AVMutableCompositionTrack] = []
+        var mutableCompositionAudioTrack : [AVMutableCompositionTrack] = []
+        let totalVideoCompositionInstruction : AVMutableVideoCompositionInstruction = AVMutableVideoCompositionInstruction()
+        
+        
+        //start merge
+        
+        let aVideoAsset : AVAsset = AVAsset(url: videoUrl)
+        let aAudioAsset : AVAsset = AVAsset(url: audioUrl)
+        
+        mutableCompositionVideoTrack.append(mixComposition.addMutableTrack(withMediaType: AVMediaType.video, preferredTrackID: kCMPersistentTrackID_Invalid)!)
+        mutableCompositionAudioTrack.append( mixComposition.addMutableTrack(withMediaType: AVMediaType.audio, preferredTrackID: kCMPersistentTrackID_Invalid)!)
+        
+        if aVideoAsset.tracks(withMediaType: AVMediaType.video).isEmpty {
+            return
+        }
+        
+        let aVideoAssetTrack : AVAssetTrack = aVideoAsset.tracks(withMediaType: AVMediaType.video)[0]
+        let aAudioAssetTrack : AVAssetTrack = aAudioAsset.tracks(withMediaType: AVMediaType.audio)[0]
+        
+        
+        
+        do{
+            try mutableCompositionVideoTrack[0].insertTimeRange(CMTimeRangeMake(start: CMTime.zero,
+                                                                                duration: aVideoAssetTrack.timeRange.duration),
+                                                                of: aVideoAssetTrack, at: CMTime.zero)
+            
+            //In my case my audio file is longer then video file so i took videoAsset duration
+            //instead of audioAsset duration
+            
+            try mutableCompositionAudioTrack[0].insertTimeRange(CMTimeRangeMake(start: CMTime.zero,
+                                                                                duration: aVideoAssetTrack.timeRange.duration),
+                                                                of: aAudioAssetTrack, at: CMTime.zero)
+            
+            //Use this instead above line if your audiofile and video file's playing durations are same
+            
+            //            try mutableCompositionAudioTrack[0].insertTimeRange(CMTimeRangeMake(kCMTimeZero, aVideoAssetTrack.timeRange.duration), ofTrack: aAudioAssetTrack, atTime: kCMTimeZero)
+            
+        }catch{
+            
+        }
+        
+        totalVideoCompositionInstruction.timeRange = CMTimeRangeMake(start: CMTime.zero,duration: aVideoAssetTrack.timeRange.duration )
+        
+        let mutableVideoComposition : AVMutableVideoComposition = AVMutableVideoComposition()
+        mutableVideoComposition.frameDuration = CMTimeMake(value: 1, timescale: 30)
+        
+        //        mutableVideoComposition.renderSize = CGSize(width: 1280, height: 700)
+        //find your video on this URl
+        let numberOfTime = self.parseDatetoString()
+        let savePathUrl = self.createURL(folder: folderName, name: "NewVideo - \(numberOfTime)", type: .mp4)
+        
+        let assetExport: AVAssetExportSession = AVAssetExportSession(asset: mixComposition, presetName: AVAssetExportPresetHighestQuality)!
+        assetExport.outputFileType = AVFileType.mp4
+        assetExport.outputURL = savePathUrl
+        assetExport.shouldOptimizeForNetworkUse = true
+        
+        assetExport.exportAsynchronously { () -> Void in
+            switch assetExport.status {
+            
+            case AVAssetExportSession.Status.completed:
+                
+                //Uncomment this if u want to store your video in asset
+                
+                //let assetsLib = ALAssetsLibrary()
+                //assetsLib.writeVideoAtPathToSavedPhotosAlbum(savePathUrl, completionBlock: nil)
+                UISaveVideoAtPathToSavedPhotosAlbum(savePathUrl.path,nil, nil, nil)
+                success(savePathUrl)
+            default:
+                failure(assetExport.error)
+            }
+        }
+    }
+    
+    public func removeFileAtURLIfExists(url: URL) {
+        let filePath = url.path
+        let fileManager = FileManager.default
+        if fileManager.fileExists(atPath: filePath) {
+            do{
+                try fileManager.removeItem(atPath: filePath)
+            } catch let error as NSError {
+                print("Couldn't remove existing destination file: \(error)")
+            }
+        }
+    }
+    
     public func trimmSound(inUrl:URL, index: Int, start: CGFloat, end: CGFloat, folderSplit: String, success:@escaping (URL) -> Void, failure:@escaping (String) -> Void) {
         let timeRange = CMTimeRange(start: CMTime(value: CMTimeValue(start), timescale: 1), end: CMTime(value: CMTimeValue(end), timescale: 1))
         let startTime = timeRange.start
@@ -637,4 +856,15 @@ public class AudioManage {
         }
     }
     
+}
+
+public struct RangeTimeSlider {
+    public let start: Float64
+    public let end: Float64
+    public init(start: Float64, end: Float64) {
+        self.start = start
+        self.end = end
+    }
+    
+    public static let empty: RangeTimeSlider = RangeTimeSlider(start: 0, end: 0)
 }
