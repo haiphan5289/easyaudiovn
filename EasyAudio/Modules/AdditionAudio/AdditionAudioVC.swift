@@ -17,11 +17,15 @@ protocol AdditionAudioDelegate {
 
 class AdditionAudioVC: UIViewController {
     
+    enum StatusView {
+        case other, mute
+    }
+    
     enum Action: Int, CaseIterable {
         case photoLibrary, iCloud, recording, wifi, audio
     }
     var delegate: AdditionAudioDelegate?
-    
+    var status: StatusView = .other
     // Add here outlets
     @IBOutlet var views: [UIView]!
     @IBOutlet var bts: [UIButton]!
@@ -48,6 +52,10 @@ extension AdditionAudioVC {
             v.layer.cornerRadius = 14
             v.clipsToBounds = true
             v.dropShadow(color: Asset.blackOpacity60.color, opacity: 1, offSet: CGSize(width: -1, height: 1), radius: 3, scale: false)
+        }
+        if self.status == .mute {
+            self.views[Action.recording.rawValue].isHidden = true
+            self.views[Action.audio.rawValue].isHidden = true
         }
     }
     

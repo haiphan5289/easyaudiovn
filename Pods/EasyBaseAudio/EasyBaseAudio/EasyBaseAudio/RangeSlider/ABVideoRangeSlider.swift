@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol ABVideoRangeSliderDelegate {
+public protocol ABVideoRangeSliderDelegate: AnyObject {
     func didChangeValue(videoRangeSlider: ABVideoRangeSlider, startTime: Float64, endTime: Float64)
     func indicatorDidChangePosition(videoRangeSlider: ABVideoRangeSlider, position: Float64)
     func updateFrameSlide(videoRangeSlider: ABVideoRangeSlider, startIndicator: CGFloat, endIndicator: CGFloat)
@@ -16,7 +16,7 @@ public protocol ABVideoRangeSliderDelegate {
 
 public class ABVideoRangeSlider: UIView {
     
-    public var delegate: ABVideoRangeSliderDelegate? = nil
+    public weak var delegate: ABVideoRangeSliderDelegate?
     
     var startIndicator      = ABStartIndicator()
     var endIndicator        = ABEndIndicator()
