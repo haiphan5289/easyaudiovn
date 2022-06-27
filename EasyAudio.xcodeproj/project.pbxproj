@@ -11,6 +11,8 @@
 		93097D8A2848A63D00D33BFA /* MuteFileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93097D872848A63D00D33BFA /* MuteFileVC.xib */; };
 		93097D8B2848A63D00D33BFA /* MuteFileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93097D882848A63D00D33BFA /* MuteFileVM.swift */; };
 		93097D8C2848A63D00D33BFA /* MuteFileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93097D892848A63D00D33BFA /* MuteFileVC.swift */; };
+		9316B3172868530B001DE29C /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9316B3152868530B001DE29C /* VideoCell.swift */; };
+		9316B3182868530B001DE29C /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9316B3162868530B001DE29C /* VideoCell.xib */; };
 		9359055328464E6A00B560D7 /* ImportWifiVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9359055028464E6A00B560D7 /* ImportWifiVC.xib */; };
 		9359055428464E6A00B560D7 /* ImportWifiVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9359055128464E6A00B560D7 /* ImportWifiVM.swift */; };
 		9359055528464E6A00B560D7 /* ImportWifiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9359055228464E6A00B560D7 /* ImportWifiVC.swift */; };
@@ -207,6 +209,9 @@
 		93A9D7BF284261D7009F9D49 /* AudioImportVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93A9D7BC284261D7009F9D49 /* AudioImportVC.xib */; };
 		93A9D7C0284261D7009F9D49 /* AudioImportVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9D7BD284261D7009F9D49 /* AudioImportVM.swift */; };
 		93A9D7C1284261D7009F9D49 /* AudioImportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9D7BE284261D7009F9D49 /* AudioImportVC.swift */; };
+		93B25160286749F20008EA86 /* VideoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B2515D286749F20008EA86 /* VideoVM.swift */; };
+		93B25161286749F20008EA86 /* VideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B2515E286749F20008EA86 /* VideoVC.swift */; };
+		93B25162286749F20008EA86 /* VideoVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93B2515F286749F20008EA86 /* VideoVC.storyboard */; };
 		93CE5F2627FAF10000455E01 /* AudioVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93CE5F2327FAF10000455E01 /* AudioVC.xib */; };
 		93CE5F2727FAF10000455E01 /* AudioVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE5F2427FAF10000455E01 /* AudioVM.swift */; };
 		93CE5F2827FAF10000455E01 /* AudioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE5F2527FAF10000455E01 /* AudioVC.swift */; };
@@ -224,6 +229,8 @@
 		93097D872848A63D00D33BFA /* MuteFileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MuteFileVC.xib; sourceTree = "<group>"; };
 		93097D882848A63D00D33BFA /* MuteFileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuteFileVM.swift; sourceTree = "<group>"; };
 		93097D892848A63D00D33BFA /* MuteFileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuteFileVC.swift; sourceTree = "<group>"; };
+		9316B3152868530B001DE29C /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		9316B3162868530B001DE29C /* VideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCell.xib; sourceTree = "<group>"; };
 		9359055028464E6A00B560D7 /* ImportWifiVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImportWifiVC.xib; sourceTree = "<group>"; };
 		9359055128464E6A00B560D7 /* ImportWifiVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWifiVM.swift; sourceTree = "<group>"; };
 		9359055228464E6A00B560D7 /* ImportWifiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWifiVC.swift; sourceTree = "<group>"; };
@@ -456,6 +463,9 @@
 		93A9D7BC284261D7009F9D49 /* AudioImportVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioImportVC.xib; sourceTree = "<group>"; };
 		93A9D7BD284261D7009F9D49 /* AudioImportVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioImportVM.swift; sourceTree = "<group>"; };
 		93A9D7BE284261D7009F9D49 /* AudioImportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioImportVC.swift; sourceTree = "<group>"; };
+		93B2515D286749F20008EA86 /* VideoVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoVM.swift; sourceTree = "<group>"; };
+		93B2515E286749F20008EA86 /* VideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoVC.swift; sourceTree = "<group>"; };
+		93B2515F286749F20008EA86 /* VideoVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VideoVC.storyboard; sourceTree = "<group>"; };
 		93CE5F2327FAF10000455E01 /* AudioVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioVC.xib; sourceTree = "<group>"; };
 		93CE5F2427FAF10000455E01 /* AudioVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioVM.swift; sourceTree = "<group>"; };
 		93CE5F2527FAF10000455E01 /* AudioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioVC.swift; sourceTree = "<group>"; };
@@ -507,6 +517,15 @@
 				93097D892848A63D00D33BFA /* MuteFileVC.swift */,
 			);
 			path = MuteFile;
+			sourceTree = "<group>";
+		};
+		9316B314286852E0001DE29C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9316B3152868530B001DE29C /* VideoCell.swift */,
+				9316B3162868530B001DE29C /* VideoCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		9359054F28464E5300B560D7 /* ImportWifi */ = {
@@ -1020,6 +1039,7 @@
 				93913AE4282FE0E1009DDCF6 /* Recording */,
 				93A20685282FD8C400F262EC /* AdditionAudio */,
 				93A2067E282FD13D00F262EC /* ActionHome */,
+				93B25154286749A70008EA86 /* Video */,
 				93CE5F2227FAF0F000455E01 /* Audio */,
 				93892B3F27F9EAB700A9FECE /* Tabbar */,
 			);
@@ -1226,6 +1246,17 @@
 			path = AudioImport;
 			sourceTree = "<group>";
 		};
+		93B25154286749A70008EA86 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				9316B314286852E0001DE29C /* Cell */,
+				93B2515D286749F20008EA86 /* VideoVM.swift */,
+				93B2515E286749F20008EA86 /* VideoVC.swift */,
+				93B2515F286749F20008EA86 /* VideoVC.storyboard */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
 		93CE5F2227FAF0F000455E01 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
@@ -1326,6 +1357,7 @@
 				93A0C70127EE1AD3008E6B98 /* LaunchScreen.storyboard in Resources */,
 				93913B08282FE4CF009DDCF6 /* FontsFree-Net-SFProDisplay-Bold.ttf in Resources */,
 				93913B06282FE4CF009DDCF6 /* FontsFree-Net-SFProText-Semibold.ttf in Resources */,
+				9316B3182868530B001DE29C /* VideoCell.xib in Resources */,
 				937237C627F9E4080077EDED /* ViewHeaderDialog.xib in Resources */,
 				93913B01282FE4CF009DDCF6 /* Sample PDF.pdf in Resources */,
 				935905B72846526700B560D7 /* README.txt in Resources */,
@@ -1334,6 +1366,7 @@
 				9359055328464E6A00B560D7 /* ImportWifiVC.xib in Resources */,
 				93A0C6FE27EE1AD3008E6B98 /* Assets.xcassets in Resources */,
 				93913B04282FE4CF009DDCF6 /* Sample Sound.mp3 in Resources */,
+				93B25162286749F20008EA86 /* VideoVC.storyboard in Resources */,
 				93950B2327FC7B8B00D79127 /* video_select_print.mp4 in Resources */,
 				93913B07282FE4CF009DDCF6 /* FontsFree-Net-SFProText-Medium.ttf in Resources */,
 				93CE5F2627FAF10000455E01 /* AudioVC.xib in Resources */,
@@ -1509,6 +1542,7 @@
 				935905C62846526700B560D7 /* MultipartFormDataParser.m in Sources */,
 				93F836452845123A004AE334 /* CheckUIVM.swift in Sources */,
 				9372375B27F9E38C0077EDED /* ViewControllerExtension.swift in Sources */,
+				93B25160286749F20008EA86 /* VideoVM.swift in Sources */,
 				9372376627F9E38C0077EDED /* String+Extension.swift in Sources */,
 				935905C82846526700B560D7 /* HTTPAuthenticationRequest.m in Sources */,
 				9372370E27F9E3710077EDED /* UIStackViewExtensions.swift in Sources */,
@@ -1549,6 +1583,7 @@
 				93F836462845123A004AE334 /* CheckUIVC.swift in Sources */,
 				9372375D27F9E38C0077EDED /* UIButton+Extension.swift in Sources */,
 				9372372327F9E3710077EDED /* UISwitchExtensions.swift in Sources */,
+				9316B3172868530B001DE29C /* VideoCell.swift in Sources */,
 				9372371127F9E3710077EDED /* UIImage+Extensions.swift in Sources */,
 				9372371627F9E3710077EDED /* UISegmentedControlExtensions.swift in Sources */,
 				937237EA27F9E40F0077EDED /* ReadJson.swift in Sources */,
@@ -1573,6 +1608,7 @@
 				9372372627F9E3710077EDED /* UIImageViewExtensions.swift in Sources */,
 				9372376527F9E38C0077EDED /* UITextField_Extension.swift in Sources */,
 				9372372927F9E3710077EDED /* UIFontExtensions.swift in Sources */,
+				93B25161286749F20008EA86 /* VideoVC.swift in Sources */,
 				9372376B27F9E38C0077EDED /* UIViewController+Rx.swift in Sources */,
 				937237D327F9E4080077EDED /* NavigationSaveView.swift in Sources */,
 				935905B52846526700B560D7 /* ContextFilterLogFormatter.m in Sources */,

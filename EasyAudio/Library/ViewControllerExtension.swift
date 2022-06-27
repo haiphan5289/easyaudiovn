@@ -28,6 +28,16 @@ extension Weakifiable {
 }
 extension UIViewController: Weakifiable {}
 extension UIViewController {
+    
+    enum StoryBoardName: String {
+        case video = "VideoVC"
+        
+        enum InstantiateViewController: String {
+            case videoVC = "VideoVC"
+        }
+        
+    }
+    
     func isValidPhone(phone: String) -> Bool {
             let phoneRegex = "^[0-9+]{0,1}+[0-9]{5,16}$"
             let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
@@ -41,8 +51,10 @@ extension UIViewController {
         view.addSubview(statusBarView)
     }
     
-    static func createVCfromStoryBoard() -> Self {
-        let vc = UIStoryboard(name: "\(self)", bundle: nil).instantiateViewController(withIdentifier:  "\(self)") as! Self
+    static func createVCfromStoryBoard(storyboard: StoryBoardName,
+                                       instantiateViewController: StoryBoardName.InstantiateViewController) -> Self {
+        let vc = UIStoryboard(name: "\(storyboard.rawValue)",
+                              bundle: nil).instantiateViewController(withIdentifier: "\(instantiateViewController.rawValue)") as! Self
         return vc
     }
     

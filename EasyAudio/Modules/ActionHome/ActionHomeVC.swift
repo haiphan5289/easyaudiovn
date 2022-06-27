@@ -21,6 +21,10 @@ class ActionHomeVC: UIViewController {
         case add, merge, recording, wifi, mute
     }
     
+    enum StatusView {
+        case video, other
+    }
+    
     var delegate: ActionHomeDelegate?
     
     // Add here outlets
@@ -32,6 +36,7 @@ class ActionHomeVC: UIViewController {
     
     // Add here your view model
     private var viewModel: ActionHomeVM = ActionHomeVM()
+    var statusView: StatusView = .other
     
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
@@ -50,6 +55,11 @@ extension ActionHomeVC {
             v.layer.cornerRadius = 14
             v.clipsToBounds = true
             v.dropShadow(color: Asset.blackOpacity60.color, opacity: 1, offSet: CGSize(width: -1, height: 1), radius: 3, scale: false)
+        }
+        
+        if self.statusView == .video {
+            self.views[Action.add.rawValue].isHidden = true
+            self.views[Action.recording.rawValue].isHidden = true
         }
         
     }

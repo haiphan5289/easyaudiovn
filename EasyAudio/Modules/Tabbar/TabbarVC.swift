@@ -17,7 +17,8 @@ class TabbarVC: UITabBarController {
         var viewController: UIViewController {
             switch self {
             case .audio: return AudioVC.createVC()
-            case .video: return AudioVC.createVC()
+            case .video: return VideoVC.createVCfromStoryBoard(storyboard: .video,
+                                                               instantiateViewController: .videoVC)
             case .setting: return AudioVC.createVC()
             }
         }
