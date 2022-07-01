@@ -37,6 +37,11 @@ class VideoVC: UIViewController {
         self.setupRX()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
 }
 extension VideoVC {
     
@@ -78,7 +83,9 @@ extension VideoVC {
         AudioManage.shared.converVideofromPhotoLibraryToMP4(videoURL: videoURL,
                                                             folderName: ConstantApp.FolderName.folderVideo.rawValue) { [weak self] outputURL in
             guard let wSelf = self else { return }
-            wSelf.viewModel.getURLs()
+            DispatchQueue.main.async {
+                wSelf.viewModel.getURLs()
+            }
         }
     }
     
@@ -147,26 +154,26 @@ extension VideoVC: AdditionAudioDelegate {
 }
 extension VideoVC: AudioImportDelegate {
     func selectAudio(url: URL) {
-//        self.moveToEdit(url: url)
+        self.addToFolderVideo(videoURL: url)
     }
 }
 extension VideoVC: ImportWifiDelegate {
     func addURL(url: URL) {
-//        self.moveToEdit(url: url)
+      self.addToFolderVideo(videoURL: url)
     }
 }
 extension VideoVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         self.dismiss(animated: true) {
-//            let videoURL = info[UIImagePickerController.InfoKey.mediaURL] as! URL
-//            AudioManage.shared.converVideofromPhotoLibraryToMP4(videoURL: videoURL, folderName: ConstantApp.FolderName.folderEdit.rawValue) { [weak self] outputURL in
-//                guard let wSelf = self else { return }
-//                DispatchQueue.main.async {
-//                    picker.dismiss(animated: true) {
-//                        wSelf.moveToEdit(url: outputURL)
-//                    }
-//                }
-//            }
+            let videoURL = info[UIImagePickerController.InfoKey.mediaURL] as! URL
+            AudioManage.shared.converVideofromPhotoLibraryToMP4(videoURL: videoURL, folderName: ConstantApp.FolderName.folderEdit.rawValue) { [weak self] outputURL in
+                guard let wSelf = self else { return }
+                DispatchQueue.main.async {
+                    picker.dismiss(animated: true) {
+                      wSelf.addToFolderVideo(videoURL: outputURL)
+                    }
+                }
+            }
         }
     }
     
@@ -176,27 +183,29 @@ extension VideoVC: UIDocumentPickerDelegate {
         guard let first = urls.first else {
             return
         }
-//        SVProgressHUD.show()
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-//            AudioManage.shared.covertToCAF(folderConvert: ConstantApp.FolderName.folderEdit.rawValue, url: first, type: .caf) { [weak self] outputURLBrowser in
-//                guard let wSelf = self else { return }
-//                DispatchQueue.main.async {
-//                    wSelf.moveToEdit(url: outputURLBrowser)
-//                    SVProgressHUD.dismiss()
-//                }
-//
-//            } failure: { [weak self] text in
-//                SVProgressHUD.dismiss()
-//                guard let wSelf = self else { return }
-//                wSelf.showAlert(title: nil, message: text)
-//            }
-//        }
+        SVProgressHUD.show()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            AudioManage.shared.covertToCAF(folderConvert: ConstantApp.FolderName.folderEdit.rawValue,
+                                           url: first,
+                                           type: .caf) { [weak self] outputURLBrowser in
+                guard let wSelf = self else { return }
+                DispatchQueue.main.async {
+                    wSelf.addToFolderVideo(videoURL: outputURLBrowser)
+                    SVProgressHUD.dismiss()
+                }
+
+            } failure: { [weak self] text in
+                SVProgressHUD.dismiss()
+                guard let wSelf = self else { return }
+                wSelf.showAlert(title: nil, message: text)
+            }
+        }
 
     }
 }
 extension VideoVC: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 80, height: 80)
+      return self.sizeCell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return Constant.spacingCell

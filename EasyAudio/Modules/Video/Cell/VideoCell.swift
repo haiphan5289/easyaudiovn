@@ -22,7 +22,7 @@ extension VideoCell {
     
     func setupVideo(videoURL: URL) {
         self.img.image = videoURL.getThumbnailImage()
-        self.lbDuration.text = "\(videoURL.getDuration())"
+        self.lbDuration.text = "\(Int(videoURL.getDuration()).getTextFromSecond())"
     }
     
 }

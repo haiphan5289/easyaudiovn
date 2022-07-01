@@ -501,6 +501,13 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		3E95BB6E286D5D890017223A /* Check */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Check;
+			sourceTree = "<group>";
+		};
 		9155D7A2B8F19C982B2A1C50 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1029,6 +1036,7 @@
 		9372380527F9E4A40077EDED /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				3E95BB6E286D5D890017223A /* Check */,
 				93097D862848A62500D33BFA /* MuteFile */,
 				935905D0284658EA00B560D7 /* MergeFiles */,
 				9359054F28464E5300B560D7 /* ImportWifi */,
