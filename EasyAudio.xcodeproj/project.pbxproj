@@ -416,6 +416,7 @@
 		937237F127F9E4170077EDED /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
 		937237F227F9E4170077EDED /* NavigationCopy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationCopy.swift; sourceTree = "<group>"; };
 		937237F327F9E4170077EDED /* BaseHeaderEditViewNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseHeaderEditViewNavigation.swift; sourceTree = "<group>"; };
+		9385EEA628BA16E900370E26 /* video1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video1.mp4; sourceTree = "<group>"; };
 		93892B3927F9E85100A9FECE /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		93892B3A27F9E85100A9FECE /* GetHeightSafeArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetHeightSafeArea.swift; sourceTree = "<group>"; };
 		93892B3B27F9E85100A9FECE /* SettingDefaultFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingDefaultFont.swift; sourceTree = "<group>"; };
@@ -1204,6 +1205,7 @@
 				9372378327F9E3F30077EDED /* ManageApp */,
 				9372380527F9E4A40077EDED /* Modules */,
 				93950B2227FC7B8B00D79127 /* video_select_print.mp4 */,
+				9385EEA628BA16E900370E26 /* video1.mp4 */,
 				93A0C6F427EE1AD0008E6B98 /* AppDelegate.swift */,
 				93A0C6F627EE1AD0008E6B98 /* SceneDelegate.swift */,
 				93A0C6F827EE1AD0008E6B98 /* ViewController.swift */,

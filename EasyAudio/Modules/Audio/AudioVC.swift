@@ -53,7 +53,7 @@ extension AudioVC {
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
 //            let urlSample = Bundle.main.url(forResource: "video_select_print", withExtension: ".mp4")
 //            if let url = urlSample {
-//                ManageApp.shared.audios.append(url)
+//                ManageApp.shared.videos.append(url)
 //            }
 //        }
         

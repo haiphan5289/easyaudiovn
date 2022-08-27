@@ -41,6 +41,14 @@ class VideoVC: UIViewController {
         super.viewWillAppear(animated)
         self.viewModel.getURLs()
         self.navigationController?.isNavigationBarHidden = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            let urlSample = Bundle.main.url(forResource: "video_select_print", withExtension: ".mp4")
+            if let url = urlSample {
+                var l = self.viewModel.sourceURLs.value
+                l.append(url)
+                self.viewModel.sourceURLs.accept(l)
+            }
+        }
     }
     
 }
