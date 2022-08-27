@@ -198,18 +198,39 @@ extension AudioVC: UIDocumentPickerDelegate {
         }
         SVProgressHUD.show()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            AudioManage.shared.covertToCAF(folderConvert: ConstantApp.FolderName.folderEdit.rawValue, url: first, type: .caf) { [weak self] outputURLBrowser in
-                guard let wSelf = self else { return }
-                DispatchQueue.main.async {
-                    wSelf.moveToEdit(url: outputURLBrowser)
-                    SVProgressHUD.dismiss()
+            AudioManage.shared.encodeVideo(folderName: ConstantApp.FolderName.folderEdit.rawValue, videoURL: first) { outputURL in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    DispatchQueue.main.async {
+                        self.moveToEdit(url: outputURL)
+                        SVProgressHUD.dismiss()
+                    }
                 }
                 
-            } failure: { [weak self] text in
-                SVProgressHUD.dismiss()
-                guard let wSelf = self else { return }
-                wSelf.showAlert(title: nil, message: text)
+//                AudioManage.shared.covertToCAF(folderConvert: ConstantApp.FolderName.folderEdit.rawValue, url: outputURL, type: .caf) { [weak self] outputURLBrowser in
+//                    guard let wSelf = self else { return }
+//                    DispatchQueue.main.async {
+//                        wSelf.updateURLVideo(url: outputURLBrowser)
+//                        SVProgressHUD.dismiss()
+//                    }
+//
+//                } failure: { [weak self] text in
+//                    SVProgressHUD.dismiss()
+//                    guard let wSelf = self else { return }
+//                    wSelf.showAlert(title: nil, message: text)
+//                }
             }
+//            AudioManage.shared.covertToCAF(folderConvert: ConstantApp.FolderName.folderEdit.rawValue, url: first, type: .caf) { [weak self] outputURLBrowser in
+//                guard let wSelf = self else { return }
+//                DispatchQueue.main.async {
+//                    wSelf.moveToEdit(url: outputURLBrowser)
+//                    SVProgressHUD.dismiss()
+//                }
+//
+//            } failure: { [weak self] text in
+//                SVProgressHUD.dismiss()
+//                guard let wSelf = self else { return }
+//                wSelf.showAlert(title: nil, message: text)
+//            }
         }
 
     }

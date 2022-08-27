@@ -210,6 +210,70 @@ public class AudioManage {
             }
         }
     }
+    
+    public func encodeVideo(folderName: String,
+                            videoURL: URL,
+                            success: @escaping ((URL) -> Void))  {
+        let avAsset = AVURLAsset(url: videoURL, options: nil)
+
+        //Create Export session
+        guard let exportSession = AVAssetExportSession(asset: avAsset, presetName: AVAssetExportPresetHighestQuality) else { return }
+
+        // exportSession = AVAssetExportSession(asset: composition, presetName: mp4Quality)
+        //Creating temp path to save the converted video
+        guard let documentsDirectory2 = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+
+        let filePath = documentsDirectory2.appendingPathComponent("\(folderName)/\(videoURL.getName()).mp4")
+        deleteFile(filePath: filePath)
+
+        //Check if the file already exists then remove the previous file
+        if FileManager.default.fileExists(atPath: filePath.absoluteString) {
+            do {
+                try FileManager.default.removeItem(atPath: filePath.absoluteString)
+            }
+            catch let error {
+                print(error)
+            }
+        }
+
+        exportSession.outputURL = filePath
+        exportSession.outputFileType = AVFileType.mp4
+        exportSession.shouldOptimizeForNetworkUse = true
+        let start = CMTimeMakeWithSeconds(0.0, preferredTimescale: 0)
+        let range = CMTimeRangeMake(start: start, duration: avAsset.duration)
+        exportSession.timeRange = range
+
+        exportSession.exportAsynchronously(completionHandler: {() -> Void in
+            switch exportSession.status {
+            case .failed: break
+            case .cancelled:
+                print("Export canceled")
+            case .completed:
+                //Video conversion finished
+                if let url = exportSession.outputURL {
+                    success(url)
+                }
+            default:
+                break
+            }
+
+        })
+
+
+    }
+
+    public func deleteFile(filePath:NSURL) {
+        guard FileManager.default.fileExists(atPath: filePath.path!) else {
+            return
+        }
+
+        do {
+            try FileManager.default.removeItem(atPath: filePath.path!)
+        }catch{
+            fatalError("Unable to delete file: \(error) : \(#function).")
+        }
+    }
+    
     //MARK: REMOVE FILES
     public func removeFilesFolder(name: String) {
         guard let documentDirectoryPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else {
@@ -697,7 +761,11 @@ public class AudioManage {
                                                                           preferredTrackID: kCMPersistentTrackID_Invalid) else { fatalError("Không co URL") }
             try audioCompositionTrack.insertTimeRange(audioAssetTrack.timeRange, of: audioAssetTrack, at: CMTime.zero)
             //Fix folder to audio have full Sound
-            let outputURL = self.createURL(folder: folder, name: "\(url.getName() ).\(url.getDate())", type: type)
+            var outputURL = self.createURL(folder: folder, name: "\(url.getName() ).\(url.getDate())", type: type)
+            
+            if url.getDate().isEmpty {
+                outputURL = self.createURL(folder: folder, name: "\(url.getName())", type: type)
+            }
             if FileManager.default.fileExists(atPath: outputURL.path) {
                 try? FileManager.default.removeItem(atPath: outputURL.path)
             }

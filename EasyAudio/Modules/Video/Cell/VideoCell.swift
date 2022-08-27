@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class VideoCell: UICollectionViewCell {
 
@@ -21,8 +22,22 @@ class VideoCell: UICollectionViewCell {
 extension VideoCell {
     
     func setupVideo(videoURL: URL) {
-        self.img.image = videoURL.getThumbnailImage()
+        self.img.image = self.thumbnailFromVideo(videoUrl: videoURL, time: CMTimeMake(value: Int64(videoURL.getDuration()), timescale: 1))
         self.lbDuration.text = "\(Int(videoURL.getDuration()).getTextFromSecond())"
+    }
+    
+     func thumbnailFromVideo(videoUrl: URL, time: CMTime) -> UIImage {
+        let asset: AVAsset = AVAsset(url: videoUrl) as AVAsset
+        let imgGenerator = AVAssetImageGenerator(asset: asset)
+        imgGenerator.appliesPreferredTrackTransform = true
+        do{
+            let cgImage = try imgGenerator.copyCGImage(at: time, actualTime: nil)
+            let uiImage = UIImage(cgImage: cgImage)
+            return uiImage
+        }catch{
+            
+        }
+        return UIImage()
     }
     
 }

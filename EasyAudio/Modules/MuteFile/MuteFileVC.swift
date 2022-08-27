@@ -23,6 +23,11 @@ class MuteFileVC: BaseVC {
         case backWard, play, pause, forWard
     }
     
+    enum Export: Int, CaseIterable {
+        case preview, export
+    }
+    
+    @IBOutlet var btExpots: [UIButton]!
     // Add here outlets
     @IBOutlet weak var videoAB: ABVideoRangeSlider!
     @IBOutlet weak var btImport: UIButton!
@@ -34,6 +39,7 @@ class MuteFileVC: BaseVC {
     // Add here your view model
     private var viewModel: MuteFileVM = MuteFileVM()
     @VariableReplay private var statusVideo: ActionMusic = .pause
+    @VariableReplay private var audioRange: RangeTimeSlider = RangeTimeSlider.empty
     private var avplayerManager: AVPlayerManager = AVPlayerManager()
     
     private let disposeBag = DisposeBag()
@@ -47,6 +53,11 @@ class MuteFileVC: BaseVC {
         super.viewWillAppear(animated)
         self.setupSingleButtonBack()
         self.setupNavi(bgColor: Asset.appColor.color, textColor: .black, font: UIFont.mySystemFont(ofSize: 18))
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        SVProgressHUD.dismiss()
     }
     
     deinit {
@@ -75,6 +86,29 @@ extension MuteFileVC {
                 wSelf.statusVideo = type
             }.disposed(by: self.disposeBag)
         }
+        
+        Export.allCases.forEach { type in
+            let bt = self.btExpots[type.rawValue]
+            bt.rx.tap.bind { [weak self] _ in
+                guard let self = self else { return }
+                switch type {
+                case .preview:
+                    print()
+                case .export:
+                    AudioManage.shared.covertToAudio(url: self.videoAB.videoURL,
+                                                     folder: ConstantApp.FolderName.folderVideo.rawValue,
+                                                     type: .mp4) { [weak self] outputURL in
+                        DispatchQueue.main.async {
+                            self?.navigationController?.popViewController()
+                        }
+                    } failure: { msg in
+                        self.showAlert(title: nil, message: msg)
+                    }
+
+                }
+            }.disposed(by: disposeBag)
+        }
+        
         self.$statusVideo.bind { [weak self] stt in
             guard let wSelf = self else { return }
             switch stt {
@@ -85,7 +119,7 @@ extension MuteFileVC {
             case .pause:
                 wSelf.bts[ActionMusic.play.rawValue].isHidden = false
                 wSelf.bts[ActionMusic.pause.rawValue].isHidden = true
-                wSelf.avplayerManager.doAVPlayer(action: .play)
+                wSelf.avplayerManager.doAVPlayer(action: .pause)
             case .backWard:
                 wSelf.avplayerManager.doAVPlayer(action: .rewind(5))
             case .forWard:
@@ -106,6 +140,29 @@ extension MuteFileVC {
             guard let wSelf = self else { return }
             wSelf.navigationController?.popViewController(animated: true, nil)
         }.disposed(by: self.disposeBag)
+        
+        self.$audioRange
+            .asObservable()
+            .debounce(.milliseconds(200), scheduler: MainScheduler.instance)
+            .bind { [weak self] range in
+                guard let self = self, range.end - range.start >= 2 else {
+                    self?.showAlert(title: nil, message: "Audio phải dài hơn 2s")
+                    return
+                }
+                AudioManage.shared.cropVideo(sourceURL: self.videoAB.videoURL,
+                                             rangeTimeSlider: range,
+                                             folderName: ConstantApp.FolderName.folderEdit.rawValue) { [weak self] outputURL in
+                    guard let self = self else { return }
+                    DispatchQueue.main.async {
+                        self.playURL(url: outputURL)
+                    }
+                } failure: { [weak self] err in
+                    guard let self = self else { return }
+                    DispatchQueue.main.async {
+                        self.showAlert(title: nil, message: err.localizedDescription)
+                    }
+                }
+            }.disposed(by: disposeBag)
     }
     
     private func updateURLVideo(url: URL) {
@@ -113,8 +170,13 @@ extension MuteFileVC {
         self.videoAB.updateBgColor(colorBg: Asset.appColor.color)
         self.videoAB.waveForm.isHidden = true
         self.videoAB.updateThumbnails()
+        self.playURL(url: url)
+    }
+    
+    private func playURL(url: URL) {
         self.avplayerManager.loadVideoURL(videoURL: url, videoView: self.videoFrame)
         self.avplayerManager.doAVPlayer(action: .play)
+        self.statusVideo = .play
     }
     
     private func updateValueProcess(time: Float) {
@@ -148,7 +210,6 @@ extension MuteFileVC: AdditionAudioDelegate {
 }
 extension MuteFileVC: ImportWifiDelegate {
     func addURL(url: URL) {
-//        self.updateURLVideo(url: url)
         AudioManage.shared.converVideofromPhotoLibraryToMP4(videoURL: url, folderName: ConstantApp.FolderName.folderEdit.rawValue) { [weak self] outputURL in
             guard let wSelf = self else { return }
             DispatchQueue.main.async {
@@ -179,20 +240,50 @@ extension MuteFileVC: UIDocumentPickerDelegate {
             return
         }
         SVProgressHUD.show()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            AudioManage.shared.covertToCAF(folderConvert: ConstantApp.FolderName.folderEdit.rawValue, url: first, type: .caf) { [weak self] outputURLBrowser in
-                guard let wSelf = self else { return }
-                DispatchQueue.main.async {
-                    wSelf.updateURLVideo(url: outputURLBrowser)
-                    SVProgressHUD.dismiss()
+        //If There isn't convert Mpr, you can ỉncrease time Dispatch
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            AudioManage.shared.encodeVideo(folderName: ConstantApp.FolderName.folderEdit.rawValue, videoURL: first) { outputURL in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    DispatchQueue.main.async {
+                        self.updateURLVideo(url: outputURL)
+                        SVProgressHUD.dismiss()
+                    }
                 }
                 
-            } failure: { [weak self] text in
-                SVProgressHUD.dismiss()
-                guard let wSelf = self else { return }
-                wSelf.showAlert(title: nil, message: text)
+//                AudioManage.shared.covertToCAF(folderConvert: ConstantApp.FolderName.folderEdit.rawValue, url: outputURL, type: .caf) { [weak self] outputURLBrowser in
+//                    guard let wSelf = self else { return }
+//                    DispatchQueue.main.async {
+//                        wSelf.updateURLVideo(url: outputURLBrowser)
+//                        SVProgressHUD.dismiss()
+//                    }
+//
+//                } failure: { [weak self] text in
+//                    SVProgressHUD.dismiss()
+//                    guard let wSelf = self else { return }
+//                    wSelf.showAlert(title: nil, message: text)
+//                }
             }
         }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//            AudioManage.shared.covertToAudio(url: first, folder: ConstantApp.FolderName.folderEdit.rawValue, type: .mp4) { outputURL in
+//                AudioManage.shared.covertToCAF(folderConvert: ConstantApp.FolderName.folderEdit.rawValue, url: outputURL, type: .caf) { [weak self] outputURLBrowser in
+//                    guard let wSelf = self else { return }
+//                    DispatchQueue.main.async {
+//                        wSelf.updateURLVideo(url: outputURLBrowser)
+//                        SVProgressHUD.dismiss()
+//                    }
+//
+//                } failure: { [weak self] text in
+//                    SVProgressHUD.dismiss()
+//                    guard let wSelf = self else { return }
+//                    wSelf.showAlert(title: nil, message: text)
+//                }
+//            } failure: { _ in
+//
+//            }
+//
+//
+//        }
 
     }
 }
@@ -212,16 +303,7 @@ extension MuteFileVC: AVPlayerManagerDelegate {
 }
 extension MuteFileVC: ABVideoRangeSliderDelegate {
     func didChangeValue(videoRangeSlider: ABVideoRangeSlider, startTime: Float64, endTime: Float64) {
-//        if videoRangeSlider == self.videoAB {
-//            self.videoRange = RangeTimeSlider(start: startTime, end: endTime)
-//            self.videoTrigger.onNext(())
-//        }
-//        
-//        if videoRangeSlider == self.audioAB {
-//            self.audioRange = RangeTimeSlider(start: startTime, end: endTime)
-//            self.audioTrigger.onNext(())
-//        }
-        
+        self.audioRange = RangeTimeSlider(start: startTime, end: endTime)
     }
     
     func indicatorDidChangePosition(videoRangeSlider: ABVideoRangeSlider, position: Float64) {

@@ -16,7 +16,7 @@ class VideoVM {
     }
     
     func getURLs() {
-        sourceURLs.accept(AudioManage.shared.getItemsFolder(folder: ConstantApp.FolderName.folderAudio.rawValue).filter { $0.getDuration() > 0 })
+        sourceURLs.accept(AudioManage.shared.getItemsFolder(folder: ConstantApp.FolderName.folderVideo.rawValue).filter { $0.getDuration() > 0 })
     }
     
 }
