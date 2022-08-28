@@ -165,6 +165,9 @@
 		937237F727F9E4170077EDED /* NavigationCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937237F227F9E4170077EDED /* NavigationCopy.swift */; };
 		937237F827F9E4170077EDED /* BaseHeaderEditViewNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937237F327F9E4170077EDED /* BaseHeaderEditViewNavigation.swift */; };
 		9385EEA928BB13EA00370E26 /* BaseAudioProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9385EEA828BB13EA00370E26 /* BaseAudioProtocol.swift */; };
+		9385EEAE28BB78F900370E26 /* PlayMusicVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9385EEAB28BB78F900370E26 /* PlayMusicVC.xib */; };
+		9385EEAF28BB78F900370E26 /* PlayMusicVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9385EEAC28BB78F900370E26 /* PlayMusicVM.swift */; };
+		9385EEB028BB78F900370E26 /* PlayMusicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9385EEAD28BB78F900370E26 /* PlayMusicVC.swift */; };
 		93892B3C27F9E85100A9FECE /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93892B3927F9E85100A9FECE /* Constant.swift */; };
 		93892B3D27F9E85100A9FECE /* GetHeightSafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93892B3A27F9E85100A9FECE /* GetHeightSafeArea.swift */; };
 		93892B3E27F9E85100A9FECE /* SettingDefaultFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93892B3B27F9E85100A9FECE /* SettingDefaultFont.swift */; };
@@ -419,6 +422,9 @@
 		937237F327F9E4170077EDED /* BaseHeaderEditViewNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseHeaderEditViewNavigation.swift; sourceTree = "<group>"; };
 		9385EEA628BA16E900370E26 /* video1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video1.mp4; sourceTree = "<group>"; };
 		9385EEA828BB13EA00370E26 /* BaseAudioProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAudioProtocol.swift; sourceTree = "<group>"; };
+		9385EEAB28BB78F900370E26 /* PlayMusicVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayMusicVC.xib; sourceTree = "<group>"; };
+		9385EEAC28BB78F900370E26 /* PlayMusicVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayMusicVM.swift; sourceTree = "<group>"; };
+		9385EEAD28BB78F900370E26 /* PlayMusicVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayMusicVC.swift; sourceTree = "<group>"; };
 		93892B3927F9E85100A9FECE /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		93892B3A27F9E85100A9FECE /* GetHeightSafeArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetHeightSafeArea.swift; sourceTree = "<group>"; };
 		93892B3B27F9E85100A9FECE /* SettingDefaultFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingDefaultFont.swift; sourceTree = "<group>"; };
@@ -1033,6 +1039,7 @@
 		9372380527F9E4A40077EDED /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				9385EEAA28BB781A00370E26 /* PlayMusic */,
 				93097D862848A62500D33BFA /* MuteFile */,
 				935905D0284658EA00B560D7 /* MergeFiles */,
 				9359054F28464E5300B560D7 /* ImportWifi */,
@@ -1056,6 +1063,16 @@
 				9385EEA828BB13EA00370E26 /* BaseAudioProtocol.swift */,
 			);
 			path = BaseAudio;
+			sourceTree = "<group>";
+		};
+		9385EEAA28BB781A00370E26 /* PlayMusic */ = {
+			isa = PBXGroup;
+			children = (
+				9385EEAB28BB78F900370E26 /* PlayMusicVC.xib */,
+				9385EEAC28BB78F900370E26 /* PlayMusicVM.swift */,
+				9385EEAD28BB78F900370E26 /* PlayMusicVC.swift */,
+			);
+			path = PlayMusic;
 			sourceTree = "<group>";
 		};
 		93892B3827F9E85100A9FECE /* Constant */ = {
@@ -1387,6 +1404,7 @@
 				937237D127F9E4080077EDED /* QuickActionsView.xib in Resources */,
 				935905B12846526700B560D7 /* CocoaAsyncSocket-About.txt in Resources */,
 				93F836442845123A004AE334 /* CheckUIVC.xib in Resources */,
+				9385EEAE28BB78F900370E26 /* PlayMusicVC.xib in Resources */,
 				93987FFF2843586F0057270F /* TimeView.xib in Resources */,
 				935905CF2846526700B560D7 /* upload.html in Resources */,
 				937237D227F9E4080077EDED /* NavigationSaveView.xib in Resources */,
@@ -1499,6 +1517,7 @@
 				93987FF3284322080057270F /* EmptyView.swift in Sources */,
 				93892B4127F9EAE000A9FECE /* TabbarVC.swift in Sources */,
 				9372371C27F9E3710077EDED /* UIImageExtensions.swift in Sources */,
+				9385EEAF28BB78F900370E26 /* PlayMusicVM.swift in Sources */,
 				9372377227F9E38C0077EDED /* LabelExtension.swift in Sources */,
 				935905B92846526700B560D7 /* DDAbstractDatabaseLogger.m in Sources */,
 				9372377127F9E38C0077EDED /* ProductViewModel.swift in Sources */,
@@ -1509,6 +1528,7 @@
 				9372376727F9E38C0077EDED /* PropertyWapper.swift in Sources */,
 				937237CE27F9E4080077EDED /* RecordingView.swift in Sources */,
 				935905BD2846526700B560D7 /* HTTPDataResponse.m in Sources */,
+				9385EEB028BB78F900370E26 /* PlayMusicVC.swift in Sources */,
 				935905632846524600B560D7 /* SGWiFiView.m in Sources */,
 				937237E727F9E40F0077EDED /* APILink.swift in Sources */,
 				9372370F27F9E3710077EDED /* UIView+Extension.swift in Sources */,

@@ -77,6 +77,17 @@ extension VideoVC {
                 cell.setupVideo(videoURL: data)
             }.disposed(by: disposeBag)
         
+        self.collectionView
+            .rx
+            .itemSelected
+            .withUnretained(self)
+            .bind { owner, idx in
+                let item = owner.viewModel.sourceURLs.value[idx.row]
+                let vc = PlayMusicVC.createVC()
+                vc.url = item
+                owner.navigationController?.pushViewController(vc, completion: nil)
+            }.disposed(by: disposeBag)
+        
         self.btAction.rx.tap.bind { [weak self] _ in
             guard let wSelf = self else { return }
             let vc = ActionHomeVC.createVC()
