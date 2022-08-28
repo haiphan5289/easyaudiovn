@@ -16,7 +16,7 @@ import EasyBaseAudio
 import SVProgressHUD
 import AVFoundation
 
-class MixAudioVC: BaseVC {
+class MixAudioVC: BaseVC, BaseAudioProtocol {
     
     enum Action: Int, CaseIterable {
         case trash, split, add, export    }
@@ -331,7 +331,11 @@ extension MixAudioVC {
     
     private func playAudio(url: URL, currentTime: CGFloat) {
         do {
-            self.audioPlayer = try AVAudioPlayer(contentsOf: url)
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+
+            /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
+            self.audioPlayer = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
             self.audioPlayer.delegate = self
             self.audioPlayer.prepareToPlay()
             self.audioPlayer.play()
@@ -474,19 +478,9 @@ extension MixAudioVC: UIDocumentPickerDelegate {
             return
         }
         SVProgressHUD.show()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            AudioManage.shared.covertToCAF(folderConvert: ConstantApp.FolderName.folderEdit.rawValue, url: first, type: .caf) { [weak self] outputURLBrowser in
-                guard let wSelf = self else { return }
-                DispatchQueue.main.async {
-                    wSelf.setupURL(url: outputURLBrowser)
-                    SVProgressHUD.dismiss()
-                }
-                
-            } failure: { [weak self] text in
-                SVProgressHUD.dismiss()
-                guard let wSelf = self else { return }
-                wSelf.showAlert(title: nil, message: text)
-            }
+        self.convertFromCloud(videoURL: first) { [weak self] outputURL in
+            guard let self = self else { return }
+            self.setupURL(url: outputURL)
         }
 
     }

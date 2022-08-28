@@ -17,7 +17,7 @@ import VisionKit
 import SnapKit
 import AVFoundation
 
-class MuteFileVC: BaseVC {
+class MuteFileVC: BaseVC, BaseAudioProtocol {
     
     enum ActionMusic: Int, CaseIterable {
         case backWard, play, pause, forWard
@@ -241,14 +241,11 @@ extension MuteFileVC: UIDocumentPickerDelegate {
         }
         SVProgressHUD.show()
         //If There isn't convert Mpr, you can ỉncrease time Dispatch
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            AudioManage.shared.encodeVideo(folderName: ConstantApp.FolderName.folderEdit.rawValue, videoURL: first) { outputURL in
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    DispatchQueue.main.async {
-                        self.updateURLVideo(url: outputURL)
-                        SVProgressHUD.dismiss()
-                    }
-                }
+        self.convertFromCloud(videoURL: first) { [weak self] outputURL in
+            guard let self = self else { return }
+            self.updateURLVideo(url: outputURL)
+            SVProgressHUD.dismiss()
+        }
                 
 //                AudioManage.shared.covertToCAF(folderConvert: ConstantApp.FolderName.folderEdit.rawValue, url: outputURL, type: .caf) { [weak self] outputURLBrowser in
 //                    guard let wSelf = self else { return }
@@ -262,8 +259,8 @@ extension MuteFileVC: UIDocumentPickerDelegate {
 //                    guard let wSelf = self else { return }
 //                    wSelf.showAlert(title: nil, message: text)
 //                }
-            }
-        }
+//            }
+//        }
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
 //            AudioManage.shared.covertToAudio(url: first, folder: ConstantApp.FolderName.folderEdit.rawValue, type: .mp4) { outputURL in
 //                AudioManage.shared.covertToCAF(folderConvert: ConstantApp.FolderName.folderEdit.rawValue, url: outputURL, type: .caf) { [weak self] outputURLBrowser in
