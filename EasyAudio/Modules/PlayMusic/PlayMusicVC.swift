@@ -15,6 +15,9 @@ import AVFoundation
 class PlayMusicVC: UIViewController, BaseAudioProtocol {
     
     // Add here outlets
+    @IBOutlet weak var heightBottomView: NSLayoutConstraint!
+    @IBOutlet weak var contentAudioView: UIView!
+    private let manageView: ManageAudioView = .loadXib()
     var url: URL?
     
     // Add here your view model
@@ -33,7 +36,12 @@ extension PlayMusicVC {
     
     private func setupUI() {
         // Add here the setup for the UI
+        self.heightBottomView.constant = GetHeightSafeArea.shared.getHeight(type: .bottom)
         self.avplayerManager.delegate = self
+        self.contentAudioView.addSubview(self.manageView)
+        self.manageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             if let url = self.url {
                 self.playURL(url: url)

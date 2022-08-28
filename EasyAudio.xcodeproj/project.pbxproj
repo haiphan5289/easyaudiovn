@@ -168,6 +168,8 @@
 		9385EEAE28BB78F900370E26 /* PlayMusicVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9385EEAB28BB78F900370E26 /* PlayMusicVC.xib */; };
 		9385EEAF28BB78F900370E26 /* PlayMusicVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9385EEAC28BB78F900370E26 /* PlayMusicVM.swift */; };
 		9385EEB028BB78F900370E26 /* PlayMusicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9385EEAD28BB78F900370E26 /* PlayMusicVC.swift */; };
+		9385EEB328BBC49000370E26 /* ManageAudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9385EEB228BBC49000370E26 /* ManageAudioView.swift */; };
+		9385EEB528BBC4BA00370E26 /* ManageAudioView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9385EEB428BBC4BA00370E26 /* ManageAudioView.xib */; };
 		93892B3C27F9E85100A9FECE /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93892B3927F9E85100A9FECE /* Constant.swift */; };
 		93892B3D27F9E85100A9FECE /* GetHeightSafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93892B3A27F9E85100A9FECE /* GetHeightSafeArea.swift */; };
 		93892B3E27F9E85100A9FECE /* SettingDefaultFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93892B3B27F9E85100A9FECE /* SettingDefaultFont.swift */; };
@@ -425,6 +427,8 @@
 		9385EEAB28BB78F900370E26 /* PlayMusicVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayMusicVC.xib; sourceTree = "<group>"; };
 		9385EEAC28BB78F900370E26 /* PlayMusicVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayMusicVM.swift; sourceTree = "<group>"; };
 		9385EEAD28BB78F900370E26 /* PlayMusicVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayMusicVC.swift; sourceTree = "<group>"; };
+		9385EEB228BBC49000370E26 /* ManageAudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageAudioView.swift; sourceTree = "<group>"; };
+		9385EEB428BBC4BA00370E26 /* ManageAudioView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ManageAudioView.xib; sourceTree = "<group>"; };
 		93892B3927F9E85100A9FECE /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		93892B3A27F9E85100A9FECE /* GetHeightSafeArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetHeightSafeArea.swift; sourceTree = "<group>"; };
 		93892B3B27F9E85100A9FECE /* SettingDefaultFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingDefaultFont.swift; sourceTree = "<group>"; };
@@ -916,6 +920,7 @@
 		937237A027F9E4080077EDED /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9385EEB128BBC47500370E26 /* ManageAudioView */,
 				93987FFB2843581D0057270F /* Time */,
 				93987FF1284321EB0057270F /* EmptyView */,
 				93913AED282FE4A9009DDCF6 /* ShowFont */,
@@ -1073,6 +1078,15 @@
 				9385EEAD28BB78F900370E26 /* PlayMusicVC.swift */,
 			);
 			path = PlayMusic;
+			sourceTree = "<group>";
+		};
+		9385EEB128BBC47500370E26 /* ManageAudioView */ = {
+			isa = PBXGroup;
+			children = (
+				9385EEB228BBC49000370E26 /* ManageAudioView.swift */,
+				9385EEB428BBC4BA00370E26 /* ManageAudioView.xib */,
+			);
+			path = ManageAudioView;
 			sourceTree = "<group>";
 		};
 		93892B3827F9E85100A9FECE /* Constant */ = {
@@ -1420,6 +1434,7 @@
 				937236D827F9E1670077EDED /* swiftgen.yml in Resources */,
 				935905B42846526700B560D7 /* CocoaLumberjack-About.txt in Resources */,
 				93913B00282FE4CF009DDCF6 /* Sample Video.mp4 in Resources */,
+				9385EEB528BBC4BA00370E26 /* ManageAudioView.xib in Resources */,
 				935905D42846590E00B560D7 /* MergeFilesVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1543,6 +1558,7 @@
 				9372370C27F9E3710077EDED /* UILayoutPriorityExtensions.swift in Sources */,
 				9372371327F9E3710077EDED /* UIBarButtonItemExtensions.swift in Sources */,
 				9372372727F9E3710077EDED /* UIRefreshControlExtensions.swift in Sources */,
+				9385EEB328BBC49000370E26 /* ManageAudioView.swift in Sources */,
 				9372371D27F9E3710077EDED /* UINavigationControllerExtensions.swift in Sources */,
 				935905B82846526700B560D7 /* DDLog.m in Sources */,
 				9372371027F9E3710077EDED /* UICollectionViewExtensions.swift in Sources */,
