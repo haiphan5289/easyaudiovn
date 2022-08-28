@@ -22,11 +22,13 @@ class VideoCell: UICollectionViewCell {
 extension VideoCell {
     
     func setupVideo(videoURL: URL) {
-        self.img.image = self.thumbnailFromVideo(videoUrl: videoURL, time: CMTimeMake(value: Int64(videoURL.getDuration()), timescale: 1))
+        if let img = self.thumbnailFromVideo(videoUrl: videoURL, time: CMTimeMake(value: Int64(videoURL.getDuration()), timescale: 1)) {
+            self.img.image = img
+        }
         self.lbDuration.text = "\(Int(videoURL.getDuration()).getTextFromSecond())"
     }
     
-     func thumbnailFromVideo(videoUrl: URL, time: CMTime) -> UIImage {
+     func thumbnailFromVideo(videoUrl: URL, time: CMTime) -> UIImage? {
         let asset: AVAsset = AVAsset(url: videoUrl) as AVAsset
         let imgGenerator = AVAssetImageGenerator(asset: asset)
         imgGenerator.appliesPreferredTrackTransform = true
@@ -37,7 +39,7 @@ extension VideoCell {
         }catch{
             
         }
-        return UIImage()
+         return UIImage(named: "ic_viideo")
     }
     
 }
