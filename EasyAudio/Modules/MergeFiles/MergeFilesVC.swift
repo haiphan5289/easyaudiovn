@@ -17,7 +17,7 @@ import VisionKit
 import SnapKit
 import AVFoundation
 
-class MergeFilesVC: BaseVC {
+class MergeFilesVC: BaseVC, BaseAudioProtocol {
     
     enum Action: Int, CaseIterable {
         case video, audio
@@ -265,19 +265,9 @@ extension MergeFilesVC: UIDocumentPickerDelegate {
             return
         }
         SVProgressHUD.show()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            AudioManage.shared.covertToCAF(folderConvert: ConstantApp.FolderName.folderEdit.rawValue, url: first, type: .caf) { [weak self] outputURLBrowser in
-                guard let wSelf = self else { return }
-                DispatchQueue.main.async {
-                    wSelf.updateURLVideo(url: outputURLBrowser)
-                    SVProgressHUD.dismiss()
-                }
-                
-            } failure: { [weak self] text in
-                SVProgressHUD.dismiss()
-                guard let wSelf = self else { return }
-                wSelf.showAlert(title: nil, message: text)
-            }
+        self.convertFromCloud(videoURL: first) { [weak self] outputURL in
+            guard let self = self else { return }
+            self.updateURLVideo(url: outputURL)
         }
 
     }

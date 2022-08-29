@@ -42,6 +42,7 @@ extension PlayMusicVC {
         self.manageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        self.manageView.delegate = self
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             if let url = self.url {
                 self.playURL(url: url)
@@ -56,21 +57,38 @@ extension PlayMusicVC {
     private func playURL(url: URL) {
         self.avplayerManager.loadVideoURL(videoURL: url, videoView: self.view)
         self.avplayerManager.doAVPlayer(action: .play)
-//        self.statusVideo = .play
+        self.manageView.updateStatusVideo(stt: .play)
+    }
+    
+    private func updateValueProcess(time: Float) {
+        self.manageView.updateValueProcess(time: time)
     }
     
 }
+extension PlayMusicVC: ManageAudioViewDelegate {
+    func selectAction(action: MuteFileVC.ActionMusic) {
+        switch action {
+        case .play:
+            self.avplayerManager.doAVPlayer(action: .play)
+        case .pause:
+            self.avplayerManager.doAVPlayer(action: .pause)
+        case .backWard:
+            self.avplayerManager.doAVPlayer(action: .rewind(5))
+        case .forWard:
+            self.avplayerManager.doAVPlayer(action: .forward(5))
+        }
+    }
+}
 extension PlayMusicVC: AVPlayerManagerDelegate {
     func getDuration(value: Double) {
-//        self.slider.maximumValue = Float(value)
-//        self.lbEndTime.text = Int(value).getTextFromSecond()
+        self.manageView.getDuration(value: value)
     }
     
     func didFinishAVPlayer() {
-//        self.statusVideo = .pause
+        self.manageView.updateStatusVideo(stt: .pause)
     }
     
     func timeProcess(time: Double) {
-//        self.updateValueProcess(time: Float(time))
+        self.manageView.timeProcess(time: time)
     }
 }

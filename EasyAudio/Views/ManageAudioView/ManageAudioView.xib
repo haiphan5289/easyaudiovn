@@ -139,12 +139,20 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="FbO-oo-RX6" secondAttribute="bottom" id="9FB-r9-l6o"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="FbO-oo-RX6" secondAttribute="bottom" id="9FB-r9-l6o"/>
                 <constraint firstItem="FbO-oo-RX6" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="WPy-UB-Uez"/>
                 <constraint firstItem="FbO-oo-RX6" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="YHu-xs-FxX"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="FbO-oo-RX6" secondAttribute="trailing" id="eb0-yb-wwL"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="lbEndTime" destination="amJ-q6-Zpn" id="iEp-RG-9sp"/>
+                <outlet property="slider" destination="9RL-kZ-bnq" id="xqF-F1-DG2"/>
+                <outletCollection property="bts" destination="jOJ-bz-cuS" collectionClass="NSMutableArray" id="VZ5-ma-OrA"/>
+                <outletCollection property="bts" destination="XmN-iU-nPz" collectionClass="NSMutableArray" id="n8Z-VA-4lA"/>
+                <outletCollection property="bts" destination="UvD-RS-j6L" collectionClass="NSMutableArray" id="4Xf-Tp-u2y"/>
+                <outletCollection property="bts" destination="upL-Iz-fZn" collectionClass="NSMutableArray" id="ntV-ia-QpP"/>
+            </connections>
             <point key="canvasLocation" x="132" y="110"/>
         </view>
     </objects>
