@@ -65,6 +65,11 @@ final class AVPlayerManager {
         }
     }
     
+    
+    func playToTime(value: Float) {
+        player?.seek(to: CMTime(value: CMTimeValue(value * 1000), timescale: 1000))
+    }
+    
     func rewindVideo(by seconds: Float64) {
         if let currentTime = player?.currentTime() {
             var newTime = CMTimeGetSeconds(currentTime) - seconds

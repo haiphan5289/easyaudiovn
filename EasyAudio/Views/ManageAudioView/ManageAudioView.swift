@@ -7,9 +7,11 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 protocol ManageAudioViewDelegate: AnyObject {
     func selectAction(action: MuteFileVC.ActionMusic)
+    func setTime(value: Float)
 }
 
 class ManageAudioView: UIView {
@@ -44,6 +46,13 @@ extension ManageAudioView {
                 wSelf.statusVideo = type
             }.disposed(by: self.disposeBag)
         }
+        
+        self.slider.rx
+            .controlEvent([.touchUpInside, .touchUpOutside])
+            .withUnretained(self)
+            .bind { owner, _ in
+                owner.delegate?.setTime(value: owner.slider.value)
+            }.disposed(by: disposeBag)
         
         self.$statusVideo.bind { [weak self] stt in
             guard let wSelf = self else { return }

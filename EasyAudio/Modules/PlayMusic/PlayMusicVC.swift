@@ -15,8 +15,10 @@ import AVFoundation
 class PlayMusicVC: UIViewController, BaseAudioProtocol {
     
     // Add here outlets
+    @IBOutlet weak var heighTopView: NSLayoutConstraint!
     @IBOutlet weak var heightBottomView: NSLayoutConstraint!
     @IBOutlet weak var contentAudioView: UIView!
+    @IBOutlet weak var btBack: UIButton!
     private let manageView: ManageAudioView = .loadXib()
     var url: URL?
     
@@ -31,12 +33,23 @@ class PlayMusicVC: UIViewController, BaseAudioProtocol {
         self.setupRX()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.avplayerManager.doAVPlayer(action: .pause)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
 }
 extension PlayMusicVC {
     
     private func setupUI() {
         // Add here the setup for the UI
         self.heightBottomView.constant = GetHeightSafeArea.shared.getHeight(type: .bottom)
+        self.heighTopView.constant = GetHeightSafeArea.shared.getHeight(type: .top) + 50
         self.avplayerManager.delegate = self
         self.contentAudioView.addSubview(self.manageView)
         self.manageView.snp.makeConstraints { make in
@@ -52,6 +65,11 @@ extension PlayMusicVC {
     
     private func setupRX() {
         // Add here the setup for the RX
+        self.btBack.rx.tap
+            .withUnretained(self)
+            .bind { owner, _ in
+                owner.navigationController?.popViewController()
+            }.disposed(by: disposeBag)
     }
     
     private func playURL(url: URL) {
@@ -66,6 +84,13 @@ extension PlayMusicVC {
     
 }
 extension PlayMusicVC: ManageAudioViewDelegate {
+    
+    func setTime(value: Float) {
+        self.avplayerManager.doAVPlayer(action: .pause)
+        self.avplayerManager.playToTime(value: value)
+        self.avplayerManager.doAVPlayer(action: .play)
+    }
+    
     func selectAction(action: MuteFileVC.ActionMusic) {
         switch action {
         case .play:
