@@ -17,6 +17,7 @@
                 <outlet property="audioSlider" destination="OIi-Cc-EJj" id="Kjz-SR-CoC"/>
                 <outlet property="btExport" destination="6wb-pa-nNL" id="met-xS-ltE"/>
                 <outlet property="btPlay" destination="1hR-Ur-ZnN" id="64r-n4-m1v"/>
+                <outlet property="btPreview" destination="Pws-5K-LnO" id="GNM-PC-6f9"/>
                 <outlet property="lbTime" destination="fkR-0x-fIB" id="DWF-KG-WaT"/>
                 <outlet property="videoAB" destination="cYH-bb-EIz" id="Hcb-Vu-T4p"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

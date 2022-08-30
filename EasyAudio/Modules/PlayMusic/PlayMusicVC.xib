@@ -16,6 +16,8 @@
                 <outlet property="contentAudioView" destination="dzi-25-b0c" id="zDn-iD-BpD"/>
                 <outlet property="heighTopView" destination="HZs-a7-JW3" id="f4Q-uf-W8n"/>
                 <outlet property="heightBottomView" destination="RPq-mQ-ZQC" id="veg-JQ-S1t"/>
+                <outlet property="imgGift" destination="U3S-18-BbD" id="mFD-AX-fa1"/>
+                <outlet property="videoFrame" destination="7Tw-LU-lxf" id="Oza-gV-UP0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,6 +26,13 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Tw-LU-lxf">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U3S-18-BbD">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EpG-W2-pwo">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
@@ -49,7 +58,7 @@
                                     </state>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="vV3-bb-yqJ" firstAttribute="leading" secondItem="A16-UI-0oa" secondAttribute="leading" constant="16" id="ZeI-Sp-Idc"/>
                                 <constraint firstItem="vV3-bb-yqJ" firstAttribute="top" secondItem="A16-UI-0oa" secondAttribute="top" constant="12" id="ZqV-t6-DD7"/>
@@ -62,14 +71,14 @@
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dzi-25-b0c">
                             <rect key="frame" x="0.0" y="734" width="414" height="128"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="128" placeholder="YES" id="LWP-oP-WBL"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mwn-m9-Oue">
                             <rect key="frame" x="0.0" y="862" width="414" height="34"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="34" id="RPq-mQ-ZQC"/>
                             </constraints>
@@ -82,8 +91,16 @@
             <constraints>
                 <constraint firstItem="EpG-W2-pwo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="23f-9I-yJj"/>
                 <constraint firstAttribute="bottom" secondItem="EpG-W2-pwo" secondAttribute="bottom" id="CMQ-zS-IuF"/>
+                <constraint firstItem="U3S-18-BbD" firstAttribute="bottom" secondItem="7Tw-LU-lxf" secondAttribute="bottom" id="Cbk-Rv-41A"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7Tw-LU-lxf" secondAttribute="trailing" id="UDi-jv-EEy"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="EpG-W2-pwo" secondAttribute="trailing" id="W79-gT-L9s"/>
+                <constraint firstItem="7Tw-LU-lxf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bY3-9k-Neb"/>
+                <constraint firstItem="U3S-18-BbD" firstAttribute="top" secondItem="7Tw-LU-lxf" secondAttribute="top" id="h7U-pf-LjO"/>
+                <constraint firstItem="U3S-18-BbD" firstAttribute="leading" secondItem="7Tw-LU-lxf" secondAttribute="leading" id="i7R-14-Iho"/>
                 <constraint firstItem="EpG-W2-pwo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="lLj-H3-Nkx"/>
+                <constraint firstItem="U3S-18-BbD" firstAttribute="trailing" secondItem="7Tw-LU-lxf" secondAttribute="trailing" id="sNl-dY-VTC"/>
+                <constraint firstItem="7Tw-LU-lxf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="u5H-t2-XLf"/>
+                <constraint firstAttribute="bottom" secondItem="7Tw-LU-lxf" secondAttribute="bottom" id="uq9-oN-M8x"/>
             </constraints>
             <point key="canvasLocation" x="139" y="141"/>
         </view>

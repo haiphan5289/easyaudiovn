@@ -13,6 +13,15 @@ import EasyBaseAudio
 protocol BaseAudioProtocol {}
 extension BaseAudioProtocol {
     
+    func moveToPlayMusic(item: URL) {
+        guard let topvc = ManageApp.shared.getTopViewController() else {
+            return
+        }
+        let vc = PlayMusicVC.createVC()
+        vc.url = item
+        topvc.navigationController?.pushViewController(vc, completion: nil)
+    }
+    
     func convertFromCloud(videoURL: URL, complention: @escaping ((URL) -> Void)) {
         SVProgressHUD.show()
         //If There isn't convert Mpr, you can ỉncrease time Dispatch

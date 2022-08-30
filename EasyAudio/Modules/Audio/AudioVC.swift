@@ -79,11 +79,8 @@ extension AudioVC {
         
         self.tableView.rx.itemSelected.bind { [weak self] idx in
             guard let wSelf = self else { return }
-            let urlFile = URL(string: wSelf.viewModel.sourceURLs.value[idx.row].absoluteString)
-            var documentInteractionController: UIDocumentInteractionController!
-            documentInteractionController = UIDocumentInteractionController.init(url: urlFile!)
-            documentInteractionController?.delegate = wSelf
-            documentInteractionController?.presentPreview(animated: true)
+            let urlFile = wSelf.viewModel.sourceURLs.value[idx.row]
+            wSelf.moveToPlayMusic(item: urlFile)
         }.disposed(by: disposeBag)
         
         self.btAdd.rx.tap.bind { [weak self] _ in

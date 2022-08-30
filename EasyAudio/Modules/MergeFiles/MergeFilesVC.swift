@@ -31,6 +31,7 @@ class MergeFilesVC: BaseVC, BaseAudioProtocol {
     @IBOutlet weak var audioSlider: UISlider!
     @IBOutlet weak var lbTime: UILabel!
     @IBOutlet weak var btExport: UIButton!
+    @IBOutlet weak var btPreview: UIButton!
     
     // Add here your view model
     private var currentAction: Action = .video
@@ -145,6 +146,15 @@ extension MergeFilesVC {
             guard let wSelf = self else { return }
             wSelf.navigationController?.popViewController()
         }.disposed(by: self.disposeBag)
+        
+        self.btPreview.rx.tap
+            .withUnretained(self)
+            .bind { owner, _ in
+                guard let url = owner.outputURL else {
+                    return
+                }
+                owner.moveToPlayMusic(item: url)
+            }.disposed(by: disposeBag)
     }
     
     private func playAudio(url: URL, currentTime: CGFloat) {

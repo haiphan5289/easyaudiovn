@@ -20,6 +20,7 @@ class ManageAudioView: UIView {
     
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var lbEndTime: UILabel!
+    @IBOutlet weak var bgView: UIView!
     @IBOutlet var bts: [UIButton]!
     
     @VariableReplay private var statusVideo: MuteFileVC.ActionMusic = .pause
