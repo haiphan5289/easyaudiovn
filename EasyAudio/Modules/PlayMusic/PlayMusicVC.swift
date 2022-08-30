@@ -15,6 +15,10 @@ import AVFoundation
 
 class PlayMusicVC: UIViewController, BaseAudioProtocol {
     
+    enum Status {
+        case work, normal
+    }
+    
     // Add here outlets
     @IBOutlet weak var heighTopView: NSLayoutConstraint!
     @IBOutlet weak var heightBottomView: NSLayoutConstraint!
@@ -24,7 +28,7 @@ class PlayMusicVC: UIViewController, BaseAudioProtocol {
     @IBOutlet weak var imgGift: UIImageView!
     private let manageView: ManageAudioView = .loadXib()
     var url: URL?
-    
+    var status: Status = .normal
     // Add here your view model
     private var viewModel: PlayMusicVM = PlayMusicVM()
     private var avplayerManager: AVPlayerManager = AVPlayerManager()
@@ -66,14 +70,19 @@ extension PlayMusicVC {
                 self.playURL(url: url)
             }
         }
-        self.animationView()
-        let tapView: UITapGestureRecognizer = UITapGestureRecognizer()
-        self.view.addGestureRecognizer(tapView)
-        tapView.rx.event
-            .withUnretained(self)
-            .bind { owner, _ in
-                owner.animationView()
-            }.disposed(by: disposeBag)
+        if self.status == .normal {
+            self.animationView()
+            let tapView: UITapGestureRecognizer = UITapGestureRecognizer()
+            self.view.addGestureRecognizer(tapView)
+            tapView.rx.event
+                .withUnretained(self)
+                .bind { owner, _ in
+                    owner.animationView()
+                }.disposed(by: disposeBag)
+        } else {
+            self.contentAudioView.isHidden = true
+        }
+
     }
     
     private func setupRX() {
@@ -145,7 +154,12 @@ extension PlayMusicVC: AVPlayerManagerDelegate {
     }
     
     func didFinishAVPlayer() {
-        self.manageView.updateStatusVideo(stt: .pause)
+        if self.status == .normal {
+            self.manageView.updateStatusVideo(stt: .pause)
+        } else {
+            self.manageView.updateStatusVideo(stt: .play)
+        }
+        
     }
     
     func timeProcess(time: Double) {

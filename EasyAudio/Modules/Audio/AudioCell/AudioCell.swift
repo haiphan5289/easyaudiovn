@@ -34,4 +34,9 @@ extension AudioCell {
         self.lbTime.text = "\(url.getTime()) ● \(url.getSize() ?? 0) MB ● \(url.creation?.covertToString(format: .MMddyyyy) ?? "")"
     }
     
+    func setWork(url: URL) {
+        self.lbName.text = url.getName()
+        self.lbTime.text = "\(url.getSize() ?? 0) MB ● \(url.creation?.covertToString(format: .MMddyyyy) ?? "")"
+    }
+    
 }

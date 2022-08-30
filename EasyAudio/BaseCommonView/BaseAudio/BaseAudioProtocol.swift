@@ -13,12 +13,13 @@ import EasyBaseAudio
 protocol BaseAudioProtocol {}
 extension BaseAudioProtocol {
     
-    func moveToPlayMusic(item: URL) {
+    func moveToPlayMusic(item: URL, status: PlayMusicVC.Status = .normal) {
         guard let topvc = ManageApp.shared.getTopViewController() else {
             return
         }
         let vc = PlayMusicVC.createVC()
         vc.url = item
+        vc.status = status
         topvc.navigationController?.pushViewController(vc, completion: nil)
     }
     

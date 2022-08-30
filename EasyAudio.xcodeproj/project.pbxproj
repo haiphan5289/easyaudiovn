@@ -186,6 +186,13 @@
 		9389F57728BE5EB100D55D92 /* image_gift_10.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9389F56F28BE5EB000D55D92 /* image_gift_10.gif */; };
 		9389F57828BE5EB100D55D92 /* image_gift_7.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9389F57028BE5EB000D55D92 /* image_gift_7.gif */; };
 		9389F57928BE5EB100D55D92 /* image_gift_12.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9389F57128BE5EB100D55D92 /* image_gift_12.gif */; };
+		9389F57F28BE623C00D55D92 /* VoUuNhacThien-Hoatau_qkyx.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9389F57B28BE623900D55D92 /* VoUuNhacThien-Hoatau_qkyx.mp3 */; };
+		9389F58028BE623C00D55D92 /* Chamber-Concerto-In-D-Major-RV-93-II-Largo-Gerald-Garcia.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9389F57C28BE623A00D55D92 /* Chamber-Concerto-In-D-Major-RV-93-II-Largo-Gerald-Garcia.mp3 */; };
+		9389F58128BE623C00D55D92 /* NhacThien-Hoatau_qadg.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9389F57D28BE623C00D55D92 /* NhacThien-Hoatau_qadg.mp3 */; };
+		9389F58228BE623C00D55D92 /* Suite-No-6-In-D-Major-After-BWV-1012-Gigue-Nigel-Nort.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9389F57E28BE623C00D55D92 /* Suite-No-6-In-D-Major-After-BWV-1012-Gigue-Nigel-Nort.mp3 */; };
+		9389F58728BE629F00D55D92 /* MusicWorkVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9389F58428BE629F00D55D92 /* MusicWorkVC.xib */; };
+		9389F58828BE629F00D55D92 /* MusicWorkVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9389F58528BE629F00D55D92 /* MusicWorkVM.swift */; };
+		9389F58928BE629F00D55D92 /* MusicWorkVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9389F58628BE629F00D55D92 /* MusicWorkVC.swift */; };
 		93913AE8282FE0F4009DDCF6 /* RecordingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93913AE5282FE0F4009DDCF6 /* RecordingVC.xib */; };
 		93913AE9282FE0F4009DDCF6 /* RecordingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93913AE6282FE0F4009DDCF6 /* RecordingVM.swift */; };
 		93913AEA282FE0F4009DDCF6 /* RecordingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93913AE7282FE0F4009DDCF6 /* RecordingVC.swift */; };
@@ -455,6 +462,13 @@
 		9389F56F28BE5EB000D55D92 /* image_gift_10.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = image_gift_10.gif; sourceTree = "<group>"; };
 		9389F57028BE5EB000D55D92 /* image_gift_7.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = image_gift_7.gif; sourceTree = "<group>"; };
 		9389F57128BE5EB100D55D92 /* image_gift_12.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = image_gift_12.gif; sourceTree = "<group>"; };
+		9389F57B28BE623900D55D92 /* VoUuNhacThien-Hoatau_qkyx.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "VoUuNhacThien-Hoatau_qkyx.mp3"; sourceTree = "<group>"; };
+		9389F57C28BE623A00D55D92 /* Chamber-Concerto-In-D-Major-RV-93-II-Largo-Gerald-Garcia.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Chamber-Concerto-In-D-Major-RV-93-II-Largo-Gerald-Garcia.mp3"; sourceTree = "<group>"; };
+		9389F57D28BE623C00D55D92 /* NhacThien-Hoatau_qadg.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "NhacThien-Hoatau_qadg.mp3"; sourceTree = "<group>"; };
+		9389F57E28BE623C00D55D92 /* Suite-No-6-In-D-Major-After-BWV-1012-Gigue-Nigel-Nort.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Suite-No-6-In-D-Major-After-BWV-1012-Gigue-Nigel-Nort.mp3"; sourceTree = "<group>"; };
+		9389F58428BE629F00D55D92 /* MusicWorkVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicWorkVC.xib; sourceTree = "<group>"; };
+		9389F58528BE629F00D55D92 /* MusicWorkVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicWorkVM.swift; sourceTree = "<group>"; };
+		9389F58628BE629F00D55D92 /* MusicWorkVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicWorkVC.swift; sourceTree = "<group>"; };
 		93913AE5282FE0F4009DDCF6 /* RecordingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordingVC.xib; sourceTree = "<group>"; };
 		93913AE6282FE0F4009DDCF6 /* RecordingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingVM.swift; sourceTree = "<group>"; };
 		93913AE7282FE0F4009DDCF6 /* RecordingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingVC.swift; sourceTree = "<group>"; };
@@ -1065,6 +1079,7 @@
 		9372380527F9E4A40077EDED /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				9389F58328BE628B00D55D92 /* MusicWork */,
 				9385EEAA28BB781A00370E26 /* PlayMusic */,
 				93097D862848A62500D33BFA /* MuteFile */,
 				935905D0284658EA00B560D7 /* MergeFiles */,
@@ -1147,6 +1162,27 @@
 			path = Giift;
 			sourceTree = "<group>";
 		};
+		9389F57A28BE622800D55D92 /* music */ = {
+			isa = PBXGroup;
+			children = (
+				9389F57C28BE623A00D55D92 /* Chamber-Concerto-In-D-Major-RV-93-II-Largo-Gerald-Garcia.mp3 */,
+				9389F57D28BE623C00D55D92 /* NhacThien-Hoatau_qadg.mp3 */,
+				9389F57E28BE623C00D55D92 /* Suite-No-6-In-D-Major-After-BWV-1012-Gigue-Nigel-Nort.mp3 */,
+				9389F57B28BE623900D55D92 /* VoUuNhacThien-Hoatau_qkyx.mp3 */,
+			);
+			path = music;
+			sourceTree = "<group>";
+		};
+		9389F58328BE628B00D55D92 /* MusicWork */ = {
+			isa = PBXGroup;
+			children = (
+				9389F58428BE629F00D55D92 /* MusicWorkVC.xib */,
+				9389F58528BE629F00D55D92 /* MusicWorkVM.swift */,
+				9389F58628BE629F00D55D92 /* MusicWorkVC.swift */,
+			);
+			path = MusicWork;
+			sourceTree = "<group>";
+		};
 		93913AE4282FE0E1009DDCF6 /* Recording */ = {
 			isa = PBXGroup;
 			children = (
@@ -1169,6 +1205,7 @@
 		93913AF2282FE4CF009DDCF6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9389F57A28BE622800D55D92 /* music */,
 				9389F55928BE584D00D55D92 /* Giift */,
 				93913AF3282FE4CF009DDCF6 /* files */,
 				93913AF9282FE4CF009DDCF6 /* font */,
@@ -1438,15 +1475,18 @@
 				9389F56328BE586300D55D92 /* image_gift_2.gif in Resources */,
 				937236E127F9E3140077EDED /* Localizable.strings in Resources */,
 				935905CE2846526700B560D7 /* index.html in Resources */,
+				9389F57F28BE623C00D55D92 /* VoUuNhacThien-Hoatau_qkyx.mp3 in Resources */,
 				93A0C70127EE1AD3008E6B98 /* LaunchScreen.storyboard in Resources */,
 				93913B08282FE4CF009DDCF6 /* FontsFree-Net-SFProDisplay-Bold.ttf in Resources */,
 				9389F57628BE5EB100D55D92 /* image_gift_9.gif in Resources */,
 				93913B06282FE4CF009DDCF6 /* FontsFree-Net-SFProText-Semibold.ttf in Resources */,
 				9389F57228BE5EB100D55D92 /* image_gift_8.gif in Resources */,
+				9389F58728BE629F00D55D92 /* MusicWorkVC.xib in Resources */,
 				9316B3182868530B001DE29C /* VideoCell.xib in Resources */,
 				937237C627F9E4080077EDED /* ViewHeaderDialog.xib in Resources */,
 				93913B01282FE4CF009DDCF6 /* Sample PDF.pdf in Resources */,
 				935905B72846526700B560D7 /* README.txt in Resources */,
+				9389F58228BE623C00D55D92 /* Suite-No-6-In-D-Major-After-BWV-1012-Gigue-Nigel-Nort.mp3 in Resources */,
 				93913AF1282FE4A9009DDCF6 /* font.xib in Resources */,
 				93913B02282FE4CF009DDCF6 /* Sample Image.jpg in Resources */,
 				9359055328464E6A00B560D7 /* ImportWifiVC.xib in Resources */,
@@ -1460,6 +1500,7 @@
 				9389F56428BE586300D55D92 /* image_gift_6.gif in Resources */,
 				937237CB27F9E4080077EDED /* ImportOptionsVC.xib in Resources */,
 				937237D127F9E4080077EDED /* QuickActionsView.xib in Resources */,
+				9389F58028BE623C00D55D92 /* Chamber-Concerto-In-D-Major-RV-93-II-Largo-Gerald-Garcia.mp3 in Resources */,
 				935905B12846526700B560D7 /* CocoaAsyncSocket-About.txt in Resources */,
 				9389F57728BE5EB100D55D92 /* image_gift_10.gif in Resources */,
 				9389F57428BE5EB100D55D92 /* image_gift_1.gif in Resources */,
@@ -1481,6 +1522,7 @@
 				93097D8A2848A63D00D33BFA /* MuteFileVC.xib in Resources */,
 				9389F57328BE5EB100D55D92 /* image_gift_11.gif in Resources */,
 				9389F57528BE5EB100D55D92 /* image_gift_4.gif in Resources */,
+				9389F58128BE623C00D55D92 /* NhacThien-Hoatau_qadg.mp3 in Resources */,
 				937236D827F9E1670077EDED /* swiftgen.yml in Resources */,
 				935905B42846526700B560D7 /* CocoaLumberjack-About.txt in Resources */,
 				93913B00282FE4CF009DDCF6 /* Sample Video.mp4 in Resources */,
@@ -1561,6 +1603,7 @@
 				935905CD2846526700B560D7 /* Manager.swift in Sources */,
 				9372376427F9E38C0077EDED /* URL+Extension.swift in Sources */,
 				9359055528464E6A00B560D7 /* ImportWifiVC.swift in Sources */,
+				9389F58928BE629F00D55D92 /* MusicWorkVC.swift in Sources */,
 				937237E827F9E40F0077EDED /* OptionalMessageDTO.swift in Sources */,
 				9372372227F9E3710077EDED /* UILabelExtensions.swift in Sources */,
 				937237F427F9E4170077EDED /* BaseNavigationLargeTitle.swift in Sources */,
@@ -1580,6 +1623,7 @@
 				9359056A2846525400B560D7 /* SGConst.m in Sources */,
 				9385EEA928BB13EA00370E26 /* BaseAudioProtocol.swift in Sources */,
 				93987FF3284322080057270F /* EmptyView.swift in Sources */,
+				9389F58828BE629F00D55D92 /* MusicWorkVM.swift in Sources */,
 				93892B4127F9EAE000A9FECE /* TabbarVC.swift in Sources */,
 				9372371C27F9E3710077EDED /* UIImageExtensions.swift in Sources */,
 				9385EEAF28BB78F900370E26 /* PlayMusicVM.swift in Sources */,
