@@ -50,6 +50,11 @@ class MergeFilesVC: BaseVC, BaseAudioProtocol {
         self.setupRX()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        SVProgressHUD.dismiss()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setupSingleButtonBack()
@@ -67,6 +72,8 @@ extension MergeFilesVC {
         
         self.audioAB.delegate = self
         self.audioAB.updateBgColor(colorBg: Asset.appColor.color)
+        self.audioSlider.minimumValue = 0
+        self.audioSlider.value = 0
     }
     
     private func setupRX() {
@@ -87,6 +94,7 @@ extension MergeFilesVC {
         Observable.combineLatest(self.videoTrigger, self.audioTrigger).debounce(.milliseconds(300), scheduler: MainScheduler.asyncInstance)
             .bind { [weak self] _ in
             guard let wSelf = self else { return }
+                SVProgressHUD.show()
                 AudioManage.shared.cropVideo(sourceURL: wSelf.videoAB.videoURL,
                                              rangeTimeSlider: wSelf.videoRange,
                                              folderName: ConstantApp.FolderName.folderEdit.rawValue) { cropVideo in
@@ -97,18 +105,23 @@ extension MergeFilesVC {
                                                                audioUrl: trimAudio,
                                                                folderName: ConstantApp.FolderName.folderEdit.rawValue) { [weak self] outputURL in
                             guard let wSelf = self else { return }
-                            wSelf.outputURL = outputURL
+                            DispatchQueue.main.async {
+                                wSelf.outputURL = outputURL
+                                wSelf.audioSlider.maximumValue = Float(outputURL.getDuration())
+                                wSelf.lbTime.text = "\(Int(outputURL.getDuration()).getTextFromSecond())"
+                                SVProgressHUD.dismiss()
+                            }
                         } failure: { _ in
-
+                            SVProgressHUD.dismiss()
                         }
 
                     } failure: { _ in
-
+                        SVProgressHUD.dismiss()
                     }
 
                     print("==== \(cropVideo)")
                 } failure: { _ in
-
+                    SVProgressHUD.dismiss()
                 }
         }.disposed(by: self.disposeBag)
         
@@ -122,16 +135,10 @@ extension MergeFilesVC {
         
         self.btExport.rx.tap.bind { [weak self] _ in
             guard let wSelf = self, let url = wSelf.outputURL else { return }
-            AudioManage.shared.secureCopyItem(at: url, folderName: ConstantApp.FolderName.folderVideo.rawValue) { [weak self] in
-                guard let wSelf = self else { return }
-                let vc = TabbarVC()
-                vc.selectedIndex = 1
-                wSelf.navigationController?.popToViewController(vc, animated: true)
-            } failure: { [weak self] text in
-                guard let wSelf = self else { return }
-                wSelf.showAlert(title: nil, message: text)
-            }
-
+            let vc = ExportVC.createVC()
+            vc.inputURL = url
+            vc.openForm = .video
+            wSelf.navigationController?.pushViewController(vc, animated: true)
         }.disposed(by: self.disposeBag)
         
         self.buttonLeft.rx.tap.bind { [weak self] in
@@ -142,8 +149,11 @@ extension MergeFilesVC {
     
     private func playAudio(url: URL, currentTime: CGFloat) {
         
-        if self.audioPlayer.rate >= 0 {
+        if self.audioPlayer.isPlaying {
             print("===== self.audioPlayer.rate")
+            self.audioPlayer.pause()
+            self.btPlay.setImage(Asset.icPlay.image, for: .normal)
+            return
         }
         
         do {
@@ -151,8 +161,9 @@ extension MergeFilesVC {
             self.audioPlayer.delegate = self
             self.audioPlayer.prepareToPlay()
             self.audioPlayer.play()
-            self.audioPlayer.currentTime = TimeInterval(0)
+            self.audioPlayer.currentTime = TimeInterval(self.audioSlider.value)
             self.autoRunTime()
+            self.btPlay.setImage(Asset.icPause.image, for: .normal)
         } catch {
         }
     }
@@ -176,6 +187,8 @@ extension MergeFilesVC {
         if self.currentAction == .video {
             self.videoAB.setVideoURL(videoURL: url, colorShow: Asset.appColor.color, colorDisappear: Asset.lineColor.color)
             self.videoAB.updateBgColor(colorBg: Asset.appColor.color)
+            self.videoAB.waveForm.isHidden = true
+            self.videoAB.updateThumbnails()
             self.videoTrigger.onNext(())
         } else {
             self.audioAB.setVideoURL(videoURL: url, colorShow: Asset.appColor.color, colorDisappear: Asset.lineColor.color)
@@ -273,10 +286,19 @@ extension MergeFilesVC: UIDocumentPickerDelegate {
     }
 }
 extension MergeFilesVC: AVAudioPlayerDelegate {
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        self.audioPlayer.stop()
+        self.btPlay.setImage(Asset.icPlay.image, for: .normal)
+        self.clearAction()
+        self.audioSlider.value = 0
+    }
     
 }
 extension MergeFilesVC: ABVideoRangeSliderDelegate {
     func didChangeValue(videoRangeSlider: ABVideoRangeSlider, startTime: Float64, endTime: Float64) {
+        if endTime - startTime <= 2 {
+            return
+        }
         if videoRangeSlider == self.videoAB {
             self.videoRange = RangeTimeSlider(start: startTime, end: endTime)
             self.videoTrigger.onNext(())

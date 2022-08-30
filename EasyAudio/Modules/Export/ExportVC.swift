@@ -15,8 +15,12 @@ import EasyBaseAudio
 class ExportVC: BaseVC {
     
     
-    var inputURL: URL?
+    enum openFrom {
+        case video, audio
+    }
     
+    var inputURL: URL?
+    var openForm: openFrom = .audio
     // Add here outlets
     @IBOutlet weak var lbDuration: UILabel!
     @IBOutlet weak var lbSize: UILabel!
@@ -64,10 +68,13 @@ extension ExportVC {
             guard let name = wSelf.tfName.text, !name.isEmpty, let url = wSelf.inputURL else {
                 return
             }
-            AudioManage.shared.changeNameFile(folderName: ConstantApp.FolderName.folderAudio.rawValue, oldURL: url, newName: name) { [weak self] outputURL in
+            let folder = (wSelf.openForm == .audio) ? ConstantApp.FolderName.folderAudio.rawValue : ConstantApp.FolderName.folderVideo.rawValue
+            AudioManage.shared.changeNameFile(folderName: folder, oldURL: url, newName: name) { [weak self] outputURL in
                 guard let wSelf = self else { return }
                 DispatchQueue.main.async {
-                    wSelf.navigationController?.popToViewController(ofClass: TabbarVC.self)
+                    let vc = TabbarVC()
+                    vc.selectedIndex = (wSelf.openForm == .audio) ? 0 : 1
+                    wSelf.navigationController?.pushViewController(vc, animated: true)
                 }
             } failure: { text in
                 print(text)
