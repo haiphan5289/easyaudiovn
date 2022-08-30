@@ -157,7 +157,7 @@ extension PlayMusicVC: AVPlayerManagerDelegate {
         if self.status == .normal {
             self.manageView.updateStatusVideo(stt: .pause)
         } else {
-            self.manageView.updateStatusVideo(stt: .play)
+            self.avplayerManager.doAVPlayer(action: .play)
         }
         
     }
