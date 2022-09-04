@@ -20,7 +20,7 @@ class TabbarVC: UITabBarController {
             case .video: return VideoVC.createVCfromStoryBoard(storyboard: .video,
                                                                instantiateViewController: .videoVC)
             case .work:  return MusicWorkVC.createVC()
-            case .setting: return AudioVC.createVC()
+            case .setting: return SettingVC.createVC()
             }
         }
         
@@ -28,7 +28,7 @@ class TabbarVC: UITabBarController {
             switch self {
             case .audio: return Asset.icAudio.image
             case .video: return Asset.icVideo.image
-            case .work: return Asset.icVideo.image
+            case .work: return Asset.icWorking.image
             case .setting: return Asset.icSettings.image
             }
         }
