@@ -505,7 +505,7 @@
 		939880012843BBD50057270F /* ExportVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExportVC.xib; sourceTree = "<group>"; };
 		939880022843BBD50057270F /* ExportVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportVM.swift; sourceTree = "<group>"; };
 		939880032843BBD50057270F /* ExportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportVC.swift; sourceTree = "<group>"; };
-		93A0C6F127EE1AD0008E6B98 /* EasyAudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyAudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A0C6F127EE1AD0008E6B98 /* Easy Edit Audio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Easy Edit Audio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A0C6F427EE1AD0008E6B98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93A0C6F627EE1AD0008E6B98 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		93A0C6F827EE1AD0008E6B98 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -1330,7 +1330,7 @@
 		93A0C6F227EE1AD0008E6B98 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				93A0C6F127EE1AD0008E6B98 /* EasyAudio.app */,
+				93A0C6F127EE1AD0008E6B98 /* Easy Edit Audio.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1474,7 +1474,7 @@
 			);
 			name = EasyAudio;
 			productName = EasyAudio;
-			productReference = 93A0C6F127EE1AD0008E6B98 /* EasyAudio.app */;
+			productReference = 93A0C6F127EE1AD0008E6B98 /* Easy Edit Audio.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1984,7 +1984,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = haiphan.EasyAudioHP;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Easy Edit Audio";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "EasyAudio/EasyAudio-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2022,7 +2022,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = haiphan.EasyAudioHP;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Easy Edit Audio";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "EasyAudio/EasyAudio-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
