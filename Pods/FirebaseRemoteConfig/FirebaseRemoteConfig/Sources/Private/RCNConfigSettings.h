@@ -31,7 +31,8 @@
 
 /// The timeout to set for outgoing fetch requests.
 @property(nonatomic, readwrite, assign) NSTimeInterval fetchTimeout;
-
+// The Google App ID of the configured FIRApp.
+@property(nonatomic, readwrite, copy) NSString *googleAppID;
 #pragma mark - Data required by config request.
 /// Device authentication ID required by config request.
 @property(nonatomic, copy) NSString *deviceAuthID;
@@ -113,6 +114,10 @@
 /// Updates the metadata table with the current fetch status.
 /// @param fetchSuccess True if fetch was successful.
 - (void)updateMetadataWithFetchSuccessStatus:(BOOL)fetchSuccess;
+
+/// Increases the throttling time. Should only be called if the fetch error indicates a server
+/// issue.
+- (void)updateExponentialBackoffTime;
 
 /// Returns true if we are in exponential backoff mode and it is not yet the next request time.
 - (BOOL)shouldThrottle;

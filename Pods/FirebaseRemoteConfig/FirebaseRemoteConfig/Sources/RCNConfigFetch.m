@@ -16,14 +16,14 @@
 
 #import "FirebaseRemoteConfig/Sources/Private/RCNConfigFetch.h"
 
-#import "FirebaseCore/Sources/Private/FirebaseCoreInternal.h"
+#import <GoogleUtilities/GULNSData+zlib.h>
+#import "FirebaseCore/Extension/FirebaseCoreInternal.h"
 #import "FirebaseInstallations/Source/Library/Private/FirebaseInstallationsInternal.h"
 #import "FirebaseRemoteConfig/Sources/Private/RCNConfigSettings.h"
 #import "FirebaseRemoteConfig/Sources/RCNConfigConstants.h"
 #import "FirebaseRemoteConfig/Sources/RCNConfigContent.h"
 #import "FirebaseRemoteConfig/Sources/RCNConfigExperiment.h"
 #import "FirebaseRemoteConfig/Sources/RCNDevice.h"
-#import "GoogleUtilities/NSData+zlib/Private/GULNSDataInternal.h"
 
 #ifdef RCN_STAGING_SERVER
 static NSString *const kServerURLDomain =
@@ -233,14 +233,17 @@ static const NSInteger sFIRErrorCodeConfigFailed = -114;
       FIRLogError(kFIRLoggerRemoteConfig, @"I-RCN000073", @"%@",
                   [NSString stringWithFormat:@"%@", errorDescription]);
       strongSelf->_settings.isFetchInProgress = NO;
+
+      NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+      userInfo[NSLocalizedDescriptionKey] = errorDescription;
+      userInfo[NSUnderlyingErrorKey] = error.userInfo[NSUnderlyingErrorKey];
+
       return [strongSelf
           reportCompletionOnHandler:completionHandler
                          withStatus:FIRRemoteConfigFetchStatusFailure
                           withError:[NSError errorWithDomain:FIRRemoteConfigErrorDomain
                                                         code:FIRRemoteConfigErrorInternalError
-                                                    userInfo:@{
-                                                      NSLocalizedDescriptionKey : errorDescription
-                                                    }]];
+                                                    userInfo:userInfo]];
     }
 
     // We have a valid token. Get the backing installationID.
@@ -265,18 +268,20 @@ static const NSInteger sFIRErrorCodeConfigFailed = -114;
         if (!identifier || error) {
           NSString *errorDescription =
               [NSString stringWithFormat:@"Error getting iid : %@.", error];
+
+          NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+          userInfo[NSLocalizedDescriptionKey] = errorDescription;
+          userInfo[NSUnderlyingErrorKey] = error.userInfo[NSUnderlyingErrorKey];
+
           FIRLogError(kFIRLoggerRemoteConfig, @"I-RCN000055", @"%@",
                       [NSString stringWithFormat:@"%@", errorDescription]);
           strongSelfQueue->_settings.isFetchInProgress = NO;
           return [strongSelfQueue
               reportCompletionOnHandler:completionHandler
                              withStatus:FIRRemoteConfigFetchStatusFailure
-                              withError:[NSError
-                                            errorWithDomain:FIRRemoteConfigErrorDomain
-                                                       code:FIRRemoteConfigErrorInternalError
-                                                   userInfo:@{
-                                                     NSLocalizedDescriptionKey : errorDescription
-                                                   }]];
+                              withError:[NSError errorWithDomain:FIRRemoteConfigErrorDomain
+                                                            code:FIRRemoteConfigErrorInternalError
+                                                        userInfo:userInfo]];
         }
 
         FIRLogInfo(kFIRLoggerRemoteConfig, @"I-RCN000022", @"Success to get iid : %@.",
@@ -387,6 +392,7 @@ static const NSInteger sFIRErrorCodeConfigFailed = -114;
               statusCode == kRCNFetchResponseHTTPStatusCodeInternalError ||
               statusCode == kRCNFetchResponseHTTPStatusCodeServiceUnavailable ||
               statusCode == kRCNFetchResponseHTTPStatusCodeGatewayTimeout) {
+            [strongSelf->_settings updateExponentialBackoffTime];
             if ([strongSelf->_settings shouldThrottle]) {
               // Must set lastFetchStatus before FailReason.
               strongSelf->_settings.lastFetchStatus = FIRRemoteConfigFetchStatusThrottled;
@@ -404,8 +410,8 @@ static const NSInteger sFIRErrorCodeConfigFailed = -114;
                                                 withStatus:strongSelf->_settings.lastFetchStatus
                                                  withError:error];
             }
-          }  // Response error code 429, 500, 503
-        }    // StatusCode != kRCNFetchResponseHTTPStatusCodeOK
+          }
+        }
         // Return back the received error.
         // Must set lastFetchStatus before setting Fetch Error.
         strongSelf->_settings.lastFetchStatus = FIRRemoteConfigFetchStatusFailure;
@@ -480,9 +486,13 @@ static const NSInteger sFIRErrorCodeConfigFailed = -114;
         // Update config content to cache and DB.
         [strongSelf->_content updateConfigContentWithResponse:fetchedConfig
                                                  forNamespace:strongSelf->_FIRNamespace];
-        // Update experiments.
-        [strongSelf->_experiment
-            updateExperimentsWithResponse:fetchedConfig[RCNFetchResponseKeyExperimentDescriptions]];
+        // Update experiments only for 3p namespace
+        NSString *namespace = [strongSelf->_FIRNamespace
+            substringToIndex:[strongSelf->_FIRNamespace rangeOfString:@":"].location];
+        if ([namespace isEqualToString:FIRNamespaceGoogleMobilePlatform]) {
+          [strongSelf->_experiment updateExperimentsWithResponse:
+                                       fetchedConfig[RCNFetchResponseKeyExperimentDescriptions]];
+        }
       } else {
         FIRLogDebug(kFIRLoggerRemoteConfig, @"I-RCN000063",
                     @"Empty response with no fetched config.");
@@ -512,16 +522,8 @@ static const NSInteger sFIRErrorCodeConfigFailed = -114;
 - (NSString *)constructServerURL {
   NSString *serverURLStr = [[NSString alloc] initWithString:kServerURLDomain];
   serverURLStr = [serverURLStr stringByAppendingString:kServerURLVersion];
-
-  if (_options.projectID) {
-    serverURLStr = [serverURLStr stringByAppendingString:kServerURLProjects];
-    serverURLStr = [serverURLStr stringByAppendingString:_options.projectID];
-  } else {
-    FIRLogError(kFIRLoggerRemoteConfig, @"I-RCN000070",
-                @"Missing `projectID` from `FirebaseOptions`, please ensure the configured "
-                @"`FirebaseApp` is configured with `FirebaseOptions` that contains a `projectID`.");
-  }
-
+  serverURLStr = [serverURLStr stringByAppendingString:kServerURLProjects];
+  serverURLStr = [serverURLStr stringByAppendingString:_options.projectID];
   serverURLStr = [serverURLStr stringByAppendingString:kServerURLNamespaces];
 
   // Get the namespace from the fully qualified namespace string of "namespace:FIRAppName".

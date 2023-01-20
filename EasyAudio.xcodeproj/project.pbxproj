@@ -1466,7 +1466,7 @@
 				93A0C6ED27EE1AD0008E6B98 /* Sources */,
 				93A0C6EE27EE1AD0008E6B98 /* Frameworks */,
 				93A0C6EF27EE1AD0008E6B98 /* Resources */,
-				719DC8CAA5FAF66C95D7653A /* [CP] Embed Pods Frameworks */,
+				CD4DE1B70A967A4CE50FDA4C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1585,7 +1585,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		719DC8CAA5FAF66C95D7653A /* [CP] Embed Pods Frameworks */ = {
+		CD4DE1B70A967A4CE50FDA4C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1964,22 +1964,26 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZX8LBHXXZB;
+				DEVELOPMENT_TEAM = 3TYP89QWY5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EasyAudio/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app requires a microphone to record Audio to make Your Audio";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "This app requires a video to make Your Audio";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app requires a video to make Your Audio";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = haiphan.EasyAudio;
+				PRODUCT_BUNDLE_IDENTIFIER = haiphan.EasyAudioHP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "EasyAudio/EasyAudio-Bridging-Header.h";
@@ -1998,22 +2002,26 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZX8LBHXXZB;
+				DEVELOPMENT_TEAM = 3TYP89QWY5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EasyAudio/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app requires a microphone to record Audio to make Your Audio";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "This app requires a video to make Your Audio";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app requires a video to make Your Audio";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = haiphan.EasyAudio;
+				PRODUCT_BUNDLE_IDENTIFIER = haiphan.EasyAudioHP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "EasyAudio/EasyAudio-Bridging-Header.h";
