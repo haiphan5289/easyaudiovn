@@ -865,6 +865,7 @@ PODS:
   - SnapKit (5.6.0)
   - SVProgressHUD (2.2.5)
   - SwiftGen (6.6.2)
+  - SwiftLint (0.50.3)
   - SwiftyGif (5.4.4)
   - SwiftyJSON (5.0.1)
   - SwiftyStoreKit (0.16.1)
@@ -897,6 +898,7 @@ DEPENDENCIES:
   - SnapKit
   - SVProgressHUD
   - SwiftGen
+  - SwiftLint
   - SwiftyJSON
   - SwiftyStoreKit
   - UIDropDown
@@ -953,6 +955,7 @@ SPEC REPOS:
     - SnapKit
     - SVProgressHUD
     - SwiftGen
+    - SwiftLint
     - SwiftyGif
     - SwiftyJSON
     - SwiftyStoreKit
@@ -1009,6 +1012,7 @@ SPEC CHECKSUMS:
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftGen: 1366a7f71aeef49954ca5a63ba4bef6b0f24138c
+  SwiftLint: 77f7cb2b9bb81ab4a12fcc86448ba3f11afa50c6
   SwiftyGif: 93a1cc87bf3a51916001cf8f3d63835fb64c819f
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
@@ -1016,6 +1020,6 @@ SPEC CHECKSUMS:
   ViewAnimator: a9ceed80266e00fd435ec4fb99b2df64d580d0e4
   WMSegmentControl: 15120246d0fdbb7530d7fa03e90c3ec6f4fa85bd
 
-PODFILE CHECKSUM: dd12b3764ab770de4c436bed74085729b24c0a15
+PODFILE CHECKSUM: 25b56781b7d8622cfdb0aecea4fbe1ce44d464ff
 
 COCOAPODS: 1.11.3

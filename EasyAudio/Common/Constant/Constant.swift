@@ -20,6 +20,7 @@ final class ConstantApp {
     
     let server: String = ""
     let linkPrivacy: String = "https://sites.google.com/view/naungonhai/trang-ch%E1%BB%A7"
+    let linkFb: String = "https://www.facebook.com/hai.hai.7399/"
 
     func getHeightSafeArea(type: GetHeightSafeArea.SafeAreaType) -> CGFloat {
         return GetHeightSafeArea.shared.getHeight(type: type)

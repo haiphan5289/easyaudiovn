@@ -37,6 +37,7 @@ pod 'Firebase/RemoteConfig'
 pod 'DKImagePickerController'
 pod 'EasyBaseCodes'
 pod 'EasyBaseAudio'
+pod 'SwiftLint'
 
 
 end

@@ -45,5 +45,14 @@ extension AboutMeVC {
             .bind { owner, _ in
                 owner.dismiss(animated: true)
             }.disposed(by: disposeBag)
+        
+        btFaceBook.rx.tap
+            .withUnretained(self)
+            .bind { owner, _ in
+                guard let url = URL(string: ConstantApp.shared.linkFb), UIApplication.shared.canOpenURL(url) else {
+                    return
+                }
+                UIApplication.shared.open(url)
+            }.disposed(by: disposeBag)
     }
 }
