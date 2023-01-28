@@ -245,6 +245,9 @@
 		93B25160286749F20008EA86 /* VideoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B2515D286749F20008EA86 /* VideoVM.swift */; };
 		93B25161286749F20008EA86 /* VideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B2515E286749F20008EA86 /* VideoVC.swift */; };
 		93B25162286749F20008EA86 /* VideoVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93B2515F286749F20008EA86 /* VideoVC.storyboard */; };
+		93C5984B298545EB005C7CD9 /* AllFilesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93C59848298545EB005C7CD9 /* AllFilesVC.xib */; };
+		93C5984C298545EB005C7CD9 /* AllFilesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C59849298545EB005C7CD9 /* AllFilesVM.swift */; };
+		93C5984D298545EB005C7CD9 /* AllFilesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C5984A298545EB005C7CD9 /* AllFilesVC.swift */; };
 		93CE5F2627FAF10000455E01 /* AudioVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93CE5F2327FAF10000455E01 /* AudioVC.xib */; };
 		93CE5F2727FAF10000455E01 /* AudioVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE5F2427FAF10000455E01 /* AudioVM.swift */; };
 		93CE5F2827FAF10000455E01 /* AudioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE5F2527FAF10000455E01 /* AudioVC.swift */; };
@@ -533,6 +536,9 @@
 		93B2515D286749F20008EA86 /* VideoVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoVM.swift; sourceTree = "<group>"; };
 		93B2515E286749F20008EA86 /* VideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoVC.swift; sourceTree = "<group>"; };
 		93B2515F286749F20008EA86 /* VideoVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VideoVC.storyboard; sourceTree = "<group>"; };
+		93C59848298545EB005C7CD9 /* AllFilesVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllFilesVC.xib; sourceTree = "<group>"; };
+		93C59849298545EB005C7CD9 /* AllFilesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllFilesVM.swift; sourceTree = "<group>"; };
+		93C5984A298545EB005C7CD9 /* AllFilesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllFilesVC.swift; sourceTree = "<group>"; };
 		93CE5F2327FAF10000455E01 /* AudioVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioVC.xib; sourceTree = "<group>"; };
 		93CE5F2427FAF10000455E01 /* AudioVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioVM.swift; sourceTree = "<group>"; };
 		93CE5F2527FAF10000455E01 /* AudioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioVC.swift; sourceTree = "<group>"; };
@@ -1114,6 +1120,7 @@
 				93A2067E282FD13D00F262EC /* ActionHome */,
 				93B25154286749A70008EA86 /* Video */,
 				93CE5F2227FAF0F000455E01 /* Audio */,
+				93C5984329854266005C7CD9 /* AllFiles */,
 				93892B3F27F9EAB700A9FECE /* Tabbar */,
 			);
 			path = Modules;
@@ -1430,6 +1437,16 @@
 			path = Video;
 			sourceTree = "<group>";
 		};
+		93C5984329854266005C7CD9 /* AllFiles */ = {
+			isa = PBXGroup;
+			children = (
+				93C59848298545EB005C7CD9 /* AllFilesVC.xib */,
+				93C59849298545EB005C7CD9 /* AllFilesVM.swift */,
+				93C5984A298545EB005C7CD9 /* AllFilesVC.swift */,
+			);
+			path = AllFiles;
+			sourceTree = "<group>";
+		};
 		93CE5F2227FAF0F000455E01 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
@@ -1545,6 +1562,7 @@
 				9389F58228BE623C00D55D92 /* Suite-No-6-In-D-Major-After-BWV-1012-Gigue-Nigel-Nort.mp3 in Resources */,
 				93AF2CA528C059BC00558246 /* SettingVC.xib in Resources */,
 				93913AF1282FE4A9009DDCF6 /* font.xib in Resources */,
+				93C5984B298545EB005C7CD9 /* AllFilesVC.xib in Resources */,
 				93913B02282FE4CF009DDCF6 /* Sample Image.jpg in Resources */,
 				9359055328464E6A00B560D7 /* ImportWifiVC.xib in Resources */,
 				93A0C6FE27EE1AD3008E6B98 /* Assets.xcassets in Resources */,
@@ -1738,6 +1756,7 @@
 				935905B22846526700B560D7 /* DDTTYLogger.m in Sources */,
 				93907D9D28C488C20018C09C /* AboutMeVC.swift in Sources */,
 				937237EC27F9E40F0077EDED /* RealmManager.swift in Sources */,
+				93C5984C298545EB005C7CD9 /* AllFilesVM.swift in Sources */,
 				9372379B27F9E3FB0077EDED /* Storage.swift in Sources */,
 				93892B3E27F9E85100A9FECE /* SettingDefaultFont.swift in Sources */,
 				935905BB2846526700B560D7 /* HYBIPHelper.m in Sources */,
@@ -1752,6 +1771,7 @@
 				935905C52846526700B560D7 /* MultipartMessageHeaderField.m in Sources */,
 				93CE5F2827FAF10000455E01 /* AudioVC.swift in Sources */,
 				937237CC27F9E4080077EDED /* ImportOptionsVC.swift in Sources */,
+				93C5984D298545EB005C7CD9 /* AllFilesVC.swift in Sources */,
 				9372375827F9E38C0077EDED /* CALayerExtension.swift in Sources */,
 				9372375427F9E38C0077EDED /* UIFont+Extension.swift in Sources */,
 				9372370A27F9E3710077EDED /* UIEdgeInsetsExtensions.swift in Sources */,
@@ -1993,7 +2013,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3TYP89QWY5;
+				DEVELOPMENT_TEAM = 665P9X9V7P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EasyAudio/Info.plist;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app requires a microphone to record Audio to make Your Audio";
@@ -2034,7 +2054,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3TYP89QWY5;
+				DEVELOPMENT_TEAM = 665P9X9V7P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EasyAudio/Info.plist;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app requires a microphone to record Audio to make Your Audio";

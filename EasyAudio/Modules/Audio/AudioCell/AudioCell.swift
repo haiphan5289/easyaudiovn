@@ -12,6 +12,7 @@ class AudioCell: UITableViewCell {
     @IBOutlet weak var lbName: UILabel!
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var lbTime: UILabel!
+    @IBOutlet weak var imageThumail: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,11 +33,15 @@ extension AudioCell {
     func setupValue(url: URL) {
         self.lbName.text = url.getName()
         self.lbTime.text = "\(url.getTime()) ● \(url.getSize() ?? 0) MB ● \(url.creation?.covertToString(format: .MMddyyyy) ?? "")"
+        let image = (url.getThumbnailImage() != nil) ? url.getThumbnailImage() : Asset.icPlacdeHolder.image
+        self.imageThumail.image = image
     }
     
     func setWork(url: URL) {
         self.lbName.text = url.getName()
         self.lbTime.text = "\(url.getSize() ?? 0) MB ● \(url.creation?.covertToString(format: .MMddyyyy) ?? "")"
+        let image = (url.getThumbnailImage() != nil) ? url.getThumbnailImage() : Asset.icPlacdeHolder.image
+        self.imageThumail.image = image
     }
     
 }

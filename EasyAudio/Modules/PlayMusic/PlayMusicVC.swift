@@ -56,7 +56,7 @@ extension PlayMusicVC {
     private func setupUI() {
         // Add here the setup for the UI
         self.heightBottomView.constant = GetHeightSafeArea.shared.getHeight(type: .bottom)
-        self.heighTopView.constant = GetHeightSafeArea.shared.getHeight(type: .top) + 50
+        self.heighTopView.constant = GetHeightSafeArea.shared.getHeight(type: .top)
         self.avplayerManager.delegate = self
         self.contentAudioView.addSubview(self.manageView)
         self.manageView.snp.makeConstraints { make in
