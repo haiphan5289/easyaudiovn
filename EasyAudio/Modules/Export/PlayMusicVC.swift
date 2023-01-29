@@ -26,6 +26,7 @@ class PlayMusicVC: UIViewController, BaseAudioProtocol {
     @IBOutlet weak var btBack: UIButton!
     @IBOutlet weak var videoFrame: UIView!
     @IBOutlet weak var imgGift: UIImageView!
+    @IBOutlet weak var favouriteButton: UIButton!
     private let manageView: ManageAudioView = .loadXib()
     var url: URL?
     var status: Status = .normal
@@ -82,7 +83,14 @@ extension PlayMusicVC {
         } else {
             self.contentAudioView.isHidden = true
         }
-
+        
+        let image = Asset.icBackBlack.image.withRenderingMode(.alwaysTemplate)
+        btBack.setImage(image, for: .normal)
+        btBack.tintColor = Asset.appColor.color
+        
+        let imag = Asset.icFavourite.image.withRenderingMode(.alwaysTemplate)
+        favouriteButton.setImage(imag, for: .normal)
+        favouriteButton.tintColor = Asset.appColor.color
     }
     
     private func setupRX() {

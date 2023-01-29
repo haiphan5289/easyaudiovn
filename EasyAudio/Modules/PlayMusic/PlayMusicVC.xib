@@ -10,10 +10,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayMusicVC" customModule="EasyAudio" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayMusicVC" customModule="Easy_Edit_Audio" customModuleProvider="target">
             <connections>
                 <outlet property="btBack" destination="vV3-bb-yqJ" id="7wl-qF-aU7"/>
                 <outlet property="contentAudioView" destination="dzi-25-b0c" id="zDn-iD-BpD"/>
+                <outlet property="favouriteButton" destination="gjH-00-fDB" id="228-Ra-6AW"/>
                 <outlet property="heighTopView" destination="HZs-a7-JW3" id="f4Q-uf-W8n"/>
                 <outlet property="heightBottomView" destination="RPq-mQ-ZQC" id="veg-JQ-S1t"/>
                 <outlet property="imgGift" destination="U3S-18-BbD" id="mFD-AX-fa1"/>
@@ -37,36 +38,49 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1dX-7A-NLI">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="128" id="HZs-a7-JW3"/>
+                                <constraint firstAttribute="height" constant="70" id="HZs-a7-JW3"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A16-UI-0oa">
-                            <rect key="frame" x="0.0" y="128" width="414" height="74"/>
+                            <rect key="frame" x="0.0" y="70" width="414" height="74"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vV3-bb-yqJ">
-                                    <rect key="frame" x="16" y="12" width="80" height="50"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="80" id="fHd-i8-lCX"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                    <state key="normal" title="Back">
-                                        <color key="titleColor" name="AppColor"/>
-                                    </state>
-                                </button>
+                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BKR-eq-dd3">
+                                    <rect key="frame" x="16" y="8" width="382" height="58"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vV3-bb-yqJ">
+                                            <rect key="frame" x="0.0" y="17" width="83" height="24"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="tintColor" name="AppColor"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" image="ic_back_black">
+                                                <color key="titleColor" name="AppColor"/>
+                                            </state>
+                                        </button>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0tT-k5-Ti8">
+                                            <rect key="frame" x="83" y="0.0" width="267" height="58"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gjH-00-fDB">
+                                            <rect key="frame" x="350" y="13" width="32" height="32"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" image="ic_favourite"/>
+                                        </button>
+                                    </subviews>
+                                </stackView>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="vV3-bb-yqJ" firstAttribute="leading" secondItem="A16-UI-0oa" secondAttribute="leading" constant="16" id="ZeI-Sp-Idc"/>
-                                <constraint firstItem="vV3-bb-yqJ" firstAttribute="top" secondItem="A16-UI-0oa" secondAttribute="top" constant="12" id="ZqV-t6-DD7"/>
-                                <constraint firstAttribute="bottom" secondItem="vV3-bb-yqJ" secondAttribute="bottom" constant="12" id="tfH-bb-Nxb"/>
+                                <constraint firstAttribute="bottom" secondItem="BKR-eq-dd3" secondAttribute="bottom" constant="8" id="CNd-bc-fZi"/>
+                                <constraint firstItem="BKR-eq-dd3" firstAttribute="leading" secondItem="A16-UI-0oa" secondAttribute="leading" constant="16" id="Cpx-0k-gnS"/>
+                                <constraint firstItem="BKR-eq-dd3" firstAttribute="top" secondItem="A16-UI-0oa" secondAttribute="top" constant="8" id="KCk-YV-rb5"/>
+                                <constraint firstAttribute="trailing" secondItem="BKR-eq-dd3" secondAttribute="trailing" constant="16" id="bR7-SR-Ai2"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eBM-B8-yh8">
-                            <rect key="frame" x="0.0" y="202" width="414" height="532"/>
+                            <rect key="frame" x="0.0" y="144" width="414" height="590"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dzi-25-b0c">
@@ -106,6 +120,8 @@
         </view>
     </objects>
     <resources>
+        <image name="ic_back_black" width="24" height="24"/>
+        <image name="ic_favourite" width="32" height="32"/>
         <namedColor name="AppColor">
             <color red="0.0" green="0.5690000057220459" blue="0.57499998807907104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AllFilesVC" customModule="Easy_Edit_Audio" customModuleProvider="target">
             <connections>
+                <outlet property="sortButton" destination="ACz-IX-oxo" id="0T9-w1-jeT"/>
                 <outlet property="tableView" destination="3MP-nY-DSw" id="TSM-Bp-CTM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,10 +23,47 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tgO-An-dzy">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="16" y="44" width="382" height="818"/>
                     <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lAb-dh-yZQ">
+                            <rect key="frame" x="0.0" y="0.0" width="382" height="70"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ZRK-zW-Qll">
+                                    <rect key="frame" x="0.0" y="16" width="382" height="34"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Files" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cov-cr-Knv">
+                                            <rect key="frame" x="0.0" y="2.5" width="86.5" height="29"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k2r-8v-8xR">
+                                            <rect key="frame" x="90.5" y="0.0" width="263.5" height="34"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACz-IX-oxo">
+                                            <rect key="frame" x="358" y="5" width="24" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="gnE-Do-8yQ"/>
+                                                <constraint firstAttribute="width" secondItem="ACz-IX-oxo" secondAttribute="height" id="jqv-SB-jc7"/>
+                                            </constraints>
+                                            <color key="tintColor" name="AppColor"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" image="ic_filter"/>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="ZRK-zW-Qll" secondAttribute="bottom" constant="20" symbolic="YES" id="BVk-Jt-Vch"/>
+                                <constraint firstItem="ZRK-zW-Qll" firstAttribute="leading" secondItem="lAb-dh-yZQ" secondAttribute="leading" id="Ow4-Vg-Rvq"/>
+                                <constraint firstAttribute="trailing" secondItem="ZRK-zW-Qll" secondAttribute="trailing" id="hyC-PL-GUg"/>
+                                <constraint firstItem="ZRK-zW-Qll" firstAttribute="top" secondItem="lAb-dh-yZQ" secondAttribute="top" constant="16" id="oZY-Os-THp"/>
+                            </constraints>
+                        </view>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3MP-nY-DSw">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                            <rect key="frame" x="0.0" y="70" width="382" height="748"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </tableView>
                     </subviews>
@@ -34,14 +73,18 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="tgO-An-dzy" secondAttribute="bottom" id="5IW-2G-aXd"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="tgO-An-dzy" secondAttribute="trailing" id="Ckf-f1-YRZ"/>
-                <constraint firstItem="tgO-An-dzy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="YWn-Xp-CgN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="tgO-An-dzy" secondAttribute="trailing" constant="16" id="Ckf-f1-YRZ"/>
+                <constraint firstItem="tgO-An-dzy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="YWn-Xp-CgN"/>
                 <constraint firstItem="tgO-An-dzy" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ylE-Ou-vIE"/>
             </constraints>
             <point key="canvasLocation" x="139" y="141"/>
         </view>
     </objects>
     <resources>
+        <image name="ic_filter" width="16" height="16"/>
+        <namedColor name="AppColor">
+            <color red="0.0" green="0.5690000057220459" blue="0.57499998807907104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

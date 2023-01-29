@@ -8,23 +8,20 @@
 
 import Foundation
 import RealmSwift
-//
-//class FolderRealm: Object {
-//    @objc dynamic var data: Data?
-//    @objc dynamic var id: Double = 0
-//
-//    init(model: FolderModel) {
-//        super.init()
+
+class FavouriteStringRealm: Object {
+    @objc dynamic var urlString: String?
+
+    init(urlStr: String) {
+        super.init()
+        self.urlString = urlStr
 //        do {
-//            self.data = try model.toData()
-//            self.id = model.id
+//            self.urlString = try urlStr.toData()
 //        } catch {
 //            print("\(error.localizedDescription)")
 //        }
-//        
-//
-//    }
-//    required init() {
-//        super.init()
-//    }
-//}
+    }
+    required init() {
+        super.init()
+    }
+}

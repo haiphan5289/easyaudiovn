@@ -40,11 +40,11 @@ class RealmManager {
         print("schemaVersion after migration:\(RLMRealmConfiguration.default().schemaVersion)")
         RLMRealm.default()
     }
-//    
-//    private func getFoldersRealm() -> [FolderRealm]  {
-//        let arr = realm.objects(FolderRealm.self).toArray(ofType: FolderRealm.self)
-//        return arr
-//    }
+    
+    private func getFavouriteStringRealm() -> [String]  {
+        let arr = realm.objects(FavouriteStringRealm.self).toArray(ofType: String.self)
+        return arr
+    }
 //
 //    func updateOrInsertConfig(model: FolderModel) {
 //        let list = self.getFoldersRealm()

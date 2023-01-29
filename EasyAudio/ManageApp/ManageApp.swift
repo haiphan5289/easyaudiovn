@@ -43,6 +43,54 @@ class ManageApp {
         
     }
     
+    func sortUrl(urls: [URL], filterType: FilterVC.FilterType) -> [URL] {
+        switch filterType {
+        case .createDateDescending:
+            return urls.sorted { item1, item2 in
+                if let date1 = item1.creation, let date2 = item2.creation {
+                    return date1.compare(date2) == ComparisonResult.orderedDescending
+                }
+                return true
+            }
+        case .createDateAscending:
+            return urls.sorted { item1, item2 in
+                if let date1 = item1.creation, let date2 = item2.creation {
+                    return date1.compare(date2) == ComparisonResult.orderedAscending
+                }
+                return true
+            }
+        case .modifiDateAscending:
+            return urls.sorted { item1, item2 in
+                if let date1 = item1.contentModification, let date2 = item2.contentModification {
+                    return date1.compare(date2) == ComparisonResult.orderedAscending
+                }
+                return true
+            }
+        case .modifiDateDescending:
+            return urls.sorted { item1, item2 in
+                if let date1 = item1.contentModification, let date2 = item2.contentModification {
+                    return date1.compare(date2) == ComparisonResult.orderedDescending
+                }
+                return true
+            }
+        case .accessedDateDescending:
+            return urls.sorted { item1, item2 in
+                if let date1 = item1.contentAccess, let date2 = item2.contentAccess {
+                    return date1.compare(date2) == ComparisonResult.orderedDescending
+                }
+                return true
+            }
+        case .accessDateAscending:
+            return urls.sorted { item1, item2 in
+                if let date1 = item1.contentAccess, let date2 = item2.contentAccess {
+                    print("\(date1) --- \(date2)")
+                    return date1.compare(date2) == ComparisonResult.orderedAscending
+                }
+                return true
+            }
+        }
+    }
+    
     //MARK: DEFAULT VALUE INAPP
     func listRawSKProduct() -> [SKProductModel] {
         var list: [SKProductModel] = []

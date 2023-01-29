@@ -10,4 +10,7 @@ import Foundation
 
 enum AppSettings {
     
+    @Storage(key: "filterType", defaultValue: FilterVC.FilterType.createDateDescending)
+    static var filterType: FilterVC.FilterType
+    
 }

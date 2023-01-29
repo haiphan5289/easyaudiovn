@@ -43,23 +43,6 @@ public extension UICollectionView {
         }
         return itemsCount
     }
-    
-    func scrollToIndex(index: Int, direction: Direction, isAnimated:Bool = true){
-        DispatchQueue.main.async {
-            let indexPath = IndexPath(
-                row: index,
-                section: self.numberOfSections - 1)
-            
-            switch direction {
-            case .hozontical:
-                self.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-            case .vertical:
-                self.scrollToItem(at: indexPath, at: .bottom, animated: true)
-            }
-            
-        }
-    }
-
     /// SwifterSwift: IndexPath for last item in section.
     ///
     /// - Parameter section: section to get last item in.
