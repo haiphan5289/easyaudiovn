@@ -13,6 +13,18 @@ import EasyBaseAudio
 protocol BaseAudioProtocol {}
 extension BaseAudioProtocol {
     
+    func presentFilter(filterType: FilterVC.FilterType, delegate: FilterDelegate) {
+        guard let topvc = ManageApp.shared.getTopViewController() else {
+            return
+        }
+        let vc = FilterVC.createVC()
+        vc.filterType = filterType
+        vc.delegate = delegate
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overFullScreen
+        topvc.present(vc, animated: true)
+    }
+    
     func moveToPlayMusic(item: URL, status: PlayMusicVC.Status = .normal) {
         guard let topvc = ManageApp.shared.getTopViewController() else {
             return

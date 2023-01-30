@@ -24,9 +24,12 @@ class AudioVC: UIViewController, BaseAudioProtocol {
     // Add here outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btAdd: UIButton!
+    @IBOutlet weak var filterButton: UIButton!
     
     // Add here your view model
     private var viewModel: AudioVM = AudioVM()
+    private let sources: BehaviorRelay<[URL]> = BehaviorRelay.init(value: [])
+    private var filter: FilterVC.FilterType = .accessedDateDescending
     
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
@@ -70,16 +73,18 @@ extension AudioVC {
         self.viewModel.sourceURLs.bind { [weak self] list in
             guard let wSelf = self else { return }
             list.isEmpty ? wSelf.tableView.setEmptyMessage(emptyView: EmptyView(frame: .zero)) : wSelf.tableView.restore()
+            let list = ManageApp.shared.sortUrl(urls: list, filterType: AppSettings.filterType)
+            wSelf.sources.accept(list)
         }.disposed(by: self.disposeBag)
         
-        self.viewModel.sourceURLs.asObservable()
+        self.sources.asObservable()
             .bind(to: tableView.rx.items(cellIdentifier: AudioCell.identifier, cellType: AudioCell.self)) {(row, element, cell) in
-                cell.setupValue(url: element)
+                cell.setupValue(url: element, filterType: self.filter)
             }.disposed(by: disposeBag)
         
         self.tableView.rx.itemSelected.bind { [weak self] idx in
             guard let wSelf = self else { return }
-            let urlFile = wSelf.viewModel.sourceURLs.value[idx.row]
+            let urlFile = wSelf.sources.value[idx.row]
             wSelf.moveToPlayMusic(item: urlFile)
         }.disposed(by: disposeBag)
         
@@ -91,6 +96,12 @@ extension AudioVC {
             vc.modalPresentationStyle = .overFullScreen
             wSelf.present(vc, animated: true, completion: nil)
         }.disposed(by: self.disposeBag)
+        
+        filterButton.rx.tap
+            .withUnretained(self)
+            .bind { owner, _ in
+                owner.presentFilter(filterType: owner.filter, delegate: owner)
+            }.disposed(by: disposeBag)
     }
     
     private func moveToEdit(url: URL) {
@@ -160,6 +171,12 @@ extension AudioVC: AdditionAudioDelegate {
             vc.delegate = self
             self.navigationController?.pushViewController(vc, animated: true)
         }
+    }
+}
+extension AudioVC: FilterDelegate {
+    func selectFilter(filterType: FilterVC.FilterType) {
+        self.filter = filterType
+        viewModel.getURLs()
     }
 }
 extension AudioVC: ImportWifiDelegate {
@@ -245,12 +262,14 @@ extension AudioVC: UITableViewDelegate {
             // Context menu with title.
 
             // Use the IndexPathContextMenu protocol to produce the UIActions.
+            let rename = self.renameAction(indexPath)
             let shareAction = self.shareAction(indexPath)
             let deleteAction = self.deleteAction(indexPath)
 
             return UIMenu(title: "",
                           children: [shareAction,
-                                     deleteAction])
+                                     deleteAction,
+                                     rename])
         })
     }
     
@@ -293,13 +312,13 @@ extension AudioVC: IndexPathContextMenu {
     }
     
     func deleteAcionPerform(_ indexPath: IndexPath) {
-        let url = self.viewModel.sourceURLs.value[indexPath.row]
+        let url = self.sources.value[indexPath.row]
         AudioManage.shared.deleteFile(filePath: url)
         self.viewModel.getURLs()
     }
     
     func shareActionPerform(_ indexPath: IndexPath) {
-        let url = self.viewModel.sourceURLs.value[indexPath.row]
+        let url = self.sources.value[indexPath.row]
         self.presentActivty(url: url)
     }
     

@@ -124,7 +124,7 @@ extension IndexPathContextMenu {
     }
     
     func renameAction(_ indexPath: IndexPath) -> UIAction {
-        return UIAction(title: "L10n.Home.rename",
+        return UIAction(title: "Rename",
                         image: UIImage(systemName: "pencil")) { action in
             self.renameActionPerform(indexPath)
         }

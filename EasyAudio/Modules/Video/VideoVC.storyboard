@@ -13,7 +13,7 @@
         <!--VideoVC-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="VideoVC" id="Y6W-OH-hqX" customClass="VideoVC" customModule="EasyAudio" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VideoVC" id="Y6W-OH-hqX" customClass="VideoVC" customModule="Easy_Edit_Audio" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,17 +24,17 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ns-66-w9R">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="60"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Swu-I5-V7l">
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Swu-I5-V7l">
                                                 <rect key="frame" x="0.0" y="16" width="382" height="24"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Videos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehB-sf-2C7">
-                                                        <rect key="frame" x="0.0" y="0.0" width="358" height="24"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="326" height="24"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Xt-b8-6El">
-                                                        <rect key="frame" x="358" y="0.0" width="24" height="24"/>
+                                                        <rect key="frame" x="330" y="0.0" width="24" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="24" id="Trc-S8-Oju"/>
                                                             <constraint firstAttribute="height" constant="24" id="chh-q1-3P0"/>
@@ -43,7 +43,21 @@
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" image="plus.app" catalog="system"/>
                                                     </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39Y-9w-ruq">
+                                                        <rect key="frame" x="358" y="0.0" width="24" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="24" id="9KA-dl-kni"/>
+                                                            <constraint firstAttribute="width" secondItem="39Y-9w-ruq" secondAttribute="height" id="xat-Mj-Pa4"/>
+                                                        </constraints>
+                                                        <color key="tintColor" name="AppColor"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="ic_filter"/>
+                                                    </button>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="39Y-9w-ruq" firstAttribute="width" secondItem="39Y-9w-ruq" secondAttribute="height" id="0ax-gz-hxM"/>
+                                                    <constraint firstItem="39Y-9w-ruq" firstAttribute="width" secondItem="39Y-9w-ruq" secondAttribute="height" id="niQ-IB-7gN"/>
+                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -80,6 +94,7 @@
                     <connections>
                         <outlet property="btAction" destination="0Xt-b8-6El" id="YUy-G8-Jhu"/>
                         <outlet property="collectionView" destination="A5l-N1-kon" id="qcI-ss-xPh"/>
+                        <outlet property="filterButton" destination="39Y-9w-ruq" id="P3D-tY-Os7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -88,6 +103,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic_filter" width="16" height="16"/>
         <image name="plus.app" catalog="system" width="128" height="114"/>
         <namedColor name="AppColor">
             <color red="0.0" green="0.5690000057220459" blue="0.57499998807907104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

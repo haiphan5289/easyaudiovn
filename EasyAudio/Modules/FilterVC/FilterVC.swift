@@ -39,6 +39,7 @@ class FilterVC: UIViewController {
     @IBOutlet weak var updatedButton: UIButton!
     @IBOutlet weak var imageAccess: UIImageView!
     @IBOutlet weak var accessButton: UIButton!
+    @IBOutlet weak var closeButton: UIButton!
     
     // Add here your view model
     private var viewModel: FilterVM = FilterVM()
@@ -111,6 +112,12 @@ extension FilterVC {
                 owner.dismiss(animated: true) {
                     owner.delegate?.selectFilter(filterType: owner.filterType)
                 }
+            }.disposed(by: disposeBag)
+        
+        closeButton.rx.tap
+            .withUnretained(self)
+            .bind { owner, _ in
+                owner.dismiss(animated: true)
             }.disposed(by: disposeBag)
     }
 }

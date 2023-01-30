@@ -57,7 +57,7 @@ extension AllFilesVC {
         
         self.sources
             .bind(to: tableView.rx.items(cellIdentifier: AudioCell.identifier, cellType: AudioCell.self)) {(row, element, cell) in
-                cell.setupValue(url: element)
+                cell.setupValue(url: element, filterType: AppSettings.filterType)
             }.disposed(by: disposeBag)
         
         self.tableView.rx.itemSelected.bind { [weak self] idx in
@@ -69,12 +69,7 @@ extension AllFilesVC {
         sortButton.rx.tap
             .withUnretained(self)
             .bind { owner, _ in
-                let vc = FilterVC.createVC()
-                vc.filterType = AppSettings.filterType
-                vc.delegate = owner
-                vc.modalTransitionStyle = .crossDissolve
-                vc.modalPresentationStyle = .overFullScreen
-                owner.present(vc, animated: true)
+                owner.presentFilter(filterType: AppSettings.filterType, delegate: owner)
             }.disposed(by: disposeBag)
         
     }

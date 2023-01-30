@@ -15,7 +15,7 @@ import EasyBaseAudio
 import SVProgressHUD
 import VisionKit
 
-class VideoVC: UIViewController {
+class VideoVC: UIViewController, BaseAudioProtocol {
     
     struct Constant {
         static let numberOfCellisThree: CGFloat = 3
@@ -25,9 +25,12 @@ class VideoVC: UIViewController {
     // Add here outlets
     @IBOutlet weak var btAction: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var filterButton: UIButton!
     
     // Add here your view model
     private var viewModel: VideoVM = VideoVM()
+    private var filter: FilterVC.FilterType = .accessedDateDescending
+    private var sources: BehaviorRelay<[URL]> = BehaviorRelay.init(value: [])
     private var sizeCell: CGSize = CGSize.zero
     
     private let disposeBag = DisposeBag()
@@ -51,6 +54,12 @@ extension VideoVC {
         self.collectionView.register(VideoCell.nib, forCellWithReuseIdentifier: VideoCell.identifier)
         self.collectionView.delegate = self
         self.viewModel.getURLs()
+        DispatchQueue.main.async {
+            let w = ((self.collectionView.bounds.size.width) - (Constant.spacingCell * 2)) / Constant.numberOfCellisThree
+            self.sizeCell = CGSize(width: w, height: w)
+            self.collectionView.reloadData()
+        }
+        
     }
     
     private func setupRX() {
@@ -59,12 +68,11 @@ extension VideoVC {
             .bind { [weak self] list in
                 guard let wSelf = self else { return }
                 list.isEmpty ? wSelf.collectionView.setEmptyMessage(emptyView: EmptyView(frame: .zero)) : wSelf.collectionView.restore()
-                let w = ((wSelf.collectionView.bounds.size.width) - (Constant.spacingCell * 2)) / Constant.numberOfCellisThree
-                wSelf.sizeCell = CGSize(width: w, height: w)
-                wSelf.collectionView.reloadData()
+                let list = ManageApp.shared.sortUrl(urls: list, filterType: wSelf.filter)
+                wSelf.sources.accept(list)
             }.disposed(by: self.disposeBag)
         
-        self.viewModel.sourceURLs
+        self.sources
             .bind(to: self.collectionView.rx.items(cellIdentifier: VideoCell.identifier, cellType: VideoCell.self)) { row, data, cell in
                 cell.setupVideo(videoURL: data)
             }.disposed(by: disposeBag)
@@ -74,7 +82,7 @@ extension VideoVC {
             .itemSelected
             .withUnretained(self)
             .bind { owner, idx in
-                let item = owner.viewModel.sourceURLs.value[idx.row]
+                let item = owner.sources.value[idx.row]
                 let vc = PlayMusicVC.createVC()
                 vc.url = item
                 owner.navigationController?.pushViewController(vc, completion: nil)
@@ -89,6 +97,12 @@ extension VideoVC {
             vc.modalPresentationStyle = .overFullScreen
             wSelf.present(vc, animated: true, completion: nil)
         }.disposed(by: self.disposeBag)
+        
+        filterButton.rx.tap
+            .withUnretained(self)
+            .bind { owner, _ in
+                owner.presentFilter(filterType: owner.filter, delegate: owner)
+            }.disposed(by: disposeBag)
     }
     
     private func addToFolderVideo(videoURL: URL) {
@@ -102,6 +116,12 @@ extension VideoVC {
     }
     
 }
+extension VideoVC: FilterDelegate {
+    func selectFilter(filterType: FilterVC.FilterType) {
+        self.filter = filterType
+        viewModel.getURLs()
+    }
+}
 extension VideoVC: ActionHomeDelegate {
     func action(action: ActionHomeVC.Action) {
         switch action {
@@ -110,6 +130,7 @@ extension VideoVC: ActionHomeDelegate {
             vc.modalTransitionStyle = .crossDissolve
             vc.modalPresentationStyle = .overFullScreen
             vc.delegate = self
+            vc.status = .mute
             self.present(vc, animated: true, completion: nil)
         case .recording:
             let vc = RecordingVC.createVC()
@@ -195,23 +216,31 @@ extension VideoVC: UIDocumentPickerDelegate {
         guard let first = urls.first else {
             return
         }
-        SVProgressHUD.show()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            AudioManage.shared.covertToCAF(folderConvert: ConstantApp.FolderName.folderEdit.rawValue,
-                                           url: first,
-                                           type: .caf) { [weak self] outputURLBrowser in
-                guard let wSelf = self else { return }
-                DispatchQueue.main.async {
-                    wSelf.addToFolderVideo(videoURL: outputURLBrowser)
-                    SVProgressHUD.dismiss()
-                }
-
-            } failure: { [weak self] text in
+        self.convertFromCloud(videoURL: first) { [weak self] outputURL in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.addToFolderVideo(videoURL: outputURL)
                 SVProgressHUD.dismiss()
-                guard let wSelf = self else { return }
-                wSelf.showAlert(title: nil, message: text)
             }
         }
+        
+//        SVProgressHUD.show()
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//            AudioManage.shared.covertToCAF(folderConvert: ConstantApp.FolderName.folderEdit.rawValue,
+//                                           url: first,
+//                                           type: .caf) { [weak self] outputURLBrowser in
+//                guard let wSelf = self else { return }
+//                DispatchQueue.main.async {
+//                    wSelf.addToFolderVideo(videoURL: outputURLBrowser)
+//                    SVProgressHUD.dismiss()
+//                }
+//
+//            } failure: { [weak self] text in
+//                SVProgressHUD.dismiss()
+//                guard let wSelf = self else { return }
+//                wSelf.showAlert(title: nil, message: text)
+//            }
+//        }
 
     }
 }

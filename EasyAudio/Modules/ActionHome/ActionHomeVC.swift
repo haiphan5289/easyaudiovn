@@ -58,7 +58,6 @@ extension ActionHomeVC {
         }
         
         if self.statusView == .video {
-            self.views[Action.add.rawValue].isHidden = true
             self.views[Action.recording.rawValue].isHidden = true
         }
         

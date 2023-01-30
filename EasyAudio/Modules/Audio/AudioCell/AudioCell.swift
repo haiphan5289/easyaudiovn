@@ -30,9 +30,18 @@ class AudioCell: UITableViewCell {
 }
 extension AudioCell {
     
-    func setupValue(url: URL) {
+    func setupValue(url: URL, filterType: FilterVC.FilterType) {
         self.lbName.text = url.getName()
-        self.lbTime.text = "\(url.getTime()) ● \(url.getSize() ?? 0) MB ● \(url.creation?.covertToString(format: .MMddyyyy) ?? "")"
+        var dateStr: String = ""
+        switch filterType {
+        case .accessDateAscending, .accessedDateDescending:
+            dateStr = url.contentAccess?.covertToString(format: .MMddyyyy) ?? ""
+        case .modifiDateDescending, .modifiDateAscending:
+            dateStr = url.contentModification?.covertToString(format: .MMddyyyy) ?? ""
+        case .createDateAscending, .createDateDescending:
+            dateStr = url.creation?.covertToString(format: .MMddyyyy) ?? ""
+        }
+        self.lbTime.text = "\(url.getTime()) ● \(url.getSize() ?? 0) MB ● \(dateStr)"
         let image = (url.getThumbnailImage() != nil) ? url.getThumbnailImage() : Asset.icPlacdeHolder.image
         self.imageThumail.image = image
     }

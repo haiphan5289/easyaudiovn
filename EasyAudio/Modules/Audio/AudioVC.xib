@@ -10,9 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AudioVC" customModule="EasyAudio" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AudioVC" customModule="Easy_Edit_Audio" customModuleProvider="target">
             <connections>
                 <outlet property="btAdd" destination="PEu-YV-Ry9" id="XZh-uq-92Y"/>
+                <outlet property="filterButton" destination="r6t-IM-zas" id="TVU-rl-IhV"/>
                 <outlet property="tableView" destination="R1k-Wx-vpi" id="0VP-Iw-pXj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -28,17 +29,17 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="71t-pY-i14">
                             <rect key="frame" x="0.0" y="0.0" width="382" height="60"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Zzu-VM-Ecx">
+                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Zzu-VM-Ecx">
                                     <rect key="frame" x="0.0" y="16" width="382" height="24"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Audios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgA-aY-kDk">
-                                            <rect key="frame" x="0.0" y="0.0" width="358" height="24"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="326" height="24"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PEu-YV-Ry9">
-                                            <rect key="frame" x="358" y="0.0" width="24" height="24"/>
+                                            <rect key="frame" x="330" y="0.0" width="24" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="hTk-9G-VkU"/>
                                                 <constraint firstAttribute="width" constant="24" id="xwb-Hn-T7e"/>
@@ -47,7 +48,20 @@
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" image="plus.app" catalog="system"/>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6t-IM-zas">
+                                            <rect key="frame" x="358" y="0.0" width="24" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="JBW-mo-8M4"/>
+                                                <constraint firstAttribute="width" secondItem="r6t-IM-zas" secondAttribute="height" id="dIt-c7-0ps"/>
+                                            </constraints>
+                                            <color key="tintColor" name="AppColor"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" image="ic_filter"/>
+                                        </button>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="r6t-IM-zas" firstAttribute="width" secondItem="r6t-IM-zas" secondAttribute="height" id="bYV-HD-YMg"/>
+                                    </constraints>
                                 </stackView>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -77,6 +91,7 @@
         </view>
     </objects>
     <resources>
+        <image name="ic_filter" width="16" height="16"/>
         <image name="plus.app" catalog="system" width="128" height="114"/>
         <namedColor name="AppColor">
             <color red="0.0" green="0.5690000057220459" blue="0.57499998807907104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

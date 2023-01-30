@@ -31,6 +31,7 @@ class AudioImportVC: UIViewController {
     // Add here your view model
     private var viewModel: AudioImportVM!
     @VariableReplay private var urls: [URL] = []
+    private var filter: FilterVC.FilterType = .accessedDateDescending
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +59,7 @@ extension AudioImportVC {
         
         self.viewModel.$urls.asObservable()
             .bind(to: tableView.rx.items(cellIdentifier: AudioCell.identifier, cellType: AudioCell.self)) {(row, element, cell) in
-                cell.setupValue(url: element)
+                cell.setupValue(url: element, filterType: self.filter)
             }.disposed(by: disposeBag)
         
         self.tableView.rx.itemSelected.bind { [weak self] idx in
