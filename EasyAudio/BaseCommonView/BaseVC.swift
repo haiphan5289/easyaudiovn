@@ -82,22 +82,5 @@ class BaseVC: UIViewController {
         
         navigationItem.leftBarButtonItem = leftBarButton
     }
-    
-    func setupNavigation() {
-        buttonLeft.setImage(UIImage(named: "icArrowLeft"), for: .normal)
-        buttonLeft.contentEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
-        let leftBarButton = UIBarButtonItem(customView: buttonLeft)
-        
-        buttonPlus.setImage(UIImage(named: "icPlus"), for: .normal)
-        buttonPlus.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -16)
-        let rightBarButton = UIBarButtonItem(customView: buttonPlus)
-        
-        btSearch.setImage(UIImage(named: "icSearch"), for: .normal)
-        btSearch.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -16)
-        let btSeatchBar = UIBarButtonItem(customView: btSearch)
-        
-        navigationItem.leftBarButtonItem = leftBarButton
-        navigationItem.rightBarButtonItems = [rightBarButton, btSeatchBar]
-        
-    }
+
 }

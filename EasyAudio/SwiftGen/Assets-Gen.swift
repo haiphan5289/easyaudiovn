@@ -37,6 +37,7 @@ internal enum Asset {
   internal static let appColor = ColorAsset(name: "AppColor")
   internal static let blackOpacity60 = ColorAsset(name: "blackOpacity60")
   internal static let lineColor = ColorAsset(name: "lineColor")
+  internal static let icArrowWhite = ImageAsset(name: "ic_arrow_white")
   internal static let icBackBlack = ImageAsset(name: "ic_back_black")
   internal static let icClose16 = ImageAsset(name: "ic_close16")
   internal static let icFavourite = ImageAsset(name: "ic_favourite")

@@ -65,5 +65,76 @@ public extension UIViewController {
         }
         self.present(activityVC, animated: true, completion: nil)
     }
+    
+    func removeBorder(font: UIFont, bgColor: UIColor, textColor: UIColor) {
+        if #available(iOS 15, *) {
+            let appearance = UINavigationBarAppearance()
+            let atts = [NSAttributedString.Key.font: font, NSAttributedString.Key.foregroundColor: textColor]
+            appearance.configureWithOpaqueBackground()
+            appearance.configureWithTransparentBackground()
+            appearance.titleTextAttributes = atts
+            appearance.backgroundColor = bgColor
+            if let navBar = self.navigationController {
+                let bar = navBar.navigationBar
+                bar.standardAppearance = appearance
+                bar.scrollEdgeAppearance = appearance
+            }
+        } else {
+            self.navigationController?.hideHairline()
+        }
+    }
+    
+    func navigationBarCustom(font: UIFont,
+                             bgColor: UIColor,
+                             textColor: UIColor,
+                             isTranslucent: Bool = true) {
+        self.navigationController?.navigationBar.isTranslucent = isTranslucent
+        self.navigationController?.navigationBar.barTintColor = bgColor
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: textColor,
+                                                                        NSAttributedString.Key.font: font]
+        self.setupNavigationBariOS15(font: font,
+                                     bgColor: bgColor,
+                                     textColor: textColor,
+                                     isTranslucent: isTranslucent)
+    }
+    
+    func setupNavigationBariOS15(font: UIFont, bgColor: UIColor, textColor: UIColor, isTranslucent: Bool = true) {
+        if #available(iOS 15.0, *) {
+            let atts = [NSAttributedString.Key.font: font, NSAttributedString.Key.foregroundColor: textColor]
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.titleTextAttributes = atts
+            appearance.backgroundColor = bgColor
+            
+            if let navBar = self.navigationController {
+                let bar = navBar.navigationBar
+                bar.standardAppearance = appearance
+                bar.scrollEdgeAppearance = appearance
+//                bar.compactScrollEdgeAppearance = appearance
+            }
+            
+        }
+    }
+    
+    func setupNavigationVer2() {
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.barTintColor = .white
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
+                                                                        NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18)]
+    }
+    
+    func customLeftBarButtonVer2(imgArrow: UIImage){
+        let buttonLeft = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: 44, height: 44)))
+        buttonLeft.setTitleColor(.white, for: .normal)
+        buttonLeft.setImage(imgArrow, for: .normal)
+        buttonLeft.contentEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
+        let leftBarButton = UIBarButtonItem(customView: buttonLeft)
+        navigationItem.leftBarButtonItem = leftBarButton
+        buttonLeft.addTarget(self, action: #selector(handleClickBackNavigation), for: .touchUpInside)
+    }
+    
+    @objc func handleClickBackNavigation() {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 

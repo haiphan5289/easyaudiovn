@@ -267,9 +267,9 @@ extension AudioVC: UITableViewDelegate {
             let deleteAction = self.deleteAction(indexPath)
 
             return UIMenu(title: "",
-                          children: [shareAction,
-                                     deleteAction,
-                                     rename])
+                          children: [rename,
+                                     shareAction,
+                                     deleteAction])
         })
     }
     
@@ -289,6 +289,11 @@ extension AudioVC: IndexPathContextMenu {
     }
     
     func renameActionPerform(_ indexPath: IndexPath) {
+        let vc = RenameFileVC.createVC()
+        let url = self.sources.value[indexPath.row]
+        vc.url = url
+        vc.delegate = self
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func editActionPerform(_ indexPath: IndexPath) {
@@ -327,4 +332,11 @@ extension AudioVC: UIDocumentInteractionControllerDelegate {
     func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {
         return self
     }
+}
+extension AudioVC: RenameProtocol {
+    func changeNameSuccess() {
+        viewModel.getURLs()
+    }
+    
+    
 }

@@ -226,6 +226,9 @@
 		93A20689282FD8F000F262EC /* AdditionAudioVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93A20686282FD8F000F262EC /* AdditionAudioVC.xib */; };
 		93A2068A282FD8F000F262EC /* AdditionAudioVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A20687282FD8F000F262EC /* AdditionAudioVM.swift */; };
 		93A2068B282FD8F000F262EC /* AdditionAudioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A20688282FD8F000F262EC /* AdditionAudioVC.swift */; };
+		93A52ADC2987F926005EF39D /* RenameFileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93A52AD92987F926005EF39D /* RenameFileVC.xib */; };
+		93A52ADD2987F926005EF39D /* RenameFileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A52ADA2987F926005EF39D /* RenameFileVM.swift */; };
+		93A52ADE2987F926005EF39D /* RenameFileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A52ADB2987F926005EF39D /* RenameFileVC.swift */; };
 		93A9D7BF284261D7009F9D49 /* AudioImportVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93A9D7BC284261D7009F9D49 /* AudioImportVC.xib */; };
 		93A9D7C0284261D7009F9D49 /* AudioImportVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9D7BD284261D7009F9D49 /* AudioImportVM.swift */; };
 		93A9D7C1284261D7009F9D49 /* AudioImportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9D7BE284261D7009F9D49 /* AudioImportVC.swift */; };
@@ -516,6 +519,9 @@
 		93A20686282FD8F000F262EC /* AdditionAudioVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdditionAudioVC.xib; sourceTree = "<group>"; };
 		93A20687282FD8F000F262EC /* AdditionAudioVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionAudioVM.swift; sourceTree = "<group>"; };
 		93A20688282FD8F000F262EC /* AdditionAudioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionAudioVC.swift; sourceTree = "<group>"; };
+		93A52AD92987F926005EF39D /* RenameFileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RenameFileVC.xib; sourceTree = "<group>"; };
+		93A52ADA2987F926005EF39D /* RenameFileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameFileVM.swift; sourceTree = "<group>"; };
+		93A52ADB2987F926005EF39D /* RenameFileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameFileVC.swift; sourceTree = "<group>"; };
 		93A9D7BC284261D7009F9D49 /* AudioImportVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioImportVC.xib; sourceTree = "<group>"; };
 		93A9D7BD284261D7009F9D49 /* AudioImportVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioImportVM.swift; sourceTree = "<group>"; };
 		93A9D7BE284261D7009F9D49 /* AudioImportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioImportVC.swift; sourceTree = "<group>"; };
@@ -1098,6 +1104,7 @@
 		9372380527F9E4A40077EDED /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				93A52AD82987F913005EF39D /* RenameFile */,
 				93907D9728C488B30018C09C /* AboutMe */,
 				93AF2CA128C059A800558246 /* Settings */,
 				9389F58328BE628B00D55D92 /* MusicWork */,
@@ -1391,6 +1398,16 @@
 			path = AdditionAudio;
 			sourceTree = "<group>";
 		};
+		93A52AD82987F913005EF39D /* RenameFile */ = {
+			isa = PBXGroup;
+			children = (
+				93A52AD92987F926005EF39D /* RenameFileVC.xib */,
+				93A52ADA2987F926005EF39D /* RenameFileVM.swift */,
+				93A52ADB2987F926005EF39D /* RenameFileVC.swift */,
+			);
+			path = RenameFile;
+			sourceTree = "<group>";
+		};
 		93A9D7BB28426168009F9D49 /* AudioImport */ = {
 			isa = PBXGroup;
 			children = (
@@ -1594,6 +1611,7 @@
 				939880042843BBD50057270F /* ExportVC.xib in Resources */,
 				93CE5F3E27FB471100455E01 /* AudioCell.xib in Resources */,
 				93913B05282FE4CF009DDCF6 /* FontsFree-Net-SFProText-Regular.ttf in Resources */,
+				93A52ADC2987F926005EF39D /* RenameFileVC.xib in Resources */,
 				93A20682282FD15300F262EC /* ActionHomeVC.xib in Resources */,
 				93987FF828432ACB0057270F /* MixAudioVC.xib in Resources */,
 				9389F57828BE5EB100D55D92 /* image_gift_7.gif in Resources */,
@@ -1796,10 +1814,12 @@
 				935905C82846526700B560D7 /* HTTPAuthenticationRequest.m in Sources */,
 				9372370E27F9E3710077EDED /* UIStackViewExtensions.swift in Sources */,
 				9372376A27F9E38C0077EDED /* Font+Extension.swift in Sources */,
+				93A52ADE2987F926005EF39D /* RenameFileVC.swift in Sources */,
 				9372372827F9E3710077EDED /* UIAlertControllerExtensions.swift in Sources */,
 				9372371527F9E3710077EDED /* UITabBarExtensions.swift in Sources */,
 				93B73A1329862C3900D11FE4 /* FilterVM.swift in Sources */,
 				935905C92846526700B560D7 /* DDNumber.m in Sources */,
+				93A52ADD2987F926005EF39D /* RenameFileVM.swift in Sources */,
 				935905C22846526700B560D7 /* HTTPMessage.m in Sources */,
 				935905B02846526700B560D7 /* GCDAsyncSocket.m in Sources */,
 				937237D027F9E4080077EDED /* QuickActionsView.swift in Sources */,
