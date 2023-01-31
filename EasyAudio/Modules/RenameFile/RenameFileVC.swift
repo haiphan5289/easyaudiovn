@@ -92,7 +92,7 @@ extension RenameFileVC {
                         let newPath = folder + name
                         let result = try await AudioManage.shared.onlyChangeFile(old: url, new: newPath)
                         switch result {
-                        case .success(let url):
+                        case .success:
                             DispatchQueue.main.async {
                                 owner.navigationController?.popViewController(animated: true, {
                                     owner.delegate?.changeNameSuccess()

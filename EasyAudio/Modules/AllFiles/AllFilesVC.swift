@@ -12,6 +12,7 @@ import RxCocoa
 import RxSwift
 import EasyBaseCodes
 import EasyBaseAudio
+import VisionKit
 
 class AllFilesVC: UIViewController, BaseAudioProtocol {
     
@@ -75,6 +76,25 @@ extension AllFilesVC {
     }
 }
 extension AllFilesVC: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView,
+                            contextMenuConfigurationForRowAt indexPath: IndexPath,
+                            point: CGPoint) -> UIContextMenuConfiguration? {
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: { suggestedActions in
+            // Context menu with title.
+
+            // Use the IndexPathContextMenu protocol to produce the UIActions.
+            let rename = self.renameAction(indexPath)
+            let shareAction = self.shareAction(indexPath)
+            let deleteAction = self.deleteAction(indexPath)
+
+            return UIMenu(title: "",
+                          children: [rename,
+                                     shareAction,
+                                     deleteAction])
+        })
+    }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0.1
     }
@@ -88,4 +108,51 @@ extension AllFilesVC: FilterDelegate {
         AppSettings.filterType = filterType
         viewModel.getURLs()
     }
+}
+extension AllFilesVC: RenameProtocol {
+    func changeNameSuccess() {
+        viewModel.getURLs()
+    }
+}
+extension AllFilesVC: IndexPathContextMenu {
+    func deleteFolderPerform(_ indexPath: IndexPath) {
+        
+    }
+    
+    func renameActionPerform(_ indexPath: IndexPath) {
+        let url = self.sources.value[indexPath.row]
+        self.moveToRename(url: url, delegate: self)
+    }
+    
+    func editActionPerform(_ indexPath: IndexPath) {
+        
+    }
+    
+    func starActionPerform(_ indexPath: IndexPath) {
+        
+    }
+    
+    func duplicateActionPerform(_ indexPath: IndexPath) {
+        
+    }
+    
+    func saveToCameraActionPerform(_ indexPath: IndexPath) {
+        
+    }
+    
+    func moveToTrashActionPerform(_ indexPath: IndexPath) {
+        
+    }
+    
+    func deleteAcionPerform(_ indexPath: IndexPath) {
+        let url = self.sources.value[indexPath.row]
+        AudioManage.shared.deleteFile(filePath: url)
+        self.viewModel.getURLs()
+    }
+    
+    func shareActionPerform(_ indexPath: IndexPath) {
+        let url = self.sources.value[indexPath.row]
+        self.presentActivty(url: url)
+    }
+    
 }

@@ -289,11 +289,8 @@ extension AudioVC: IndexPathContextMenu {
     }
     
     func renameActionPerform(_ indexPath: IndexPath) {
-        let vc = RenameFileVC.createVC()
         let url = self.sources.value[indexPath.row]
-        vc.url = url
-        vc.delegate = self
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.moveToRename(url: url, delegate: self)
     }
     
     func editActionPerform(_ indexPath: IndexPath) {

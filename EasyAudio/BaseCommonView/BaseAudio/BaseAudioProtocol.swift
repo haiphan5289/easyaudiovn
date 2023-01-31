@@ -13,6 +13,16 @@ import EasyBaseAudio
 protocol BaseAudioProtocol {}
 extension BaseAudioProtocol {
     
+    func moveToRename(url: URL, delegate: RenameProtocol) {
+        guard let topvc = ManageApp.shared.getTopViewController() else {
+            return
+        }
+        let vc = RenameFileVC.createVC()
+        vc.url = url
+        vc.delegate = delegate
+        topvc.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func presentFilter(filterType: FilterVC.FilterType, delegate: FilterDelegate) {
         guard let topvc = ManageApp.shared.getTopViewController() else {
             return
