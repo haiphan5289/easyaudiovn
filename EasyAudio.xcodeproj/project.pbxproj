@@ -234,6 +234,9 @@
 		93A9D7C1284261D7009F9D49 /* AudioImportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9D7BE284261D7009F9D49 /* AudioImportVC.swift */; };
 		93ACF9A6298A9E1C00DF09C0 /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ACF9A5298A9E1C00DF09C0 /* UITableViewExtensions.swift */; };
 		93ACF9AE298AA46700DF09C0 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ACF9AD298AA46700DF09C0 /* UIView+Extension.swift */; };
+		93ACF9B0298AA5B900DF09C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93ACF9AF298AA5B900DF09C0 /* GoogleService-Info.plist */; };
+		93ACF9B7298AA6F000DF09C0 /* ForceUpdateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93ACF9B6298AA6F000DF09C0 /* ForceUpdateView.xib */; };
+		93ACF9B9298AA70400DF09C0 /* ForceUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ACF9B8298AA70400DF09C0 /* ForceUpdateView.swift */; };
 		93AF2CA528C059BC00558246 /* SettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93AF2CA228C059BC00558246 /* SettingVC.xib */; };
 		93AF2CA628C059BC00558246 /* SettingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AF2CA328C059BC00558246 /* SettingVM.swift */; };
 		93AF2CA728C059BC00558246 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AF2CA428C059BC00558246 /* SettingVC.swift */; };
@@ -525,6 +528,9 @@
 		93A9D7BE284261D7009F9D49 /* AudioImportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioImportVC.swift; sourceTree = "<group>"; };
 		93ACF9A5298A9E1C00DF09C0 /* UITableViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITableViewExtensions.swift; path = ../../../../../UITableViewExtensions.swift; sourceTree = "<group>"; };
 		93ACF9AD298AA46700DF09C0 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		93ACF9AF298AA5B900DF09C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		93ACF9B6298AA6F000DF09C0 /* ForceUpdateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForceUpdateView.xib; sourceTree = "<group>"; };
+		93ACF9B8298AA70400DF09C0 /* ForceUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForceUpdateView.swift; sourceTree = "<group>"; };
 		93AF2CA228C059BC00558246 /* SettingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingVC.xib; sourceTree = "<group>"; };
 		93AF2CA328C059BC00558246 /* SettingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVM.swift; sourceTree = "<group>"; };
 		93AF2CA428C059BC00558246 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
@@ -974,6 +980,7 @@
 		937237A027F9E4080077EDED /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				93ACF9B1298AA69000DF09C0 /* ForceUpdate */,
 				9385EEB128BBC47500370E26 /* ManageAudioView */,
 				93987FFB2843581D0057270F /* Time */,
 				93987FF1284321EB0057270F /* EmptyView */,
@@ -1367,6 +1374,7 @@
 				93A0C6FD27EE1AD3008E6B98 /* Assets.xcassets */,
 				93A0C6FF27EE1AD3008E6B98 /* LaunchScreen.storyboard */,
 				93A0C70227EE1AD3008E6B98 /* Info.plist */,
+				93ACF9AF298AA5B900DF09C0 /* GoogleService-Info.plist */,
 				93590556284651F400B560D7 /* EasyAudio-Bridging-Header.h */,
 			);
 			path = EasyAudio;
@@ -1410,6 +1418,15 @@
 				93A9D7BE284261D7009F9D49 /* AudioImportVC.swift */,
 			);
 			path = AudioImport;
+			sourceTree = "<group>";
+		};
+		93ACF9B1298AA69000DF09C0 /* ForceUpdate */ = {
+			isa = PBXGroup;
+			children = (
+				93ACF9B6298AA6F000DF09C0 /* ForceUpdateView.xib */,
+				93ACF9B8298AA70400DF09C0 /* ForceUpdateView.swift */,
+			);
+			path = ForceUpdate;
 			sourceTree = "<group>";
 		};
 		93AF2CA128C059A800558246 /* Settings */ = {
@@ -1584,12 +1601,14 @@
 				9359055328464E6A00B560D7 /* ImportWifiVC.xib in Resources */,
 				93A0C6FE27EE1AD3008E6B98 /* Assets.xcassets in Resources */,
 				93913B04282FE4CF009DDCF6 /* Sample Sound.mp3 in Resources */,
+				93ACF9B0298AA5B900DF09C0 /* GoogleService-Info.plist in Resources */,
 				93B25162286749F20008EA86 /* VideoVC.storyboard in Resources */,
 				93913B07282FE4CF009DDCF6 /* FontsFree-Net-SFProText-Medium.ttf in Resources */,
 				9389F56528BE586300D55D92 /* image_gift_3.gif in Resources */,
 				93CE5F2627FAF10000455E01 /* AudioVC.xib in Resources */,
 				9389F57928BE5EB100D55D92 /* image_gift_12.gif in Resources */,
 				9389F56428BE586300D55D92 /* image_gift_6.gif in Resources */,
+				93ACF9B7298AA6F000DF09C0 /* ForceUpdateView.xib in Resources */,
 				937237CB27F9E4080077EDED /* ImportOptionsVC.xib in Resources */,
 				937237D127F9E4080077EDED /* QuickActionsView.xib in Resources */,
 				9389F58028BE623C00D55D92 /* Chamber-Concerto-In-D-Major-RV-93-II-Largo-Gerald-Garcia.mp3 in Resources */,
@@ -1737,6 +1756,7 @@
 				9359056A2846525400B560D7 /* SGConst.m in Sources */,
 				9385EEA928BB13EA00370E26 /* BaseAudioProtocol.swift in Sources */,
 				93987FF3284322080057270F /* EmptyView.swift in Sources */,
+				93ACF9B9298AA70400DF09C0 /* ForceUpdateView.swift in Sources */,
 				9389F58828BE629F00D55D92 /* MusicWorkVM.swift in Sources */,
 				93892B4127F9EAE000A9FECE /* TabbarVC.swift in Sources */,
 				9372371C27F9E3710077EDED /* UIImageExtensions.swift in Sources */,
