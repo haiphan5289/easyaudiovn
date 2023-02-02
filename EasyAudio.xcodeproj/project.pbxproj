@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3D9337224855A9498902CE8C /* Pods_EasyAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C63E1C2D8E890A4E84F0DA64 /* Pods_EasyAudio.framework */; };
+		3ECCA06F298B964100F6EB82 /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECCA06E298B964000F6EB82 /* UITableViewExtensions.swift */; };
 		93097D8A2848A63D00D33BFA /* MuteFileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93097D872848A63D00D33BFA /* MuteFileVC.xib */; };
 		93097D8B2848A63D00D33BFA /* MuteFileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93097D882848A63D00D33BFA /* MuteFileVM.swift */; };
 		93097D8C2848A63D00D33BFA /* MuteFileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93097D892848A63D00D33BFA /* MuteFileVC.swift */; };
@@ -232,7 +233,6 @@
 		93A9D7BF284261D7009F9D49 /* AudioImportVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93A9D7BC284261D7009F9D49 /* AudioImportVC.xib */; };
 		93A9D7C0284261D7009F9D49 /* AudioImportVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9D7BD284261D7009F9D49 /* AudioImportVM.swift */; };
 		93A9D7C1284261D7009F9D49 /* AudioImportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9D7BE284261D7009F9D49 /* AudioImportVC.swift */; };
-		93ACF9A6298A9E1C00DF09C0 /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ACF9A5298A9E1C00DF09C0 /* UITableViewExtensions.swift */; };
 		93ACF9AE298AA46700DF09C0 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ACF9AD298AA46700DF09C0 /* UIView+Extension.swift */; };
 		93ACF9B0298AA5B900DF09C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93ACF9AF298AA5B900DF09C0 /* GoogleService-Info.plist */; };
 		93ACF9B7298AA6F000DF09C0 /* ForceUpdateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93ACF9B6298AA6F000DF09C0 /* ForceUpdateView.xib */; };
@@ -264,6 +264,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3ECCA06E298B964000F6EB82 /* UITableViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtensions.swift; sourceTree = "<group>"; };
 		6125231AC2F13B4FFC10B136 /* Pods-EasyAudio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyAudio.release.xcconfig"; path = "Target Support Files/Pods-EasyAudio/Pods-EasyAudio.release.xcconfig"; sourceTree = "<group>"; };
 		93097D872848A63D00D33BFA /* MuteFileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MuteFileVC.xib; sourceTree = "<group>"; };
 		93097D882848A63D00D33BFA /* MuteFileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuteFileVM.swift; sourceTree = "<group>"; };
@@ -526,7 +527,6 @@
 		93A9D7BC284261D7009F9D49 /* AudioImportVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioImportVC.xib; sourceTree = "<group>"; };
 		93A9D7BD284261D7009F9D49 /* AudioImportVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioImportVM.swift; sourceTree = "<group>"; };
 		93A9D7BE284261D7009F9D49 /* AudioImportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioImportVC.swift; sourceTree = "<group>"; };
-		93ACF9A5298A9E1C00DF09C0 /* UITableViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITableViewExtensions.swift; path = ../../../../../UITableViewExtensions.swift; sourceTree = "<group>"; };
 		93ACF9AD298AA46700DF09C0 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		93ACF9AF298AA5B900DF09C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		93ACF9B6298AA6F000DF09C0 /* ForceUpdateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForceUpdateView.xib; sourceTree = "<group>"; };
@@ -836,8 +836,8 @@
 		937236E327F9E3710077EDED /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				3ECCA06E298B964000F6EB82 /* UITableViewExtensions.swift */,
 				93ACF9AD298AA46700DF09C0 /* UIView+Extension.swift */,
-				93ACF9A5298A9E1C00DF09C0 /* UITableViewExtensions.swift */,
 				937236E427F9E3710077EDED /* UISearchBarExtensions.swift */,
 				937236E627F9E3710077EDED /* UIEdgeInsetsExtensions.swift */,
 				937236E727F9E3710077EDED /* UIScrollViewExtensions.swift */,
@@ -1718,6 +1718,7 @@
 				9372371A27F9E3710077EDED /* UISliderExtensions.swift in Sources */,
 				937237CF27F9E4080077EDED /* ContextMenu.swift in Sources */,
 				9372375F27F9E38C0077EDED /* CustomButton.swift in Sources */,
+				3ECCA06F298B964100F6EB82 /* UITableViewExtensions.swift in Sources */,
 				93590558284651F500B560D7 /* SGWiFiUploadManager.m in Sources */,
 				93B73A1429862C3900D11FE4 /* FilterVC.swift in Sources */,
 				935905D52846590E00B560D7 /* MergeFilesVM.swift in Sources */,
@@ -1741,7 +1742,6 @@
 				935905CB2846526700B560D7 /* DDRange.m in Sources */,
 				9359055428464E6A00B560D7 /* ImportWifiVM.swift in Sources */,
 				939880062843BBD50057270F /* ExportVC.swift in Sources */,
-				93ACF9A6298A9E1C00DF09C0 /* UITableViewExtensions.swift in Sources */,
 				9372375327F9E38C0077EDED /* RowDetailGeneric.swift in Sources */,
 				93A20684282FD15300F262EC /* ActionHomeVC.swift in Sources */,
 				935905CC2846526700B560D7 /* HTTPServer.m in Sources */,
