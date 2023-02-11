@@ -136,6 +136,8 @@ extension AudioVC: ActionHomeDelegate {
             let vc = MuteFileVC.createVC()
             vc.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(vc, animated: true)
+        case .effective:
+            self.showAlert(title: nil, message: "This feature is coming soon")
         }
     }
 }

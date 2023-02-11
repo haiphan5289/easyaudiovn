@@ -18,7 +18,7 @@ protocol ActionHomeDelegate {
 class ActionHomeVC: UIViewController {
     
     enum Action: Int, CaseIterable {
-        case add, merge, recording, wifi, mute
+        case add, merge, recording, wifi, mute, effective
     }
     
     enum StatusView {
@@ -59,6 +59,7 @@ extension ActionHomeVC {
         
         if self.statusView == .video {
             self.views[Action.recording.rawValue].isHidden = true
+            self.views[Action.effective.rawValue].isHidden = false
         }
         
     }

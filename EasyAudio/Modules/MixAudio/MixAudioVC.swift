@@ -19,7 +19,8 @@ import AVFoundation
 class MixAudioVC: BaseVC, BaseAudioProtocol {
     
     enum Action: Int, CaseIterable {
-        case trash, split, add, export    }
+        case trash, split, add, export
+    }
     
     enum ActionMusic: Int, CaseIterable {
         case backWard, play, pause, forWard
