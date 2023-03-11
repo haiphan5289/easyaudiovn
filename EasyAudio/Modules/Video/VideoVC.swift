@@ -150,6 +150,10 @@ extension VideoVC: ActionHomeDelegate {
             self.navigationController?.pushViewController(vc, animated: true)
         case .effective:
             self.showAlert(title: nil, message: "This feature is coming soon")
+        case .videFromPhotos:
+            let viewController = VideoFromPhotosVC.createVC()
+            viewController.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(viewController, animated: true)
         }
     }
 }

@@ -79,7 +79,6 @@ class BaseVC: UIViewController {
         buttonLeft.setImage(Asset.icBack.image, for: .normal)
         buttonLeft.contentEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
         let leftBarButton = UIBarButtonItem(customView: buttonLeft)
-        
         navigationItem.leftBarButtonItem = leftBarButton
     }
 

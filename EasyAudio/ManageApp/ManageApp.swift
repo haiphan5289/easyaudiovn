@@ -10,6 +10,8 @@ import RxSwift
 import AVFoundation
 import CoreLocation
 import UIKit
+import Photos
+import RxRelay
 
 class ManageApp {
     
@@ -28,6 +30,7 @@ class ManageApp {
     static var shared = ManageApp()
     
     @VariableReplay var audios: [URL] = []
+   
     private let disposeBag = DisposeBag()
     private init() {
         //        self.removeAllRecording()
@@ -41,6 +44,35 @@ class ManageApp {
     private func setupRX() {
         
         
+    }
+    
+    func checkPhotoLibraryPermission() -> Observable<[PHAsset]> {
+        return Observable.create { sub in
+            PHPhotoLibrary.requestAuthorization { status in
+                switch status {
+                case .authorized:
+                    let fetchOptions = PHFetchOptions()
+                    fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate",
+                                                                     ascending: false)]
+                    fetchOptions.predicate = NSPredicate(format: "mediaType == %d || mediaType == %d",
+                                                         PHAssetMediaType.video.rawValue)
+                    // Fetch all video assets from the Photos Library as fetch results
+                    let fetchResults = PHAsset.fetchAssets(with: PHAssetMediaType.video, options: fetchOptions)
+                    
+                    // Loop through all fetched results
+                    var phAssets: [PHAsset] = []
+                    fetchResults.enumerateObjects({ (object, count, stop) in
+                        phAssets.append(object)
+                    })
+                    sub.onNext(phAssets)
+                    sub.onCompleted()
+                case .denied, .restricted, .notDetermined, .limited:
+                    sub.onCompleted()
+                @unknown default: break
+                }
+            }
+            return Disposables.create()
+        }
     }
     
     func sortUrl(urls: [URL], filterType: FilterVC.FilterType) -> [URL] {
@@ -118,6 +150,22 @@ class ManageApp {
     
 }
 
+extension PHAsset {
+    func getUIImage() -> UIImage? {
+        var img: UIImage?
+        let manager = PHImageManager.default()
+        let options = PHImageRequestOptions()
+        options.version = .original
+        options.isSynchronous = true
+        manager.requestImageDataAndOrientation(for: self, options: options) { data, _, _, _ in
+            if let data = data {
+                img = UIImage(data: data)
+            }
+        }
+        return img
+    }
+}
+
 enum ExportFileAV: Int, CaseIterable {
     case mp3, m4a, wav, m4r, caf, aiff, aifc, aac, flac, mp4
     
@@ -176,7 +224,7 @@ enum ExportFileAV: Int, CaseIterable {
 }
 
 class DiskStatus {
-
+    
     //MARK: Formatter MB only
     class func MBFormatter(_ bytes: Int64) -> String {
         let formatter = ByteCountFormatter()
@@ -185,28 +233,28 @@ class DiskStatus {
         formatter.includesUnit = false
         return formatter.string(fromByteCount: bytes) as String
     }
-
-
+    
+    
     //MARK: Get String Value
     class var totalDiskSpace:String {
         get {
             return ByteCountFormatter.string(fromByteCount: totalDiskSpaceInBytes, countStyle: ByteCountFormatter.CountStyle.file)
         }
     }
-
+    
     class var freeDiskSpace:String {
         get {
             return ByteCountFormatter.string(fromByteCount: freeDiskSpaceInBytes, countStyle: ByteCountFormatter.CountStyle.file)
         }
     }
-
+    
     class var usedDiskSpace:String {
         get {
             return ByteCountFormatter.string(fromByteCount: usedDiskSpaceInBytes, countStyle: ByteCountFormatter.CountStyle.file)
         }
     }
-
-
+    
+    
     //MARK: Get raw value
     class var totalDiskSpaceInBytes:Int64 {
         get {
@@ -219,7 +267,7 @@ class DiskStatus {
             }
         }
     }
-
+    
     class var freeDiskSpaceInBytes:Int64 {
         get {
             do {
@@ -231,12 +279,12 @@ class DiskStatus {
             }
         }
     }
-
+    
     class var usedDiskSpaceInBytes:Int64 {
         get {
             let usedSpace = totalDiskSpaceInBytes - freeDiskSpaceInBytes
             return usedSpace
         }
     }
-
+    
 }

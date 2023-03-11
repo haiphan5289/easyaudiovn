@@ -214,7 +214,7 @@ public extension UIView {
     }
 }
 
-typealias GradientPoints = (startPoint: CGPoint, endPoint: CGPoint)
+public typealias GradientPoints = (startPoint: CGPoint, endPoint: CGPoint)
 
 public enum GradientOrientation {
     case topRightBottomLeft
@@ -222,15 +222,15 @@ public enum GradientOrientation {
     case horizontal
     case vertical
     
-    var startPoint: CGPoint {
+    public var startPoint: CGPoint {
         return points.startPoint
     }
     
-    var endPoint: CGPoint {
+    public var endPoint: CGPoint {
         return points.endPoint
     }
     
-    var points: GradientPoints {
+    public var points: GradientPoints {
         switch self {
         case .topRightBottomLeft:
             return (CGPoint(x: 0.0, y: 1.0), CGPoint(x: 1.0, y: 0.0))

@@ -23,6 +23,7 @@ internal typealias AssetImageTypeAlias = ImageAsset.Image
 internal enum Asset {
   internal static let accentColor = ColorAsset(name: "AccentColor")
   internal static let icAddMusic = ImageAsset(name: "ic_add_music")
+  internal static let icAnimateVideo = ImageAsset(name: "ic_animate_video")
   internal static let icMerge = ImageAsset(name: "ic_merge")
   internal static let icMute = ImageAsset(name: "ic_mute")
   internal static let icRec = ImageAsset(name: "ic_rec")
@@ -36,6 +37,8 @@ internal enum Asset {
   internal static let icSplit = ImageAsset(name: "ic_split")
   internal static let appColor = ColorAsset(name: "AppColor")
   internal static let blackOpacity60 = ColorAsset(name: "blackOpacity60")
+  internal static let blue1553FF = ColorAsset(name: "blue1553FF")
+  internal static let blue41C5FF = ColorAsset(name: "blue41C5FF")
   internal static let lineColor = ColorAsset(name: "lineColor")
   internal static let icArrowWhite = ImageAsset(name: "ic_arrow_white")
   internal static let icBackBlack = ImageAsset(name: "ic_back_black")

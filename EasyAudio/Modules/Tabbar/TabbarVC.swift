@@ -61,6 +61,7 @@ class TabbarVC: UITabBarController {
 extension TabbarVC {
     
     private func setupUI() {
+//        self.delegate = self
         self.tabBar.isTranslucent = false
         UITabBar.appearance().tintColor = Asset.appColor.color
         UITabBar.appearance().barTintColor = Asset.lineColor.color
