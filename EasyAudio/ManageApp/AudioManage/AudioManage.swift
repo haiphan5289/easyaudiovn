@@ -41,6 +41,10 @@ final class AudioPlayManage: NSObject {
         }
     }
     
+    func setVolume(volume: Float) {
+        self.audioPlayer.volume = volume
+    }
+    
     func pauseAudio() {
         self.audioPlayer.pause()
     }

@@ -18,6 +18,7 @@ class AudioView: UIView {
     
     private let urlTrigger: PublishSubject<URL> = PublishSubject.init()
     private let audioPLayManage: AudioPlayManage = AudioPlayManage()
+    private var valueVolume: Float = 10
     private let disposeBag = DisposeBag()
     
     override func awakeFromNib() {
@@ -42,6 +43,7 @@ extension AudioView {
                 owner.processTimeSlider.minimumValue = 0
                 owner.processTimeSlider.maximumValue = Float(url.getDuration())
                 owner.audioPLayManage.playAudio(url: url, currentTime: 0)
+                owner.audioPLayManage.setVolume(volume: owner.valueVolume)
             }.disposed(by: disposeBag)
         
         playButton.rx.tap
@@ -58,11 +60,16 @@ extension AudioView {
                 
                 owner.playButton.setImage(Asset.icPause.image, for: .normal)
                 owner.audioPLayManage.playAudio(url: url, currentTime: CGFloat(owner.processTimeSlider.value))
+                owner.audioPLayManage.setVolume(volume: owner.valueVolume)
             }.disposed(by: disposeBag)
     }
     
     func setupURL(url: URL) {
         urlTrigger.onNext(url)
+    }
+    
+    func setVolume(volume: Float) {
+        self.valueVolume = volume
     }
     
 }

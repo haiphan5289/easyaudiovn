@@ -7,6 +7,8 @@
 
 import UIKit
 import EasyBaseCodes
+import RxSwift
+import RxRelay
 
 class VolumeView: UIView {
     
@@ -18,9 +20,11 @@ class VolumeView: UIView {
     private let audioView: AudioView = .loadXib()
     private let headerView: VolumeTitleView = .loadXib()
     
+    private let disposeBag = DisposeBag()
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
+        setupRX()
     }
     
 }
@@ -41,6 +45,14 @@ extension VolumeView {
             guard let self = self else { return }
             self.actionHanler?(self.volumeSlider.value)
         }
+    }
+    
+    private func setupRX() {
+        volumeSlider.rx.controlEvent(.valueChanged)
+            .withUnretained(self)
+            .bind { owner, _ in
+                owner.audioView.setVolume(volume: owner.volumeSlider.value)
+            }.disposed(by: disposeBag)
     }
     
     func setTitle(title: String?) {
