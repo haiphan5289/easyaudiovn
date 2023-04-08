@@ -201,14 +201,18 @@ extension MixAudioVC {
         volumeButton.rx.tap
             .withUnretained(self)
             .bind { owner, _ in
+                guard let inputURL = self.exportURL else {
+                    return
+                }
                 let volumeView: VolumeView = .loadXib()
                 owner.view.addSubview(volumeView)
                 volumeView.snp.makeConstraints { make in
                     make.left.bottom.right.equalToSuperview()
                 }
                 volumeView.setTitle(title: "Volume")
+                volumeView.setupAudioURL(url: inputURL)
                 volumeView.actionHanler = { [weak self] volume in
-                    guard let self = self, let inputURL = self.exportURL else { return }
+                    guard let self = self else { return }
                     AudioManage.shared.changeVolumeAudio(sourceURL: inputURL,
                                                          volume: volume,
                                                          folderName: ConstantApp.FolderName.folderEdit.rawValue) { [weak self] outputURL in

@@ -51,6 +51,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="doneButton" destination="cmM-FX-9bO" id="iwB-LR-eT3"/>
                 <outlet property="nameLabel" destination="Ypu-vU-HQA" id="ias-CO-ate"/>
             </connections>
             <point key="canvasLocation" x="74" y="20"/>

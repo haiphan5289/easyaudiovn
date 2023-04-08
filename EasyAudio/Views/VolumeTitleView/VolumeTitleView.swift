@@ -12,8 +12,10 @@ class VolumeTitleView: UIView {
     var actionHanler: (() -> Void)?
     
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var doneButton: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
+        doneButton.contentHorizontalAlignment = .right
     }
     
     @IBAction func doneAction(_ sender: UIButton) {

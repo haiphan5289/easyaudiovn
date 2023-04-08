@@ -259,6 +259,7 @@
 		93B73A1229862C3900D11FE4 /* FilterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93B73A0F29862C3900D11FE4 /* FilterVC.xib */; };
 		93B73A1329862C3900D11FE4 /* FilterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B73A1029862C3900D11FE4 /* FilterVM.swift */; };
 		93B73A1429862C3900D11FE4 /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B73A1129862C3900D11FE4 /* FilterVC.swift */; };
+		93C47BA329E1A7FF00731154 /* AudioManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C47BA229E1A7FF00731154 /* AudioManage.swift */; };
 		93C5984B298545EB005C7CD9 /* AllFilesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93C59848298545EB005C7CD9 /* AllFilesVC.xib */; };
 		93C5984C298545EB005C7CD9 /* AllFilesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C59849298545EB005C7CD9 /* AllFilesVM.swift */; };
 		93C5984D298545EB005C7CD9 /* AllFilesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C5984A298545EB005C7CD9 /* AllFilesVC.swift */; };
@@ -572,6 +573,7 @@
 		93B73A0F29862C3900D11FE4 /* FilterVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterVC.xib; sourceTree = "<group>"; };
 		93B73A1029862C3900D11FE4 /* FilterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVM.swift; sourceTree = "<group>"; };
 		93B73A1129862C3900D11FE4 /* FilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
+		93C47BA229E1A7FF00731154 /* AudioManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManage.swift; sourceTree = "<group>"; };
 		93C59848298545EB005C7CD9 /* AllFilesVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllFilesVC.xib; sourceTree = "<group>"; };
 		93C59849298545EB005C7CD9 /* AllFilesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllFilesVM.swift; sourceTree = "<group>"; };
 		93C5984A298545EB005C7CD9 /* AllFilesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllFilesVC.swift; sourceTree = "<group>"; };
@@ -980,6 +982,7 @@
 		9372378327F9E3F30077EDED /* ManageApp */ = {
 			isa = PBXGroup;
 			children = (
+				93C47BA129E1A7E900731154 /* AudioManage */,
 				9372378427F9E3F30077EDED /* SongExporter.swift */,
 				9372378527F9E3F30077EDED /* ManageApp.swift */,
 				9372378627F9E3F30077EDED /* InApp */,
@@ -1562,6 +1565,14 @@
 			path = FilterVC;
 			sourceTree = "<group>";
 		};
+		93C47BA129E1A7E900731154 /* AudioManage */ = {
+			isa = PBXGroup;
+			children = (
+				93C47BA229E1A7FF00731154 /* AudioManage.swift */,
+			);
+			path = AudioManage;
+			sourceTree = "<group>";
+		};
 		93C5984329854266005C7CD9 /* AllFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -1961,6 +1972,7 @@
 				9372376627F9E38C0077EDED /* String+Extension.swift in Sources */,
 				935905C82846526700B560D7 /* HTTPAuthenticationRequest.m in Sources */,
 				9372370E27F9E3710077EDED /* UIStackViewExtensions.swift in Sources */,
+				93C47BA329E1A7FF00731154 /* AudioManage.swift in Sources */,
 				9372376A27F9E38C0077EDED /* Font+Extension.swift in Sources */,
 				93A52ADE2987F926005EF39D /* RenameFileVC.swift in Sources */,
 				9372372827F9E3710077EDED /* UIAlertControllerExtensions.swift in Sources */,

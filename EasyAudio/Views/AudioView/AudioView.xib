@@ -50,6 +50,11 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="gtA-sy-VeL" secondAttribute="trailing" constant="16" id="rHh-bz-8GU"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="durationLabel" destination="CVy-gh-0ZT" id="b1E-bT-Jqj"/>
+                <outlet property="playButton" destination="OC4-Od-Jmh" id="uGP-fJ-TkK"/>
+                <outlet property="processTimeSlider" destination="Yut-ZQ-geF" id="5Fc-i2-Ckc"/>
+            </connections>
             <point key="canvasLocation" x="-25" y="20"/>
         </view>
     </objects>

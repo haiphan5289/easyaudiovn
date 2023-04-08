@@ -47,4 +47,8 @@ extension VolumeView {
         headerView.setTitle(title: title)
     }
     
+    func setupAudioURL(url: URL) {
+        audioView.setupURL(url: url)
+    }
+    
 }
