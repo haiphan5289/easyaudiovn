@@ -139,6 +139,10 @@ extension AudioVC: ActionHomeDelegate {
         case .effective:
             self.showAlert(title: nil, message: "This feature is coming soon")
         case .videFromPhotos: break
+//        case .handlingMusic:
+//            let viewcontroller = HandlingMusicVC.createVC()
+//            viewcontroller.hidesBottomBarWhenPushed = true
+//            self.navigationController?.pushViewController(viewcontroller, animated: true)
         }
     }
 }

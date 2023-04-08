@@ -32,7 +32,7 @@ extension AudioCell {
     
     func setupValue(url: URL, filterType: FilterVC.FilterType) {
         self.lbName.text = url.getName()
-        var dateStr: String = ""
+        var dateStr: String = url.creation?.covertToString(format: .MMddyyyy) ?? ""
         switch filterType {
         case .accessDateAscending, .accessedDateDescending:
             dateStr = url.contentAccess?.covertToString(format: .MMddyyyy) ?? ""
@@ -40,6 +40,7 @@ extension AudioCell {
             dateStr = url.contentModification?.covertToString(format: .MMddyyyy) ?? ""
         case .createDateAscending, .createDateDescending:
             dateStr = url.creation?.covertToString(format: .MMddyyyy) ?? ""
+        case .nameAscending, .nameDescending: break
         }
         self.lbTime.text = "\(url.getTime()) ● \(url.getSize() ?? 0) MB ● \(dateStr)"
         let image = (url.getThumbnailImage() != nil) ? url.getThumbnailImage() : Asset.icPlacdeHolder.image

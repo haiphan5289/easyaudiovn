@@ -73,6 +73,8 @@ class MixAudioVC: BaseVC, BaseAudioProtocol {
     @IBOutlet weak var centerView: UIView!
     @IBOutlet var btsMusic: [UIButton]!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var volumeButton: UIButton!
     // Add here your view model
     private var viewModel: MixAudioVM = MixAudioVM()
     @VariableReplay private var sourcesURL: [MutePoint] = []
@@ -84,6 +86,7 @@ class MixAudioVC: BaseVC, BaseAudioProtocol {
     private var selectIndex: Int?
     private var audioPlayer: AVAudioPlayer = AVAudioPlayer()
     private var detectTime: Disposable?
+    private let showAlertTrigger: PublishSubject<String> = PublishSubject.init()
     
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
@@ -94,8 +97,9 @@ class MixAudioVC: BaseVC, BaseAudioProtocol {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.setupSingleButtonBack()
-        self.setupNavi(bgColor: Asset.appColor.color, textColor: .black, font: UIFont.mySystemFont(ofSize: 18))
+//        self.setupSingleButtonBack()
+//        self.setupNavi(bgColor: Asset.appColor.color, textColor: .black, font: UIFont.mySystemFont(ofSize: 18))
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -189,10 +193,42 @@ extension MixAudioVC {
             }
         }
         
-        self.buttonLeft.rx.tap.bind { [weak self] in
+        self.backButton.rx.tap.bind { [weak self] in
             guard let wSelf = self else { return }
             wSelf.navigationController?.popViewController()
         }.disposed(by: self.disposeBag)
+        
+        volumeButton.rx.tap
+            .withUnretained(self)
+            .bind { owner, _ in
+                let volumeView: VolumeView = .loadXib()
+                owner.view.addSubview(volumeView)
+                volumeView.snp.makeConstraints { make in
+                    make.left.bottom.right.equalToSuperview()
+                }
+                volumeView.setTitle(title: "Volume")
+                volumeView.actionHanler = { [weak self] volume in
+                    guard let self = self, let inputURL = self.exportURL else { return }
+                    AudioManage.shared.changeVolumeAudio(sourceURL: inputURL,
+                                                         volume: volume,
+                                                         folderName: ConstantApp.FolderName.folderEdit.rawValue) { [weak self] outputURL in
+                        guard let self = self else { return }
+                        self.exportURL = outputURL
+                    } failure: { [weak self] error in
+                        guard let self = self, let text = error?.localizedDescription else { return }
+                        self.showAlertTrigger.onNext(text)
+                    }
+                    volumeView.removeFromSuperview()
+                }
+            }.disposed(by: disposeBag)
+        
+        showAlertTrigger
+            .asDriverOnErrorJustComplete()
+            .drive { [weak self] error in
+                guard let self = self else { return }
+                self.showAlert(title: nil, message: error)
+            }.disposed(by: disposeBag)
+        
     }
     
     private func setupTimeLineView(second: Int) {
@@ -237,12 +273,12 @@ extension MixAudioVC {
                         wSelf.exportURL = outputURL
                     } failure: { [weak self] error in
                         guard let wSelf = self else { return }
-                        wSelf.showAlert(title: nil, message: error)
+                        wSelf.showAlertTrigger.onNext(error)
                     }
                 }
             } failure: { [weak self] (err, txt) in
                 guard let wSelf = self else { return }
-                wSelf.showAlert(title: nil, message: txt)
+                wSelf.showAlertTrigger.onNext(txt)
             }
         }
     }

@@ -236,6 +236,10 @@
 		93A9D7BF284261D7009F9D49 /* AudioImportVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93A9D7BC284261D7009F9D49 /* AudioImportVC.xib */; };
 		93A9D7C0284261D7009F9D49 /* AudioImportVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9D7BD284261D7009F9D49 /* AudioImportVM.swift */; };
 		93A9D7C1284261D7009F9D49 /* AudioImportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9D7BE284261D7009F9D49 /* AudioImportVC.swift */; };
+		93ABC9F929CF1AA60003C23D /* VolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ABC9F829CF1AA60003C23D /* VolumeView.swift */; };
+		93ABC9FB29CF1AAF0003C23D /* VolumeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93ABC9FA29CF1AAF0003C23D /* VolumeView.xib */; };
+		93ABC9FE29CF1B730003C23D /* AudioView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93ABC9FD29CF1B730003C23D /* AudioView.xib */; };
+		93ABCA0029CF1B7D0003C23D /* AudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ABC9FF29CF1B7D0003C23D /* AudioView.swift */; };
 		93ACF9AE298AA46700DF09C0 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ACF9AD298AA46700DF09C0 /* UIView+Extension.swift */; };
 		93ACF9B0298AA5B900DF09C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93ACF9AF298AA5B900DF09C0 /* GoogleService-Info.plist */; };
 		93ACF9B7298AA6F000DF09C0 /* ForceUpdateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93ACF9B6298AA6F000DF09C0 /* ForceUpdateView.xib */; };
@@ -268,6 +272,11 @@
 		93CE5F2C27FAF8E700455E01 /* Assets-Gen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE5F2A27FAF8E600455E01 /* Assets-Gen.swift */; };
 		93CE5F3D27FB471100455E01 /* AudioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE5F3B27FB471100455E01 /* AudioCell.swift */; };
 		93CE5F3E27FB471100455E01 /* AudioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93CE5F3C27FB471100455E01 /* AudioCell.xib */; };
+		93D4987429CEDDCF00C68CCF /* HandlingMusicVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93D4987129CEDDCF00C68CCF /* HandlingMusicVC.xib */; };
+		93D4987529CEDDCF00C68CCF /* HandlingMusicVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D4987229CEDDCF00C68CCF /* HandlingMusicVM.swift */; };
+		93D4987629CEDDCF00C68CCF /* HandlingMusicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D4987329CEDDCF00C68CCF /* HandlingMusicVC.swift */; };
+		93DB062929CF1EFC0021A252 /* VolumeTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DB062829CF1EFC0021A252 /* VolumeTitleView.swift */; };
+		93DB062B29CF1F110021A252 /* VolumeTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93DB062A29CF1F110021A252 /* VolumeTitleView.xib */; };
 		93F836442845123A004AE334 /* CheckUIVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93F836412845123A004AE334 /* CheckUIVC.xib */; };
 		93F836452845123A004AE334 /* CheckUIVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F836422845123A004AE334 /* CheckUIVM.swift */; };
 		93F836462845123A004AE334 /* CheckUIVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F836432845123A004AE334 /* CheckUIVC.swift */; };
@@ -540,6 +549,10 @@
 		93A9D7BC284261D7009F9D49 /* AudioImportVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioImportVC.xib; sourceTree = "<group>"; };
 		93A9D7BD284261D7009F9D49 /* AudioImportVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioImportVM.swift; sourceTree = "<group>"; };
 		93A9D7BE284261D7009F9D49 /* AudioImportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioImportVC.swift; sourceTree = "<group>"; };
+		93ABC9F829CF1AA60003C23D /* VolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeView.swift; sourceTree = "<group>"; };
+		93ABC9FA29CF1AAF0003C23D /* VolumeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VolumeView.xib; sourceTree = "<group>"; };
+		93ABC9FD29CF1B730003C23D /* AudioView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioView.xib; sourceTree = "<group>"; };
+		93ABC9FF29CF1B7D0003C23D /* AudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioView.swift; sourceTree = "<group>"; };
 		93ACF9AD298AA46700DF09C0 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		93ACF9AF298AA5B900DF09C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		93ACF9B6298AA6F000DF09C0 /* ForceUpdateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForceUpdateView.xib; sourceTree = "<group>"; };
@@ -572,6 +585,11 @@
 		93CE5F2A27FAF8E600455E01 /* Assets-Gen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets-Gen.swift"; sourceTree = "<group>"; };
 		93CE5F3B27FB471100455E01 /* AudioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCell.swift; sourceTree = "<group>"; };
 		93CE5F3C27FB471100455E01 /* AudioCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioCell.xib; sourceTree = "<group>"; };
+		93D4987129CEDDCF00C68CCF /* HandlingMusicVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HandlingMusicVC.xib; sourceTree = "<group>"; };
+		93D4987229CEDDCF00C68CCF /* HandlingMusicVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandlingMusicVM.swift; sourceTree = "<group>"; };
+		93D4987329CEDDCF00C68CCF /* HandlingMusicVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandlingMusicVC.swift; sourceTree = "<group>"; };
+		93DB062829CF1EFC0021A252 /* VolumeTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeTitleView.swift; sourceTree = "<group>"; };
+		93DB062A29CF1F110021A252 /* VolumeTitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VolumeTitleView.xib; sourceTree = "<group>"; };
 		93F836412845123A004AE334 /* CheckUIVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckUIVC.xib; sourceTree = "<group>"; };
 		93F836422845123A004AE334 /* CheckUIVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUIVM.swift; sourceTree = "<group>"; };
 		93F836432845123A004AE334 /* CheckUIVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUIVC.swift; sourceTree = "<group>"; };
@@ -1011,6 +1029,9 @@
 		937237A027F9E4080077EDED /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				93DB062729CF1EE70021A252 /* VolumeTitleView */,
+				93ABC9FC29CF1B640003C23D /* AudioView */,
+				93ABC9F729CF1A8F0003C23D /* VolumeView */,
 				93ACF9B1298AA69000DF09C0 /* ForceUpdate */,
 				9385EEB128BBC47500370E26 /* ManageAudioView */,
 				93987FFB2843581D0057270F /* Time */,
@@ -1150,6 +1171,7 @@
 				939880002843BBC40057270F /* Export */,
 				933C717429BCBD2000BACF0E /* VideoFromPhotos */,
 				93C8A8CA29AD0F4F0025AB8E /* IntegrateAudio */,
+				93D4987029CEDDA700C68CCF /* HandlingMusic */,
 				93987FF428432AB60057270F /* MixAudio */,
 				93A9D7BB28426168009F9D49 /* AudioImport */,
 				93913AE4282FE0E1009DDCF6 /* Recording */,
@@ -1455,6 +1477,24 @@
 			path = AudioImport;
 			sourceTree = "<group>";
 		};
+		93ABC9F729CF1A8F0003C23D /* VolumeView */ = {
+			isa = PBXGroup;
+			children = (
+				93ABC9F829CF1AA60003C23D /* VolumeView.swift */,
+				93ABC9FA29CF1AAF0003C23D /* VolumeView.xib */,
+			);
+			path = VolumeView;
+			sourceTree = "<group>";
+		};
+		93ABC9FC29CF1B640003C23D /* AudioView */ = {
+			isa = PBXGroup;
+			children = (
+				93ABC9FD29CF1B730003C23D /* AudioView.xib */,
+				93ABC9FF29CF1B7D0003C23D /* AudioView.swift */,
+			);
+			path = AudioView;
+			sourceTree = "<group>";
+		};
 		93ACF9B1298AA69000DF09C0 /* ForceUpdate */ = {
 			isa = PBXGroup;
 			children = (
@@ -1560,6 +1600,25 @@
 				93CE5F3C27FB471100455E01 /* AudioCell.xib */,
 			);
 			path = AudioCell;
+			sourceTree = "<group>";
+		};
+		93D4987029CEDDA700C68CCF /* HandlingMusic */ = {
+			isa = PBXGroup;
+			children = (
+				93D4987129CEDDCF00C68CCF /* HandlingMusicVC.xib */,
+				93D4987229CEDDCF00C68CCF /* HandlingMusicVM.swift */,
+				93D4987329CEDDCF00C68CCF /* HandlingMusicVC.swift */,
+			);
+			path = HandlingMusic;
+			sourceTree = "<group>";
+		};
+		93DB062729CF1EE70021A252 /* VolumeTitleView */ = {
+			isa = PBXGroup;
+			children = (
+				93DB062829CF1EFC0021A252 /* VolumeTitleView.swift */,
+				93DB062A29CF1F110021A252 /* VolumeTitleView.xib */,
+			);
+			path = VolumeTitleView;
 			sourceTree = "<group>";
 		};
 		93F8364028451228004AE334 /* CheckUI */ = {
@@ -1670,6 +1729,8 @@
 				93913B07282FE4CF009DDCF6 /* FontsFree-Net-SFProText-Medium.ttf in Resources */,
 				9389F56528BE586300D55D92 /* image_gift_3.gif in Resources */,
 				93CE5F2627FAF10000455E01 /* AudioVC.xib in Resources */,
+				93ABC9FB29CF1AAF0003C23D /* VolumeView.xib in Resources */,
+				93DB062B29CF1F110021A252 /* VolumeTitleView.xib in Resources */,
 				9389F57928BE5EB100D55D92 /* image_gift_12.gif in Resources */,
 				9389F56428BE586300D55D92 /* image_gift_6.gif in Resources */,
 				93ACF9B7298AA6F000DF09C0 /* ForceUpdateView.xib in Resources */,
@@ -1694,6 +1755,7 @@
 				9389F57828BE5EB100D55D92 /* image_gift_7.gif in Resources */,
 				93A0C6FC27EE1AD0008E6B98 /* Main.storyboard in Resources */,
 				9389F56128BE586300D55D92 /* image_gift_5.gif in Resources */,
+				93ABC9FE29CF1B730003C23D /* AudioView.xib in Resources */,
 				93A9D7BF284261D7009F9D49 /* AudioImportVC.xib in Resources */,
 				93913AE8282FE0F4009DDCF6 /* RecordingVC.xib in Resources */,
 				93097D8A2848A63D00D33BFA /* MuteFileVC.xib in Resources */,
@@ -1701,6 +1763,7 @@
 				9389F57328BE5EB100D55D92 /* image_gift_11.gif in Resources */,
 				9389F57528BE5EB100D55D92 /* image_gift_4.gif in Resources */,
 				9389F58128BE623C00D55D92 /* NhacThien-Hoatau_qadg.mp3 in Resources */,
+				93D4987429CEDDCF00C68CCF /* HandlingMusicVC.xib in Resources */,
 				937236D827F9E1670077EDED /* swiftgen.yml in Resources */,
 				935905B42846526700B560D7 /* CocoaLumberjack-About.txt in Resources */,
 				93913B00282FE4CF009DDCF6 /* Sample Video.mp4 in Resources */,
@@ -1807,6 +1870,7 @@
 				935905CB2846526700B560D7 /* DDRange.m in Sources */,
 				9359055428464E6A00B560D7 /* ImportWifiVM.swift in Sources */,
 				939880062843BBD50057270F /* ExportVC.swift in Sources */,
+				93ABCA0029CF1B7D0003C23D /* AudioView.swift in Sources */,
 				9372375327F9E38C0077EDED /* RowDetailGeneric.swift in Sources */,
 				93A20684282FD15300F262EC /* ActionHomeVC.swift in Sources */,
 				935905CC2846526700B560D7 /* HTTPServer.m in Sources */,
@@ -1856,6 +1920,7 @@
 				9372371027F9E3710077EDED /* UICollectionViewExtensions.swift in Sources */,
 				93ADE12F29BCC8F2001D8122 /* VideoFromPhotosCell.swift in Sources */,
 				935905C42846526700B560D7 /* WebSocket.m in Sources */,
+				93DB062929CF1EFC0021A252 /* VolumeTitleView.swift in Sources */,
 				9372375127F9E38C0077EDED /* UIApplication+Extension.swift in Sources */,
 				935905B22846526700B560D7 /* DDTTYLogger.m in Sources */,
 				93907D9D28C488C20018C09C /* AboutMeVC.swift in Sources */,
@@ -1876,6 +1941,7 @@
 				937237CC27F9E4080077EDED /* ImportOptionsVC.swift in Sources */,
 				93C5984D298545EB005C7CD9 /* AllFilesVC.swift in Sources */,
 				9372375827F9E38C0077EDED /* CALayerExtension.swift in Sources */,
+				93ABC9F929CF1AA60003C23D /* VolumeView.swift in Sources */,
 				9372375427F9E38C0077EDED /* UIFont+Extension.swift in Sources */,
 				9372370A27F9E3710077EDED /* UIEdgeInsetsExtensions.swift in Sources */,
 				9372377327F9E38C0077EDED /* DateExtension.swift in Sources */,
@@ -1961,10 +2027,12 @@
 				9372372627F9E3710077EDED /* UIImageViewExtensions.swift in Sources */,
 				9372376527F9E38C0077EDED /* UITextField_Extension.swift in Sources */,
 				9372372927F9E3710077EDED /* UIFontExtensions.swift in Sources */,
+				93D4987529CEDDCF00C68CCF /* HandlingMusicVM.swift in Sources */,
 				93B25161286749F20008EA86 /* VideoVC.swift in Sources */,
 				9372376B27F9E38C0077EDED /* UIViewController+Rx.swift in Sources */,
 				937237D327F9E4080077EDED /* NavigationSaveView.swift in Sources */,
 				935905B52846526700B560D7 /* ContextFilterLogFormatter.m in Sources */,
+				93D4987629CEDDCF00C68CCF /* HandlingMusicVC.swift in Sources */,
 				9372370827F9E3710077EDED /* UISearchBarExtensions.swift in Sources */,
 				9372377627F9E3A50077EDED /* KeyboardInfo.swift in Sources */,
 			);

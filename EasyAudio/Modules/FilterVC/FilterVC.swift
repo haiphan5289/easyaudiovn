@@ -24,7 +24,9 @@ class FilterVC: UIViewController {
              modifiDateDescending,
              modifiDateAscending,
              accessedDateDescending,
-             accessDateAscending
+             accessDateAscending,
+             nameAscending,
+             nameDescending
     }
     
     var filterType: FilterType = .createDateDescending
@@ -40,6 +42,8 @@ class FilterVC: UIViewController {
     @IBOutlet weak var imageAccess: UIImageView!
     @IBOutlet weak var accessButton: UIButton!
     @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var imgName: UIImageView!
+    @IBOutlet weak var nameButton: UIButton!
     
     // Add here your view model
     private var viewModel: FilterVM = FilterVM()
@@ -81,6 +85,8 @@ extension FilterVC {
             imageCreateSort.isHidden = true
             imageUpdateSort.isHidden = true
             imageAccess.image = (filterType == .accessedDateDescending) ? Asset.icSortDescending.image : Asset.icSortAscending.image
+        case .nameAscending, .nameDescending:
+            imgName.image = (filterType == .nameDescending) ? Asset.icSortDescending.image : Asset.icSortAscending.image
         }
         
     }
@@ -109,6 +115,15 @@ extension FilterVC {
             .withUnretained(self)
             .bind { owner, _ in
                 owner.filterType = (owner.filterType == .accessedDateDescending) ? .accessDateAscending : .accessedDateDescending
+                owner.dismiss(animated: true) {
+                    owner.delegate?.selectFilter(filterType: owner.filterType)
+                }
+            }.disposed(by: disposeBag)
+        
+        nameButton.rx.tap
+            .withUnretained(self)
+            .bind { owner, _ in
+                owner.filterType = (owner.filterType == .nameDescending) ? .nameAscending : .nameDescending
                 owner.dismiss(animated: true) {
                     owner.delegate?.selectFilter(filterType: owner.filterType)
                 }

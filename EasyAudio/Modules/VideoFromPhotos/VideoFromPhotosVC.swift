@@ -69,7 +69,6 @@ extension VideoFromPhotosVC {
             .asDriver()
             .drive { isLoading in
                 isLoading ? SVProgressHUD.show() : SVProgressHUD.dismiss()
-                print("========== isLoading \(isLoading)")
             }.disposed(by: disposeBag)
 
         

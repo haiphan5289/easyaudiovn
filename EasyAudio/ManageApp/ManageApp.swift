@@ -120,6 +120,18 @@ class ManageApp {
                 }
                 return true
             }
+        case .nameAscending:
+            return urls.sorted { item1, item2 in
+                let date1 = item1.getName()
+                let date2 = item2.getName()
+                return date1.compare(date2) == ComparisonResult.orderedAscending
+            }
+        case .nameDescending:
+            return urls.sorted { item1, item2 in
+                let date1 = item1.getName()
+                let date2 = item2.getName()
+                return date1.compare(date2) == ComparisonResult.orderedDescending
+            }
         }
     }
     

@@ -154,6 +154,10 @@ extension VideoVC: ActionHomeDelegate {
             let viewController = VideoFromPhotosVC.createVC()
             viewController.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(viewController, animated: true)
+//        case .handlingMusic:
+//            let viewcontroller = HandlingMusicVC.createVC()
+//            viewcontroller.hidesBottomBarWhenPushed = true
+//            self.navigationController?.pushViewController(viewcontroller, animated: true)
         }
     }
 }

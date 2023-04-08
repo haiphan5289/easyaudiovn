@@ -495,6 +495,49 @@ public class AudioManage {
         }
     }
     
+    //MARK: CHANGE VOLUME AUDIO
+    public func changeVolumeAudio(sourceURL: URL,
+                                  volume: Float,
+                                  folderName: String,
+                                  success: @escaping ((URL) -> Void), failure: @escaping ((Error?) -> Void)) {
+        let asset = AVURLAsset(url: sourceURL)
+        let composition = AVMutableComposition()
+        guard let audioCompTrack = composition.addMutableTrack(withMediaType: AVMediaType.audio, preferredTrackID: kCMPersistentTrackID_Invalid),
+              let assetAudioFromVideo = asset.tracks(withMediaType: AVMediaType.audio).first else {
+            return
+        }
+        let audioMix: AVMutableAudioMix = AVMutableAudioMix()
+        var audioMixParam: [AVMutableAudioMixInputParameters] = []
+        let videoParam: AVMutableAudioMixInputParameters = AVMutableAudioMixInputParameters(track: assetAudioFromVideo)
+        videoParam.trackID = audioCompTrack.trackID
+        videoParam.setVolume(volume, at: CMTime.zero)
+        audioMixParam.append(videoParam)
+        audioMix.inputParameters = audioMixParam
+        do {
+            try audioCompTrack.insertTimeRange(assetAudioFromVideo.timeRange, of: assetAudioFromVideo, at: CMTime.zero)
+        }
+        catch let error {
+            print("Error insert time range \(error)")
+        }
+        let outputURL = self.createURL(folder: folderName, name: "TrimAudio-\(self.parseDatetoString())", type: .mp4)
+        removeFileAtURLIfExists(url: outputURL)
+        
+        let assetExport: AVAssetExportSession = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetHighestQuality)!
+        assetExport.outputFileType = AVFileType.mp4
+        assetExport.outputURL = outputURL
+        assetExport.shouldOptimizeForNetworkUse = true
+        assetExport.audioMix = audioMix
+        //            assetExport.videoComposition = videoComposition
+        assetExport.exportAsynchronously {
+            switch assetExport.status {
+            case .completed:
+                success(outputURL)
+            default:
+                failure(assetExport.error)
+            }
+        }
+    }
+    
     //MARK: COPY ITEM
     public func moveToItem(at srcURLs: [URL], folderName: String, complention: @escaping (() -> Void), failure: @escaping ((String) -> Void)) {
         var e: Error?
