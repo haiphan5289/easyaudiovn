@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D9337224855A9498902CE8C /* Pods_EasyAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C63E1C2D8E890A4E84F0DA64 /* Pods_EasyAudio.framework */; };
 		3ECCA06F298B964100F6EB82 /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECCA06E298B964000F6EB82 /* UITableViewExtensions.swift */; };
 		93097D8A2848A63D00D33BFA /* MuteFileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93097D872848A63D00D33BFA /* MuteFileVC.xib */; };
 		93097D8B2848A63D00D33BFA /* MuteFileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93097D882848A63D00D33BFA /* MuteFileVM.swift */; };
@@ -281,11 +280,12 @@
 		93F836442845123A004AE334 /* CheckUIVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93F836412845123A004AE334 /* CheckUIVC.xib */; };
 		93F836452845123A004AE334 /* CheckUIVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F836422845123A004AE334 /* CheckUIVM.swift */; };
 		93F836462845123A004AE334 /* CheckUIVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F836432845123A004AE334 /* CheckUIVC.swift */; };
+		F9FD3FFF0DC641049A176340 /* Pods_EasyAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25B4A1FFF1259ACA8BEC73 /* Pods_EasyAudio.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3ECCA06E298B964000F6EB82 /* UITableViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtensions.swift; sourceTree = "<group>"; };
-		6125231AC2F13B4FFC10B136 /* Pods-EasyAudio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyAudio.release.xcconfig"; path = "Target Support Files/Pods-EasyAudio/Pods-EasyAudio.release.xcconfig"; sourceTree = "<group>"; };
+		5C25B4A1FFF1259ACA8BEC73 /* Pods_EasyAudio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyAudio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93097D872848A63D00D33BFA /* MuteFileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MuteFileVC.xib; sourceTree = "<group>"; };
 		93097D882848A63D00D33BFA /* MuteFileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuteFileVM.swift; sourceTree = "<group>"; };
 		93097D892848A63D00D33BFA /* MuteFileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuteFileVC.swift; sourceTree = "<group>"; };
@@ -595,8 +595,8 @@
 		93F836412845123A004AE334 /* CheckUIVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckUIVC.xib; sourceTree = "<group>"; };
 		93F836422845123A004AE334 /* CheckUIVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUIVM.swift; sourceTree = "<group>"; };
 		93F836432845123A004AE334 /* CheckUIVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUIVC.swift; sourceTree = "<group>"; };
-		C63E1C2D8E890A4E84F0DA64 /* Pods_EasyAudio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyAudio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DEB81A7D3AA1216C8BEF0032 /* Pods-EasyAudio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyAudio.debug.xcconfig"; path = "Target Support Files/Pods-EasyAudio/Pods-EasyAudio.debug.xcconfig"; sourceTree = "<group>"; };
+		9A21E7BD685B68CC5B491B7F /* Pods-EasyAudio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyAudio.release.xcconfig"; path = "Target Support Files/Pods-EasyAudio/Pods-EasyAudio.release.xcconfig"; sourceTree = "<group>"; };
+		CA97B918B8353BB1256354AD /* Pods-EasyAudio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyAudio.debug.xcconfig"; path = "Target Support Files/Pods-EasyAudio/Pods-EasyAudio.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -604,7 +604,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D9337224855A9498902CE8C /* Pods_EasyAudio.framework in Frameworks */,
+				F9FD3FFF0DC641049A176340 /* Pods_EasyAudio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,18 +614,10 @@
 		34BF24632EF44BF137D62411 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				DEB81A7D3AA1216C8BEF0032 /* Pods-EasyAudio.debug.xcconfig */,
-				6125231AC2F13B4FFC10B136 /* Pods-EasyAudio.release.xcconfig */,
+				CA97B918B8353BB1256354AD /* Pods-EasyAudio.debug.xcconfig */,
+				9A21E7BD685B68CC5B491B7F /* Pods-EasyAudio.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		9155D7A2B8F19C982B2A1C50 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				C63E1C2D8E890A4E84F0DA64 /* Pods_EasyAudio.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		93097D862848A62500D33BFA /* MuteFile */ = {
@@ -1397,7 +1389,7 @@
 				93A0C6F327EE1AD0008E6B98 /* EasyAudio */,
 				93A0C6F227EE1AD0008E6B98 /* Products */,
 				34BF24632EF44BF137D62411 /* Pods */,
-				9155D7A2B8F19C982B2A1C50 /* Frameworks */,
+				D9FA812EFA7BA4AA3003DEF6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1642,6 +1634,14 @@
 			path = CheckUI;
 			sourceTree = "<group>";
 		};
+		D9FA812EFA7BA4AA3003DEF6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5C25B4A1FFF1259ACA8BEC73 /* Pods_EasyAudio.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1649,12 +1649,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 93A0C70527EE1AD3008E6B98 /* Build configuration list for PBXNativeTarget "EasyAudio" */;
 			buildPhases = (
-				E11401E377AA82AE173372F2 /* [CP] Check Pods Manifest.lock */,
+				FAFAB5A7C414801CFEBB91A4 /* [CP] Check Pods Manifest.lock */,
 				93A0C6ED27EE1AD0008E6B98 /* Sources */,
 				93A0C6EE27EE1AD0008E6B98 /* Frameworks */,
 				93A0C6EF27EE1AD0008E6B98 /* Resources */,
-				CD4DE1B70A967A4CE50FDA4C /* [CP] Embed Pods Frameworks */,
 				93758699297FC59900EF218C /* SwiftLint */,
+				97A7D947C2CF3FF810B082E9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1804,7 +1804,7 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n${PODS_ROOT}/SwiftLint/swiftlint --config .swiflint.yml\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		CD4DE1B70A967A4CE50FDA4C /* [CP] Embed Pods Frameworks */ = {
+		97A7D947C2CF3FF810B082E9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1821,7 +1821,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EasyAudio/Pods-EasyAudio-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E11401E377AA82AE173372F2 /* [CP] Check Pods Manifest.lock */ = {
+		FAFAB5A7C414801CFEBB91A4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2192,7 +2192,7 @@
 		};
 		93A0C70627EE1AD3008E6B98 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DEB81A7D3AA1216C8BEF0032 /* Pods-EasyAudio.debug.xcconfig */;
+			baseConfigurationReference = CA97B918B8353BB1256354AD /* Pods-EasyAudio.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -2236,7 +2236,7 @@
 		};
 		93A0C70727EE1AD3008E6B98 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6125231AC2F13B4FFC10B136 /* Pods-EasyAudio.release.xcconfig */;
+			baseConfigurationReference = 9A21E7BD685B68CC5B491B7F /* Pods-EasyAudio.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
