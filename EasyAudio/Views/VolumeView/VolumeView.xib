@@ -39,12 +39,12 @@
                                     <rect key="frame" x="16" y="16" width="361" height="266"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srv-Fg-3Rc">
-                                            <rect key="frame" x="0.0" y="121" width="123" height="24"/>
+                                            <rect key="frame" x="0.0" y="121" width="115" height="24"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" image="ic_handling_volumeMute"/>
                                         </button>
                                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="h14-o8-O8s">
-                                            <rect key="frame" x="129" y="118" width="202" height="31"/>
+                                            <rect key="frame" x="121" y="118" width="210" height="31"/>
                                             <color key="minimumTrackTintColor" name="AppColor"/>
                                             <color key="maximumTrackTintColor" name="lineColor"/>
                                         </slider>
