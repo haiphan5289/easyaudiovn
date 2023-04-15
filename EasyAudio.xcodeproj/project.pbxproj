@@ -259,6 +259,8 @@
 		93B73A1329862C3900D11FE4 /* FilterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B73A1029862C3900D11FE4 /* FilterVM.swift */; };
 		93B73A1429862C3900D11FE4 /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B73A1129862C3900D11FE4 /* FilterVC.swift */; };
 		93C47BA329E1A7FF00731154 /* AudioManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C47BA229E1A7FF00731154 /* AudioManage.swift */; };
+		93C5750A29EAA24F003BD015 /* FadeInOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C5750929EAA24F003BD015 /* FadeInOutView.swift */; };
+		93C5750C29EAA25E003BD015 /* FadeInOutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93C5750B29EAA25E003BD015 /* FadeInOutView.xib */; };
 		93C5984B298545EB005C7CD9 /* AllFilesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93C59848298545EB005C7CD9 /* AllFilesVC.xib */; };
 		93C5984C298545EB005C7CD9 /* AllFilesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C59849298545EB005C7CD9 /* AllFilesVM.swift */; };
 		93C5984D298545EB005C7CD9 /* AllFilesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C5984A298545EB005C7CD9 /* AllFilesVC.swift */; };
@@ -574,6 +576,8 @@
 		93B73A1029862C3900D11FE4 /* FilterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVM.swift; sourceTree = "<group>"; };
 		93B73A1129862C3900D11FE4 /* FilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
 		93C47BA229E1A7FF00731154 /* AudioManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManage.swift; sourceTree = "<group>"; };
+		93C5750929EAA24F003BD015 /* FadeInOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeInOutView.swift; sourceTree = "<group>"; };
+		93C5750B29EAA25E003BD015 /* FadeInOutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FadeInOutView.xib; sourceTree = "<group>"; };
 		93C59848298545EB005C7CD9 /* AllFilesVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllFilesVC.xib; sourceTree = "<group>"; };
 		93C59849298545EB005C7CD9 /* AllFilesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllFilesVM.swift; sourceTree = "<group>"; };
 		93C5984A298545EB005C7CD9 /* AllFilesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllFilesVC.swift; sourceTree = "<group>"; };
@@ -1024,6 +1028,7 @@
 		937237A027F9E4080077EDED /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				93C5750829EAA239003BD015 /* FadeInOut */,
 				93DB062729CF1EE70021A252 /* VolumeTitleView */,
 				93ABC9FC29CF1B640003C23D /* AudioView */,
 				93ABC9F729CF1A8F0003C23D /* VolumeView */,
@@ -1565,6 +1570,15 @@
 			path = AudioManage;
 			sourceTree = "<group>";
 		};
+		93C5750829EAA239003BD015 /* FadeInOut */ = {
+			isa = PBXGroup;
+			children = (
+				93C5750929EAA24F003BD015 /* FadeInOutView.swift */,
+				93C5750B29EAA25E003BD015 /* FadeInOutView.xib */,
+			);
+			path = FadeInOut;
+			sourceTree = "<group>";
+		};
 		93C5984329854266005C7CD9 /* AllFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -1757,6 +1771,7 @@
 				935905CF2846526700B560D7 /* upload.html in Resources */,
 				9375869D297FD04F00EF218C /* .swiflint.yml in Resources */,
 				937237D227F9E4080077EDED /* NavigationSaveView.xib in Resources */,
+				93C5750C29EAA25E003BD015 /* FadeInOutView.xib in Resources */,
 				939880042843BBD50057270F /* ExportVC.xib in Resources */,
 				93CE5F3E27FB471100455E01 /* AudioCell.xib in Resources */,
 				93913B05282FE4CF009DDCF6 /* FontsFree-Net-SFProText-Regular.ttf in Resources */,
@@ -1980,6 +1995,7 @@
 				93B73A1329862C3900D11FE4 /* FilterVM.swift in Sources */,
 				935905C92846526700B560D7 /* DDNumber.m in Sources */,
 				93A52ADD2987F926005EF39D /* RenameFileVM.swift in Sources */,
+				93C5750A29EAA24F003BD015 /* FadeInOutView.swift in Sources */,
 				935905C22846526700B560D7 /* HTTPMessage.m in Sources */,
 				935905B02846526700B560D7 /* GCDAsyncSocket.m in Sources */,
 				937237D027F9E4080077EDED /* QuickActionsView.swift in Sources */,

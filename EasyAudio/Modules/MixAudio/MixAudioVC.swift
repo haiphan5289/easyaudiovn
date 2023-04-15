@@ -75,6 +75,7 @@ class MixAudioVC: BaseVC, BaseAudioProtocol {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var volumeButton: UIButton!
+    @IBOutlet weak var fadeInOutButton: UIButton!
     // Add here your view model
     private var viewModel: MixAudioVM = MixAudioVM()
     @VariableReplay private var sourcesURL: [MutePoint] = []
@@ -223,6 +224,35 @@ extension MixAudioVC {
                         self.showAlertTrigger.onNext(text)
                     }
                     volumeView.removeFromSuperview()
+                }
+            }.disposed(by: disposeBag)
+        
+        fadeInOutButton.rx.tap
+            .withUnretained(self)
+            .bind { owner, _ in
+                guard let inputURL = self.exportURL else {
+                    return
+                }
+                let fadeView: FadeInOutView = .loadXib()
+                owner.view.addSubview(fadeView)
+                fadeView.snp.makeConstraints { make in
+                    make.left.bottom.right.equalToSuperview()
+                }
+                fadeView.setTitle(title: "Fade")
+                fadeView.setupAudioURL(url: inputURL)
+                fadeView.actionHanler = { [weak self] fadeIn, fadeOut in
+                    guard let self = self else { return }
+                    AudioManage.shared.handleFadeIn(sourceURL: inputURL,
+                                                    fadein: fadeIn,
+                                                    fadeOut: fadeOut,
+                                                    folderName: ConstantApp.FolderName.folderEdit.rawValue) { [weak self] outputURL in
+                        guard let self = self else { return }
+                        self.exportURL = outputURL
+                    } failure: { [weak self] error in
+                        guard let self = self, let text = error?.localizedDescription else { return }
+                        self.showAlertTrigger.onNext(text)
+                    }
+                    fadeView.removeFromSuperview()
                 }
             }.disposed(by: disposeBag)
         

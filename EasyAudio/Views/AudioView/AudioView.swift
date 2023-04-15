@@ -12,6 +12,12 @@ import RxSwift
 
 class AudioView: UIView {
     
+    enum AudioType {
+        case normal, volume, fade
+    }
+    
+    var audioType: AudioType = .normal
+    
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var processTimeSlider: UISlider!
     @IBOutlet weak var playButton: UIButton!
@@ -19,6 +25,8 @@ class AudioView: UIView {
     private let urlTrigger: PublishSubject<URL> = PublishSubject.init()
     private let audioPLayManage: AudioPlayManage = AudioPlayManage()
     private var valueVolume: Float = 10
+    private var fadeIn: Float = 0
+    private var fadeOut: Float = 0
     private let disposeBag = DisposeBag()
     
     override func awakeFromNib() {
@@ -60,8 +68,25 @@ extension AudioView {
                 
                 owner.playButton.setImage(Asset.icPause.image, for: .normal)
                 owner.audioPLayManage.playAudio(url: url, currentTime: CGFloat(owner.processTimeSlider.value))
+                
+                switch owner.audioType {
+                case .normal: break
+                case .volume: owner.audioPLayManage.setVolume(volume: owner.valueVolume)
+                case .fade:
+                    owner.audioPLayManage.fadeIn(vol: owner.fadeIn)
+                    owner.audioPLayManage.fadeOut(vol: owner.fadeOut)
+                }
+                
                 owner.audioPLayManage.setVolume(volume: owner.valueVolume)
             }.disposed(by: disposeBag)
+    }
+    
+    func fadeIn(volume: Float) {
+        self.fadeIn = volume
+    }
+    
+    func fadeOut(volume: Float) {
+        self.fadeOut = volume
     }
     
     func setupURL(url: URL) {

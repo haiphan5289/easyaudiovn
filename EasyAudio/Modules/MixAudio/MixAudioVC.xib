@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -16,6 +16,7 @@
                 <outlet property="audioStackView" destination="DAI-Gq-wkg" id="i3h-pJ-gDD"/>
                 <outlet property="backButton" destination="dIr-uT-dkY" id="nh2-jD-7ES"/>
                 <outlet property="centerView" destination="9GQ-ou-F2e" id="LLo-y8-l8W"/>
+                <outlet property="fadeInOutButton" destination="qdS-ZT-z2e" id="6qf-FU-gbL"/>
                 <outlet property="hBottomView" destination="MHA-UK-JgH" id="CP5-Xe-cMJ"/>
                 <outlet property="heightAudioSV" destination="VyI-Jo-aBs" id="K4H-n0-aXM"/>
                 <outlet property="leadingAudioView" destination="4eO-QV-oJ2" id="FvF-Nm-8JU"/>

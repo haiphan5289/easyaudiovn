@@ -66,10 +66,52 @@ final class AudioPlayManage: NSObject {
                 wSelf.delegate?.valueProcessing(value: wSelf.audioPlayer.currentTime)
             })
     }
+    
+    func fadeOut(vol: Float) {
+        self.audioPlayer.fadeOut(vol: vol)
+    }
+    
+    func fadeIn(vol: Float) {
+        self.audioPlayer.fadeIn(vol: vol)
+    }
+    
 }
 extension AudioPlayManage: AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         self.clearAction()
         self.delegate?.didFinishAudio()
+    }
+}
+
+extension AVAudioPlayer {
+    
+    private func dispatchDelay(delay:Double, closure:@escaping ()->()) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay, execute: closure)
+    }
+    
+    func fadeOut(vol: Float) {
+        if volume > vol {
+            //print("vol is : \(vol) and volume is: \(volume)")
+            dispatchDelay(delay: 0.1, closure: {
+                [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.volume -= 0.01
+                strongSelf.fadeOut(vol: vol)
+            })
+        } else {
+            volume = vol
+        }
+    }
+    func fadeIn(vol:Float) {
+        if volume < vol {
+            dispatchDelay(delay: 0.1, closure: {
+                [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.volume += 0.01
+                strongSelf.fadeIn(vol: vol)
+            })
+        } else {
+            volume = vol
+        }
     }
 }
