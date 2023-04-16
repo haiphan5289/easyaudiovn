@@ -76,6 +76,7 @@ class MixAudioVC: BaseVC, BaseAudioProtocol {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var volumeButton: UIButton!
     @IBOutlet weak var fadeInOutButton: UIButton!
+    @IBOutlet weak var speedButton: UIButton!
     // Add here your view model
     private var viewModel: MixAudioVM = MixAudioVM()
     @VariableReplay private var sourcesURL: [MutePoint] = []
@@ -253,6 +254,31 @@ extension MixAudioVC {
                         self.showAlertTrigger.onNext(text)
                     }
                     fadeView.removeFromSuperview()
+                }
+            }.disposed(by: disposeBag)
+        
+        speedButton.rx.tap
+            .withUnretained(self)
+            .bind { owner, _ in
+                guard let inputURL = self.exportURL else {
+                    return
+                }
+                let speedView: SpeedView = .loadXib()
+                owner.view.addSubview(speedView)
+                speedView.snp.makeConstraints { make in
+                    make.left.bottom.right.equalToSuperview()
+                }
+                speedView.setTitle(title: "Speed")
+                speedView.setupAudioURL(url: inputURL)
+                speedView.actionHanler = { [weak self] speeed in
+                    guard let self = self else { return }
+                    AudioManage.shared.changeRateAudio(url: inputURL,
+                                                       speed: speeed,
+                                                       folderName: ConstantApp.FolderName.folderEdit.rawValue) { [weak self] outputURL in
+                        guard let self = self else { return }
+                        self.exportURL = outputURL
+                    }
+                    speedView.removeFromSuperview()
                 }
             }.disposed(by: disposeBag)
         

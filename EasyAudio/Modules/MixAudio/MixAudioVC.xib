@@ -23,6 +23,7 @@
                 <outlet property="leadingSV" destination="QhV-zR-y5A" id="45l-C1-NPk"/>
                 <outlet property="playView" destination="1Jf-KD-t8E" id="hec-wg-iKc"/>
                 <outlet property="scrollView" destination="klz-au-SHF" id="hlW-65-NRo"/>
+                <outlet property="speedButton" destination="78S-8t-7Bs" id="MEK-UH-DpE"/>
                 <outlet property="timeStackView" destination="78X-Ga-tBh" id="saE-JL-pgf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="volumeButton" destination="JWP-KB-PDE" id="bQy-V1-hed"/>

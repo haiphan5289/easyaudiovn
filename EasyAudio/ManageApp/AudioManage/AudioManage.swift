@@ -33,12 +33,17 @@ final class AudioPlayManage: NSObject {
             /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
             self.audioPlayer = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
             self.audioPlayer.delegate = self
+            self.audioPlayer.enableRate = true
             self.audioPlayer.prepareToPlay()
             self.audioPlayer.play()
             self.audioPlayer.currentTime = TimeInterval(currentTime)
             self.autoRunTime()
         } catch {
         }
+    }
+    
+    func setSpeed(speed: Double) {
+        self.audioPlayer.rate = Float(speed)
     }
     
     func setVolume(volume: Float) {

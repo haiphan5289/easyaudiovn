@@ -13,7 +13,7 @@ import RxSwift
 class AudioView: UIView {
     
     enum AudioType {
-        case normal, volume, fade
+        case normal, volume, fade, speed
     }
     
     var audioType: AudioType = .normal
@@ -27,6 +27,7 @@ class AudioView: UIView {
     private var valueVolume: Float = 10
     private var fadeIn: Float = 0
     private var fadeOut: Float = 0
+    private var speed: Double = 1
     private let disposeBag = DisposeBag()
     
     override func awakeFromNib() {
@@ -75,10 +76,16 @@ extension AudioView {
                 case .fade:
                     owner.audioPLayManage.fadeIn(vol: owner.fadeIn)
                     owner.audioPLayManage.fadeOut(vol: owner.fadeOut)
+                case .speed:
+                    owner.audioPLayManage.setSpeed(speed: owner.speed)
                 }
                 
                 owner.audioPLayManage.setVolume(volume: owner.valueVolume)
             }.disposed(by: disposeBag)
+    }
+    
+    func setSpeed(speed: Double) {
+        self.speed = speed
     }
     
     func fadeIn(volume: Float) {

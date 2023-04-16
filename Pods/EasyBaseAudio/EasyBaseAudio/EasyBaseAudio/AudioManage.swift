@@ -496,6 +496,179 @@ public class AudioManage {
     }
     
     //MARK: CHANGE VOLUME AUDIO
+    public func scaleAudio(sourceURL: URL,
+                           speed: Float,
+                           folderName: String,success: @escaping ((URL) -> Void), failure: @escaping ((Error?) -> Void)) {
+        let asset = AVURLAsset(url: sourceURL)
+        let composition = AVMutableComposition()
+        guard let audioCompTrack = composition.addMutableTrack(withMediaType: AVMediaType.audio, preferredTrackID: kCMPersistentTrackID_Invalid),
+              let assetAudioFromVideo = asset.tracks(withMediaType: AVMediaType.audio).first else {
+            return
+        }
+        let audioMix: AVMutableAudioMix = AVMutableAudioMix()
+        var audioMixParam: [AVMutableAudioMixInputParameters] = []
+        let videoParam: AVMutableAudioMixInputParameters = AVMutableAudioMixInputParameters(track: assetAudioFromVideo)
+        videoParam.trackID = audioCompTrack.trackID
+        audioMixParam.append(videoParam)
+        audioMix.inputParameters = audioMixParam
+        do {
+            try audioCompTrack.insertTimeRange(assetAudioFromVideo.timeRange, of: assetAudioFromVideo, at: CMTime.zero)
+//            let currentRange = CMTimeRange(start: CMTime(seconds: 0, preferredTimescale: 1), duration: asset.duration)
+//            let durationInSeconds = CMTimeGetSeconds(asset.duration)
+//            let scaleSpeed = Double(durationInSeconds) * Double(speed)
+//            audioCompTrack.scaleTimeRange(currentRange, toDuration: CMTime(seconds: scaleSpeed, preferredTimescale: 1))
+        }
+        catch let error {
+            print("Error insert time range \(error)")
+        }
+        let outputURL = self.createURL(folder: folderName, name: "TrimAudio-\(self.parseDatetoString())", type: .mp4)
+        removeFileAtURLIfExists(url: outputURL)
+        
+        let assetExport: AVAssetExportSession = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetHighestQuality)!
+        assetExport.outputFileType = AVFileType.mp4
+        assetExport.outputURL = outputURL
+        assetExport.shouldOptimizeForNetworkUse = true
+        assetExport.audioMix = audioMix
+//        let startTime = CMTimeRange(start: CMTime(seconds: 0, preferredTimescale: 1), duration: asset.duration)
+//        let timeRange = CMTimeRangeFromTimeToTime(start: startTime, end: endTime)
+        let timeRange = CMTimeRangeFromTimeToTime(start: CMTime(seconds: 0, preferredTimescale: 1), end: CMTime(seconds: 100, preferredTimescale: 1))
+        //some code to create the exporter
+        assetExport.timeRange = timeRange
+        //            assetExport.videoComposition = videoComposition
+        assetExport.exportAsynchronously {
+            switch assetExport.status {
+            case .completed:
+                success(outputURL)
+            default:
+                failure(assetExport.error)
+            }
+        }
+    }
+    
+    public func changeRateAudio(url: URL,
+                         speed: Double,
+                         folderName: String,
+                         completion: @escaping( (URL) -> Void)) {
+        let asset = AVAsset(url: url)
+        /// Video Tracks
+        let audioTracks = asset.tracks(withMediaType: AVMediaType.audio)
+        guard let audioTrack = audioTracks.first else {
+            return
+        }
+        /// Get the scaled video duration
+//        let scaledVideoDuration = (speed == .fast) ? CMTimeMake(value: asset.duration.value / 2, timescale: asset.duration.timescale) : CMTimeMake(value: asset.duration.value * 2, timescale: asset.duration.timescale)
+        let scaledVideoDuration = CMTimeMake(value: asset.duration.value / Int64(speed), timescale: asset.duration.timescale)
+        let timeRange = CMTimeRangeMake(start: CMTime.zero, duration: asset.duration)
+        
+        let mixComposition = AVMutableComposition()
+        let compositionVideoTrack = mixComposition.addMutableTrack(withMediaType: AVMediaType.audio, preferredTrackID: kCMPersistentTrackID_Invalid)
+
+        /// Use audio if video contains the audio track
+        let compositionAudioTrack = mixComposition.addMutableTrack(withMediaType: AVMediaType.audio, preferredTrackID: kCMPersistentTrackID_Invalid)
+        do {
+            try compositionAudioTrack?.insertTimeRange(timeRange, of: audioTrack, at: CMTime.zero)
+            compositionAudioTrack?.scaleTimeRange(timeRange, toDuration: scaledVideoDuration)
+            let mutableVideoURL = self.createURL(folder: folderName, name: "TrimAudio-\(self.parseDatetoString())", type: .mp4)
+            
+            guard let exporter = AVAssetExportSession(asset: mixComposition, presetName: AVAssetExportPresetPassthrough) else {
+                return
+            }
+            exporter.outputURL = mutableVideoURL
+            exporter.outputFileType = AVFileType.mp4
+            exporter.shouldOptimizeForNetworkUse = true
+            removeFileAtURLIfExists(url: mutableVideoURL)
+            exporter.exportAsynchronously {
+                switch exporter.status {
+                case .completed:
+                    print("exported at \(mutableVideoURL)")
+                    completion(mutableVideoURL)
+                case .failed:
+                    print("failed \(exporter.error.debugDescription)")
+                case .cancelled:
+                    print("cancelled \(exporter.error.debugDescription)")
+                default: break
+                }
+            }
+        } catch _ {
+            /// Ignore audio error
+        }
+    }
+    
+//    func changeRateVideo(url: URL, speed: ListVoiceView.StatusAudioEffect, completion: @escaping( (URL) -> Void )) {
+//        let asset = AVAsset(url: url)
+//
+//        /// Video Tracks
+//        let videoTracks = asset.tracks(withMediaType: AVMediaType.video)
+//        if videoTracks.count == 0 {
+//            return
+//        }
+//
+//        /// Get the scaled video duration
+//        let scaledVideoDuration = (speed == .fast) ? CMTimeMake(value: asset.duration.value / 2, timescale: asset.duration.timescale) : CMTimeMake(value: asset.duration.value * 2, timescale: asset.duration.timescale)
+//        let timeRange = CMTimeRangeMake(start: CMTime.zero, duration: asset.duration)
+//
+//        /// Video track
+//        let videoTrack = videoTracks.first!
+//
+//        let mixComposition = AVMutableComposition()
+//        let compositionVideoTrack = mixComposition.addMutableTrack(withMediaType: AVMediaType.video, preferredTrackID: kCMPersistentTrackID_Invalid)
+//
+//        /// Audio Tracks
+//        let audioTracks = asset.tracks(withMediaType: AVMediaType.audio)
+//        if audioTracks.count > 0 {
+//            /// Use audio if video contains the audio track
+//            let compositionAudioTrack = mixComposition.addMutableTrack(withMediaType: AVMediaType.audio, preferredTrackID: kCMPersistentTrackID_Invalid)
+//
+//            /// Audio track
+//            let audioTrack = audioTracks.first!
+//            do {
+//                try compositionAudioTrack?.insertTimeRange(timeRange, of: audioTrack, at: CMTime.zero)
+//                compositionAudioTrack?.scaleTimeRange(timeRange, toDuration: scaledVideoDuration)
+//            } catch _ {
+//                /// Ignore audio error
+//            }
+//        }
+//
+//        do {
+//            try compositionVideoTrack?.insertTimeRange(timeRange, of: videoTrack, at: CMTime.zero)
+//            compositionVideoTrack?.scaleTimeRange(timeRange, toDuration: scaledVideoDuration)
+//
+//            /// Keep original transformation
+//            compositionVideoTrack?.preferredTransform = videoTrack.preferredTransform
+//            let numberOfTime = self.generateTimeVideo()
+//            let mutableVideoURL = self.createURL(folder: LINK_CHANGE_RATE_VIDEO, name: "ChangeRate-\(numberOfTime)", type: .mov)
+//
+//            guard let exporter = AVAssetExportSession(asset: mixComposition, presetName: AVAssetExportPresetHighestQuality) else {
+//                return
+//            }
+//            exporter.outputURL = mutableVideoURL
+//            exporter.outputFileType = AVFileType.mov
+//            exporter.shouldOptimizeForNetworkUse = true
+//            removeFileAtURLIfExists(url: mutableVideoURL)
+//            exporter.exportAsynchronously {
+//                switch exporter.status {
+//                case .completed:
+//                    print("exported at \(mutableVideoURL)")
+//                    completion(mutableVideoURL)
+//                    self.clearActionRemoveSound(exportSession: exporter)
+////                    UISaveVideoAtPathToSavedPhotosAlbum(mutableVideoURL.path,nil, nil, nil)
+//                case .failed:
+//                    print("failed \(exporter.error.debugDescription)")
+//                case .cancelled:
+//                    print("cancelled \(exporter.error.debugDescription)")
+//                default: break
+//                }
+//            }
+//            self.autoRemoveSound(exportSession: exporter, process: self.process)
+//
+//        } catch let error {
+//            return
+//        }
+//
+//    }
+    
+    
+    //MARK: CHANGE VOLUME AUDIO
     public func changeVolumeAudio(sourceURL: URL,
                                   volume: Float,
                                   folderName: String,
