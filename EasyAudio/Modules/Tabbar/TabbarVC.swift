@@ -12,11 +12,12 @@ import RxSwift
 class TabbarVC: UITabBarController {
     
     enum TabbarItems: Int, CaseIterable {
-        case allFiles, audio, video, work, setting
+        case mainAction, audio, video, work, setting
         
         var viewController: UIViewController {
             switch self {
-            case .allFiles: return AllFilesVC.createVC()
+            case .mainAction: return MainActionVC.createVC()
+//            case .allFiles: return AllFilesVC.createVC()
             case .audio: return AudioVC.createVC()
             case .video: return VideoVC.createVCfromStoryBoard(storyboard: .video,
                                                                instantiateViewController: .videoVC)
@@ -27,7 +28,8 @@ class TabbarVC: UITabBarController {
         
         var image: UIImage? {
             switch self {
-            case .allFiles: return Asset.icAllFiles.image
+            case .mainAction: return Asset.icAllFiles.image
+//            case .allFiles: return Asset.icAllFiles.image
             case .audio: return Asset.icAudio.image
             case .video: return Asset.icVideo.image
             case .work: return Asset.icWorking.image
@@ -37,8 +39,9 @@ class TabbarVC: UITabBarController {
         
         var text: String {
             switch self {
-            case .allFiles:
-                return "All Files"
+            case .mainAction: return "All Files"
+//            case .allFiles:
+//                return "All Files"
             case .audio:
                 return "Audio"
             case .video:

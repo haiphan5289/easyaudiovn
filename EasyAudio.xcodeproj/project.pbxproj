@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E1FF3E42B09BF34004BCD74 /* MainActionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1FF3E22B09BF34004BCD74 /* MainActionVC.swift */; };
+		3E1FF3E52B09BF34004BCD74 /* MainActionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E1FF3E32B09BF34004BCD74 /* MainActionVC.xib */; };
+		3E1FF3E92B09C2C2004BCD74 /* MainActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1FF3E72B09C2C2004BCD74 /* MainActionCell.swift */; };
+		3E1FF3EA2B09C2C2004BCD74 /* MainActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E1FF3E82B09C2C2004BCD74 /* MainActionCell.xib */; };
 		3ECCA06F298B964100F6EB82 /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECCA06E298B964000F6EB82 /* UITableViewExtensions.swift */; };
 		93097D8A2848A63D00D33BFA /* MuteFileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93097D872848A63D00D33BFA /* MuteFileVC.xib */; };
 		93097D8B2848A63D00D33BFA /* MuteFileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93097D882848A63D00D33BFA /* MuteFileVM.swift */; };
@@ -288,6 +292,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E1FF3E22B09BF34004BCD74 /* MainActionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainActionVC.swift; sourceTree = "<group>"; };
+		3E1FF3E32B09BF34004BCD74 /* MainActionVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainActionVC.xib; sourceTree = "<group>"; };
+		3E1FF3E72B09C2C2004BCD74 /* MainActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainActionCell.swift; sourceTree = "<group>"; };
+		3E1FF3E82B09C2C2004BCD74 /* MainActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainActionCell.xib; sourceTree = "<group>"; };
 		3ECCA06E298B964000F6EB82 /* UITableViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtensions.swift; sourceTree = "<group>"; };
 		5C25B4A1FFF1259ACA8BEC73 /* Pods_EasyAudio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyAudio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93097D872848A63D00D33BFA /* MuteFileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MuteFileVC.xib; sourceTree = "<group>"; };
@@ -626,6 +634,25 @@
 				9A21E7BD685B68CC5B491B7F /* Pods-EasyAudio.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		3E1FF3DD2B09BEBF004BCD74 /* MainAction */ = {
+			isa = PBXGroup;
+			children = (
+				3E1FF3E62B09C2AD004BCD74 /* Cell */,
+				3E1FF3E22B09BF34004BCD74 /* MainActionVC.swift */,
+				3E1FF3E32B09BF34004BCD74 /* MainActionVC.xib */,
+			);
+			path = MainAction;
+			sourceTree = "<group>";
+		};
+		3E1FF3E62B09C2AD004BCD74 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3E1FF3E72B09C2C2004BCD74 /* MainActionCell.swift */,
+				3E1FF3E82B09C2C2004BCD74 /* MainActionCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		93097D862848A62500D33BFA /* MuteFile */ = {
@@ -1164,6 +1191,7 @@
 		9372380527F9E4A40077EDED /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				3E1FF3DD2B09BEBF004BCD74 /* MainAction */,
 				93A52AD82987F913005EF39D /* RenameFile */,
 				93907D9728C488B30018C09C /* AboutMe */,
 				93AF2CA128C059A800558246 /* Settings */,
@@ -1733,10 +1761,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				93ADE13029BCC8F2001D8122 /* VideoFromPhotosCell.xib in Resources */,
+				3E1FF3E52B09BF34004BCD74 /* MainActionVC.xib in Resources */,
 				93B73A1229862C3900D11FE4 /* FilterVC.xib in Resources */,
 				937237C827F9E4080077EDED /* NavigationItemView.xib in Resources */,
 				937237CD27F9E4080077EDED /* RecordingView.xib in Resources */,
 				93AF2CAC28C05F0A00558246 /* SettingCell.xib in Resources */,
+				3E1FF3EA2B09C2C2004BCD74 /* MainActionCell.xib in Resources */,
 				93A20689282FD8F000F262EC /* AdditionAudioVC.xib in Resources */,
 				93913B03282FE4CF009DDCF6 /* Sample Text File.txt in Resources */,
 				9389F56328BE586300D55D92 /* image_gift_2.gif in Resources */,
@@ -1921,6 +1951,7 @@
 				93AF2CA728C059BC00558246 /* SettingVC.swift in Sources */,
 				9372371727F9E3710077EDED /* ColorExtensions.swift in Sources */,
 				93ACF9AE298AA46700DF09C0 /* UIView+Extension.swift in Sources */,
+				3E1FF3E92B09C2C2004BCD74 /* MainActionCell.swift in Sources */,
 				9372372027F9E3710077EDED /* ActivityExt.swift in Sources */,
 				9372371827F9E3710077EDED /* UINavigationBarExtensions.swift in Sources */,
 				9359056A2846525400B560D7 /* SGConst.m in Sources */,
@@ -2065,6 +2096,7 @@
 				9372372427F9E3710077EDED /* UIButtonExtensions.swift in Sources */,
 				937237F827F9E4170077EDED /* BaseHeaderEditViewNavigation.swift in Sources */,
 				937237E927F9E40F0077EDED /* ErrorTracker.swift in Sources */,
+				3E1FF3E42B09BF34004BCD74 /* MainActionVC.swift in Sources */,
 				9372377027F9E38C0077EDED /* PushNotificationHandler.swift in Sources */,
 				9372371427F9E3710077EDED /* UIStoryboardExtensions.swift in Sources */,
 				93097D8C2848A63D00D33BFA /* MuteFileVC.swift in Sources */,
