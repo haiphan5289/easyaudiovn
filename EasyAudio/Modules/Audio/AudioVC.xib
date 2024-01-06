@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AudioVC" customModule="Easy_Edit_Audio" customModuleProvider="target">
             <connections>
                 <outlet property="btAdd" destination="PEu-YV-Ry9" id="XZh-uq-92Y"/>
+                <outlet property="containerFeatureView" destination="5yl-cp-7u6" id="ax5-sA-a9V"/>
                 <outlet property="filterButton" destination="r6t-IM-zas" id="TVU-rl-IhV"/>
                 <outlet property="tableView" destination="R1k-Wx-vpi" id="0VP-Iw-pXj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -24,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="xIC-Rx-SZo">
-                    <rect key="frame" x="16" y="44" width="382" height="818"/>
+                    <rect key="frame" x="16" y="48" width="382" height="814"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="71t-pY-i14">
                             <rect key="frame" x="0.0" y="0.0" width="382" height="60"/>
@@ -52,6 +52,7 @@
                                             <rect key="frame" x="358" y="0.0" width="24" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="JBW-mo-8M4"/>
+                                                <constraint firstAttribute="width" secondItem="r6t-IM-zas" secondAttribute="height" id="bYV-HD-YMg"/>
                                                 <constraint firstAttribute="width" secondItem="r6t-IM-zas" secondAttribute="height" id="dIt-c7-0ps"/>
                                             </constraints>
                                             <color key="tintColor" name="AppColor"/>
@@ -59,12 +60,9 @@
                                             <state key="normal" image="ic_filter"/>
                                         </button>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="r6t-IM-zas" firstAttribute="width" secondItem="r6t-IM-zas" secondAttribute="height" id="bYV-HD-YMg"/>
-                                    </constraints>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="Zzu-VM-Ecx" secondAttribute="bottom" constant="20" symbolic="YES" id="G3m-Ts-Wbd"/>
                                 <constraint firstAttribute="trailing" secondItem="Zzu-VM-Ecx" secondAttribute="trailing" id="M7o-E7-Pnc"/>
@@ -72,15 +70,22 @@
                                 <constraint firstItem="Zzu-VM-Ecx" firstAttribute="leading" secondItem="71t-pY-i14" secondAttribute="leading" id="uTR-PI-YZ2"/>
                             </constraints>
                         </view>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5yl-cp-7u6">
+                            <rect key="frame" x="0.0" y="76" width="382" height="100"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="100" id="yEg-Ph-xDH"/>
+                            </constraints>
+                        </view>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="R1k-Wx-vpi">
-                            <rect key="frame" x="0.0" y="76" width="382" height="742"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <rect key="frame" x="0.0" y="192" width="382" height="622"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </tableView>
                     </subviews>
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" name="TextColorEffect"/>
             <constraints>
                 <constraint firstItem="xIC-Rx-SZo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="8U6-PR-IxN"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xIC-Rx-SZo" secondAttribute="trailing" constant="16" id="Zje-Gh-kye"/>
@@ -96,8 +101,8 @@
         <namedColor name="AppColor">
             <color red="0.0" green="0.5690000057220459" blue="0.57499998807907104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="TextColorEffect">
+            <color red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

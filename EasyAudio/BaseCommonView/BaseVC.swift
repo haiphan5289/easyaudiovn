@@ -55,7 +55,9 @@ class BaseVC: UIViewController {
         }
     }
     
-    func setupNavi(bgColor: UIColor = Asset.appColor.color, textColor: UIColor = .black, font: UIFont = UIFont.myBoldSystemFont(ofSize: 17)) {
+    func setupNavi(bgColor: UIColor = Asset.appColor.color,
+                   textColor: UIColor = .black,
+                   font: UIFont = UIFont.myBoldSystemFont(ofSize: 17)) {
         self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.navigationBar.barTintColor = bgColor
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: textColor,

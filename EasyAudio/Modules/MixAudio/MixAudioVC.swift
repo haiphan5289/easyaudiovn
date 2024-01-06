@@ -77,6 +77,7 @@ class MixAudioVC: BaseVC, BaseAudioProtocol {
     @IBOutlet weak var volumeButton: UIButton!
     @IBOutlet weak var fadeInOutButton: UIButton!
     @IBOutlet weak var speedButton: UIButton!
+    @IBOutlet weak var effectButton: UIButton!
     // Add here your view model
     private var viewModel: MixAudioVM = MixAudioVM()
     @VariableReplay private var sourcesURL: [MutePoint] = []
@@ -287,6 +288,15 @@ extension MixAudioVC {
             .drive { [weak self] error in
                 guard let self = self else { return }
                 self.showAlert(title: nil, message: error)
+            }.disposed(by: disposeBag)
+        
+        effectButton.rx.tap
+            .withUnretained(self)
+            .bind { owner, _ in
+                let vc = EffectAudioVC.createVC()
+                vc.modalTransitionStyle = .crossDissolve
+                vc.modalPresentationStyle = .overFullScreen
+                owner.present(vc, animated: true)
             }.disposed(by: disposeBag)
         
     }

@@ -264,6 +264,17 @@
 		93B73A1429862C3900D11FE4 /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B73A1129862C3900D11FE4 /* FilterVC.swift */; };
 		93BA936D29EBECFE00791DC3 /* SpeedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BA936C29EBECFE00791DC3 /* SpeedView.xib */; };
 		93BA936F29EBED0A00791DC3 /* SpeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BA936E29EBED0A00791DC3 /* SpeedView.swift */; };
+		93BBBBAD2A0145F300FC33A2 /* EffectAudioVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BBBBAA2A0145F300FC33A2 /* EffectAudioVC.xib */; };
+		93BBBBAE2A0145F300FC33A2 /* EffectAudioVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BBBBAB2A0145F300FC33A2 /* EffectAudioVM.swift */; };
+		93BBBBAF2A0145F300FC33A2 /* EffectAudioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BBBBAC2A0145F300FC33A2 /* EffectAudioVC.swift */; };
+		93BBBBB42A01473D00FC33A2 /* AudioEffectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BBBBB22A01473D00FC33A2 /* AudioEffectCell.swift */; };
+		93BBBBB52A01473D00FC33A2 /* AudioEffectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BBBBB32A01473D00FC33A2 /* AudioEffectCell.xib */; };
+		93BBBBB92A014A3600FC33A2 /* TitleAudioEffectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BBBBB72A014A3600FC33A2 /* TitleAudioEffectCell.swift */; };
+		93BBBBBA2A014A3600FC33A2 /* TitleAudioEffectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BBBBB82A014A3600FC33A2 /* TitleAudioEffectCell.xib */; };
+		93BBBBBE2A014E3A00FC33A2 /* EffectElementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BBBBBC2A014E3A00FC33A2 /* EffectElementCell.swift */; };
+		93BBBBBF2A014E3A00FC33A2 /* EffectElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BBBBBD2A014E3A00FC33A2 /* EffectElementCell.xib */; };
+		93BBBBC22A014E5A00FC33A2 /* EffectElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BBBBC12A014E5A00FC33A2 /* EffectElementView.swift */; };
+		93BBBBC42A014E6200FC33A2 /* EffectElementView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BBBBC32A014E6200FC33A2 /* EffectElementView.xib */; };
 		93C47BA329E1A7FF00731154 /* AudioManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C47BA229E1A7FF00731154 /* AudioManage.swift */; };
 		93C5750A29EAA24F003BD015 /* FadeInOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C5750929EAA24F003BD015 /* FadeInOutView.swift */; };
 		93C5750C29EAA25E003BD015 /* FadeInOutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93C5750B29EAA25E003BD015 /* FadeInOutView.xib */; };
@@ -280,6 +291,10 @@
 		93CE5F2C27FAF8E700455E01 /* Assets-Gen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE5F2A27FAF8E600455E01 /* Assets-Gen.swift */; };
 		93CE5F3D27FB471100455E01 /* AudioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE5F3B27FB471100455E01 /* AudioCell.swift */; };
 		93CE5F3E27FB471100455E01 /* AudioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93CE5F3C27FB471100455E01 /* AudioCell.xib */; };
+		93CFBF582B4982B900698D58 /* FeaturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFBF572B4982B900698D58 /* FeaturesView.swift */; };
+		93CFBF5A2B4982CA00698D58 /* FeaturesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93CFBF592B4982CA00698D58 /* FeaturesView.xib */; };
+		93CFBF5E2B49835200698D58 /* FeatureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFBF5C2B49835200698D58 /* FeatureCell.swift */; };
+		93CFBF5F2B49835200698D58 /* FeatureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93CFBF5D2B49835200698D58 /* FeatureCell.xib */; };
 		93D4987429CEDDCF00C68CCF /* HandlingMusicVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93D4987129CEDDCF00C68CCF /* HandlingMusicVC.xib */; };
 		93D4987529CEDDCF00C68CCF /* HandlingMusicVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D4987229CEDDCF00C68CCF /* HandlingMusicVM.swift */; };
 		93D4987629CEDDCF00C68CCF /* HandlingMusicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D4987329CEDDCF00C68CCF /* HandlingMusicVC.swift */; };
@@ -587,6 +602,17 @@
 		93B73A1129862C3900D11FE4 /* FilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
 		93BA936C29EBECFE00791DC3 /* SpeedView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeedView.xib; sourceTree = "<group>"; };
 		93BA936E29EBED0A00791DC3 /* SpeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedView.swift; sourceTree = "<group>"; };
+		93BBBBAA2A0145F300FC33A2 /* EffectAudioVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EffectAudioVC.xib; sourceTree = "<group>"; };
+		93BBBBAB2A0145F300FC33A2 /* EffectAudioVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectAudioVM.swift; sourceTree = "<group>"; };
+		93BBBBAC2A0145F300FC33A2 /* EffectAudioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectAudioVC.swift; sourceTree = "<group>"; };
+		93BBBBB22A01473D00FC33A2 /* AudioEffectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEffectCell.swift; sourceTree = "<group>"; };
+		93BBBBB32A01473D00FC33A2 /* AudioEffectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioEffectCell.xib; sourceTree = "<group>"; };
+		93BBBBB72A014A3600FC33A2 /* TitleAudioEffectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAudioEffectCell.swift; sourceTree = "<group>"; };
+		93BBBBB82A014A3600FC33A2 /* TitleAudioEffectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleAudioEffectCell.xib; sourceTree = "<group>"; };
+		93BBBBBC2A014E3A00FC33A2 /* EffectElementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectElementCell.swift; sourceTree = "<group>"; };
+		93BBBBBD2A014E3A00FC33A2 /* EffectElementCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EffectElementCell.xib; sourceTree = "<group>"; };
+		93BBBBC12A014E5A00FC33A2 /* EffectElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectElementView.swift; sourceTree = "<group>"; };
+		93BBBBC32A014E6200FC33A2 /* EffectElementView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EffectElementView.xib; sourceTree = "<group>"; };
 		93C47BA229E1A7FF00731154 /* AudioManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManage.swift; sourceTree = "<group>"; };
 		93C5750929EAA24F003BD015 /* FadeInOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeInOutView.swift; sourceTree = "<group>"; };
 		93C5750B29EAA25E003BD015 /* FadeInOutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FadeInOutView.xib; sourceTree = "<group>"; };
@@ -603,6 +629,10 @@
 		93CE5F2A27FAF8E600455E01 /* Assets-Gen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets-Gen.swift"; sourceTree = "<group>"; };
 		93CE5F3B27FB471100455E01 /* AudioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCell.swift; sourceTree = "<group>"; };
 		93CE5F3C27FB471100455E01 /* AudioCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioCell.xib; sourceTree = "<group>"; };
+		93CFBF572B4982B900698D58 /* FeaturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturesView.swift; sourceTree = "<group>"; };
+		93CFBF592B4982CA00698D58 /* FeaturesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeaturesView.xib; sourceTree = "<group>"; };
+		93CFBF5C2B49835200698D58 /* FeatureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCell.swift; sourceTree = "<group>"; };
+		93CFBF5D2B49835200698D58 /* FeatureCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeatureCell.xib; sourceTree = "<group>"; };
 		93D4987129CEDDCF00C68CCF /* HandlingMusicVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HandlingMusicVC.xib; sourceTree = "<group>"; };
 		93D4987229CEDDCF00C68CCF /* HandlingMusicVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandlingMusicVM.swift; sourceTree = "<group>"; };
 		93D4987329CEDDCF00C68CCF /* HandlingMusicVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandlingMusicVC.swift; sourceTree = "<group>"; };
@@ -1059,6 +1089,7 @@
 		937237A027F9E4080077EDED /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				93CFBF562B49829800698D58 /* FeaturesView */,
 				93BA936B29EBECEC00791DC3 /* SpeedView */,
 				93C5750829EAA239003BD015 /* FadeInOut */,
 				93DB062729CF1EE70021A252 /* VolumeTitleView */,
@@ -1205,6 +1236,7 @@
 				933C717429BCBD2000BACF0E /* VideoFromPhotos */,
 				93C8A8CA29AD0F4F0025AB8E /* IntegrateAudio */,
 				93D4987029CEDDA700C68CCF /* HandlingMusic */,
+				93BBBBA92A0145D400FC33A2 /* EffectAudio */,
 				93987FF428432AB60057270F /* MixAudio */,
 				93A9D7BB28426168009F9D49 /* AudioImport */,
 				93913AE4282FE0E1009DDCF6 /* Recording */,
@@ -1604,6 +1636,64 @@
 			path = SpeedView;
 			sourceTree = "<group>";
 		};
+		93BBBBA92A0145D400FC33A2 /* EffectAudio */ = {
+			isa = PBXGroup;
+			children = (
+				93BBBBB02A01470700FC33A2 /* Cell */,
+				93BBBBAA2A0145F300FC33A2 /* EffectAudioVC.xib */,
+				93BBBBAB2A0145F300FC33A2 /* EffectAudioVM.swift */,
+				93BBBBAC2A0145F300FC33A2 /* EffectAudioVC.swift */,
+			);
+			path = EffectAudio;
+			sourceTree = "<group>";
+		};
+		93BBBBB02A01470700FC33A2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				93BBBBBB2A014E1F00FC33A2 /* EffectElementCell */,
+				93BBBBB62A014A0F00FC33A2 /* TitleAudioEffectCell */,
+				93BBBBB12A01470C00FC33A2 /* AudioEffectCell */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		93BBBBB12A01470C00FC33A2 /* AudioEffectCell */ = {
+			isa = PBXGroup;
+			children = (
+				93BBBBB22A01473D00FC33A2 /* AudioEffectCell.swift */,
+				93BBBBB32A01473D00FC33A2 /* AudioEffectCell.xib */,
+			);
+			path = AudioEffectCell;
+			sourceTree = "<group>";
+		};
+		93BBBBB62A014A0F00FC33A2 /* TitleAudioEffectCell */ = {
+			isa = PBXGroup;
+			children = (
+				93BBBBB72A014A3600FC33A2 /* TitleAudioEffectCell.swift */,
+				93BBBBB82A014A3600FC33A2 /* TitleAudioEffectCell.xib */,
+			);
+			path = TitleAudioEffectCell;
+			sourceTree = "<group>";
+		};
+		93BBBBBB2A014E1F00FC33A2 /* EffectElementCell */ = {
+			isa = PBXGroup;
+			children = (
+				93BBBBC02A014E3F00FC33A2 /* EffectElementView */,
+				93BBBBBC2A014E3A00FC33A2 /* EffectElementCell.swift */,
+				93BBBBBD2A014E3A00FC33A2 /* EffectElementCell.xib */,
+			);
+			path = EffectElementCell;
+			sourceTree = "<group>";
+		};
+		93BBBBC02A014E3F00FC33A2 /* EffectElementView */ = {
+			isa = PBXGroup;
+			children = (
+				93BBBBC12A014E5A00FC33A2 /* EffectElementView.swift */,
+				93BBBBC32A014E6200FC33A2 /* EffectElementView.xib */,
+			);
+			path = EffectElementView;
+			sourceTree = "<group>";
+		};
 		93C47BA129E1A7E900731154 /* AudioManage */ = {
 			isa = PBXGroup;
 			children = (
@@ -1661,6 +1751,25 @@
 			path = AudioCell;
 			sourceTree = "<group>";
 		};
+		93CFBF562B49829800698D58 /* FeaturesView */ = {
+			isa = PBXGroup;
+			children = (
+				93CFBF5B2B49833100698D58 /* FeatureCell */,
+				93CFBF572B4982B900698D58 /* FeaturesView.swift */,
+				93CFBF592B4982CA00698D58 /* FeaturesView.xib */,
+			);
+			path = FeaturesView;
+			sourceTree = "<group>";
+		};
+		93CFBF5B2B49833100698D58 /* FeatureCell */ = {
+			isa = PBXGroup;
+			children = (
+				93CFBF5C2B49835200698D58 /* FeatureCell.swift */,
+				93CFBF5D2B49835200698D58 /* FeatureCell.xib */,
+			);
+			path = FeatureCell;
+			sourceTree = "<group>";
+		};
 		93D4987029CEDDA700C68CCF /* HandlingMusic */ = {
 			isa = PBXGroup;
 			children = (
@@ -1709,7 +1818,6 @@
 				93A0C6ED27EE1AD0008E6B98 /* Sources */,
 				93A0C6EE27EE1AD0008E6B98 /* Frameworks */,
 				93A0C6EF27EE1AD0008E6B98 /* Resources */,
-				93758699297FC59900EF218C /* SwiftLint */,
 				97A7D947C2CF3FF810B082E9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -1793,9 +1901,11 @@
 				93A0C6FE27EE1AD3008E6B98 /* Assets.xcassets in Resources */,
 				933C717829BCBD3700BACF0E /* VideoFromPhotosVC.xib in Resources */,
 				93913B04282FE4CF009DDCF6 /* Sample Sound.mp3 in Resources */,
+				93BBBBAD2A0145F300FC33A2 /* EffectAudioVC.xib in Resources */,
 				93ACF9B0298AA5B900DF09C0 /* GoogleService-Info.plist in Resources */,
 				93B25162286749F20008EA86 /* VideoVC.storyboard in Resources */,
 				93913B07282FE4CF009DDCF6 /* FontsFree-Net-SFProText-Medium.ttf in Resources */,
+				93BBBBB52A01473D00FC33A2 /* AudioEffectCell.xib in Resources */,
 				9389F56528BE586300D55D92 /* image_gift_3.gif in Resources */,
 				93CE5F2627FAF10000455E01 /* AudioVC.xib in Resources */,
 				93ABC9FB29CF1AAF0003C23D /* VolumeView.xib in Resources */,
@@ -1837,33 +1947,20 @@
 				93D4987429CEDDCF00C68CCF /* HandlingMusicVC.xib in Resources */,
 				937236D827F9E1670077EDED /* swiftgen.yml in Resources */,
 				935905B42846526700B560D7 /* CocoaLumberjack-About.txt in Resources */,
+				93BBBBC42A014E6200FC33A2 /* EffectElementView.xib in Resources */,
+				93CFBF5F2B49835200698D58 /* FeatureCell.xib in Resources */,
 				93913B00282FE4CF009DDCF6 /* Sample Video.mp4 in Resources */,
 				9385EEB528BBC4BA00370E26 /* ManageAudioView.xib in Resources */,
+				93BBBBBF2A014E3A00FC33A2 /* EffectElementCell.xib in Resources */,
+				93BBBBBA2A014A3600FC33A2 /* TitleAudioEffectCell.xib in Resources */,
 				935905D42846590E00B560D7 /* MergeFilesVC.xib in Resources */,
+				93CFBF5A2B4982CA00698D58 /* FeaturesView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		93758699297FC59900EF218C /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n${PODS_ROOT}/SwiftLint/swiftlint --config .swiflint.yml\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
 		97A7D947C2CF3FF810B082E9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1910,10 +2007,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93BBBBAF2A0145F300FC33A2 /* EffectAudioVC.swift in Sources */,
 				93CE5F2727FAF10000455E01 /* AudioVM.swift in Sources */,
 				935905BE2846526700B560D7 /* HTTPDynamicFileResponse.m in Sources */,
 				937237EB27F9E40F0077EDED /* Request.swift in Sources */,
 				93913AE9282FE0F4009DDCF6 /* RecordingVM.swift in Sources */,
+				93BBBBBE2A014E3A00FC33A2 /* EffectElementCell.swift in Sources */,
 				9372371A27F9E3710077EDED /* UISliderExtensions.swift in Sources */,
 				937237CF27F9E4080077EDED /* ContextMenu.swift in Sources */,
 				9372375F27F9E38C0077EDED /* CustomButton.swift in Sources */,
@@ -1935,6 +2034,7 @@
 				9372376427F9E38C0077EDED /* URL+Extension.swift in Sources */,
 				9359055528464E6A00B560D7 /* ImportWifiVC.swift in Sources */,
 				9389F58928BE629F00D55D92 /* MusicWorkVC.swift in Sources */,
+				93BBBBB92A014A3600FC33A2 /* TitleAudioEffectCell.swift in Sources */,
 				937237E827F9E40F0077EDED /* OptionalMessageDTO.swift in Sources */,
 				9372372227F9E3710077EDED /* UILabelExtensions.swift in Sources */,
 				937237F427F9E4170077EDED /* BaseNavigationLargeTitle.swift in Sources */,
@@ -1961,6 +2061,7 @@
 				9389F58828BE629F00D55D92 /* MusicWorkVM.swift in Sources */,
 				93892B4127F9EAE000A9FECE /* TabbarVC.swift in Sources */,
 				9372371C27F9E3710077EDED /* UIImageExtensions.swift in Sources */,
+				93BBBBC22A014E5A00FC33A2 /* EffectElementView.swift in Sources */,
 				9385EEAF28BB78F900370E26 /* PlayMusicVM.swift in Sources */,
 				9372377227F9E38C0077EDED /* LabelExtension.swift in Sources */,
 				935905B92846526700B560D7 /* DDAbstractDatabaseLogger.m in Sources */,
@@ -1993,7 +2094,9 @@
 				9372371027F9E3710077EDED /* UICollectionViewExtensions.swift in Sources */,
 				93ADE12F29BCC8F2001D8122 /* VideoFromPhotosCell.swift in Sources */,
 				935905C42846526700B560D7 /* WebSocket.m in Sources */,
+				93CFBF582B4982B900698D58 /* FeaturesView.swift in Sources */,
 				93DB062929CF1EFC0021A252 /* VolumeTitleView.swift in Sources */,
+				93CFBF5E2B49835200698D58 /* FeatureCell.swift in Sources */,
 				9372375127F9E38C0077EDED /* UIApplication+Extension.swift in Sources */,
 				935905B22846526700B560D7 /* DDTTYLogger.m in Sources */,
 				93907D9D28C488C20018C09C /* AboutMeVC.swift in Sources */,
@@ -2043,6 +2146,7 @@
 				935905C92846526700B560D7 /* DDNumber.m in Sources */,
 				93A52ADD2987F926005EF39D /* RenameFileVM.swift in Sources */,
 				93C5750A29EAA24F003BD015 /* FadeInOutView.swift in Sources */,
+				93BBBBB42A01473D00FC33A2 /* AudioEffectCell.swift in Sources */,
 				935905C22846526700B560D7 /* HTTPMessage.m in Sources */,
 				935905B02846526700B560D7 /* GCDAsyncSocket.m in Sources */,
 				937237D027F9E4080077EDED /* QuickActionsView.swift in Sources */,
@@ -2104,6 +2208,7 @@
 				9372376527F9E38C0077EDED /* UITextField_Extension.swift in Sources */,
 				9372372927F9E3710077EDED /* UIFontExtensions.swift in Sources */,
 				93D4987529CEDDCF00C68CCF /* HandlingMusicVM.swift in Sources */,
+				93BBBBAE2A0145F300FC33A2 /* EffectAudioVM.swift in Sources */,
 				93B25161286749F20008EA86 /* VideoVC.swift in Sources */,
 				9372376B27F9E38C0077EDED /* UIViewController+Rx.swift in Sources */,
 				937237D327F9E4080077EDED /* NavigationSaveView.swift in Sources */,

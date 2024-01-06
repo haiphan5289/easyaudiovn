@@ -25,6 +25,8 @@ class AudioVC: UIViewController, BaseAudioProtocol {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btAdd: UIButton!
     @IBOutlet weak var filterButton: UIButton!
+    @IBOutlet weak var containerFeatureView: UIView!
+    private let featureView: FeaturesView = .loadXib()
     
     // Add here your view model
     private var viewModel: AudioVM = AudioVM()
@@ -52,6 +54,10 @@ extension AudioVC {
         self.tableView.register(AudioCell.nib, forCellReuseIdentifier: AudioCell.identifier)
         self.tableView.delegate = self
         
+        self.containerFeatureView.addSubview(featureView)
+        featureView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
 //            let urlSample = Bundle.main.url(forResource: "video_select_print", withExtension: ".mp4")
