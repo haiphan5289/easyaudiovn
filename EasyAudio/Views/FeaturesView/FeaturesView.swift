@@ -66,6 +66,45 @@ extension FeaturesView {
             .bind(to: self.collectionView.rx.items(cellIdentifier: FeatureCell.identifier, cellType: FeatureCell.self)) { row, data, cell in
                 cell.bindValue(type: data)
             }.disposed(by: disposeBag)
+        
+        self.collectionView.rx.itemSelected.bind { [weak self] idx in
+            guard let self = self,
+                  let action = FeatureType(rawValue: idx.row),
+                  let topvc = ManageApp.shared.getTopViewController()  else {
+                return
+            }
+            switch action {
+            case .add:
+                let detailViewController = MenuImportFileVC.createVC()
+                let nav = UINavigationController(rootViewController: detailViewController)
+                // 1
+                nav.modalPresentationStyle = .pageSheet
+                // 2
+                if let sheet = nav.sheetPresentationController {
+                    // 3
+                    sheet.detents = [.medium()]
+                    sheet.prefersScrollingExpandsWhenScrolledToEdge = true
+                }
+                // 4
+                topvc.present(nav, animated: true)
+            case .mute:
+                let merge = MuteFileVC.createVC()
+                merge.hidesBottomBarWhenPushed = true
+                topvc.navigationController?.pushViewController(merge, animated: true)
+            case .wifi:
+                let merge = ImportWifiVC.createVC()
+                merge.hidesBottomBarWhenPushed = true
+                topvc.navigationController?.pushViewController(merge, animated: true)
+            case .recording:
+                let merge = RecordingVC.createVC()
+                merge.hidesBottomBarWhenPushed = true
+                topvc.navigationController?.pushViewController(merge, animated: true)
+            case .merge:
+                let merge = MergeFilesVC.createVC()
+                merge.hidesBottomBarWhenPushed = true
+                topvc.navigationController?.pushViewController(merge, animated: true)
+            }
+        }.disposed(by: self.disposeBag)
     }
     
     private func startTimer() {

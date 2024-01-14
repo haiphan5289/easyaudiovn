@@ -133,17 +133,12 @@ extension MainActionVC {
                     merge.hidesBottomBarWhenPushed = true
                     owner.navigationController?.pushViewController(merge, animated: true)
                 case .add:
-//                    let music = MenuImportFileVC.createVC()
-//                    music.modalPresentationStyle = .formSheet
-//                    owner.present(music, animated: true)
                     let detailViewController = MenuImportFileVC.createVC()
                         let nav = UINavigationController(rootViewController: detailViewController)
                         // 1
                         nav.modalPresentationStyle = .pageSheet
-                        
                         // 2
                         if let sheet = nav.sheetPresentationController {
-
                             // 3
                             sheet.detents = [.medium()]
                             sheet.prefersScrollingExpandsWhenScrolledToEdge = true
