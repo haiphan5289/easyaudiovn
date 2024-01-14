@@ -23,6 +23,27 @@ class AdditionAudioVC: UIViewController {
     
     enum Action: Int, CaseIterable {
         case photoLibrary, iCloud, recording, wifi, audio
+        
+        var image: UIImage? {
+            switch self {
+            case .photoLibrary: return Asset.icAudio.image
+            case .iCloud: return Asset.icIcloud.image
+            case .recording: return Asset.icRec.image
+            case .wifi: return Asset.icWifi.image
+            case .audio: return Asset.icAudio.image
+            }
+        }
+        
+        var title: String? {
+            switch self {
+            case .photoLibrary: return "Audio Projects"
+            case .iCloud: return "iCloud"
+            case .recording: return "Recording"
+            case .wifi: return "Wifi"
+            case .audio: return "Photo Library"
+            }
+        }
+        
     }
     var delegate: AdditionAudioDelegate?
     var status: StatusView = .other

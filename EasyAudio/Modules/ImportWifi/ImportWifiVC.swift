@@ -15,12 +15,13 @@ protocol ImportWifiDelegate: AnyObject {
     func addURL(url: URL)
 }
 
-class ImportWifiVC: BaseVC {
+class ImportWifiVC: BaseVC, SetupBaseCollection {
     
     var delegate: ImportWifiDelegate?
     
     // Add here outlets
     @IBOutlet weak var lbNameIP: UILabel!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     // Add here your view model
     private var viewModel: ImportWifiVM = ImportWifiVM()
@@ -51,6 +52,9 @@ extension ImportWifiVC {
     private func setupUI() {
         // Add here the setup for the UI
         title = "Import Wifi"
+        setupCollectionView(collectionView: collectionView,
+                            delegate: self,
+                            name: ImportWifiCell.self)
     }
     
     private func setupRX() {
@@ -59,6 +63,14 @@ extension ImportWifiVC {
             guard let wSelf = self else { return }
             wSelf.navigationController?.popViewController(animated: true, nil)
         }.disposed(by: self.disposeBag)
+        
+        
+        Driver.just([1])
+            .drive( collectionView.rx
+                .items(cellIdentifier: ImportWifiCell.identifier, cellType: ImportWifiCell.self)) { index, item, cell in
+                }
+                .disposed(by: self.disposeBag)
+        
     }
     
     private func setupServer() {
@@ -90,5 +102,19 @@ extension ImportWifiVC {
             let text = "\(ip):\(port)"
             self.lbNameIP.text = text
         }
+    }
+}
+extension ImportWifiVC: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width, height: collectionView.frame.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
 }

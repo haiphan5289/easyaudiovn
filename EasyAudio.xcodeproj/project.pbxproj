@@ -11,7 +11,14 @@
 		3E1FF3E52B09BF34004BCD74 /* MainActionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E1FF3E32B09BF34004BCD74 /* MainActionVC.xib */; };
 		3E1FF3E92B09C2C2004BCD74 /* MainActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1FF3E72B09C2C2004BCD74 /* MainActionCell.swift */; };
 		3E1FF3EA2B09C2C2004BCD74 /* MainActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E1FF3E82B09C2C2004BCD74 /* MainActionCell.xib */; };
+		3E2E573A2B54165300F15429 /* MenuImportFileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2E57382B54165300F15429 /* MenuImportFileVC.swift */; };
+		3E2E573B2B54165300F15429 /* MenuImportFileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E2E57392B54165300F15429 /* MenuImportFileVC.xib */; };
+		3E2E573F2B54168500F15429 /* MenuImportFileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2E573D2B54168500F15429 /* MenuImportFileCell.swift */; };
+		3E2E57402B54168500F15429 /* MenuImportFileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E2E573E2B54168500F15429 /* MenuImportFileCell.xib */; };
 		3ECCA06F298B964100F6EB82 /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECCA06E298B964000F6EB82 /* UITableViewExtensions.swift */; };
+		3ED571C42B11F30B00EABA82 /* ImportWifiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED571C22B11F30B00EABA82 /* ImportWifiCell.swift */; };
+		3ED571C52B11F30B00EABA82 /* ImportWifiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3ED571C32B11F30B00EABA82 /* ImportWifiCell.xib */; };
+		3ED571C72B11F94D00EABA82 /* gift_wifi.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3ED571C62B11F94D00EABA82 /* gift_wifi.gif */; };
 		93097D8A2848A63D00D33BFA /* MuteFileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93097D872848A63D00D33BFA /* MuteFileVC.xib */; };
 		93097D8B2848A63D00D33BFA /* MuteFileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93097D882848A63D00D33BFA /* MuteFileVM.swift */; };
 		93097D8C2848A63D00D33BFA /* MuteFileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93097D892848A63D00D33BFA /* MuteFileVC.swift */; };
@@ -311,7 +318,14 @@
 		3E1FF3E32B09BF34004BCD74 /* MainActionVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainActionVC.xib; sourceTree = "<group>"; };
 		3E1FF3E72B09C2C2004BCD74 /* MainActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainActionCell.swift; sourceTree = "<group>"; };
 		3E1FF3E82B09C2C2004BCD74 /* MainActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainActionCell.xib; sourceTree = "<group>"; };
+		3E2E57382B54165300F15429 /* MenuImportFileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuImportFileVC.swift; sourceTree = "<group>"; };
+		3E2E57392B54165300F15429 /* MenuImportFileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuImportFileVC.xib; sourceTree = "<group>"; };
+		3E2E573D2B54168500F15429 /* MenuImportFileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuImportFileCell.swift; sourceTree = "<group>"; };
+		3E2E573E2B54168500F15429 /* MenuImportFileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuImportFileCell.xib; sourceTree = "<group>"; };
 		3ECCA06E298B964000F6EB82 /* UITableViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtensions.swift; sourceTree = "<group>"; };
+		3ED571C22B11F30B00EABA82 /* ImportWifiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWifiCell.swift; sourceTree = "<group>"; };
+		3ED571C32B11F30B00EABA82 /* ImportWifiCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImportWifiCell.xib; sourceTree = "<group>"; };
+		3ED571C62B11F94D00EABA82 /* gift_wifi.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = gift_wifi.gif; sourceTree = "<group>"; };
 		5C25B4A1FFF1259ACA8BEC73 /* Pods_EasyAudio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyAudio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93097D872848A63D00D33BFA /* MuteFileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MuteFileVC.xib; sourceTree = "<group>"; };
 		93097D882848A63D00D33BFA /* MuteFileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuteFileVM.swift; sourceTree = "<group>"; };
@@ -685,6 +699,34 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		3E2E57372B54162C00F15429 /* MenuImportFile */ = {
+			isa = PBXGroup;
+			children = (
+				3E2E573C2B54166C00F15429 /* Cell */,
+				3E2E57382B54165300F15429 /* MenuImportFileVC.swift */,
+				3E2E57392B54165300F15429 /* MenuImportFileVC.xib */,
+			);
+			path = MenuImportFile;
+			sourceTree = "<group>";
+		};
+		3E2E573C2B54166C00F15429 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3E2E573D2B54168500F15429 /* MenuImportFileCell.swift */,
+				3E2E573E2B54168500F15429 /* MenuImportFileCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		3ED571C12B11F2F200EABA82 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3ED571C22B11F30B00EABA82 /* ImportWifiCell.swift */,
+				3ED571C32B11F30B00EABA82 /* ImportWifiCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		93097D862848A62500D33BFA /* MuteFile */ = {
 			isa = PBXGroup;
 			children = (
@@ -718,6 +760,7 @@
 		9359054F28464E5300B560D7 /* ImportWifi */ = {
 			isa = PBXGroup;
 			children = (
+				3ED571C12B11F2F200EABA82 /* Cell */,
 				9359055028464E6A00B560D7 /* ImportWifiVC.xib */,
 				9359055128464E6A00B560D7 /* ImportWifiVM.swift */,
 				9359055228464E6A00B560D7 /* ImportWifiVC.swift */,
@@ -1222,6 +1265,7 @@
 		9372380527F9E4A40077EDED /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				3E2E57372B54162C00F15429 /* MenuImportFile */,
 				3E1FF3DD2B09BEBF004BCD74 /* MainAction */,
 				93A52AD82987F913005EF39D /* RenameFile */,
 				93907D9728C488B30018C09C /* AboutMe */,
@@ -1298,6 +1342,7 @@
 		9389F55928BE584D00D55D92 /* Giift */ = {
 			isa = PBXGroup;
 			children = (
+				3ED571C62B11F94D00EABA82 /* gift_wifi.gif */,
 				9389F55C28BE586100D55D92 /* image_gift_2.gif */,
 				9389F55E28BE586200D55D92 /* image_gift_3.gif */,
 				9389F55A28BE586000D55D92 /* image_gift_5.gif */,
@@ -1897,6 +1942,7 @@
 				93913AF1282FE4A9009DDCF6 /* font.xib in Resources */,
 				93C5984B298545EB005C7CD9 /* AllFilesVC.xib in Resources */,
 				93913B02282FE4CF009DDCF6 /* Sample Image.jpg in Resources */,
+				3ED571C72B11F94D00EABA82 /* gift_wifi.gif in Resources */,
 				9359055328464E6A00B560D7 /* ImportWifiVC.xib in Resources */,
 				93A0C6FE27EE1AD3008E6B98 /* Assets.xcassets in Resources */,
 				933C717829BCBD3700BACF0E /* VideoFromPhotosVC.xib in Resources */,
@@ -1919,6 +1965,7 @@
 				935905B12846526700B560D7 /* CocoaAsyncSocket-About.txt in Resources */,
 				9389F57728BE5EB100D55D92 /* image_gift_10.gif in Resources */,
 				9389F57428BE5EB100D55D92 /* image_gift_1.gif in Resources */,
+				3ED571C52B11F30B00EABA82 /* ImportWifiCell.xib in Resources */,
 				93F836442845123A004AE334 /* CheckUIVC.xib in Resources */,
 				9385EEAE28BB78F900370E26 /* PlayMusicVC.xib in Resources */,
 				93987FFF2843586F0057270F /* TimeView.xib in Resources */,
@@ -1931,6 +1978,7 @@
 				93CE5F3E27FB471100455E01 /* AudioCell.xib in Resources */,
 				93913B05282FE4CF009DDCF6 /* FontsFree-Net-SFProText-Regular.ttf in Resources */,
 				93A52ADC2987F926005EF39D /* RenameFileVC.xib in Resources */,
+				3E2E57402B54168500F15429 /* MenuImportFileCell.xib in Resources */,
 				93A20682282FD15300F262EC /* ActionHomeVC.xib in Resources */,
 				93987FF828432ACB0057270F /* MixAudioVC.xib in Resources */,
 				9389F57828BE5EB100D55D92 /* image_gift_7.gif in Resources */,
@@ -1950,6 +1998,7 @@
 				93BBBBC42A014E6200FC33A2 /* EffectElementView.xib in Resources */,
 				93CFBF5F2B49835200698D58 /* FeatureCell.xib in Resources */,
 				93913B00282FE4CF009DDCF6 /* Sample Video.mp4 in Resources */,
+				3E2E573B2B54165300F15429 /* MenuImportFileVC.xib in Resources */,
 				9385EEB528BBC4BA00370E26 /* ManageAudioView.xib in Resources */,
 				93BBBBBF2A014E3A00FC33A2 /* EffectElementCell.xib in Resources */,
 				93BBBBBA2A014A3600FC33A2 /* TitleAudioEffectCell.xib in Resources */,
@@ -2053,6 +2102,7 @@
 				93ACF9AE298AA46700DF09C0 /* UIView+Extension.swift in Sources */,
 				3E1FF3E92B09C2C2004BCD74 /* MainActionCell.swift in Sources */,
 				9372372027F9E3710077EDED /* ActivityExt.swift in Sources */,
+				3E2E573A2B54165300F15429 /* MenuImportFileVC.swift in Sources */,
 				9372371827F9E3710077EDED /* UINavigationBarExtensions.swift in Sources */,
 				9359056A2846525400B560D7 /* SGConst.m in Sources */,
 				9385EEA928BB13EA00370E26 /* BaseAudioProtocol.swift in Sources */,
@@ -2082,6 +2132,7 @@
 				9372376F27F9E38C0077EDED /* Encode+Extension.swift in Sources */,
 				9372371927F9E3710077EDED /* UIActivityExtensions.swift in Sources */,
 				93BA936F29EBED0A00791DC3 /* SpeedView.swift in Sources */,
+				3ED571C42B11F30B00EABA82 /* ImportWifiCell.swift in Sources */,
 				9372378F27F9E3F30077EDED /* BackUponCloud.swift in Sources */,
 				935905CA2846526700B560D7 /* DDData.m in Sources */,
 				93A0C6F927EE1AD0008E6B98 /* ViewController.swift in Sources */,
@@ -2180,6 +2231,7 @@
 				9372370D27F9E3710077EDED /* UINavigationItemExtensions.swift in Sources */,
 				93F836462845123A004AE334 /* CheckUIVC.swift in Sources */,
 				9372372327F9E3710077EDED /* UISwitchExtensions.swift in Sources */,
+				3E2E573F2B54168500F15429 /* MenuImportFileCell.swift in Sources */,
 				9316B3172868530B001DE29C /* VideoCell.swift in Sources */,
 				9372371127F9E3710077EDED /* UIImage+Extensions.swift in Sources */,
 				9372371627F9E3710077EDED /* UISegmentedControlExtensions.swift in Sources */,
@@ -2293,7 +2345,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2349,7 +2401,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -2386,7 +2438,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2430,7 +2482,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
