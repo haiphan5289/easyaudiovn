@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Music DashboardVC-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="MusicDashboardVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="MusicDashboardVC" customModule="Easy_Edit_Audio" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cRA-MC-swE">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ZH-bF-Kpb">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="32"/>
+                                        <subviews>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nXn-gT-lAt">
+                                                <rect key="frame" x="114.66666666666669" y="0.0" width="164" height="33"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="32" id="zwB-A2-qaE"/>
+                                                </constraints>
+                                                <segments>
+                                                    <segment title="Audio"/>
+                                                    <segment title="Video"/>
+                                                    <segment title="Work"/>
+                                                </segments>
+                                                <color key="selectedSegmentTintColor" name="AppColor"/>
+                                            </segmentedControl>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="nXn-gT-lAt" firstAttribute="top" secondItem="3ZH-bF-Kpb" secondAttribute="top" id="bai-L7-YmJ"/>
+                                            <constraint firstItem="nXn-gT-lAt" firstAttribute="centerX" secondItem="3ZH-bF-Kpb" secondAttribute="centerX" id="hPj-OD-duc"/>
+                                            <constraint firstAttribute="bottom" secondItem="nXn-gT-lAt" secondAttribute="bottom" id="xHG-2e-7bu"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BB4-M1-Vq1">
+                                        <rect key="frame" x="0.0" y="40" width="393" height="719"/>
+                                        <subviews>
+                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cin-s6-ony">
+                                                <rect key="frame" x="16" y="0.0" width="361" height="719"/>
+                                                <connections>
+                                                    <segue destination="VBL-nQ-eIW" kind="embed" id="oby-rp-auz"/>
+                                                </connections>
+                                            </containerView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="cin-s6-ony" firstAttribute="top" secondItem="BB4-M1-Vq1" secondAttribute="top" id="BGN-s4-90b"/>
+                                            <constraint firstItem="cin-s6-ony" firstAttribute="leading" secondItem="BB4-M1-Vq1" secondAttribute="leading" constant="16" id="IuR-XY-tJp"/>
+                                            <constraint firstAttribute="trailing" secondItem="cin-s6-ony" secondAttribute="trailing" constant="16" id="joK-M3-27y"/>
+                                            <constraint firstAttribute="bottom" secondItem="cin-s6-ony" secondAttribute="bottom" id="us8-N3-QW3"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cRA-MC-swE" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="HFg-R8-tAz"/>
+                            <constraint firstItem="cRA-MC-swE" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="RS1-ll-ahp"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="cRA-MC-swE" secondAttribute="trailing" id="uiG-vr-CWJ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="cRA-MC-swE" secondAttribute="bottom" id="vLd-7C-IB6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="segmentControl" destination="nXn-gT-lAt" id="Pel-Vs-6ok"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="74" y="-28"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="UQf-bc-IJ5">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="VBL-nQ-eIW" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lgz-5W-FZQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1075" y="-93"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="AppColor">
+            <color red="0.0" green="0.5690000057220459" blue="0.57499998807907104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

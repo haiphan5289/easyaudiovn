@@ -11,6 +11,12 @@
 		3E1FF3E52B09BF34004BCD74 /* MainActionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E1FF3E32B09BF34004BCD74 /* MainActionVC.xib */; };
 		3E1FF3E92B09C2C2004BCD74 /* MainActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1FF3E72B09C2C2004BCD74 /* MainActionCell.swift */; };
 		3E1FF3EA2B09C2C2004BCD74 /* MainActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E1FF3E82B09C2C2004BCD74 /* MainActionCell.xib */; };
+		3E2847762B5CCB2600560E57 /* MusicDashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2847742B5CCB2600560E57 /* MusicDashboardVC.swift */; };
+		3E2847792B5CCB5D00560E57 /* MusicDashboardVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E2847782B5CCB5D00560E57 /* MusicDashboardVC.storyboard */; };
+		3E28477D2B5D08B500560E57 /* CacheFileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28477B2B5D08B500560E57 /* CacheFileVC.swift */; };
+		3E28477E2B5D08B500560E57 /* CacheFileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E28477C2B5D08B500560E57 /* CacheFileVC.xib */; };
+		3E2847832B5D0FEC00560E57 /* GeneralInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2847812B5D0FEC00560E57 /* GeneralInfoCell.swift */; };
+		3E2847842B5D0FEC00560E57 /* GeneralInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E2847822B5D0FEC00560E57 /* GeneralInfoCell.xib */; };
 		3E2E573A2B54165300F15429 /* MenuImportFileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2E57382B54165300F15429 /* MenuImportFileVC.swift */; };
 		3E2E573B2B54165300F15429 /* MenuImportFileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E2E57392B54165300F15429 /* MenuImportFileVC.xib */; };
 		3E2E573F2B54168500F15429 /* MenuImportFileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2E573D2B54168500F15429 /* MenuImportFileCell.swift */; };
@@ -318,6 +324,12 @@
 		3E1FF3E32B09BF34004BCD74 /* MainActionVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainActionVC.xib; sourceTree = "<group>"; };
 		3E1FF3E72B09C2C2004BCD74 /* MainActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainActionCell.swift; sourceTree = "<group>"; };
 		3E1FF3E82B09C2C2004BCD74 /* MainActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainActionCell.xib; sourceTree = "<group>"; };
+		3E2847742B5CCB2600560E57 /* MusicDashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDashboardVC.swift; sourceTree = "<group>"; };
+		3E2847782B5CCB5D00560E57 /* MusicDashboardVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MusicDashboardVC.storyboard; sourceTree = "<group>"; };
+		3E28477B2B5D08B500560E57 /* CacheFileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheFileVC.swift; sourceTree = "<group>"; };
+		3E28477C2B5D08B500560E57 /* CacheFileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CacheFileVC.xib; sourceTree = "<group>"; };
+		3E2847812B5D0FEC00560E57 /* GeneralInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralInfoCell.swift; sourceTree = "<group>"; };
+		3E2847822B5D0FEC00560E57 /* GeneralInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GeneralInfoCell.xib; sourceTree = "<group>"; };
 		3E2E57382B54165300F15429 /* MenuImportFileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuImportFileVC.swift; sourceTree = "<group>"; };
 		3E2E57392B54165300F15429 /* MenuImportFileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuImportFileVC.xib; sourceTree = "<group>"; };
 		3E2E573D2B54168500F15429 /* MenuImportFileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuImportFileCell.swift; sourceTree = "<group>"; };
@@ -697,6 +709,45 @@
 				3E1FF3E82B09C2C2004BCD74 /* MainActionCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		3E2847732B5CCAC900560E57 /* MusicDashboard */ = {
+			isa = PBXGroup;
+			children = (
+				9389F58328BE628B00D55D92 /* MusicWork */,
+				93CE5F2227FAF0F000455E01 /* Audio */,
+				93B25154286749A70008EA86 /* Video */,
+				3E2847742B5CCB2600560E57 /* MusicDashboardVC.swift */,
+				3E2847782B5CCB5D00560E57 /* MusicDashboardVC.storyboard */,
+			);
+			path = MusicDashboard;
+			sourceTree = "<group>";
+		};
+		3E28477A2B5D089800560E57 /* CacheFile */ = {
+			isa = PBXGroup;
+			children = (
+				3E28477F2B5D0FCB00560E57 /* Cell */,
+				3E28477B2B5D08B500560E57 /* CacheFileVC.swift */,
+				3E28477C2B5D08B500560E57 /* CacheFileVC.xib */,
+			);
+			path = CacheFile;
+			sourceTree = "<group>";
+		};
+		3E28477F2B5D0FCB00560E57 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3E2847802B5D0FD000560E57 /* General */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		3E2847802B5D0FD000560E57 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				3E2847812B5D0FEC00560E57 /* GeneralInfoCell.swift */,
+				3E2847822B5D0FEC00560E57 /* GeneralInfoCell.xib */,
+			);
+			path = General;
 			sourceTree = "<group>";
 		};
 		3E2E57372B54162C00F15429 /* MenuImportFile */ = {
@@ -1265,12 +1316,12 @@
 		9372380527F9E4A40077EDED /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				3E28477A2B5D089800560E57 /* CacheFile */,
 				3E2E57372B54162C00F15429 /* MenuImportFile */,
 				3E1FF3DD2B09BEBF004BCD74 /* MainAction */,
 				93A52AD82987F913005EF39D /* RenameFile */,
 				93907D9728C488B30018C09C /* AboutMe */,
 				93AF2CA128C059A800558246 /* Settings */,
-				9389F58328BE628B00D55D92 /* MusicWork */,
 				9385EEAA28BB781A00370E26 /* PlayMusic */,
 				93097D862848A62500D33BFA /* MuteFile */,
 				935905D0284658EA00B560D7 /* MergeFiles */,
@@ -1286,9 +1337,8 @@
 				93913AE4282FE0E1009DDCF6 /* Recording */,
 				93A20685282FD8C400F262EC /* AdditionAudio */,
 				93A2067E282FD13D00F262EC /* ActionHome */,
+				3E2847732B5CCAC900560E57 /* MusicDashboard */,
 				93B73A0E29862C2000D11FE4 /* FilterVC */,
-				93B25154286749A70008EA86 /* Video */,
-				93CE5F2227FAF0F000455E01 /* Audio */,
 				93C5984329854266005C7CD9 /* AllFiles */,
 				93892B3F27F9EAB700A9FECE /* Tabbar */,
 			);
@@ -1916,6 +1966,7 @@
 				93ADE13029BCC8F2001D8122 /* VideoFromPhotosCell.xib in Resources */,
 				3E1FF3E52B09BF34004BCD74 /* MainActionVC.xib in Resources */,
 				93B73A1229862C3900D11FE4 /* FilterVC.xib in Resources */,
+				3E28477E2B5D08B500560E57 /* CacheFileVC.xib in Resources */,
 				937237C827F9E4080077EDED /* NavigationItemView.xib in Resources */,
 				937237CD27F9E4080077EDED /* RecordingView.xib in Resources */,
 				93AF2CAC28C05F0A00558246 /* SettingCell.xib in Resources */,
@@ -1977,6 +2028,7 @@
 				939880042843BBD50057270F /* ExportVC.xib in Resources */,
 				93CE5F3E27FB471100455E01 /* AudioCell.xib in Resources */,
 				93913B05282FE4CF009DDCF6 /* FontsFree-Net-SFProText-Regular.ttf in Resources */,
+				3E2847792B5CCB5D00560E57 /* MusicDashboardVC.storyboard in Resources */,
 				93A52ADC2987F926005EF39D /* RenameFileVC.xib in Resources */,
 				3E2E57402B54168500F15429 /* MenuImportFileCell.xib in Resources */,
 				93A20682282FD15300F262EC /* ActionHomeVC.xib in Resources */,
@@ -1989,6 +2041,7 @@
 				93913AE8282FE0F4009DDCF6 /* RecordingVC.xib in Resources */,
 				93097D8A2848A63D00D33BFA /* MuteFileVC.xib in Resources */,
 				93C8A8CE29AD10420025AB8E /* IntegrateAudioVC.xib in Resources */,
+				3E2847842B5D0FEC00560E57 /* GeneralInfoCell.xib in Resources */,
 				9389F57328BE5EB100D55D92 /* image_gift_11.gif in Resources */,
 				9389F57528BE5EB100D55D92 /* image_gift_4.gif in Resources */,
 				9389F58128BE623C00D55D92 /* NhacThien-Hoatau_qadg.mp3 in Resources */,
@@ -2066,6 +2119,7 @@
 				937237CF27F9E4080077EDED /* ContextMenu.swift in Sources */,
 				9372375F27F9E38C0077EDED /* CustomButton.swift in Sources */,
 				3ECCA06F298B964100F6EB82 /* UITableViewExtensions.swift in Sources */,
+				3E2847832B5D0FEC00560E57 /* GeneralInfoCell.swift in Sources */,
 				93590558284651F500B560D7 /* SGWiFiUploadManager.m in Sources */,
 				93B73A1429862C3900D11FE4 /* FilterVC.swift in Sources */,
 				935905D52846590E00B560D7 /* MergeFilesVM.swift in Sources */,
@@ -2091,7 +2145,9 @@
 				9359055428464E6A00B560D7 /* ImportWifiVM.swift in Sources */,
 				939880062843BBD50057270F /* ExportVC.swift in Sources */,
 				93ABCA0029CF1B7D0003C23D /* AudioView.swift in Sources */,
+				3E2847762B5CCB2600560E57 /* MusicDashboardVC.swift in Sources */,
 				9372375327F9E38C0077EDED /* RowDetailGeneric.swift in Sources */,
+				3E28477D2B5D08B500560E57 /* CacheFileVC.swift in Sources */,
 				93A20684282FD15300F262EC /* ActionHomeVC.swift in Sources */,
 				935905CC2846526700B560D7 /* HTTPServer.m in Sources */,
 				93A2068B282FD8F000F262EC /* AdditionAudioVC.swift in Sources */,

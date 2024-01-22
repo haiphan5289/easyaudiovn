@@ -67,35 +67,40 @@ extension MenuImportFileVC {
     }
     
     func action(action: AdditionAudioVC.Action) {
-        switch action {
-        case .photoLibrary:
-            let vc = UIImagePickerController()
-            vc.sourceType = .photoLibrary
-            vc.mediaTypes = ["public.movie"]
-            vc.delegate = self
-            self.present(vc, animated: true, completion: nil)
-        case .iCloud:
-            let types = [kUTTypeMovie, kUTTypeVideo, kUTTypeAudio, kUTTypeQuickTimeMovie, kUTTypeMPEG, kUTTypeMPEG2Video]
-            let documentPicker = UIDocumentPickerViewController(documentTypes: types as [String], in: .import)
-            documentPicker.delegate = self
-            documentPicker.allowsMultipleSelection = false
-            //                        documentPicker.shouldShowFileExtensions = true
-            self.present(documentPicker, animated: true, completion: nil)
-        case .recording, .audio:
-            let vc = AudioImportVC.createVC()
-            if action == .recording {
-                vc.folderName = ConstantApp.FolderName.folderRecording.rawValue
-            } else {
-                vc.folderName = ConstantApp.FolderName.folderAudio.rawValue
+        self.dismiss(animated: true) {
+            guard let topvc = ManageApp.shared.getTopViewController() else {
+                return
             }
-            
-            vc.delegate = self
-            self.present(vc, animated: true, completion: nil)
-        case .wifi:
-            let vc = ImportWifiVC.createVC()
-            vc.hidesBottomBarWhenPushed = true
-            vc.delegate = self
-            self.navigationController?.pushViewController(vc, animated: true)
+            switch action {
+            case .photoLibrary:
+                let vc = UIImagePickerController()
+                vc.sourceType = .photoLibrary
+                vc.mediaTypes = ["public.movie"]
+                vc.delegate = self
+                topvc.present(vc, animated: true, completion: nil)
+            case .iCloud:
+                let types = [kUTTypeMovie, kUTTypeVideo, kUTTypeAudio, kUTTypeQuickTimeMovie, kUTTypeMPEG, kUTTypeMPEG2Video]
+                let documentPicker = UIDocumentPickerViewController(documentTypes: types as [String], in: .import)
+                documentPicker.delegate = self
+                documentPicker.allowsMultipleSelection = false
+                //                        documentPicker.shouldShowFileExtensions = true
+                topvc.present(documentPicker, animated: true, completion: nil)
+            case .recording, .audio:
+                let vc = AudioImportVC.createVC()
+                if action == .recording {
+                    vc.folderName = ConstantApp.FolderName.folderRecording.rawValue
+                } else {
+                    vc.folderName = ConstantApp.FolderName.folderAudio.rawValue
+                }
+                
+                vc.delegate = self
+                topvc.present(vc, animated: true, completion: nil)
+            case .wifi:
+                let vc = ImportWifiVC.createVC()
+                vc.hidesBottomBarWhenPushed = true
+                vc.delegate = self
+                topvc.navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
     

@@ -12,16 +12,16 @@ import RxSwift
 class TabbarVC: UITabBarController {
     
     enum TabbarItems: Int, CaseIterable {
-        case mainAction, audio, video, work, setting
+        case mainAction, dashboard, setting
         
         var viewController: UIViewController {
             switch self {
             case .mainAction: return MainActionVC.createVC()
 //            case .allFiles: return AllFilesVC.createVC()
-            case .audio: return AudioVC.createVC()
-            case .video: return VideoVC.createVCfromStoryBoard(storyboard: .video,
-                                                               instantiateViewController: .videoVC)
-            case .work:  return MusicWorkVC.createVC()
+            case .dashboard: return MusicDashboardVC.createVCfromStoryBoard()
+//            case .video: return VideoVC.createVCfromStoryBoard(storyboard: .video,
+//                                                               instantiateViewController: .videoVC)
+//            case .work:  return MusicWorkVC.createVC()
             case .setting: return SettingVC.createVC()
             }
         }
@@ -30,9 +30,9 @@ class TabbarVC: UITabBarController {
             switch self {
             case .mainAction: return Asset.icAllFiles.image
 //            case .allFiles: return Asset.icAllFiles.image
-            case .audio: return Asset.icAudio.image
-            case .video: return Asset.icVideo.image
-            case .work: return Asset.icWorking.image
+            case .dashboard: return Asset.icAudio.image
+//            case .video: return Asset.icVideo.image
+//            case .work: return Asset.icWorking.image
             case .setting: return Asset.icSettings.image
             }
         }
@@ -42,14 +42,14 @@ class TabbarVC: UITabBarController {
             case .mainAction: return "All Files"
 //            case .allFiles:
 //                return "All Files"
-            case .audio:
-                return "Audio"
-            case .video:
-                return "Video"
+            case .dashboard:
+                return "Dashboard"
+//            case .video:
+//                return "Video"
             case .setting:
                 return "Settings"
-            case .work:
-                return "Work"
+//            case .work:
+//                return "Work"
             }
         }
     }

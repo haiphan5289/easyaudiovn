@@ -34,7 +34,7 @@ class AllFilesVC: UIViewController, BaseAudioProtocol {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = false
         self.viewModel.getURLs()
     }
     

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -26,20 +26,20 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="xIC-Rx-SZo">
                     <rect key="frame" x="16" y="48" width="382" height="814"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="71t-pY-i14">
-                            <rect key="frame" x="0.0" y="0.0" width="382" height="60"/>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="71t-pY-i14">
+                            <rect key="frame" x="0.0" y="0.0" width="382" height="65"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Zzu-VM-Ecx">
-                                    <rect key="frame" x="0.0" y="16" width="382" height="24"/>
+                                    <rect key="frame" x="0.0" y="16" width="382" height="29"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Audios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgA-aY-kDk">
-                                            <rect key="frame" x="0.0" y="0.0" width="326" height="24"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="354" height="29"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PEu-YV-Ry9">
-                                            <rect key="frame" x="330" y="0.0" width="24" height="24"/>
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PEu-YV-Ry9">
+                                            <rect key="frame" x="356" y="2.5" width="24" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="hTk-9G-VkU"/>
                                                 <constraint firstAttribute="width" constant="24" id="xwb-Hn-T7e"/>
@@ -49,7 +49,7 @@
                                             <state key="normal" image="plus.app" catalog="system"/>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6t-IM-zas">
-                                            <rect key="frame" x="358" y="0.0" width="24" height="24"/>
+                                            <rect key="frame" x="358" y="2.5" width="24" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="JBW-mo-8M4"/>
                                                 <constraint firstAttribute="width" secondItem="r6t-IM-zas" secondAttribute="height" id="bYV-HD-YMg"/>
@@ -71,21 +71,21 @@
                             </constraints>
                         </view>
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5yl-cp-7u6">
-                            <rect key="frame" x="0.0" y="76" width="382" height="100"/>
+                            <rect key="frame" x="0.0" y="81" width="382" height="100"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="100" id="yEg-Ph-xDH"/>
                             </constraints>
                         </view>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="R1k-Wx-vpi">
-                            <rect key="frame" x="0.0" y="192" width="382" height="622"/>
+                            <rect key="frame" x="0.0" y="197" width="382" height="617"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </tableView>
                     </subviews>
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" name="TextColorEffect"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="xIC-Rx-SZo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="8U6-PR-IxN"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xIC-Rx-SZo" secondAttribute="trailing" constant="16" id="Zje-Gh-kye"/>
@@ -100,9 +100,6 @@
         <image name="plus.app" catalog="system" width="128" height="114"/>
         <namedColor name="AppColor">
             <color red="0.0" green="0.5690000057220459" blue="0.57499998807907104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="TextColorEffect">
-            <color red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
