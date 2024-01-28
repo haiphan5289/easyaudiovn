@@ -13,6 +13,26 @@ import EasyBaseAudio
 protocol BaseAudioProtocol {}
 extension BaseAudioProtocol {
     
+    func presentPhotoVideoLarge() {
+        guard let topvc = ManageApp.shared.getTopViewController() else {
+            return
+        }
+        
+        let detailViewController = PhotoVideoLibraryVC.createVC()
+            let nav = UINavigationController(rootViewController: detailViewController)
+            // 1
+            nav.modalPresentationStyle = .pageSheet
+            // 2
+            if let sheet = nav.sheetPresentationController {
+                // 3
+                sheet.detents = [.medium(), .large()]
+                sheet.prefersScrollingExpandsWhenScrolledToEdge = true
+
+            }
+            // 4
+        topvc.present(nav, animated: true, completion: nil)
+    }
+    
     func moveToRename(url: URL, delegate: RenameProtocol) {
         guard let topvc = ManageApp.shared.getTopViewController() else {
             return

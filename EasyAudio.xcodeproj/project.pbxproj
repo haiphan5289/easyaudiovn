@@ -275,6 +275,10 @@
 		93B73A1229862C3900D11FE4 /* FilterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93B73A0F29862C3900D11FE4 /* FilterVC.xib */; };
 		93B73A1329862C3900D11FE4 /* FilterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B73A1029862C3900D11FE4 /* FilterVM.swift */; };
 		93B73A1429862C3900D11FE4 /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B73A1129862C3900D11FE4 /* FilterVC.swift */; };
+		93B8C2322B653787006E1D27 /* PhotoSizeLargeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B8C2302B653787006E1D27 /* PhotoSizeLargeCell.swift */; };
+		93B8C2332B653787006E1D27 /* PhotoSizeLargeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93B8C2312B653787006E1D27 /* PhotoSizeLargeCell.xib */; };
+		93B8C2362B65394A006E1D27 /* PhotoSizeLargeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B8C2352B65394A006E1D27 /* PhotoSizeLargeView.swift */; };
+		93B8C2382B653956006E1D27 /* PhotoSizeLargeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93B8C2372B653956006E1D27 /* PhotoSizeLargeView.xib */; };
 		93BA936D29EBECFE00791DC3 /* SpeedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BA936C29EBECFE00791DC3 /* SpeedView.xib */; };
 		93BA936F29EBED0A00791DC3 /* SpeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BA936E29EBED0A00791DC3 /* SpeedView.swift */; };
 		93BBBBAD2A0145F300FC33A2 /* EffectAudioVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BBBBAA2A0145F300FC33A2 /* EffectAudioVC.xib */; };
@@ -294,6 +298,9 @@
 		93C5984B298545EB005C7CD9 /* AllFilesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93C59848298545EB005C7CD9 /* AllFilesVC.xib */; };
 		93C5984C298545EB005C7CD9 /* AllFilesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C59849298545EB005C7CD9 /* AllFilesVM.swift */; };
 		93C5984D298545EB005C7CD9 /* AllFilesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C5984A298545EB005C7CD9 /* AllFilesVC.swift */; };
+		93C759C22B6634EC00C133E9 /* PhotoVideoLibraryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93C759BF2B6634EC00C133E9 /* PhotoVideoLibraryVC.xib */; };
+		93C759C32B6634EC00C133E9 /* PhotoVideoLibraryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C759C02B6634EC00C133E9 /* PhotoVideoLibraryVM.swift */; };
+		93C759C42B6634EC00C133E9 /* PhotoVideoLibraryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C759C12B6634EC00C133E9 /* PhotoVideoLibraryVC.swift */; };
 		93C8A8CE29AD10420025AB8E /* IntegrateAudioVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93C8A8CB29AD10420025AB8E /* IntegrateAudioVC.xib */; };
 		93C8A8CF29AD10420025AB8E /* IntegrateAudioVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C8A8CC29AD10420025AB8E /* IntegrateAudioVM.swift */; };
 		93C8A8D029AD10420025AB8E /* IntegrateAudioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C8A8CD29AD10420025AB8E /* IntegrateAudioVC.swift */; };
@@ -311,6 +318,8 @@
 		93D4987429CEDDCF00C68CCF /* HandlingMusicVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93D4987129CEDDCF00C68CCF /* HandlingMusicVC.xib */; };
 		93D4987529CEDDCF00C68CCF /* HandlingMusicVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D4987229CEDDCF00C68CCF /* HandlingMusicVM.swift */; };
 		93D4987629CEDDCF00C68CCF /* HandlingMusicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D4987329CEDDCF00C68CCF /* HandlingMusicVC.swift */; };
+		93D8785B2B652C7C0013B0E6 /* CacheCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D878592B652C7C0013B0E6 /* CacheCell.swift */; };
+		93D8785C2B652C7C0013B0E6 /* CacheCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93D8785A2B652C7C0013B0E6 /* CacheCell.xib */; };
 		93DB062929CF1EFC0021A252 /* VolumeTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DB062829CF1EFC0021A252 /* VolumeTitleView.swift */; };
 		93DB062B29CF1F110021A252 /* VolumeTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93DB062A29CF1F110021A252 /* VolumeTitleView.xib */; };
 		93F836442845123A004AE334 /* CheckUIVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93F836412845123A004AE334 /* CheckUIVC.xib */; };
@@ -626,6 +635,10 @@
 		93B73A0F29862C3900D11FE4 /* FilterVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterVC.xib; sourceTree = "<group>"; };
 		93B73A1029862C3900D11FE4 /* FilterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVM.swift; sourceTree = "<group>"; };
 		93B73A1129862C3900D11FE4 /* FilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
+		93B8C2302B653787006E1D27 /* PhotoSizeLargeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSizeLargeCell.swift; sourceTree = "<group>"; };
+		93B8C2312B653787006E1D27 /* PhotoSizeLargeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoSizeLargeCell.xib; sourceTree = "<group>"; };
+		93B8C2352B65394A006E1D27 /* PhotoSizeLargeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSizeLargeView.swift; sourceTree = "<group>"; };
+		93B8C2372B653956006E1D27 /* PhotoSizeLargeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoSizeLargeView.xib; sourceTree = "<group>"; };
 		93BA936C29EBECFE00791DC3 /* SpeedView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeedView.xib; sourceTree = "<group>"; };
 		93BA936E29EBED0A00791DC3 /* SpeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedView.swift; sourceTree = "<group>"; };
 		93BBBBAA2A0145F300FC33A2 /* EffectAudioVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EffectAudioVC.xib; sourceTree = "<group>"; };
@@ -645,6 +658,9 @@
 		93C59848298545EB005C7CD9 /* AllFilesVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllFilesVC.xib; sourceTree = "<group>"; };
 		93C59849298545EB005C7CD9 /* AllFilesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllFilesVM.swift; sourceTree = "<group>"; };
 		93C5984A298545EB005C7CD9 /* AllFilesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllFilesVC.swift; sourceTree = "<group>"; };
+		93C759BF2B6634EC00C133E9 /* PhotoVideoLibraryVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoVideoLibraryVC.xib; sourceTree = "<group>"; };
+		93C759C02B6634EC00C133E9 /* PhotoVideoLibraryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoVideoLibraryVM.swift; sourceTree = "<group>"; };
+		93C759C12B6634EC00C133E9 /* PhotoVideoLibraryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoVideoLibraryVC.swift; sourceTree = "<group>"; };
 		93C8A8CB29AD10420025AB8E /* IntegrateAudioVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntegrateAudioVC.xib; sourceTree = "<group>"; };
 		93C8A8CC29AD10420025AB8E /* IntegrateAudioVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrateAudioVM.swift; sourceTree = "<group>"; };
 		93C8A8CD29AD10420025AB8E /* IntegrateAudioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrateAudioVC.swift; sourceTree = "<group>"; };
@@ -662,6 +678,8 @@
 		93D4987129CEDDCF00C68CCF /* HandlingMusicVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HandlingMusicVC.xib; sourceTree = "<group>"; };
 		93D4987229CEDDCF00C68CCF /* HandlingMusicVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandlingMusicVM.swift; sourceTree = "<group>"; };
 		93D4987329CEDDCF00C68CCF /* HandlingMusicVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandlingMusicVC.swift; sourceTree = "<group>"; };
+		93D878592B652C7C0013B0E6 /* CacheCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheCell.swift; sourceTree = "<group>"; };
+		93D8785A2B652C7C0013B0E6 /* CacheCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CacheCell.xib; sourceTree = "<group>"; };
 		93DB062829CF1EFC0021A252 /* VolumeTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeTitleView.swift; sourceTree = "<group>"; };
 		93DB062A29CF1F110021A252 /* VolumeTitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VolumeTitleView.xib; sourceTree = "<group>"; };
 		93F836412845123A004AE334 /* CheckUIVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckUIVC.xib; sourceTree = "<group>"; };
@@ -736,6 +754,8 @@
 		3E28477F2B5D0FCB00560E57 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				93B8C22F2B653766006E1D27 /* PhotoSizeLarge */,
+				93D878582B652C5C0013B0E6 /* Cache */,
 				3E2847802B5D0FD000560E57 /* General */,
 			);
 			path = Cell;
@@ -1316,6 +1336,7 @@
 		9372380527F9E4A40077EDED /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				93C759BE2B66349B00C133E9 /* PhotoVideoLibrary */,
 				3E28477A2B5D089800560E57 /* CacheFile */,
 				3E2E57372B54162C00F15429 /* MenuImportFile */,
 				3E1FF3DD2B09BEBF004BCD74 /* MainAction */,
@@ -1722,6 +1743,25 @@
 			path = FilterVC;
 			sourceTree = "<group>";
 		};
+		93B8C22F2B653766006E1D27 /* PhotoSizeLarge */ = {
+			isa = PBXGroup;
+			children = (
+				93B8C2342B653932006E1D27 /* Views */,
+				93B8C2302B653787006E1D27 /* PhotoSizeLargeCell.swift */,
+				93B8C2312B653787006E1D27 /* PhotoSizeLargeCell.xib */,
+			);
+			path = PhotoSizeLarge;
+			sourceTree = "<group>";
+		};
+		93B8C2342B653932006E1D27 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				93B8C2352B65394A006E1D27 /* PhotoSizeLargeView.swift */,
+				93B8C2372B653956006E1D27 /* PhotoSizeLargeView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		93BA936B29EBECEC00791DC3 /* SpeedView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1816,6 +1856,16 @@
 			path = AllFiles;
 			sourceTree = "<group>";
 		};
+		93C759BE2B66349B00C133E9 /* PhotoVideoLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				93C759BF2B6634EC00C133E9 /* PhotoVideoLibraryVC.xib */,
+				93C759C02B6634EC00C133E9 /* PhotoVideoLibraryVM.swift */,
+				93C759C12B6634EC00C133E9 /* PhotoVideoLibraryVC.swift */,
+			);
+			path = PhotoVideoLibrary;
+			sourceTree = "<group>";
+		};
 		93C8A8CA29AD0F4F0025AB8E /* IntegrateAudio */ = {
 			isa = PBXGroup;
 			children = (
@@ -1873,6 +1923,15 @@
 				93D4987329CEDDCF00C68CCF /* HandlingMusicVC.swift */,
 			);
 			path = HandlingMusic;
+			sourceTree = "<group>";
+		};
+		93D878582B652C5C0013B0E6 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				93D878592B652C7C0013B0E6 /* CacheCell.swift */,
+				93D8785A2B652C7C0013B0E6 /* CacheCell.xib */,
+			);
+			path = Cache;
 			sourceTree = "<group>";
 		};
 		93DB062729CF1EE70021A252 /* VolumeTitleView */ = {
@@ -1986,6 +2045,7 @@
 				9316B3182868530B001DE29C /* VideoCell.xib in Resources */,
 				93907D9B28C488C20018C09C /* AboutMeVC.xib in Resources */,
 				937237C627F9E4080077EDED /* ViewHeaderDialog.xib in Resources */,
+				93B8C2332B653787006E1D27 /* PhotoSizeLargeCell.xib in Resources */,
 				93913B01282FE4CF009DDCF6 /* Sample PDF.pdf in Resources */,
 				935905B72846526700B560D7 /* README.txt in Resources */,
 				9389F58228BE623C00D55D92 /* Suite-No-6-In-D-Major-After-BWV-1012-Gigue-Nigel-Nort.mp3 in Resources */,
@@ -1999,6 +2059,7 @@
 				933C717829BCBD3700BACF0E /* VideoFromPhotosVC.xib in Resources */,
 				93913B04282FE4CF009DDCF6 /* Sample Sound.mp3 in Resources */,
 				93BBBBAD2A0145F300FC33A2 /* EffectAudioVC.xib in Resources */,
+				93B8C2382B653956006E1D27 /* PhotoSizeLargeView.xib in Resources */,
 				93ACF9B0298AA5B900DF09C0 /* GoogleService-Info.plist in Resources */,
 				93B25162286749F20008EA86 /* VideoVC.storyboard in Resources */,
 				93913B07282FE4CF009DDCF6 /* FontsFree-Net-SFProText-Medium.ttf in Resources */,
@@ -2022,6 +2083,7 @@
 				93987FFF2843586F0057270F /* TimeView.xib in Resources */,
 				935905CF2846526700B560D7 /* upload.html in Resources */,
 				9375869D297FD04F00EF218C /* .swiflint.yml in Resources */,
+				93C759C22B6634EC00C133E9 /* PhotoVideoLibraryVC.xib in Resources */,
 				93BA936D29EBECFE00791DC3 /* SpeedView.xib in Resources */,
 				937237D227F9E4080077EDED /* NavigationSaveView.xib in Resources */,
 				93C5750C29EAA25E003BD015 /* FadeInOutView.xib in Resources */,
@@ -2032,6 +2094,7 @@
 				93A52ADC2987F926005EF39D /* RenameFileVC.xib in Resources */,
 				3E2E57402B54168500F15429 /* MenuImportFileCell.xib in Resources */,
 				93A20682282FD15300F262EC /* ActionHomeVC.xib in Resources */,
+				93D8785C2B652C7C0013B0E6 /* CacheCell.xib in Resources */,
 				93987FF828432ACB0057270F /* MixAudioVC.xib in Resources */,
 				9389F57828BE5EB100D55D92 /* image_gift_7.gif in Resources */,
 				93A0C6FC27EE1AD0008E6B98 /* Main.storyboard in Resources */,
@@ -2133,6 +2196,7 @@
 				939880052843BBD50057270F /* ExportVM.swift in Sources */,
 				9372375E27F9E38C0077EDED /* UIColor+Extensions.swift in Sources */,
 				93CE5F2B27FAF8E700455E01 /* Strings-Gen.swift in Sources */,
+				93B8C2322B653787006E1D27 /* PhotoSizeLargeCell.swift in Sources */,
 				935905CD2846526700B560D7 /* Manager.swift in Sources */,
 				9372376427F9E38C0077EDED /* URL+Extension.swift in Sources */,
 				9359055528464E6A00B560D7 /* ImportWifiVC.swift in Sources */,
@@ -2201,6 +2265,7 @@
 				9372371027F9E3710077EDED /* UICollectionViewExtensions.swift in Sources */,
 				93ADE12F29BCC8F2001D8122 /* VideoFromPhotosCell.swift in Sources */,
 				935905C42846526700B560D7 /* WebSocket.m in Sources */,
+				93C759C32B6634EC00C133E9 /* PhotoVideoLibraryVM.swift in Sources */,
 				93CFBF582B4982B900698D58 /* FeaturesView.swift in Sources */,
 				93DB062929CF1EFC0021A252 /* VolumeTitleView.swift in Sources */,
 				93CFBF5E2B49835200698D58 /* FeatureCell.swift in Sources */,
@@ -2240,6 +2305,7 @@
 				9372375B27F9E38C0077EDED /* ViewControllerExtension.swift in Sources */,
 				93AF2CAB28C05F0A00558246 /* SettingCell.swift in Sources */,
 				93ADE13329BCCB4E001D8122 /* SetUpBase.swift in Sources */,
+				93B8C2362B65394A006E1D27 /* PhotoSizeLargeView.swift in Sources */,
 				93B25160286749F20008EA86 /* VideoVM.swift in Sources */,
 				9372376627F9E38C0077EDED /* String+Extension.swift in Sources */,
 				935905C82846526700B560D7 /* HTTPAuthenticationRequest.m in Sources */,
@@ -2253,6 +2319,7 @@
 				935905C92846526700B560D7 /* DDNumber.m in Sources */,
 				93A52ADD2987F926005EF39D /* RenameFileVM.swift in Sources */,
 				93C5750A29EAA24F003BD015 /* FadeInOutView.swift in Sources */,
+				93C759C42B6634EC00C133E9 /* PhotoVideoLibraryVC.swift in Sources */,
 				93BBBBB42A01473D00FC33A2 /* AudioEffectCell.swift in Sources */,
 				935905C22846526700B560D7 /* HTTPMessage.m in Sources */,
 				935905B02846526700B560D7 /* GCDAsyncSocket.m in Sources */,
@@ -2267,6 +2334,7 @@
 				933C717929BCBD3700BACF0E /* VideoFromPhotosVM.swift in Sources */,
 				935905B32846526700B560D7 /* DDASLLogger.m in Sources */,
 				9372376327F9E38C0077EDED /* ArrayExxtension.swift in Sources */,
+				93D8785B2B652C7C0013B0E6 /* CacheCell.swift in Sources */,
 				935905C12846526700B560D7 /* HTTPRedirectResponse.m in Sources */,
 				9372376227F9E38C0077EDED /* DecimalNumber+Extension.swift in Sources */,
 				93A0C6F727EE1AD0008E6B98 /* SceneDelegate.swift in Sources */,

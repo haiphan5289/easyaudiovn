@@ -9,8 +9,13 @@ import UIKit
 import RxCocoa
 import RxSwift
 import EasyBaseAudio
+import SVProgressHUD
 
-class CacheFileVC: UIViewController, SetupTableView {
+class CacheFileVC: UIViewController, SetupTableView, BaseAudioProtocol {
+    
+    enum CacheFileType: Int, CaseIterable {
+        case general, cache, photoLarge
+    }
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -19,161 +24,95 @@ class CacheFileVC: UIViewController, SetupTableView {
         super.viewDidLoad()
         setupUI()
         setupRX()
-        let appSize = self.appSizeInMegaBytes()
-        print("appSize --- \(appSize)")
-        print("FreeSpace --- \(self.getFreeSpace().toMB())")
-        print("getUsedSpace --- \(self.getUsedSpace().toMB())")
-        print("getTotalSpace --- \(self.getTotalSpace().toMB())")
-        print("Size Device --- \(physicalMemory) ")
-        print("deviceRemainingFreeSpace --- \(self.deviceRemainingFreeSpace() ?? 0)")
+//        let appSize = self.appSizeInMegaBytes()
+//        print("appSize --- \(appSize)")
+//        print("FreeSpace --- \(self.getFreeSpace().toMB())")
+//        print("getUsedSpace --- \(self.getUsedSpace().toMB())")
+//        print("getTotalSpace --- \(self.getTotalSpace().toMB())")
+//        print("Size Device --- \(physicalMemory) ")
+//        print("deviceRemainingFreeSpace --- \(self.deviceRemainingFreeSpace() ?? 0)")
         
-        self.getCacheFiles()
+//        self.getCacheFiles()
         // Do any additional setup after loading the view.
+        print("cache \(ManageApp.shared.getTotalSizeFileManager(urls: ManageApp.shared.getSpaceType(type: .cachesDirectory)))")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         title = "Dung lượng & dữ liệu"
+        self.navigationController?.isNavigationBarHidden = false
     }
     var physicalMemory: UInt64 {
         return (ProcessInfo().physicalMemory / 1024) / 1024 // in MB
-    }
-
-    func deviceRemainingFreeSpace() -> Int64? {
-        let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last!
-        guard
-            let systemAttributes = try? FileManager.default.attributesOfFileSystem(forPath: documentDirectory),
-            let freeSize = systemAttributes[.systemSize] as? NSNumber
-        else {
-            return nil
-        }
-        return (freeSize.int64Value / 1024) / 1024 // in MB
     }
     
 }
 extension CacheFileVC {
     
     private func setupUI() {
-        setupTableView(tableView: tableView,
-                       delegate: self,
-                       name: GeneralInfoCell.self)
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .clear
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(nibWithCellClass: GeneralInfoCell.self)
+        tableView.register(nibWithCellClass: CacheCell.self)
+        tableView.register(nibWithCellClass: PhotoSizeLargeCell.self)
+        if #available(iOS 15.0, *) {
+            tableView.sectionHeaderTopPadding = 0
+        }
     }
     
     private func setupRX() {
-        Observable.just([1,2]).bind(to: tableView.rx.items(cellIdentifier: GeneralInfoCell.identifier,
-                                                           cellType: GeneralInfoCell.self)) { (index, element, cell) in
-            cell.backgroundColor = .red
-        }.disposed(by: disposeBag)
+//        Observable.just([1]).bind(to: tableView.rx.items(cellIdentifier: GeneralInfoCell.identifier,
+//                                                           cellType: GeneralInfoCell.self)) { (index, element, cell) in
+//        }.disposed(by: disposeBag)
     }
     
-    private func appSizeInMegaBytes() -> Float64 { // approximate value
-
-        // create list of directories
-        var paths = [Bundle.main.bundlePath] // main bundle
-        let docDirDomain = FileManager.SearchPathDirectory.documentDirectory
-        let docDirs = NSSearchPathForDirectoriesInDomains(docDirDomain, .userDomainMask, true)
-        if let docDir = docDirs.first {
-            paths.append(docDir) // documents directory
-        }
-        let libDirDomain = FileManager.SearchPathDirectory.libraryDirectory
-        let libDirs = NSSearchPathForDirectoriesInDomains(libDirDomain, .userDomainMask, true)
-        if let libDir = libDirs.first {
-            paths.append(libDir) // library directory
-        }
-        paths.append(NSTemporaryDirectory() as String) // temp directory
-
-        // combine sizes
-        var totalSize: Float64 = 0
-        for path in paths {
-            if let size = bytesIn(directory: path) {
-                totalSize += size
-            }
-        }
-        return totalSize / 1000000 // megabytes
-    }
-
-    private func bytesIn(directory: String) -> Float64? {
-        let fm = FileManager.default
-        guard let subdirectories = try? fm.subpathsOfDirectory(atPath: directory) as NSArray else {
-            return nil
-        }
-        let enumerator = subdirectories.objectEnumerator()
-        var size: UInt64 = 0
-        while let fileName = enumerator.nextObject() as? String {
-            do {
-                let fileDictionary = try fm.attributesOfItem(atPath: directory.appending("/" + fileName)) as NSDictionary
-                size += fileDictionary.fileSize()
-            } catch let err {
-                print("err getting attributes of file \(fileName): \(err.localizedDescription)")
-            }
-        }
-        return Float64(size)
-    }
-    
-    private func getCacheFiles() {
-        let paths = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)
-//        let cachesDirectory: URL = paths[0]
-        let docs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let application = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)
-        let music = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask)
-        let video = FileManager.default.urls(for: .moviesDirectory, in: .userDomainMask)
-        print("paths \(paths)")
-        print("docs \(docs)")
-        print("application \(application)")
-        print("music \(music)")
-        print("video \(video)")
-//        let getSize = docs.map({ $0.sizeOnDisk() }).reduce(0) { partialResult, result in
-//            return partialResult + (result ?? 0)
-//        }
-//        print("getSize \(getSize)")
-        
-        docs.forEach { url in
-            do {
-                let size = try url.sizeOnDisk()
-                print("get size disk \(size)")
-            } catch {
-            }
-        }
-        
-        if let first = docs.first {
-//            let name = AudioManage.shared.getNamefromURL(url: "folderVideo")
-             let items = AudioManage.shared.getItemsFolder(folder: "folderVideo")
-            let folder = AudioManage.shared.getUrlFolder(folder: "folderVideo")
-            print()
-        }
-        
-    }
-    
-    private func getFreeSpace() -> Int64
-        {
-            do
-            {
-                let attributes = try FileManager.default.attributesOfFileSystem(forPath: NSHomeDirectory())
-
-                return attributes[FileAttributeKey.systemFreeSize] as! Int64
-            }
-            catch
-            {
-                return 0
-            }
-        }
-
-        private func getTotalSpace() -> Int64
-        {
-            do {
-                let attributes = try FileManager.default.attributesOfFileSystem(forPath: NSHomeDirectory())
-                return attributes[FileAttributeKey.systemFreeSize] as! Int64
-            } catch {
-                return 0
-            }
-        }
-
-        private func getUsedSpace() -> Int64
-        {
-            return getTotalSpace() - getFreeSpace()
-        }
     
 }
+
+extension CacheFileVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return CacheFileType.allCases.count
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let type = CacheFileType(rawValue: indexPath.row) else {
+            return UITableViewCell()
+        }
+        switch type {
+        case .general:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: GeneralInfoCell.identifier, for: indexPath) as? GeneralInfoCell else {
+                return UITableViewCell()
+            }
+            return cell
+        case .cache:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CacheCell.identifier, for: indexPath) as? CacheCell else {
+                return UITableViewCell()
+            }
+            cell.removeCacheHandler = { [weak self] in
+                guard let self = self else { return }
+                SVProgressHUD.show()
+                ManageApp.shared.getSpaceType(type: .cachesDirectory).forEach { url in
+                    AudioManage.shared.removeFileAtURLIfExists(url: url)
+                }
+                SVProgressHUD.dismiss()
+            }
+            return cell
+        case .photoLarge:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: PhotoSizeLargeCell.identifier, for: indexPath) as? PhotoSizeLargeCell else {
+                return UITableViewCell()
+            }
+            cell.tapPhotos = { [weak self] in
+                guard let self = self else { return }
+                self.presentPhotoVideoLarge()
+            }
+            return cell
+        }
+    }
+}
+
 extension CacheFileVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0.1
