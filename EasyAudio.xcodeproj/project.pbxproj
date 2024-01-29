@@ -298,9 +298,9 @@
 		93C5984B298545EB005C7CD9 /* AllFilesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93C59848298545EB005C7CD9 /* AllFilesVC.xib */; };
 		93C5984C298545EB005C7CD9 /* AllFilesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C59849298545EB005C7CD9 /* AllFilesVM.swift */; };
 		93C5984D298545EB005C7CD9 /* AllFilesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C5984A298545EB005C7CD9 /* AllFilesVC.swift */; };
-		93C759C22B6634EC00C133E9 /* PhotoVideoLibraryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93C759BF2B6634EC00C133E9 /* PhotoVideoLibraryVC.xib */; };
 		93C759C32B6634EC00C133E9 /* PhotoVideoLibraryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C759C02B6634EC00C133E9 /* PhotoVideoLibraryVM.swift */; };
 		93C759C42B6634EC00C133E9 /* PhotoVideoLibraryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C759C12B6634EC00C133E9 /* PhotoVideoLibraryVC.swift */; };
+		93C759C62B66478A00C133E9 /* PhotoVideoLibraryVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93C759C52B66478A00C133E9 /* PhotoVideoLibraryVC.storyboard */; };
 		93C8A8CE29AD10420025AB8E /* IntegrateAudioVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93C8A8CB29AD10420025AB8E /* IntegrateAudioVC.xib */; };
 		93C8A8CF29AD10420025AB8E /* IntegrateAudioVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C8A8CC29AD10420025AB8E /* IntegrateAudioVM.swift */; };
 		93C8A8D029AD10420025AB8E /* IntegrateAudioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C8A8CD29AD10420025AB8E /* IntegrateAudioVC.swift */; };
@@ -658,9 +658,9 @@
 		93C59848298545EB005C7CD9 /* AllFilesVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllFilesVC.xib; sourceTree = "<group>"; };
 		93C59849298545EB005C7CD9 /* AllFilesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllFilesVM.swift; sourceTree = "<group>"; };
 		93C5984A298545EB005C7CD9 /* AllFilesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllFilesVC.swift; sourceTree = "<group>"; };
-		93C759BF2B6634EC00C133E9 /* PhotoVideoLibraryVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoVideoLibraryVC.xib; sourceTree = "<group>"; };
 		93C759C02B6634EC00C133E9 /* PhotoVideoLibraryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoVideoLibraryVM.swift; sourceTree = "<group>"; };
 		93C759C12B6634EC00C133E9 /* PhotoVideoLibraryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoVideoLibraryVC.swift; sourceTree = "<group>"; };
+		93C759C52B66478A00C133E9 /* PhotoVideoLibraryVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhotoVideoLibraryVC.storyboard; sourceTree = "<group>"; };
 		93C8A8CB29AD10420025AB8E /* IntegrateAudioVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntegrateAudioVC.xib; sourceTree = "<group>"; };
 		93C8A8CC29AD10420025AB8E /* IntegrateAudioVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrateAudioVM.swift; sourceTree = "<group>"; };
 		93C8A8CD29AD10420025AB8E /* IntegrateAudioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrateAudioVC.swift; sourceTree = "<group>"; };
@@ -1859,9 +1859,9 @@
 		93C759BE2B66349B00C133E9 /* PhotoVideoLibrary */ = {
 			isa = PBXGroup;
 			children = (
-				93C759BF2B6634EC00C133E9 /* PhotoVideoLibraryVC.xib */,
 				93C759C02B6634EC00C133E9 /* PhotoVideoLibraryVM.swift */,
 				93C759C12B6634EC00C133E9 /* PhotoVideoLibraryVC.swift */,
+				93C759C52B66478A00C133E9 /* PhotoVideoLibraryVC.storyboard */,
 			);
 			path = PhotoVideoLibrary;
 			sourceTree = "<group>";
@@ -2083,7 +2083,6 @@
 				93987FFF2843586F0057270F /* TimeView.xib in Resources */,
 				935905CF2846526700B560D7 /* upload.html in Resources */,
 				9375869D297FD04F00EF218C /* .swiflint.yml in Resources */,
-				93C759C22B6634EC00C133E9 /* PhotoVideoLibraryVC.xib in Resources */,
 				93BA936D29EBECFE00791DC3 /* SpeedView.xib in Resources */,
 				937237D227F9E4080077EDED /* NavigationSaveView.xib in Resources */,
 				93C5750C29EAA25E003BD015 /* FadeInOutView.xib in Resources */,
@@ -2114,6 +2113,7 @@
 				93BBBBC42A014E6200FC33A2 /* EffectElementView.xib in Resources */,
 				93CFBF5F2B49835200698D58 /* FeatureCell.xib in Resources */,
 				93913B00282FE4CF009DDCF6 /* Sample Video.mp4 in Resources */,
+				93C759C62B66478A00C133E9 /* PhotoVideoLibraryVC.storyboard in Resources */,
 				3E2E573B2B54165300F15429 /* MenuImportFileVC.xib in Resources */,
 				9385EEB528BBC4BA00370E26 /* ManageAudioView.xib in Resources */,
 				93BBBBBF2A014E3A00FC33A2 /* EffectElementCell.xib in Resources */,

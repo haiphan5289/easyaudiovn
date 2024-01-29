@@ -9,6 +9,7 @@ import Foundation
 import AVFoundation
 import SVProgressHUD
 import EasyBaseAudio
+import EasyBaseCodes
 
 protocol BaseAudioProtocol {}
 extension BaseAudioProtocol {
@@ -18,7 +19,7 @@ extension BaseAudioProtocol {
             return
         }
         
-        let detailViewController = PhotoVideoLibraryVC.createVC()
+        let detailViewController = PhotoVideoLibraryVC.createVCfromStoryBoard()
             let nav = UINavigationController(rootViewController: detailViewController)
             // 1
             nav.modalPresentationStyle = .pageSheet
