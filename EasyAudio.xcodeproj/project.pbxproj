@@ -76,6 +76,12 @@
 		935905D42846590E00B560D7 /* MergeFilesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 935905D12846590E00B560D7 /* MergeFilesVC.xib */; };
 		935905D52846590E00B560D7 /* MergeFilesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935905D22846590E00B560D7 /* MergeFilesVM.swift */; };
 		935905D62846590E00B560D7 /* MergeFilesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935905D32846590E00B560D7 /* MergeFilesVC.swift */; };
+		9362C5AB2B71C5970018CB53 /* AllLibraryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9362C5A82B71C5970018CB53 /* AllLibraryVC.xib */; };
+		9362C5AC2B71C5970018CB53 /* AllLibraryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362C5A92B71C5970018CB53 /* AllLibraryVM.swift */; };
+		9362C5AD2B71C5970018CB53 /* AllLibraryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362C5AA2B71C5970018CB53 /* AllLibraryVC.swift */; };
+		9362C5B12B71C5FD0018CB53 /* AllLibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362C5AF2B71C5FD0018CB53 /* AllLibraryCell.swift */; };
+		9362C5B22B71C5FD0018CB53 /* AllLibraryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9362C5B02B71C5FD0018CB53 /* AllLibraryCell.xib */; };
+		9362C5B52B71C9720018CB53 /* AllLibraryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362C5B42B71C9720018CB53 /* AllLibraryModel.swift */; };
 		937236D827F9E1670077EDED /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 937236D727F9E1670077EDED /* swiftgen.yml */; };
 		937236E127F9E3140077EDED /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 937236E027F9E3140077EDED /* Localizable.strings */; };
 		9372370827F9E3710077EDED /* UISearchBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937236E427F9E3710077EDED /* UISearchBarExtensions.swift */; };
@@ -433,6 +439,12 @@
 		935905D12846590E00B560D7 /* MergeFilesVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MergeFilesVC.xib; sourceTree = "<group>"; };
 		935905D22846590E00B560D7 /* MergeFilesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MergeFilesVM.swift; sourceTree = "<group>"; };
 		935905D32846590E00B560D7 /* MergeFilesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MergeFilesVC.swift; sourceTree = "<group>"; };
+		9362C5A82B71C5970018CB53 /* AllLibraryVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllLibraryVC.xib; sourceTree = "<group>"; };
+		9362C5A92B71C5970018CB53 /* AllLibraryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllLibraryVM.swift; sourceTree = "<group>"; };
+		9362C5AA2B71C5970018CB53 /* AllLibraryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllLibraryVC.swift; sourceTree = "<group>"; };
+		9362C5AF2B71C5FD0018CB53 /* AllLibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllLibraryCell.swift; sourceTree = "<group>"; };
+		9362C5B02B71C5FD0018CB53 /* AllLibraryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllLibraryCell.xib; sourceTree = "<group>"; };
+		9362C5B42B71C9720018CB53 /* AllLibraryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllLibraryModel.swift; sourceTree = "<group>"; };
 		937236D727F9E1670077EDED /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		937236E027F9E3140077EDED /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		937236E427F9E3710077EDED /* UISearchBarExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISearchBarExtensions.swift; sourceTree = "<group>"; };
@@ -1028,6 +1040,34 @@
 				935905D32846590E00B560D7 /* MergeFilesVC.swift */,
 			);
 			path = MergeFiles;
+			sourceTree = "<group>";
+		};
+		9362C5A72B71C56D0018CB53 /* AllLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				9362C5AE2B71C5DC0018CB53 /* Cell */,
+				9362C5A82B71C5970018CB53 /* AllLibraryVC.xib */,
+				9362C5A92B71C5970018CB53 /* AllLibraryVM.swift */,
+				9362C5AA2B71C5970018CB53 /* AllLibraryVC.swift */,
+			);
+			path = AllLibrary;
+			sourceTree = "<group>";
+		};
+		9362C5AE2B71C5DC0018CB53 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9362C5AF2B71C5FD0018CB53 /* AllLibraryCell.swift */,
+				9362C5B02B71C5FD0018CB53 /* AllLibraryCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		9362C5B32B71C95B0018CB53 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9362C5B42B71C9720018CB53 /* AllLibraryModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		937236D927F9E2320077EDED /* Localizable */ = {
@@ -1859,6 +1899,8 @@
 		93C759BE2B66349B00C133E9 /* PhotoVideoLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				9362C5B32B71C95B0018CB53 /* Model */,
+				9362C5A72B71C56D0018CB53 /* AllLibrary */,
 				93C759C02B6634EC00C133E9 /* PhotoVideoLibraryVM.swift */,
 				93C759C12B6634EC00C133E9 /* PhotoVideoLibraryVC.swift */,
 				93C759C52B66478A00C133E9 /* PhotoVideoLibraryVC.storyboard */,
@@ -2095,11 +2137,13 @@
 				93A20682282FD15300F262EC /* ActionHomeVC.xib in Resources */,
 				93D8785C2B652C7C0013B0E6 /* CacheCell.xib in Resources */,
 				93987FF828432ACB0057270F /* MixAudioVC.xib in Resources */,
+				9362C5B22B71C5FD0018CB53 /* AllLibraryCell.xib in Resources */,
 				9389F57828BE5EB100D55D92 /* image_gift_7.gif in Resources */,
 				93A0C6FC27EE1AD0008E6B98 /* Main.storyboard in Resources */,
 				9389F56128BE586300D55D92 /* image_gift_5.gif in Resources */,
 				93ABC9FE29CF1B730003C23D /* AudioView.xib in Resources */,
 				93A9D7BF284261D7009F9D49 /* AudioImportVC.xib in Resources */,
+				9362C5AB2B71C5970018CB53 /* AllLibraryVC.xib in Resources */,
 				93913AE8282FE0F4009DDCF6 /* RecordingVC.xib in Resources */,
 				93097D8A2848A63D00D33BFA /* MuteFileVC.xib in Resources */,
 				93C8A8CE29AD10420025AB8E /* IntegrateAudioVC.xib in Resources */,
@@ -2187,6 +2231,7 @@
 				93B73A1429862C3900D11FE4 /* FilterVC.swift in Sources */,
 				935905D52846590E00B560D7 /* MergeFilesVM.swift in Sources */,
 				93892B3C27F9E85100A9FECE /* Constant.swift in Sources */,
+				9362C5B52B71C9720018CB53 /* AllLibraryModel.swift in Sources */,
 				9372372A27F9E3710077EDED /* UIDatePickerExtensions.swift in Sources */,
 				93A2068A282FD8F000F262EC /* AdditionAudioVM.swift in Sources */,
 				937237C727F9E4080077EDED /* ViewHeaderDialog.swift in Sources */,
@@ -2290,10 +2335,13 @@
 				93C5984D298545EB005C7CD9 /* AllFilesVC.swift in Sources */,
 				9372375827F9E38C0077EDED /* CALayerExtension.swift in Sources */,
 				93ABC9F929CF1AA60003C23D /* VolumeView.swift in Sources */,
+				9362C5AC2B71C5970018CB53 /* AllLibraryVM.swift in Sources */,
 				9372375427F9E38C0077EDED /* UIFont+Extension.swift in Sources */,
 				9372370A27F9E3710077EDED /* UIEdgeInsetsExtensions.swift in Sources */,
 				9372377327F9E38C0077EDED /* DateExtension.swift in Sources */,
+				9362C5AD2B71C5970018CB53 /* AllLibraryVC.swift in Sources */,
 				93913AF0282FE4A9009DDCF6 /* font.swift in Sources */,
+				9362C5B12B71C5FD0018CB53 /* AllLibraryCell.swift in Sources */,
 				937237C927F9E4080077EDED /* NavigationItemView.swift in Sources */,
 				93A0C6F527EE1AD0008E6B98 /* AppDelegate.swift in Sources */,
 				9372371227F9E3710077EDED /* UITextViewExtensions.swift in Sources */,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -10,6 +10,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Page View Controller-->
+        <scene sceneID="vwP-P8-uhK">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="vhX-pK-hM0" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j1L-r2-tUY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-691" y="-51"/>
+        </scene>
         <!--Photo Video LibraryVC-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
@@ -70,7 +78,7 @@
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zed-bl-jZv">
                                         <rect key="frame" x="0.0" y="50" width="393" height="659"/>
                                         <connections>
-                                            <segue destination="q1m-4u-w67" kind="embed" id="JBQ-O6-TBq"/>
+                                            <segue destination="vhX-pK-hM0" kind="embed" id="MOr-iE-ngq"/>
                                         </connections>
                                     </containerView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QlG-fK-yw6">
@@ -83,17 +91,18 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xRa-pU-1Eb">
-                                                <rect key="frame" x="313" y="0.0" width="64" height="50"/>
+                                                <rect key="frame" x="353" y="0.0" width="24" height="50"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iFQ-TT-2pW">
-                                                        <rect key="frame" x="0.0" y="9" width="32" height="32"/>
+                                                    <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iFQ-TT-2pW">
+                                                        <rect key="frame" x="0.0" y="9" width="0.0" height="32"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" image="ic_import"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKu-fF-CIM">
-                                                        <rect key="frame" x="40" y="13" width="24" height="24"/>
+                                                        <rect key="frame" x="0.0" y="13" width="24" height="24"/>
+                                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" image="ic_handling_trash"/>
+                                                        <state key="normal" image="ic_delete_red"/>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -123,9 +132,11 @@
                     <connections>
                         <outlet property="allButon" destination="nyx-wY-v2J" id="y9o-78-adC"/>
                         <outlet property="contentButtonView" destination="Nda-XT-2rH" id="XZN-Sw-Oe6"/>
+                        <outlet property="deleteButton" destination="pKu-fF-CIM" id="030-Vj-tYr"/>
                         <outlet property="fileButton" destination="tIw-Ov-fHA" id="GUN-zt-0oA"/>
                         <outlet property="imageButton" destination="m4K-cX-npj" id="iom-f1-qD5"/>
                         <outlet property="lineView" destination="0ol-Wa-I4p" id="Int-Em-cie"/>
+                        <outlet property="saveButton" destination="iFQ-TT-2pW" id="45O-ES-iCB"/>
                         <outlet property="selectLabel" destination="isG-DH-zPn" id="hJ1-h4-7FX"/>
                         <outlet property="stackViewButton" destination="3mZ-d9-lZi" id="Umz-1x-cgR"/>
                     </connections>
@@ -134,24 +145,9 @@
             </objects>
             <point key="canvasLocation" x="131" y="-28"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="GIC-kU-gxq">
-            <objects>
-                <viewController id="q1m-4u-w67" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="MFd-6T-uVb">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="659"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="kzL-kb-DW6"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sBz-hX-iL2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-639" y="-69"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="ic_handling_trash" width="24" height="24"/>
+        <image name="ic_delete_red" width="24" height="24"/>
         <image name="ic_import" width="32" height="32"/>
         <namedColor name="AppColor">
             <color red="0.0" green="0.5690000057220459" blue="0.57499998807907104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

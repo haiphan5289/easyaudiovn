@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="AllLibraryCell" customModule="Easy_Edit_Audio" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Na-ru-Z1F">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oUC-Zj-eDr">
+                        <rect key="frame" x="168" y="8" width="24" height="24"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" image="ic_uncheck"/>
+                        <connections>
+                            <action selector="actionSelectButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="NEr-TN-jPN"/>
+                        </connections>
+                    </button>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="LaO-tE-h40">
+                        <rect key="frame" x="8" y="68" width="184" height="128"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFe-vx-hfb">
+                                <rect key="frame" x="0.0" y="56.333333333333321" width="33" height="15.666666666666664"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ddJ-gy-Jry">
+                                <rect key="frame" x="33" y="0.0" width="118" height="128"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TE5-Ja-F5Y">
+                                <rect key="frame" x="151" y="56.333333333333321" width="33" height="15.666666666666664"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="LaO-tE-h40" secondAttribute="trailing" constant="8" id="C3i-af-jrf"/>
+                <constraint firstAttribute="bottom" secondItem="LaO-tE-h40" secondAttribute="bottom" constant="4" id="CKm-D2-4zk"/>
+                <constraint firstItem="LaO-tE-h40" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="Fng-gY-QP5"/>
+                <constraint firstItem="8Na-ru-Z1F" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Ky3-DO-9rN"/>
+                <constraint firstItem="8Na-ru-Z1F" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="MSb-uX-SE9"/>
+                <constraint firstAttribute="bottom" secondItem="8Na-ru-Z1F" secondAttribute="bottom" id="W2d-YF-dJ4"/>
+                <constraint firstItem="oUC-Zj-eDr" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="gdn-xa-lxb"/>
+                <constraint firstAttribute="trailing" secondItem="8Na-ru-Z1F" secondAttribute="trailing" id="ovW-JD-5qe"/>
+                <constraint firstAttribute="trailing" secondItem="oUC-Zj-eDr" secondAttribute="trailing" constant="8" id="yGt-bY-NMl"/>
+            </constraints>
+            <connections>
+                <outlet property="BackgroundImage" destination="8Na-ru-Z1F" id="hd2-rk-HtB"/>
+                <outlet property="durationLabel" destination="TE5-Ja-F5Y" id="Vhb-M5-84H"/>
+                <outlet property="selectButton" destination="oUC-Zj-eDr" id="SLw-gT-bBu"/>
+                <outlet property="sizeLabel" destination="dFe-vx-hfb" id="Oae-kb-bvW"/>
+            </connections>
+            <point key="canvasLocation" x="-142" y="20"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="ic_uncheck" width="24" height="24"/>
+    </resources>
+</document>

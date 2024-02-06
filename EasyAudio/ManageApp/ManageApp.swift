@@ -206,13 +206,27 @@ class ManageApp {
         fetchOptions.predicate = NSPredicate(format: "mediaType == %d || mediaType == %d",
                                              PHAssetMediaType.image.rawValue,
                                              PHAssetMediaType.video.rawValue)
-        fetchOptions.fetchLimit = 100
+        let imagesAndVideos = PHAsset.fetchAssets(with: fetchOptions)
+        return imagesAndVideos
+    }
+    
+    func getAnotherPhotos() -> PHFetchResult<PHAsset> {
+        let fetchOptions = PHFetchOptions()
+        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate",
+                                                         ascending: false)]
+        fetchOptions.predicate = NSPredicate(format: "mediaType == %d || mediaType == %d",
+                                             PHAssetMediaType.unknown.rawValue,
+                                             PHAssetMediaType.audio.rawValue)
         let imagesAndVideos = PHAsset.fetchAssets(with: fetchOptions)
         return imagesAndVideos
     }
     
     func convertToPHAsset() -> [PHAsset] {
         let photos = self.getPhotos()
+        
+        if photos.count <= 0 {
+            return []
+        }
         
         var values: [PHAsset] = []
         for i in 0..<photos.count - 1 {
@@ -223,6 +237,14 @@ class ManageApp {
             }
         }
         return values
+    }
+    
+    func deletePHAsset(values: [PHAsset]) {
+        let assetIdentifiers = values.map({ $0.localIdentifier })
+        let assets = PHAsset.fetchAssets(withLocalIdentifiers: assetIdentifiers, options: nil)
+        PHPhotoLibrary.shared().performChanges({
+            PHAssetChangeRequest.deleteAssets(assets)
+        })
     }
     
     func checkPhotoLibraryPermission() -> Observable<[PHAsset]> {

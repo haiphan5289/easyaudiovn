@@ -10,6 +10,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import Photos
 
 class PhotoVideoLibraryVC: UIViewController {
     
@@ -21,9 +22,17 @@ class PhotoVideoLibraryVC: UIViewController {
     @IBOutlet weak var lineView: UIView!
     @IBOutlet weak var stackViewButton: UIStackView!
     @IBOutlet weak var contentButtonView: UIView!
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
+    
+    var pageViewController: UIPageViewController?
+    
+    private var allLibrary: AllLibraryVC = AllLibraryVC.createVC()
     
     // Add here your view model
     private var viewModel: PhotoVideoLibraryVM = PhotoVideoLibraryVM()
+    
+    private let selectedTrigger: BehaviorRelay<[PHAsset]> = BehaviorRelay(value: [])
     
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
@@ -37,12 +46,20 @@ class PhotoVideoLibraryVC: UIViewController {
         title = "Ảnh, video, file lớn hơn 5MB"
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let page = segue.destination as? UIPageViewController {
+            self.pageViewController = page
+            self.pageViewController?.setViewControllers([allLibrary], direction: .reverse, animated: false)
+        }
+    }
+    
 }
 extension PhotoVideoLibraryVC {
     
     private func setupUI() {
         // Add here the setup for the UI
-        makeSelectPhotos()
+        allLibrary.delegate = self
+        makeSelectPhotos(count: 0, total: "0 MB")
     }
     
     private func setupRX() {
@@ -57,13 +74,59 @@ extension PhotoVideoLibraryVC {
                 owner.moveLineView(frame: frame)
                 owner.updateStateButton(buttons: [owner.allButon, owner.fileButton])
             }.disposed(by: disposeBag)
+        
+        allButon.rx.tap
+            .withUnretained(self)
+            .bind { owner, _ in
+                var frame = owner.allButon.convert(owner.contentButtonView.frame,
+                                                      to: owner.contentButtonView)
+                owner.allButon.setTitleColor(.black, for: .normal)
+                frame.size = CGSize(width: owner.allButon.frame.width, height: 1)
+                owner.moveLineView(frame: frame)
+                owner.updateStateButton(buttons: [owner.imageButton, owner.fileButton])
+            }.disposed(by: disposeBag)
+        
+        fileButton.rx.tap
+            .withUnretained(self)
+            .bind { owner, _ in
+                var frame = owner.fileButton.convert(owner.contentButtonView.frame,
+                                                      to: owner.contentButtonView)
+                owner.fileButton.setTitleColor(.black, for: .normal)
+                frame.size = CGSize(width: owner.fileButton.frame.width, height: 1)
+                owner.moveLineView(frame: frame)
+                owner.updateStateButton(buttons: [owner.imageButton, owner.allButon])
+            }.disposed(by: disposeBag)
+        
+        selectedTrigger
+            .asDriverOnErrorJustComplete()
+            .drive(onNext: { [weak self] values in
+                guard let self = self else { return }
+                let count = values.count
+                let total = values.map{ $0.getSize() }
+                    .reduce(0) { partialResult, result in
+                        return partialResult + result
+                    }
+                let strMB = (ByteCountFormatter.string(fromByteCount: total, countStyle: .file))
+                self.deleteButton.tintColor = count > 0 ? .red : .gray
+                self.deleteButton.isEnabled = count > 0
+                self.makeSelectPhotos(count: count, total: strMB)
+            })
+            .disposed(by: disposeBag)
+        
+        deleteButton.rx.tap
+            .asDriverOnErrorJustComplete()
+            .drive(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                ManageApp.shared.deletePHAsset(values: self.selectedTrigger.value)
+            })
+            .disposed(by: disposeBag)
     }
     
-    private func makeSelectPhotos() {
-        let attribute = NSMutableAttributedString(string: "Đã chọn: 1",
+    private func makeSelectPhotos(count: Int, total: String) {
+        let attribute = NSMutableAttributedString(string: "Đã chọn: \(count)",
                                                   attributes: [.font: UIFont.systemFont(ofSize: 13),
                                                                .foregroundColor: UIColor.gray])
-        let size = NSAttributedString(string: "\n36,2 MB",
+        let size = NSAttributedString(string: "\n\(total)",
                                       attributes: [.font: UIFont.boldSystemFont(ofSize: 13),
                                                    .foregroundColor: UIColor.black])
         attribute.append(size)
@@ -84,4 +147,9 @@ extension PhotoVideoLibraryVC {
         }
     }
     
+}
+extension PhotoVideoLibraryVC: AllLibraryDelegate {
+    func selectesPHAsset(values: [PHAsset]) {
+        self.selectedTrigger.accept(values)
+    }
 }
