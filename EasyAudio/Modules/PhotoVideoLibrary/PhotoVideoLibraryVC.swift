@@ -28,6 +28,7 @@ class PhotoVideoLibraryVC: UIViewController {
     var pageViewController: UIPageViewController?
     
     private var allLibrary: AllLibraryVC = AllLibraryVC.createVC()
+    private var anotherMusic: AnotherMusicVC = AnotherMusicVC.createVC()
     
     // Add here your view model
     private var viewModel: PhotoVideoLibraryVM = PhotoVideoLibraryVM()
@@ -49,7 +50,7 @@ class PhotoVideoLibraryVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let page = segue.destination as? UIPageViewController {
             self.pageViewController = page
-            self.pageViewController?.setViewControllers([allLibrary], direction: .reverse, animated: false)
+            self.pageViewController?.setViewControllers([anotherMusic], direction: .reverse, animated: false)
         }
     }
     
@@ -59,6 +60,7 @@ extension PhotoVideoLibraryVC {
     private func setupUI() {
         // Add here the setup for the UI
         allLibrary.delegate = self
+        anotherMusic.delegate = self
         makeSelectPhotos(count: 0, total: "0 MB")
     }
     
@@ -73,6 +75,7 @@ extension PhotoVideoLibraryVC {
                 frame.size = CGSize(width: owner.imageButton.frame.width, height: 1)
                 owner.moveLineView(frame: frame)
                 owner.updateStateButton(buttons: [owner.allButon, owner.fileButton])
+                owner.pageViewController?.setViewControllers([owner.allLibrary], direction: .reverse, animated: false)
             }.disposed(by: disposeBag)
         
         allButon.rx.tap
@@ -95,6 +98,7 @@ extension PhotoVideoLibraryVC {
                 frame.size = CGSize(width: owner.fileButton.frame.width, height: 1)
                 owner.moveLineView(frame: frame)
                 owner.updateStateButton(buttons: [owner.imageButton, owner.allButon])
+                owner.pageViewController?.setViewControllers([owner.anotherMusic], direction: .reverse, animated: false)
             }.disposed(by: disposeBag)
         
         selectedTrigger
@@ -150,6 +154,7 @@ extension PhotoVideoLibraryVC {
 }
 extension PhotoVideoLibraryVC: AllLibraryDelegate {
     func selectesPHAsset(values: [PHAsset]) {
-        self.selectedTrigger.accept(values)
+        let list = self.selectedTrigger.value + values
+        self.selectedTrigger.accept(list)
     }
 }

@@ -1,7 +1,7 @@
 
 //
 //  
-//  AllLibraryVC.swift
+//  AnotherMusicVC.swift
 //  EasyAudio
 //
 //  Created by haiphan on 06/02/2024.
@@ -10,20 +10,13 @@
 import UIKit
 import RxCocoa
 import RxSwift
-import EasyBaseAudio
-import Photos
 
-protocol AllLibraryDelegate: AnyObject {
-    func selectesPHAsset(values: [PHAsset])
-}
-
-class AllLibraryVC: BasePhotoVC {
+class AnotherMusicVC: BasePhotoVC {
     
     // Add here outlets
     
-    
     // Add here your view model
-    private var viewModel: AllLibraryVM = AllLibraryVM()
+    private var viewModel: AnotherMusicVM = AnotherMusicVM()
     
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
@@ -33,11 +26,11 @@ class AllLibraryVC: BasePhotoVC {
     }
     
 }
-extension AllLibraryVC {
+extension AnotherMusicVC {
     
     private func setupUI() {
         // Add here the setup for the UI
-        let values = ManageApp.shared.convertToPHAsset(photos: ManageApp.shared.getPhotos())
+        let values = ManageApp.shared.convertToPHAsset(photos: ManageApp.shared.getAnotherPhotos())
         self.setValues(values: values)
     }
     

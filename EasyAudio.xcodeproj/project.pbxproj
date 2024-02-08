@@ -82,6 +82,13 @@
 		9362C5B12B71C5FD0018CB53 /* AllLibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362C5AF2B71C5FD0018CB53 /* AllLibraryCell.swift */; };
 		9362C5B22B71C5FD0018CB53 /* AllLibraryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9362C5B02B71C5FD0018CB53 /* AllLibraryCell.xib */; };
 		9362C5B52B71C9720018CB53 /* AllLibraryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362C5B42B71C9720018CB53 /* AllLibraryModel.swift */; };
+		9362C5BA2B7272650018CB53 /* AnotherMusicVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9362C5B72B7272650018CB53 /* AnotherMusicVC.xib */; };
+		9362C5BB2B7272650018CB53 /* AnotherMusicVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362C5B82B7272650018CB53 /* AnotherMusicVM.swift */; };
+		9362C5BC2B7272650018CB53 /* AnotherMusicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362C5B92B7272650018CB53 /* AnotherMusicVC.swift */; };
+		9362C5C12B730B710018CB53 /* BasePhotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362C5C02B730B710018CB53 /* BasePhotoVC.swift */; };
+		9362C5C62B733B690018CB53 /* AllMediaVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9362C5C32B733B690018CB53 /* AllMediaVC.xib */; };
+		9362C5C72B733B690018CB53 /* AllMediaVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362C5C42B733B690018CB53 /* AllMediaVM.swift */; };
+		9362C5C82B733B690018CB53 /* AllMediaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362C5C52B733B690018CB53 /* AllMediaVC.swift */; };
 		937236D827F9E1670077EDED /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 937236D727F9E1670077EDED /* swiftgen.yml */; };
 		937236E127F9E3140077EDED /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 937236E027F9E3140077EDED /* Localizable.strings */; };
 		9372370827F9E3710077EDED /* UISearchBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937236E427F9E3710077EDED /* UISearchBarExtensions.swift */; };
@@ -445,6 +452,13 @@
 		9362C5AF2B71C5FD0018CB53 /* AllLibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllLibraryCell.swift; sourceTree = "<group>"; };
 		9362C5B02B71C5FD0018CB53 /* AllLibraryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllLibraryCell.xib; sourceTree = "<group>"; };
 		9362C5B42B71C9720018CB53 /* AllLibraryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllLibraryModel.swift; sourceTree = "<group>"; };
+		9362C5B72B7272650018CB53 /* AnotherMusicVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnotherMusicVC.xib; sourceTree = "<group>"; };
+		9362C5B82B7272650018CB53 /* AnotherMusicVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherMusicVM.swift; sourceTree = "<group>"; };
+		9362C5B92B7272650018CB53 /* AnotherMusicVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherMusicVC.swift; sourceTree = "<group>"; };
+		9362C5C02B730B710018CB53 /* BasePhotoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePhotoVC.swift; sourceTree = "<group>"; };
+		9362C5C32B733B690018CB53 /* AllMediaVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllMediaVC.xib; sourceTree = "<group>"; };
+		9362C5C42B733B690018CB53 /* AllMediaVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMediaVM.swift; sourceTree = "<group>"; };
+		9362C5C52B733B690018CB53 /* AllMediaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMediaVC.swift; sourceTree = "<group>"; };
 		937236D727F9E1670077EDED /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		937236E027F9E3140077EDED /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		937236E427F9E3710077EDED /* UISearchBarExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISearchBarExtensions.swift; sourceTree = "<group>"; };
@@ -1068,6 +1082,34 @@
 				9362C5B42B71C9720018CB53 /* AllLibraryModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		9362C5B62B72724E0018CB53 /* AnotherMusic */ = {
+			isa = PBXGroup;
+			children = (
+				9362C5B72B7272650018CB53 /* AnotherMusicVC.xib */,
+				9362C5B82B7272650018CB53 /* AnotherMusicVM.swift */,
+				9362C5B92B7272650018CB53 /* AnotherMusicVC.swift */,
+			);
+			path = AnotherMusic;
+			sourceTree = "<group>";
+		};
+		9362C5BD2B730B110018CB53 /* BasePhoto */ = {
+			isa = PBXGroup;
+			children = (
+				9362C5C02B730B710018CB53 /* BasePhotoVC.swift */,
+			);
+			path = BasePhoto;
+			sourceTree = "<group>";
+		};
+		9362C5C22B733B4D0018CB53 /* AllMedia */ = {
+			isa = PBXGroup;
+			children = (
+				9362C5C32B733B690018CB53 /* AllMediaVC.xib */,
+				9362C5C42B733B690018CB53 /* AllMediaVM.swift */,
+				9362C5C52B733B690018CB53 /* AllMediaVC.swift */,
+			);
+			path = AllMedia;
 			sourceTree = "<group>";
 		};
 		937236D927F9E2320077EDED /* Localizable */ = {
@@ -1900,7 +1942,10 @@
 			isa = PBXGroup;
 			children = (
 				9362C5B32B71C95B0018CB53 /* Model */,
+				9362C5BD2B730B110018CB53 /* BasePhoto */,
+				9362C5B62B72724E0018CB53 /* AnotherMusic */,
 				9362C5A72B71C56D0018CB53 /* AllLibrary */,
+				9362C5C22B733B4D0018CB53 /* AllMedia */,
 				93C759C02B6634EC00C133E9 /* PhotoVideoLibraryVM.swift */,
 				93C759C12B6634EC00C133E9 /* PhotoVideoLibraryVC.swift */,
 				93C759C52B66478A00C133E9 /* PhotoVideoLibraryVC.storyboard */,
@@ -2089,6 +2134,7 @@
 				937237C627F9E4080077EDED /* ViewHeaderDialog.xib in Resources */,
 				93B8C2332B653787006E1D27 /* PhotoSizeLargeCell.xib in Resources */,
 				93913B01282FE4CF009DDCF6 /* Sample PDF.pdf in Resources */,
+				9362C5C62B733B690018CB53 /* AllMediaVC.xib in Resources */,
 				935905B72846526700B560D7 /* README.txt in Resources */,
 				9389F58228BE623C00D55D92 /* Suite-No-6-In-D-Major-After-BWV-1012-Gigue-Nigel-Nort.mp3 in Resources */,
 				93AF2CA528C059BC00558246 /* SettingVC.xib in Resources */,
@@ -2162,6 +2208,7 @@
 				9385EEB528BBC4BA00370E26 /* ManageAudioView.xib in Resources */,
 				93BBBBBF2A014E3A00FC33A2 /* EffectElementCell.xib in Resources */,
 				93BBBBBA2A014A3600FC33A2 /* TitleAudioEffectCell.xib in Resources */,
+				9362C5BA2B7272650018CB53 /* AnotherMusicVC.xib in Resources */,
 				935905D42846590E00B560D7 /* MergeFilesVC.xib in Resources */,
 				93CFBF5A2B4982CA00698D58 /* FeaturesView.xib in Resources */,
 			);
@@ -2296,10 +2343,12 @@
 				9372375627F9E38C0077EDED /* UIWindow+Extension.swift in Sources */,
 				9372376F27F9E38C0077EDED /* Encode+Extension.swift in Sources */,
 				9372371927F9E3710077EDED /* UIActivityExtensions.swift in Sources */,
+				9362C5C12B730B710018CB53 /* BasePhotoVC.swift in Sources */,
 				93BA936F29EBED0A00791DC3 /* SpeedView.swift in Sources */,
 				3ED571C42B11F30B00EABA82 /* ImportWifiCell.swift in Sources */,
 				9372378F27F9E3F30077EDED /* BackUponCloud.swift in Sources */,
 				935905CA2846526700B560D7 /* DDData.m in Sources */,
+				9362C5BC2B7272650018CB53 /* AnotherMusicVC.swift in Sources */,
 				93A0C6F927EE1AD0008E6B98 /* ViewController.swift in Sources */,
 				9372375927F9E38C0077EDED /* UITextViewExtension.swift in Sources */,
 				9372371327F9E3710077EDED /* UIBarButtonItemExtensions.swift in Sources */,
@@ -2390,6 +2439,7 @@
 				9372376E27F9E38C0077EDED /* CodableExtension.swift in Sources */,
 				9372375727F9E38C0077EDED /* UILableExtension.swift in Sources */,
 				9372376827F9E38C0077EDED /* ViewExtension.swift in Sources */,
+				9362C5C82B733B690018CB53 /* AllMediaVC.swift in Sources */,
 				93950F7D285239AF00C68244 /* AVPlayerManager.swift in Sources */,
 				937237F627F9E4170077EDED /* BaseNavigationViewController.swift in Sources */,
 				935905BC2846526700B560D7 /* HTTPErrorResponse.m in Sources */,
@@ -2427,6 +2477,7 @@
 				3E1FF3E42B09BF34004BCD74 /* MainActionVC.swift in Sources */,
 				9372377027F9E38C0077EDED /* PushNotificationHandler.swift in Sources */,
 				9372371427F9E3710077EDED /* UIStoryboardExtensions.swift in Sources */,
+				9362C5BB2B7272650018CB53 /* AnotherMusicVM.swift in Sources */,
 				93097D8C2848A63D00D33BFA /* MuteFileVC.swift in Sources */,
 				9372372627F9E3710077EDED /* UIImageViewExtensions.swift in Sources */,
 				9372376527F9E38C0077EDED /* UITextField_Extension.swift in Sources */,
@@ -2436,6 +2487,7 @@
 				93B25161286749F20008EA86 /* VideoVC.swift in Sources */,
 				9372376B27F9E38C0077EDED /* UIViewController+Rx.swift in Sources */,
 				937237D327F9E4080077EDED /* NavigationSaveView.swift in Sources */,
+				9362C5C72B733B690018CB53 /* AllMediaVM.swift in Sources */,
 				935905B52846526700B560D7 /* ContextFilterLogFormatter.m in Sources */,
 				93D4987629CEDDCF00C68CCF /* HandlingMusicVC.swift in Sources */,
 				9372370827F9E3710077EDED /* UISearchBarExtensions.swift in Sources */,

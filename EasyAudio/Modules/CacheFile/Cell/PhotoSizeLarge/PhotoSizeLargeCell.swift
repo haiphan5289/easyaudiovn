@@ -47,7 +47,7 @@ class PhotoSizeLargeCell: UITableViewCell {
             view.removeFromSuperview()
         }
         
-        let values = ManageApp.shared.convertToPHAsset()
+        let values = ManageApp.shared.convertToPHAsset(photos: ManageApp.shared.getPhotos())
         values.enumerated().forEach { element in
             let asset = element.element
             let offset = element.offset

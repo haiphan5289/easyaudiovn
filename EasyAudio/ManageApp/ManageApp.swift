@@ -221,9 +221,20 @@ class ManageApp {
         return imagesAndVideos
     }
     
-    func convertToPHAsset() -> [PHAsset] {
-        let photos = self.getPhotos()
-        
+    func getAllPhotos() -> PHFetchResult<PHAsset> {
+        let fetchOptions = PHFetchOptions()
+        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate",
+                                                         ascending: false)]
+        fetchOptions.predicate = NSPredicate(format: "mediaType == %d || mediaType == %d || mediaType == %d || mediaType == %d",
+                                             PHAssetMediaType.unknown.rawValue,
+                                             PHAssetMediaType.video.rawValue,
+                                             PHAssetMediaType.audio.rawValue,
+                                             PHAssetMediaType.image.rawValue)
+        let imagesAndVideos = PHAsset.fetchAssets(with: fetchOptions)
+        return imagesAndVideos
+    }
+    
+    func convertToPHAsset(photos: PHFetchResult<PHAsset>) -> [PHAsset] {
         if photos.count <= 0 {
             return []
         }
