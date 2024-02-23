@@ -72,7 +72,7 @@ extension BasePhotoVC {
             .asDriverOnErrorJustComplete()
             .drive { [weak self] _ in
                 guard let self = self else { return }
-                let values = selecteds.map({ self.souces.value.safe[$0] })
+                let values = self.selecteds.map({ self.souces.value.safe[$0] })
                     .compactMap{ $0 }
                 self.delegate?.selectesPHAsset(values: values)
                 

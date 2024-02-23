@@ -29,6 +29,7 @@ class PhotoVideoLibraryVC: UIViewController {
     
     private var allLibrary: AllLibraryVC = AllLibraryVC.createVC()
     private var anotherMusic: AnotherMusicVC = AnotherMusicVC.createVC()
+    private var allMedia: AllMediaVC = AllMediaVC.createVC()
     
     // Add here your view model
     private var viewModel: PhotoVideoLibraryVM = PhotoVideoLibraryVM()
@@ -50,7 +51,7 @@ class PhotoVideoLibraryVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let page = segue.destination as? UIPageViewController {
             self.pageViewController = page
-            self.pageViewController?.setViewControllers([anotherMusic], direction: .reverse, animated: false)
+            self.pageViewController?.setViewControllers([allMedia], direction: .reverse, animated: false)
         }
     }
     
@@ -87,6 +88,7 @@ extension PhotoVideoLibraryVC {
                 frame.size = CGSize(width: owner.allButon.frame.width, height: 1)
                 owner.moveLineView(frame: frame)
                 owner.updateStateButton(buttons: [owner.imageButton, owner.fileButton])
+                owner.pageViewController?.setViewControllers([owner.allMedia], direction: .reverse, animated: false)
             }.disposed(by: disposeBag)
         
         fileButton.rx.tap

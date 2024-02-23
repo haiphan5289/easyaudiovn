@@ -21,6 +21,8 @@
 		3E2E573B2B54165300F15429 /* MenuImportFileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E2E57392B54165300F15429 /* MenuImportFileVC.xib */; };
 		3E2E573F2B54168500F15429 /* MenuImportFileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2E573D2B54168500F15429 /* MenuImportFileCell.swift */; };
 		3E2E57402B54168500F15429 /* MenuImportFileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E2E573E2B54168500F15429 /* MenuImportFileCell.xib */; };
+		3E6548862B88A5AF00000A1E /* AnotherMusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6548842B88A5AF00000A1E /* AnotherMusicCell.swift */; };
+		3E6548872B88A5AF00000A1E /* AnotherMusicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E6548852B88A5AF00000A1E /* AnotherMusicCell.xib */; };
 		3ECCA06F298B964100F6EB82 /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECCA06E298B964000F6EB82 /* UITableViewExtensions.swift */; };
 		3ED571C42B11F30B00EABA82 /* ImportWifiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED571C22B11F30B00EABA82 /* ImportWifiCell.swift */; };
 		3ED571C52B11F30B00EABA82 /* ImportWifiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3ED571C32B11F30B00EABA82 /* ImportWifiCell.xib */; };
@@ -356,6 +358,8 @@
 		3E2E57392B54165300F15429 /* MenuImportFileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuImportFileVC.xib; sourceTree = "<group>"; };
 		3E2E573D2B54168500F15429 /* MenuImportFileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuImportFileCell.swift; sourceTree = "<group>"; };
 		3E2E573E2B54168500F15429 /* MenuImportFileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuImportFileCell.xib; sourceTree = "<group>"; };
+		3E6548842B88A5AF00000A1E /* AnotherMusicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherMusicCell.swift; sourceTree = "<group>"; };
+		3E6548852B88A5AF00000A1E /* AnotherMusicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnotherMusicCell.xib; sourceTree = "<group>"; };
 		3ECCA06E298B964000F6EB82 /* UITableViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtensions.swift; sourceTree = "<group>"; };
 		3ED571C22B11F30B00EABA82 /* ImportWifiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWifiCell.swift; sourceTree = "<group>"; };
 		3ED571C32B11F30B00EABA82 /* ImportWifiCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImportWifiCell.xib; sourceTree = "<group>"; };
@@ -815,6 +819,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		3E6548832B88A59F00000A1E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3E6548842B88A5AF00000A1E /* AnotherMusicCell.swift */,
+				3E6548852B88A5AF00000A1E /* AnotherMusicCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		3ED571C12B11F2F200EABA82 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1087,6 +1100,7 @@
 		9362C5B62B72724E0018CB53 /* AnotherMusic */ = {
 			isa = PBXGroup;
 			children = (
+				3E6548832B88A59F00000A1E /* Cell */,
 				9362C5B72B7272650018CB53 /* AnotherMusicVC.xib */,
 				9362C5B82B7272650018CB53 /* AnotherMusicVM.swift */,
 				9362C5B92B7272650018CB53 /* AnotherMusicVC.swift */,
@@ -2187,6 +2201,7 @@
 				9389F57828BE5EB100D55D92 /* image_gift_7.gif in Resources */,
 				93A0C6FC27EE1AD0008E6B98 /* Main.storyboard in Resources */,
 				9389F56128BE586300D55D92 /* image_gift_5.gif in Resources */,
+				3E6548872B88A5AF00000A1E /* AnotherMusicCell.xib in Resources */,
 				93ABC9FE29CF1B730003C23D /* AudioView.xib in Resources */,
 				93A9D7BF284261D7009F9D49 /* AudioImportVC.xib in Resources */,
 				9362C5AB2B71C5970018CB53 /* AllLibraryVC.xib in Resources */,
@@ -2290,6 +2305,7 @@
 				93CE5F2B27FAF8E700455E01 /* Strings-Gen.swift in Sources */,
 				93B8C2322B653787006E1D27 /* PhotoSizeLargeCell.swift in Sources */,
 				935905CD2846526700B560D7 /* Manager.swift in Sources */,
+				3E6548862B88A5AF00000A1E /* AnotherMusicCell.swift in Sources */,
 				9372376427F9E38C0077EDED /* URL+Extension.swift in Sources */,
 				9359055528464E6A00B560D7 /* ImportWifiVC.swift in Sources */,
 				9389F58928BE629F00D55D92 /* MusicWorkVC.swift in Sources */,

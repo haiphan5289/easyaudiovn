@@ -12,3 +12,9 @@ struct AllLibraryModel {
     let time: String?
     let size: String?
 }
+
+
+struct AnotherMediaModel {
+    let title: String?
+    let size: String?
+}
