@@ -32,6 +32,11 @@
 		93097D8C2848A63D00D33BFA /* MuteFileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93097D892848A63D00D33BFA /* MuteFileVC.swift */; };
 		9316B3172868530B001DE29C /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9316B3152868530B001DE29C /* VideoCell.swift */; };
 		9316B3182868530B001DE29C /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9316B3162868530B001DE29C /* VideoCell.xib */; };
+		93280E702B8AFD8C006A62C0 /* FecthCheckVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93280E6D2B8AFD8C006A62C0 /* FecthCheckVC.xib */; };
+		93280E712B8AFD8C006A62C0 /* FecthCheckVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93280E6E2B8AFD8C006A62C0 /* FecthCheckVM.swift */; };
+		93280E722B8AFD8C006A62C0 /* FecthCheckVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93280E6F2B8AFD8C006A62C0 /* FecthCheckVC.swift */; };
+		93280E762B8AFE1C006A62C0 /* FetchCheckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93280E742B8AFE1C006A62C0 /* FetchCheckCell.swift */; };
+		93280E772B8AFE1C006A62C0 /* FetchCheckCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93280E752B8AFE1C006A62C0 /* FetchCheckCell.xib */; };
 		933C717829BCBD3700BACF0E /* VideoFromPhotosVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933C717529BCBD3700BACF0E /* VideoFromPhotosVC.xib */; };
 		933C717929BCBD3700BACF0E /* VideoFromPhotosVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933C717629BCBD3700BACF0E /* VideoFromPhotosVM.swift */; };
 		933C717A29BCBD3700BACF0E /* VideoFromPhotosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933C717729BCBD3700BACF0E /* VideoFromPhotosVC.swift */; };
@@ -370,6 +375,11 @@
 		93097D892848A63D00D33BFA /* MuteFileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuteFileVC.swift; sourceTree = "<group>"; };
 		9316B3152868530B001DE29C /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		9316B3162868530B001DE29C /* VideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCell.xib; sourceTree = "<group>"; };
+		93280E6D2B8AFD8C006A62C0 /* FecthCheckVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FecthCheckVC.xib; sourceTree = "<group>"; };
+		93280E6E2B8AFD8C006A62C0 /* FecthCheckVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FecthCheckVM.swift; sourceTree = "<group>"; };
+		93280E6F2B8AFD8C006A62C0 /* FecthCheckVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FecthCheckVC.swift; sourceTree = "<group>"; };
+		93280E742B8AFE1C006A62C0 /* FetchCheckCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCheckCell.swift; sourceTree = "<group>"; };
+		93280E752B8AFE1C006A62C0 /* FetchCheckCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FetchCheckCell.xib; sourceTree = "<group>"; };
 		933C717529BCBD3700BACF0E /* VideoFromPhotosVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoFromPhotosVC.xib; sourceTree = "<group>"; };
 		933C717629BCBD3700BACF0E /* VideoFromPhotosVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFromPhotosVM.swift; sourceTree = "<group>"; };
 		933C717729BCBD3700BACF0E /* VideoFromPhotosVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFromPhotosVC.swift; sourceTree = "<group>"; };
@@ -854,6 +864,18 @@
 				9316B3162868530B001DE29C /* VideoCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		93280E732B8AFDF7006A62C0 /* FetchCheck */ = {
+			isa = PBXGroup;
+			children = (
+				93280E6D2B8AFD8C006A62C0 /* FecthCheckVC.xib */,
+				93280E6E2B8AFD8C006A62C0 /* FecthCheckVM.swift */,
+				93280E6F2B8AFD8C006A62C0 /* FecthCheckVC.swift */,
+				93280E742B8AFE1C006A62C0 /* FetchCheckCell.swift */,
+				93280E752B8AFE1C006A62C0 /* FetchCheckCell.xib */,
+			);
+			path = FetchCheck;
 			sourceTree = "<group>";
 		};
 		933C717429BCBD2000BACF0E /* VideoFromPhotos */ = {
@@ -1432,6 +1454,7 @@
 		9372380527F9E4A40077EDED /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				93280E732B8AFDF7006A62C0 /* FetchCheck */,
 				93C759BE2B66349B00C133E9 /* PhotoVideoLibrary */,
 				3E28477A2B5D089800560E57 /* CacheFile */,
 				3E2E57372B54162C00F15429 /* MenuImportFile */,
@@ -2189,6 +2212,7 @@
 				937237D227F9E4080077EDED /* NavigationSaveView.xib in Resources */,
 				93C5750C29EAA25E003BD015 /* FadeInOutView.xib in Resources */,
 				939880042843BBD50057270F /* ExportVC.xib in Resources */,
+				93280E772B8AFE1C006A62C0 /* FetchCheckCell.xib in Resources */,
 				93CE5F3E27FB471100455E01 /* AudioCell.xib in Resources */,
 				93913B05282FE4CF009DDCF6 /* FontsFree-Net-SFProText-Regular.ttf in Resources */,
 				3E2847792B5CCB5D00560E57 /* MusicDashboardVC.storyboard in Resources */,
@@ -2197,6 +2221,7 @@
 				93A20682282FD15300F262EC /* ActionHomeVC.xib in Resources */,
 				93D8785C2B652C7C0013B0E6 /* CacheCell.xib in Resources */,
 				93987FF828432ACB0057270F /* MixAudioVC.xib in Resources */,
+				93280E702B8AFD8C006A62C0 /* FecthCheckVC.xib in Resources */,
 				9362C5B22B71C5FD0018CB53 /* AllLibraryCell.xib in Resources */,
 				9389F57828BE5EB100D55D92 /* image_gift_7.gif in Resources */,
 				93A0C6FC27EE1AD0008E6B98 /* Main.storyboard in Resources */,
@@ -2310,6 +2335,7 @@
 				9359055528464E6A00B560D7 /* ImportWifiVC.swift in Sources */,
 				9389F58928BE629F00D55D92 /* MusicWorkVC.swift in Sources */,
 				93BBBBB92A014A3600FC33A2 /* TitleAudioEffectCell.swift in Sources */,
+				93280E762B8AFE1C006A62C0 /* FetchCheckCell.swift in Sources */,
 				937237E827F9E40F0077EDED /* OptionalMessageDTO.swift in Sources */,
 				9372372227F9E3710077EDED /* UILabelExtensions.swift in Sources */,
 				937237F427F9E4170077EDED /* BaseNavigationLargeTitle.swift in Sources */,
@@ -2365,6 +2391,7 @@
 				9372378F27F9E3F30077EDED /* BackUponCloud.swift in Sources */,
 				935905CA2846526700B560D7 /* DDData.m in Sources */,
 				9362C5BC2B7272650018CB53 /* AnotherMusicVC.swift in Sources */,
+				93280E712B8AFD8C006A62C0 /* FecthCheckVM.swift in Sources */,
 				93A0C6F927EE1AD0008E6B98 /* ViewController.swift in Sources */,
 				9372375927F9E38C0077EDED /* UITextViewExtension.swift in Sources */,
 				9372371327F9E3710077EDED /* UIBarButtonItemExtensions.swift in Sources */,
@@ -2395,6 +2422,7 @@
 				93987FF928432ACB0057270F /* MixAudioVM.swift in Sources */,
 				93A20683282FD15300F262EC /* ActionHomeVM.swift in Sources */,
 				935905C52846526700B560D7 /* MultipartMessageHeaderField.m in Sources */,
+				93280E722B8AFD8C006A62C0 /* FecthCheckVC.swift in Sources */,
 				93CE5F2827FAF10000455E01 /* AudioVC.swift in Sources */,
 				937237CC27F9E4080077EDED /* ImportOptionsVC.swift in Sources */,
 				93C5984D298545EB005C7CD9 /* AllFilesVC.swift in Sources */,

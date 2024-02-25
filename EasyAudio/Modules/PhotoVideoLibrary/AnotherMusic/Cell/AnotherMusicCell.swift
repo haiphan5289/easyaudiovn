@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Photos
 
 class AnotherMusicCell: UITableViewCell {
 
@@ -23,10 +24,18 @@ class AnotherMusicCell: UITableViewCell {
         iconSelected.image = image
         // Configure the view for the selected state
     }
-    
-    func setModel(model: AnotherMediaModel) {
-        self.title.text = model.title
-        self.sizeLabel.text = model.size
+//    
+//    func setModel(model: AnotherMediaModel) {
+//        self.title.text = model.title
+//        self.sizeLabel.text = model.size
+//    }
+//    
+    func setModel(asset: PHAsset?) {
+        guard let asset = asset else {
+            return
+        }
+        self.title.text = asset.originalFilename
+        sizeLabel.text = "\(ByteCountFormatter.string(fromByteCount: Int64(asset.getSize()), countStyle: .file))"
     }
     
 }

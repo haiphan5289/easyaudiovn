@@ -30,8 +30,7 @@ extension AllMediaVC {
     
     private func setupUI() {
         // Add here the setup for the UI
-        let values = ManageApp.shared.convertToPHAsset(photos: ManageApp.shared.getAllPhotos())
-        self.setValues(values: values)
+        self.setValues(value: ManageApp.shared.getAllPhotos())
     }
     
     private func setupRX() {

@@ -62,6 +62,7 @@ extension PhotoVideoLibraryVC {
         // Add here the setup for the UI
         allLibrary.delegate = self
         anotherMusic.delegate = self
+        allMedia.delegate = self
         makeSelectPhotos(count: 0, total: "0 MB")
     }
     
@@ -153,10 +154,24 @@ extension PhotoVideoLibraryVC {
         }
     }
     
+    private func removePHAsset(asset: PHAsset) {
+        if let index = self.selectedTrigger.value.firstIndex(where: { $0.localIdentifier == asset.localIdentifier }) {
+            var list = self.selectedTrigger.value
+            list.remove(at: index)
+            self.selectedTrigger.accept(list)
+        }
+    }
+    
 }
 extension PhotoVideoLibraryVC: AllLibraryDelegate {
+    func deselectPHAsset(value: PHAsset) {
+        self.removePHAsset(asset: value)
+    }
+    
     func selectesPHAsset(values: [PHAsset]) {
         let list = self.selectedTrigger.value + values
         self.selectedTrigger.accept(list)
     }
+    
 }
+extension PhotoVideoLibraryVC: AnotherMusicDelegate {}

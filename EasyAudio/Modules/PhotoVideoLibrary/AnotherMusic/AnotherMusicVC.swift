@@ -14,6 +14,7 @@ import Photos
 
 protocol AnotherMusicDelegate: AnyObject {
     func selectesPHAsset(values: [PHAsset])
+    func deselectPHAsset(value: PHAsset)
 }
 
 class AnotherMusicVC:  UIViewController, SetupTableView {
@@ -23,7 +24,7 @@ class AnotherMusicVC:  UIViewController, SetupTableView {
     
     // Add here your view model
     private var viewModel: AnotherMusicVM = AnotherMusicVM()
-    private var sources: BehaviorRelay<[PHAsset]> = BehaviorRelay(value: [])
+    var allPhotos: PHFetchResult<PHAsset>? = nil
     
     weak var delegate: AnotherMusicDelegate?
     
@@ -42,33 +43,58 @@ extension AnotherMusicVC {
         setupTableView(tableView: tableView,
                        delegate: self,
                        name: AnotherMusicCell.self)
-        let values = ManageApp.shared.convertToPHAsset(photos: ManageApp.shared.getAnotherPhotos())
-        sources.accept(values)
+        tableView.dataSource = self
+        allPhotos = ManageApp.shared.getAnotherPhotos()
+        checkEmptyView()
     }
     
     private func setupRX() {
-        
-        sources.asDriverOnErrorJustComplete()
-            .map({ values in
-                return values.map {
-                    return AnotherMediaModel(title: $0.originalFilename,
-                                             size: "\(ByteCountFormatter.string(fromByteCount: Int64($0.getSize()), countStyle: .file))") }
-            })
-            .drive(tableView.rx.items(cellIdentifier: AnotherMusicCell.identifier,
-                                         cellType: AnotherMusicCell.self)) { (index, element, cell) in
-                cell.setModel(model: element)
-        }.disposed(by: disposeBag)
-        
         tableView.rx.itemSelected
             .withUnretained(self)
             .bind { owner, idx in
-                guard let indexs = owner.tableView.indexPathsForSelectedRows else {
+                guard let allPhotos = self.allPhotos else {
                     return
                 }
-                let values = indexs.map({ owner.sources.value.safe[$0.row] }).compactMap{ $0 }
-                owner.delegate?.selectesPHAsset(values: values)
+                let values = allPhotos.object(at: idx.row)
+                owner.delegate?.selectesPHAsset(values: [values])
+            }.disposed(by: disposeBag)
+        
+        tableView.rx.itemDeselected
+            .withUnretained(self)
+            .bind { owner, idx in
+                guard let allPhotos = self.allPhotos else {
+                    return
+                }
+                let values = allPhotos.object(at: idx.row)
+                owner.delegate?.deselectPHAsset(value: values)
             }.disposed(by: disposeBag)
     }
+    
+    private func checkEmptyView() {
+        guard let allPhotos = allPhotos, allPhotos.count <= 0 else {
+            return
+        }
+        let emptyView: EmptyView = EmptyView(frame: .zero, text: "You don't have any data")
+        self.tableView.setEmptyMessage(emptyView: emptyView)
+    }
+    
+}
+extension AnotherMusicVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.allPhotos?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let allPhotos = self.allPhotos,
+              let cell = tableView.dequeueReusableCell(withIdentifier: AnotherMusicCell.identifier, for: indexPath) as? AnotherMusicCell else {
+            return UITableViewCell()
+        }
+        let item = allPhotos.object(at: indexPath.row)
+        cell.setModel(asset: item)
+        return cell
+    }
+    
+    
 }
 extension AnotherMusicVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

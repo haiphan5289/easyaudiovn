@@ -15,6 +15,7 @@ import Photos
 
 protocol AllLibraryDelegate: AnyObject {
     func selectesPHAsset(values: [PHAsset])
+    func deselectPHAsset(value: PHAsset)
 }
 
 class AllLibraryVC: BasePhotoVC {
@@ -37,8 +38,7 @@ extension AllLibraryVC {
     
     private func setupUI() {
         // Add here the setup for the UI
-        let values = ManageApp.shared.convertToPHAsset(photos: ManageApp.shared.getPhotos())
-        self.setValues(values: values)
+        self.setValues(value: ManageApp.shared.getPhotos())
     }
     
     private func setupRX() {

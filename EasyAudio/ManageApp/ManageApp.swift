@@ -381,6 +381,9 @@ extension PHAsset {
         let options = PHImageRequestOptions()
         options.version = .original
         options.isSynchronous = true
+        options.deliveryMode = .fastFormat
+        options.resizeMode = .exact
+        options.isNetworkAccessAllowed = true
         manager.requestImageDataAndOrientation(for: self, options: options) { data, _, _, _ in
             if let data = data {
                 img = UIImage(data: data)
