@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -108,7 +108,7 @@
                             </constraints>
                         </view>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="klz-au-SHF">
-                            <rect key="frame" x="0.0" y="58" width="414" height="674"/>
+                            <rect key="frame" x="0.0" y="58" width="414" height="602"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lyc-xF-Zub">
                                     <rect key="frame" x="0.0" y="0.0" width="1000" height="832"/>
@@ -138,7 +138,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9GQ-ou-F2e">
-                                    <rect key="frame" x="206.5" y="33.5" width="1" height="607"/>
+                                    <rect key="frame" x="206.5" y="30" width="1" height="542"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="1" id="r8s-hA-66j"/>
@@ -157,7 +157,7 @@
                             <viewLayoutGuide key="frameLayoutGuide" id="dwb-uA-6sB"/>
                         </scrollView>
                         <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hM-fm-hDV">
-                            <rect key="frame" x="0.0" y="736" width="414" height="50"/>
+                            <rect key="frame" x="0.0" y="664" width="414" height="50"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="g9V-zA-pVN">
                                     <rect key="frame" x="79" y="0.0" width="256" height="50"/>
@@ -245,8 +245,8 @@
                                 <constraint firstAttribute="height" constant="50" id="mPm-VG-Rfg"/>
                             </constraints>
                         </view>
-                        <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Jf-KD-t8E">
-                            <rect key="frame" x="0.0" y="736" width="414" height="64"/>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Jf-KD-t8E">
+                            <rect key="frame" x="0.0" y="668" width="414" height="64"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zs2-bT-AiT">
                                     <rect key="frame" x="133" y="0.0" width="148" height="64"/>
@@ -330,7 +330,7 @@
                                     </subviews>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="zs2-bT-AiT" firstAttribute="top" secondItem="1Jf-KD-t8E" secondAttribute="top" id="9HM-9h-oVz"/>
                                 <constraint firstAttribute="height" constant="64" id="Vp8-4W-D94"/>
@@ -345,7 +345,7 @@
                                 <constraint firstAttribute="height" constant="34" id="MHA-UK-JgH"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sC8-d3-oHd">
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sC8-d3-oHd">
                             <rect key="frame" x="0.0" y="782" width="414" height="50"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xsf-I6-kOi">

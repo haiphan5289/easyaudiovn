@@ -26,7 +26,7 @@ class AdditionAudioVC: UIViewController {
         
         var image: UIImage? {
             switch self {
-            case .photoLibrary: return Asset.icAudio.image
+            case .photoLibrary: return Asset.icPhotoLibrary.image
             case .iCloud: return Asset.icIcloud.image
             case .recording: return Asset.icRec.image
             case .wifi: return Asset.icWifi.image
@@ -36,11 +36,11 @@ class AdditionAudioVC: UIViewController {
         
         var title: String? {
             switch self {
-            case .photoLibrary: return "Audio Projects"
+            case .photoLibrary: return "Photo Library"
             case .iCloud: return "iCloud"
             case .recording: return "Recording"
             case .wifi: return "Wifi"
-            case .audio: return "Photo Library"
+            case .audio: return "Audio Projects"
             }
         }
         

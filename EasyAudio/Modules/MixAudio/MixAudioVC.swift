@@ -86,6 +86,7 @@ class MixAudioVC: BaseVC, BaseAudioProtocol {
 //    private var selecAudio: UIView?
     private var exportURL: URL?
     private let detectABVideo: PublishSubject<ScaleVideo> = PublishSubject.init()
+    private var updateRangeFrameEvent: PublishSubject<(CGFloat, CGFloat, ABVideoRangeSlider)> = PublishSubject.init()
     private var selectIndex: Int?
     private var audioPlayer: AVAudioPlayer = AVAudioPlayer()
     private var detectTime: Disposable?
@@ -164,38 +165,67 @@ extension MixAudioVC {
                 case .split: break
                 }
             }.disposed(by: self.disposeBag)
-            
-            ActionMusic.allCases.forEach { type in
-                let bt = self.btsMusic[type.rawValue]
-                bt.rx.tap.bind { [weak self] in
-                    guard let wSelf = self, let url = wSelf.exportURL else { return }
-                    switch type {
-                    case .play:
-                        var detectTime = (wSelf.detectCenterView() - UIScreen.main.bounds.width / 2) / CGFloat(Constant.widthTime)
-                        if detectTime <= 0 {
-                            detectTime = 0
-                        }
-                        wSelf.playAudio(url: url, currentTime: detectTime)
-                        wSelf.btsMusic[ActionMusic.play.rawValue].isHidden = true
-                        wSelf.btsMusic[ActionMusic.pause.rawValue].isHidden = false
-                        wSelf.autoRunTime()
-                    case .pause:
-                        wSelf.pauseAudio()
-                        wSelf.btsMusic[ActionMusic.play.rawValue].isHidden = false
-                        wSelf.btsMusic[ActionMusic.pause.rawValue].isHidden = true
-                    case .backWard, .forWard:
-                        var current = wSelf.audioPlayer.currentTime
-                        if type == .backWard {
-                            current -= Constant.adjustTime
-                        } else {
-                            current += Constant.adjustTime
-                        }
-                        wSelf.continueAudio(currenTime: current)
-                    }
-                }.disposed(by: self.disposeBag)
-            }
         }
         
+        ActionMusic.allCases.forEach { type in
+            let bt = self.btsMusic[type.rawValue]
+            bt.rx.tap.bind { [weak self] in
+                guard let wSelf = self, let url = wSelf.exportURL else { return }
+                switch type {
+                case .play:
+                    var detectTime = (wSelf.detectCenterView() - UIScreen.main.bounds.width / 2) / CGFloat(Constant.widthTime)
+                    if detectTime <= 0 {
+                        detectTime = 0
+                    }
+                    wSelf.playAudio(url: url, currentTime: detectTime)
+                    wSelf.btsMusic[ActionMusic.play.rawValue].isHidden = true
+                    wSelf.btsMusic[ActionMusic.pause.rawValue].isHidden = false
+                    wSelf.autoRunTime()
+                case .pause:
+                    wSelf.pauseAudio()
+                    wSelf.btsMusic[ActionMusic.play.rawValue].isHidden = false
+                    wSelf.btsMusic[ActionMusic.pause.rawValue].isHidden = true
+                case .backWard, .forWard:
+                    var current = wSelf.audioPlayer.currentTime
+                    if type == .backWard {
+                        current -= Constant.adjustTime
+                    } else {
+                        current += Constant.adjustTime
+                    }
+                    wSelf.continueAudio(currenTime: current)
+                }
+            }.disposed(by: self.disposeBag)
+        }
+        
+        self.detectABVideo
+            .debounce(.seconds(1), scheduler: MainScheduler.asyncInstance)
+            .bind { [weak self] scaleVideo in
+                guard let self = self else { return }
+                let url = scaleVideo.video.videoURL
+                let start = scaleVideo.startTiem
+                let end = scaleVideo.endTime
+                AudioManage.shared.trimmSound(inUrl: url,
+                                            index: 1,
+                                            start: start,
+                                              end: end,
+                                              folderSplit: ConstantApp.FolderName.folderEdit.rawValue) { [weak self] outputURL in
+                    guard let self = self else { return }
+                    DispatchQueue.main.async {
+                        self.inputURL = outputURL
+                        let mutePoint: MutePoint = MutePoint(start: 0, end: Float(outputURL.getDuration()), url: outputURL)
+                        self.sourcesURL = []
+                        self.sourcesURL.append(mutePoint)
+                        self.addViewToStackView(url: outputURL, distanceToLeft: 0)
+                    }
+
+                } failure: { [weak self] textError in
+                    guard let self = self else { return }
+                    DispatchQueue.main.async {
+                        self.showAlert(title: nil, message: textError)
+                    }
+                }
+            }.disposed(by: self.disposeBag)
+       
         self.backButton.rx.tap.bind { [weak self] in
             guard let wSelf = self else { return }
             wSelf.navigationController?.popViewController()
@@ -301,6 +331,15 @@ extension MixAudioVC {
         
     }
     
+    private func updateframeWave(position: CGFloat, updateView: UIView, updateViewRange: ABVideoRangeSlider?) {
+        var f = updateView.frame
+        f.size.width = position
+        updateView.frame = f
+        if let range = updateViewRange {
+            range.frame = f
+        }
+    }
+    
     private func setupTimeLineView(second: Int) {
         self.timeStackView.subviews.forEach { v in
             v.removeFromSuperview()
@@ -354,6 +393,10 @@ extension MixAudioVC {
     }
     
     private func addViewToStackView(url: URL, distanceToLeft: Int) {
+        
+        audioStackView.subviews.forEach { view in
+            view.removeFromSuperview()
+        }
         
         self.videoURLs.forEach { v in
             v.hideViews(hide: true)
@@ -599,7 +642,7 @@ extension MixAudioVC: AVAudioPlayerDelegate {
 }
 extension MixAudioVC: ABVideoRangeSliderDelegate {
     func didChangeValue(videoRangeSlider: ABVideoRangeSlider, startTime: Float64, endTime: Float64) {
-        self.detectABVideo.onNext(ScaleVideo(video: videoRangeSlider, startTiem: startTime, endTime: startTime))
+        self.detectABVideo.onNext(ScaleVideo(video: videoRangeSlider, startTiem: startTime, endTime: endTime))
     }
     
     func indicatorDidChangePosition(videoRangeSlider: ABVideoRangeSlider, position: Float64) {
@@ -607,6 +650,6 @@ extension MixAudioVC: ABVideoRangeSliderDelegate {
     }
     
     func updateFrameSlide(videoRangeSlider: ABVideoRangeSlider, startIndicator: CGFloat, endIndicator: CGFloat) {
-        
+        self.updateRangeFrameEvent.onNext((startIndicator, endIndicator, videoRangeSlider))
     }
 }
