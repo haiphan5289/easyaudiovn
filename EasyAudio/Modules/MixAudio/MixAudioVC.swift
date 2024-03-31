@@ -91,6 +91,7 @@ class MixAudioVC: BaseVC, BaseAudioProtocol {
     private var audioPlayer: AVAudioPlayer = AVAudioPlayer()
     private var detectTime: Disposable?
     private let showAlertTrigger: PublishSubject<String> = PublishSubject.init()
+    private let showLoading: BehaviorRelay<Bool> = BehaviorRelay(value: false)
     
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
@@ -111,6 +112,10 @@ class MixAudioVC: BaseVC, BaseAudioProtocol {
         self.finishAudio()
     }
     
+    deinit {
+        print("=== deinit\(self)")
+    }
+    
 }
 extension MixAudioVC {
     
@@ -126,115 +131,41 @@ extension MixAudioVC {
             self.sourcesURL.append(mutePoint)
             self.addViewToStackView(url: url, distanceToLeft: 0)
         }
-    }
-    
-    private func setupRX() {
-        // Add here the setup for the RX
-        self.$sourcesURL.asObservable().bind { [weak self] list in
-            guard let wSelf = self else { return }
-            wSelf.heightAudioSV.constant = CGFloat(list.count) * Constant.heightAudio
-            let maxTime = list.map { $0.getEndTime() }.max() ?? 0
-            wSelf.widthAudioSV.constant = CGFloat(Int(maxTime) * Constant.widthTime)
-            wSelf.widthContent.constant = CGFloat(Int(maxTime) * Constant.widthTime) + 300
-            wSelf.setupTimeLineView(second: Int(maxTime))
-        }.disposed(by: self.disposeBag)
         
-        self.$splitAudios.asObservable().bind { [weak self] list in
-            guard let wSelf = self else { return }
-            let l = list.sorted(by: { $0.endSecond > $1.endSecond })
-            wSelf.exportURL(list: l)
-        }.disposed(by: self.disposeBag)
-        
-        Action.allCases.forEach { type in
-            let bt = self.bts[type.rawValue]
-            bt.rx.tap.bind { [weak self] in
-                guard let wSelf = self else { return }
-                switch type {
-                case .add:
-                    let vc = AdditionAudioVC.createVC()
-                    vc.modalTransitionStyle = .crossDissolve
-                    vc.modalPresentationStyle = .overFullScreen
-                    vc.delegate = self
-                    wSelf.present(vc, animated: true, completion: nil)
-                case .trash:
-                    wSelf.deleteAudio()
-                case .export:
-                    let vc = ExportVC.createVC()
-                    vc.inputURL = wSelf.exportURL
-                    wSelf.navigationController?.pushViewController(vc, animated: true)
-                case .split: break
-                }
-            }.disposed(by: self.disposeBag)
-        }
-        
-        ActionMusic.allCases.forEach { type in
-            let bt = self.btsMusic[type.rawValue]
-            bt.rx.tap.bind { [weak self] in
-                guard let wSelf = self, let url = wSelf.exportURL else { return }
-                switch type {
-                case .play:
-                    var detectTime = (wSelf.detectCenterView() - UIScreen.main.bounds.width / 2) / CGFloat(Constant.widthTime)
-                    if detectTime <= 0 {
-                        detectTime = 0
-                    }
-                    wSelf.playAudio(url: url, currentTime: detectTime)
-                    wSelf.btsMusic[ActionMusic.play.rawValue].isHidden = true
-                    wSelf.btsMusic[ActionMusic.pause.rawValue].isHidden = false
-                    wSelf.autoRunTime()
-                case .pause:
-                    wSelf.pauseAudio()
-                    wSelf.btsMusic[ActionMusic.play.rawValue].isHidden = false
-                    wSelf.btsMusic[ActionMusic.pause.rawValue].isHidden = true
-                case .backWard, .forWard:
-                    var current = wSelf.audioPlayer.currentTime
-                    if type == .backWard {
-                        current -= Constant.adjustTime
-                    } else {
-                        current += Constant.adjustTime
-                    }
-                    wSelf.continueAudio(currenTime: current)
-                }
-            }.disposed(by: self.disposeBag)
-        }
-        
-        self.detectABVideo
-            .debounce(.seconds(1), scheduler: MainScheduler.asyncInstance)
-            .bind { [weak self] scaleVideo in
-                guard let self = self else { return }
-                let url = scaleVideo.video.videoURL
-                let start = scaleVideo.startTiem
-                let end = scaleVideo.endTime
-                AudioManage.shared.trimmSound(inUrl: url,
-                                            index: 1,
-                                            start: start,
-                                              end: end,
-                                              folderSplit: ConstantApp.FolderName.folderEdit.rawValue) { [weak self] outputURL in
-                    guard let self = self else { return }
-                    DispatchQueue.main.async {
-                        self.inputURL = outputURL
-                        let mutePoint: MutePoint = MutePoint(start: 0, end: Float(outputURL.getDuration()), url: outputURL)
-                        self.sourcesURL = []
-                        self.sourcesURL.append(mutePoint)
-                        self.addViewToStackView(url: outputURL, distanceToLeft: 0)
-                    }
-
-                } failure: { [weak self] textError in
-                    guard let self = self else { return }
-                    DispatchQueue.main.async {
-                        self.showAlert(title: nil, message: textError)
-                    }
-                }
-            }.disposed(by: self.disposeBag)
-       
-        self.backButton.rx.tap.bind { [weak self] in
-            guard let wSelf = self else { return }
-            wSelf.navigationController?.popViewController()
-        }.disposed(by: self.disposeBag)
-        
+//        let volumeView: VolumeView = .loadXib()
+//        self.view.addSubview(volumeView)
+//        volumeView.snp.makeConstraints { make in
+//            make.left.bottom.right.equalToSuperview()
+//        }
+//        volumeView.setTitle(title: "Volume")
+//        volumeView.actionHanler = { [weak self] volume in
+//            guard let self1 = self else { return }
+//            let volumeView: VolumeView = .loadXib()
+//            self1.view.addSubview(volumeView)
+//            volumeView.snp.makeConstraints { make in
+//                make.left.bottom.right.equalToSuperview()
+//            }
+//            volumeView.setTitle(title: "Volume")
+//            volumeView.actionHanler = { [weak self] volume in
+//                guard let self2 = self else { return }
+//                let volumeView: VolumeView = .loadXib()
+//                self2.view.addSubview(volumeView)
+//                volumeView.snp.makeConstraints { make in
+//                    make.left.bottom.right.equalToSuperview()
+//                }
+//                volumeView.setTitle(title: "Volume")
+//                volumeView.actionHanler = { [weak self] volume in
+//                    guard let self = self else { return }
+//                    
+//                    
+//                }
+//                
+//            }
+//        }
         volumeButton.rx.tap
             .withUnretained(self)
             .bind { owner, _ in
-                guard let inputURL = self.exportURL else {
+                guard let inputURL = owner.exportURL else {
                     return
                 }
                 let volumeView: VolumeView = .loadXib()
@@ -259,75 +190,213 @@ extension MixAudioVC {
                 }
             }.disposed(by: disposeBag)
         
-        fadeInOutButton.rx.tap
-            .withUnretained(self)
-            .bind { owner, _ in
-                guard let inputURL = self.exportURL else {
-                    return
-                }
-                let fadeView: FadeInOutView = .loadXib()
-                owner.view.addSubview(fadeView)
-                fadeView.snp.makeConstraints { make in
-                    make.left.bottom.right.equalToSuperview()
-                }
-                fadeView.setTitle(title: "Fade")
-                fadeView.setupAudioURL(url: inputURL)
-                fadeView.actionHanler = { [weak self] fadeIn, fadeOut in
-                    guard let self = self else { return }
-                    AudioManage.shared.handleFadeIn(sourceURL: inputURL,
-                                                    fadein: fadeIn,
-                                                    fadeOut: fadeOut,
-                                                    folderName: ConstantApp.FolderName.folderEdit.rawValue) { [weak self] outputURL in
-                        guard let self = self else { return }
-                        self.exportURL = outputURL
-                    } failure: { [weak self] error in
-                        guard let self = self, let text = error?.localizedDescription else { return }
-                        self.showAlertTrigger.onNext(text)
-                    }
-                    fadeView.removeFromSuperview()
-                }
-            }.disposed(by: disposeBag)
+    }
+    
+    private func setupRX() {
+        // Add here the setup for the RX
+//        showLoading
+//            .asDriver()
+//            .drive(self.rx.rxLoading)
+//            .disposed(by: self.disposeBag)
+//        
+//        self.$sourcesURL.asObservable().bind { [weak self] list in
+//            guard let wSelf = self else { return }
+//            wSelf.heightAudioSV.constant = CGFloat(list.count) * Constant.heightAudio
+//            let maxTime = list.map { $0.getEndTime() }.max() ?? 0
+//            wSelf.widthAudioSV.constant = CGFloat(Int(maxTime) * Constant.widthTime)
+//            wSelf.widthContent.constant = CGFloat(Int(maxTime) * Constant.widthTime) + 300
+//            wSelf.setupTimeLineView(second: Int(maxTime))
+//        }.disposed(by: self.disposeBag)
+//        
+//        self.$splitAudios.asObservable().bind { [weak self] list in
+//            guard let wSelf = self else { return }
+//            let l = list.sorted(by: { $0.endSecond > $1.endSecond })
+//            wSelf.exportURL(list: l)
+//        }.disposed(by: self.disposeBag)
+//        
+//        Action.allCases.forEach { type in
+//            let bt = self.bts[type.rawValue]
+//            bt.rx.tap.bind { [weak self] in
+//                guard let wSelf = self else { return }
+//                switch type {
+//                case .add:
+//                    let vc = AdditionAudioVC.createVC()
+//                    vc.modalTransitionStyle = .crossDissolve
+//                    vc.modalPresentationStyle = .overFullScreen
+//                    vc.delegate = self
+//                    wSelf.present(vc, animated: true, completion: nil)
+//                case .trash:
+//                    wSelf.deleteAudio()
+//                case .export:
+//                    let vc = ExportVC.createVC()
+//                    vc.inputURL = wSelf.exportURL
+//                    wSelf.navigationController?.pushViewController(vc, animated: true)
+//                case .split: break
+//                }
+//            }.disposed(by: self.disposeBag)
+//        }
+//        
+//        ActionMusic.allCases.forEach { type in
+//            let bt = self.btsMusic[type.rawValue]
+//            bt.rx.tap.bind { [weak self] in
+//                guard let wSelf = self, let url = wSelf.exportURL else { return }
+//                switch type {
+//                case .play:
+//                    var detectTime = (wSelf.detectCenterView() - UIScreen.main.bounds.width / 2) / CGFloat(Constant.widthTime)
+//                    if detectTime <= 0 {
+//                        detectTime = 0
+//                    }
+//                    wSelf.playAudio(url: url, currentTime: detectTime)
+//                    wSelf.btsMusic[ActionMusic.play.rawValue].isHidden = true
+//                    wSelf.btsMusic[ActionMusic.pause.rawValue].isHidden = false
+//                    wSelf.autoRunTime()
+//                case .pause:
+//                    wSelf.pauseAudio()
+//                    wSelf.btsMusic[ActionMusic.play.rawValue].isHidden = false
+//                    wSelf.btsMusic[ActionMusic.pause.rawValue].isHidden = true
+//                case .backWard, .forWard:
+//                    var current = wSelf.audioPlayer.currentTime
+//                    if type == .backWard {
+//                        current -= Constant.adjustTime
+//                    } else {
+//                        current += Constant.adjustTime
+//                    }
+//                    wSelf.continueAudio(currenTime: current)
+//                }
+//            }.disposed(by: self.disposeBag)
+//        }
+//        
+//        self.detectABVideo
+//            .debounce(.seconds(1), scheduler: MainScheduler.asyncInstance)
+//            .bind { [weak self] scaleVideo in
+//                guard let self = self else { return }
+//                let url = scaleVideo.video.videoURL
+//                let start = scaleVideo.startTiem
+//                let end = scaleVideo.endTime
+//                AudioManage.shared.trimmSound(inUrl: url,
+//                                            index: 1,
+//                                            start: start,
+//                                              end: end,
+//                                              folderSplit: ConstantApp.FolderName.folderEdit.rawValue) { [weak self] outputURL in
+//                    guard let self = self else { return }
+//                    DispatchQueue.main.async {
+//                        self.inputURL = outputURL
+//                        let mutePoint: MutePoint = MutePoint(start: 0, end: Float(outputURL.getDuration()), url: outputURL)
+//                        self.sourcesURL = []
+//                        self.sourcesURL.append(mutePoint)
+//                        self.addViewToStackView(url: outputURL, distanceToLeft: 0)
+//                    }
+//
+//                } failure: { [weak self] textError in
+//                    guard let self = self else { return }
+//                    DispatchQueue.main.async {
+//                        self.showAlert(title: nil, message: textError)
+//                    }
+//                }
+//            }.disposed(by: self.disposeBag)
+       
+        self.backButton.rx.tap.bind { [weak self] in
+            guard let wSelf = self else { return }
+            wSelf.navigationController?.popViewController()
+        }.disposed(by: self.disposeBag)
         
-        speedButton.rx.tap
-            .withUnretained(self)
-            .bind { owner, _ in
-                guard let inputURL = self.exportURL else {
-                    return
-                }
-                let speedView: SpeedView = .loadXib()
-                owner.view.addSubview(speedView)
-                speedView.snp.makeConstraints { make in
-                    make.left.bottom.right.equalToSuperview()
-                }
-                speedView.setTitle(title: "Speed")
-                speedView.setupAudioURL(url: inputURL)
-                speedView.actionHanler = { [weak self] speeed in
-                    guard let self = self else { return }
-                    AudioManage.shared.changeRateAudio(url: inputURL,
-                                                       speed: speeed,
-                                                       folderName: ConstantApp.FolderName.folderEdit.rawValue) { [weak self] outputURL in
-                        guard let self = self else { return }
-                        self.exportURL = outputURL
-                    }
-                    speedView.removeFromSuperview()
-                }
-            }.disposed(by: disposeBag)
+//        volumeButton.rx.tap
+//            .withUnretained(self)
+//            .bind { owner, _ in
+//                guard let inputURL = owner.exportURL else {
+//                    return
+//                }
+//                let volumeView: VolumeView = .loadXib()
+//                owner.view.addSubview(volumeView)
+//                volumeView.snp.makeConstraints { make in
+//                    make.left.bottom.right.equalToSuperview()
+//                }
+//                volumeView.setTitle(title: "Volume")
+//                volumeView.setupAudioURL(url: inputURL)
+//                volumeView.actionHanler = { [weak owner] volume in
+//                    guard let self = owner else { return }
+//                    AudioManage.shared.changeVolumeAudio(sourceURL: inputURL,
+//                                                         volume: volume,
+//                                                         folderName: ConstantApp.FolderName.folderEdit.rawValue) { [weak self] outputURL in
+//                        guard let self = self else { return }
+//                        self.exportURL = outputURL
+//                    } failure: { [weak self] error in
+//                        guard let self = self, let text = error?.localizedDescription else { return }
+//                        self.showAlertTrigger.onNext(text)
+//                    }
+//                    volumeView.removeFromSuperview()
+//                }
+//            }.disposed(by: disposeBag)
+//        
+//        fadeInOutButton.rx.tap
+//            .withUnretained(self)
+//            .bind { owner, _ in
+//                guard let inputURL = self.exportURL else {
+//                    return
+//                }
+//                let fadeView: FadeInOutView = .loadXib()
+//                owner.view.addSubview(fadeView)
+//                fadeView.snp.makeConstraints { make in
+//                    make.left.bottom.right.equalToSuperview()
+//                }
+//                fadeView.setTitle(title: "Fade")
+//                fadeView.setupAudioURL(url: inputURL)
+//                fadeView.actionHanler = { [weak self] fadeIn, fadeOut in
+//                    guard let self = self else { return }
+//                    AudioManage.shared.handleFadeIn(sourceURL: inputURL,
+//                                                    fadein: fadeIn,
+//                                                    fadeOut: fadeOut,
+//                                                    folderName: ConstantApp.FolderName.folderEdit.rawValue) { [weak self] outputURL in
+//                        guard let self = self else { return }
+//                        self.exportURL = outputURL
+//                    } failure: { [weak self] error in
+//                        guard let self = self, let text = error?.localizedDescription else { return }
+//                        self.showAlertTrigger.onNext(text)
+//                    }
+//                    fadeView.removeFromSuperview()
+//                }
+//            }.disposed(by: disposeBag)
         
-        showAlertTrigger
-            .asDriverOnErrorJustComplete()
-            .drive { [weak self] error in
-                guard let self = self else { return }
-                self.showAlert(title: nil, message: error)
-            }.disposed(by: disposeBag)
-        
-        effectButton.rx.tap
-            .withUnretained(self)
-            .bind { owner, _ in
-                let vc = EffectAudioVC.createVC()
-                vc.modalTransitionStyle = .crossDissolve
-                vc.modalPresentationStyle = .overFullScreen
-                owner.present(vc, animated: true)
-            }.disposed(by: disposeBag)
+//        speedButton.rx.tap
+//            .withUnretained(self)
+//            .bind { owner, _ in
+//                guard let inputURL = self.exportURL else {
+//                    return
+//                }
+//                let speedView: SpeedView = .loadXib()
+//                owner.view.addSubview(speedView)
+//                speedView.snp.makeConstraints { make in
+//                    make.left.bottom.right.equalToSuperview()
+//                }
+//                speedView.setTitle(title: "Speed")
+//                speedView.setupAudioURL(url: inputURL)
+//                speedView.actionHanler = { [weak self] speeed in
+//                    guard let self = self else { return }
+//                    AudioManage.shared.changeRateAudio(url: inputURL,
+//                                                       speed: speeed,
+//                                                       folderName: ConstantApp.FolderName.folderEdit.rawValue) { [weak self] outputURL in
+//                        guard let self = self else { return }
+//                        self.exportURL = outputURL
+//                    }
+//                    speedView.removeFromSuperview()
+//                }
+//            }.disposed(by: disposeBag)
+//        
+//        showAlertTrigger
+//            .asDriverOnErrorJustComplete()
+//            .drive { [weak self] error in
+//                guard let self = self else { return }
+//                self.showAlert(title: nil, message: error)
+//            }.disposed(by: disposeBag)
+//        
+//        effectButton.rx.tap
+//            .withUnretained(self)
+//            .bind { owner, _ in
+//                let vc = EffectAudioVC.createVC()
+//                vc.modalTransitionStyle = .crossDissolve
+//                vc.modalPresentationStyle = .overFullScreen
+//                owner.present(vc, animated: true)
+//            }.disposed(by: disposeBag)
         
     }
     

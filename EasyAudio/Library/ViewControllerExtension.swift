@@ -9,6 +9,24 @@
 import Foundation
 import UIKit
 import SVProgressHUD
+import RxSwift
+import RxCocoa
+
+extension Reactive where Base: UIViewController {
+    /// Reactive wrapper for `setTitle(_:for:)`
+//    public loading(for controlState: UIControl.State = []) -> Binder<String?> {
+//        Binder(self.base) { button, title in
+//            button.setTitle(title, for: controlState)
+//        }
+//    }
+    
+    public var rxLoading: Binder<Bool> {
+        Binder(self.base) { _, loading in
+            loading ? SVProgressHUD.show() : SVProgressHUD.dismiss()
+        }
+    }
+    
+}
 
 protocol Weakifiable: AnyObject {}
 extension Weakifiable {

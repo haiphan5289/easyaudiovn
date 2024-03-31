@@ -36,6 +36,10 @@ class AudioView: UIView {
         self.setupRX()
     }
     
+    override func removeFromSuperview() {
+        super.removeFromSuperview()
+    }
+    
 }
 extension AudioView {
     

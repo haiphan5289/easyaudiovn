@@ -13,16 +13,44 @@ import EasyBaseAudio
 import SVProgressHUD
 import VisionKit
 
+class BlockCapture {
+    let name: String
+    let block: (() -> Void)
+    
+    init(name: String, block: @escaping () -> Void) {
+        self.name = name
+        self.block = block
+        DispatchQueue.main.async { block() }
+    }
+}
+
 class MenuImportFileVC: UIViewController, SetupBaseCollection, BaseAudioProtocol {
+    
+    var blockA: BlockCapture?
+    var blockB: BlockCapture?
 
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    private let showLoading: BehaviorRelay<Bool> = BehaviorRelay(value: false)
     
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         setupRX()
+        
+        blockA = .init(name: "A", block: {
+            DispatchQueue.main.asyncAfter(deadline: .now()) {
+                self.work()
+            }
+        })
     }
+    
+    deinit {
+        print("===== deinit \(self)")
+    }
+    
+    func work() { print("Work") }
 
 }
 extension MenuImportFileVC {
@@ -53,9 +81,16 @@ extension MenuImportFileVC {
             }
             self.action(action: typpe)
         }.disposed(by: self.disposeBag)
+        
+        
+        showLoading
+            .asDriver()
+            .drive(self.rx.rxLoading)
+            .disposed(by: self.disposeBag)
     }
     
     private func moveToEdit(url: URL) {
+        self.showLoading.accept(false)
         self.dismiss(animated: true) {
             if let topVC = ManageApp.shared.getTopViewController() {
                 let vc = MixAudioVC.createVC()
@@ -111,16 +146,19 @@ extension MenuImportFileVC {
 //}
 extension MenuImportFileVC: ImportWifiDelegate {
     func addURL(url: URL) {
+        showLoading.accept(true)
         self.moveToEdit(url: url)
     }
 }
 extension MenuImportFileVC: AudioImportDelegate {
     func selectAudio(url: URL) {
+        showLoading.accept(true)
         self.moveToEdit(url: url)
     }
 }
 extension MenuImportFileVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        showLoading.accept(true)
         self.dismiss(animated: true) {
             let videoURL = info[UIImagePickerController.InfoKey.mediaURL] as! URL
             AudioManage.shared.converVideofromPhotoLibraryToMP4(videoURL: videoURL, folderName: ConstantApp.FolderName.folderEdit.rawValue) { [weak self] outputURL in
@@ -140,6 +178,7 @@ extension MenuImportFileVC: UIDocumentPickerDelegate {
         guard let first = urls.first else {
             return
         }
+        showLoading.accept(true)
         self.convertFromCloud(videoURL: first) { [weak self] outputURL in
             guard let self = self else { return }
             self.moveToEdit(url: outputURL)

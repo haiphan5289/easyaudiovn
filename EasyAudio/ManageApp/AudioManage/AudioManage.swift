@@ -60,6 +60,7 @@ final class AudioPlayManage: NSObject {
     
     func clearAction() {
         detectTime?.dispose()
+        audioPlayer.stop()
     }
     func autoRunTime() {
         detectTime?.dispose()
