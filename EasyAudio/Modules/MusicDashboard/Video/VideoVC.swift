@@ -60,12 +60,12 @@ extension VideoVC {
         self.collectionView.register(VideoCell.nib, forCellWithReuseIdentifier: VideoCell.identifier)
         self.collectionView.delegate = self
         self.viewModel.getURLs()
-        DispatchQueue.main.async {
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
             let w = ((self.collectionView.bounds.size.width) - (Constant.spacingCell * 2)) / Constant.numberOfCellisThree
             self.sizeCell = CGSize(width: w, height: w)
             self.collectionView.reloadData()
-        }
-        
+        }) 
     }
     
     private func setupRX() {
@@ -269,6 +269,6 @@ extension VideoVC: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout 
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return Constant.spacingCell
     }
 }

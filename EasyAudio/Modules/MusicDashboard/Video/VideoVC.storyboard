@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -19,22 +19,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qgB-M0-cAV">
-                                <rect key="frame" x="16" y="44" width="382" height="818"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="814"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ns-66-w9R">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Swu-I5-V7l">
-                                                <rect key="frame" x="0.0" y="16" width="382" height="24"/>
+                                                <rect key="frame" x="0.0" y="16" width="414" height="24"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Videos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehB-sf-2C7">
-                                                        <rect key="frame" x="0.0" y="0.0" width="326" height="24"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="358" height="24"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Xt-b8-6El">
-                                                        <rect key="frame" x="330" y="0.0" width="24" height="24"/>
+                                                        <rect key="frame" x="362" y="0.0" width="24" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="24" id="Trc-S8-Oju"/>
                                                             <constraint firstAttribute="height" constant="24" id="chh-q1-3P0"/>
@@ -44,9 +44,11 @@
                                                         <state key="normal" image="plus.app" catalog="system"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39Y-9w-ruq">
-                                                        <rect key="frame" x="358" y="0.0" width="24" height="24"/>
+                                                        <rect key="frame" x="390" y="0.0" width="24" height="24"/>
                                                         <constraints>
+                                                            <constraint firstAttribute="width" secondItem="39Y-9w-ruq" secondAttribute="height" id="0ax-gz-hxM"/>
                                                             <constraint firstAttribute="height" constant="24" id="9KA-dl-kni"/>
+                                                            <constraint firstAttribute="width" secondItem="39Y-9w-ruq" secondAttribute="height" id="niQ-IB-7gN"/>
                                                             <constraint firstAttribute="width" secondItem="39Y-9w-ruq" secondAttribute="height" id="xat-Mj-Pa4"/>
                                                         </constraints>
                                                         <color key="tintColor" name="AppColor"/>
@@ -54,10 +56,6 @@
                                                         <state key="normal" image="ic_filter"/>
                                                     </button>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="39Y-9w-ruq" firstAttribute="width" secondItem="39Y-9w-ruq" secondAttribute="height" id="0ax-gz-hxM"/>
-                                                    <constraint firstItem="39Y-9w-ruq" firstAttribute="width" secondItem="39Y-9w-ruq" secondAttribute="height" id="niQ-IB-7gN"/>
-                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -69,7 +67,7 @@
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="A5l-N1-kon">
-                                        <rect key="frame" x="0.0" y="60" width="382" height="758"/>
+                                        <rect key="frame" x="0.0" y="60" width="414" height="754"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GxB-0i-KF2">
                                             <size key="itemSize" width="128" height="128"/>
@@ -87,8 +85,8 @@
                         <constraints>
                             <constraint firstItem="qgB-M0-cAV" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="3rV-IZ-M1d"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="qgB-M0-cAV" secondAttribute="bottom" id="ajo-vx-SeG"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="qgB-M0-cAV" secondAttribute="trailing" constant="16" id="bRd-lF-HNE"/>
-                            <constraint firstItem="qgB-M0-cAV" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="taf-JX-bed"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="qgB-M0-cAV" secondAttribute="trailing" id="bRd-lF-HNE"/>
+                            <constraint firstItem="qgB-M0-cAV" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="taf-JX-bed"/>
                         </constraints>
                     </view>
                     <connections>
