@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E140D822BBAEFC400BA9C9A /* CovertAudioSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E140D812BBAEFC400BA9C9A /* CovertAudioSuccessView.swift */; };
+		3E140D862BBAEFE500BA9C9A /* CovertAudioSuccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E140D852BBAEFE500BA9C9A /* CovertAudioSuccessView.xib */; };
 		3E1FF3E42B09BF34004BCD74 /* MainActionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1FF3E22B09BF34004BCD74 /* MainActionVC.swift */; };
 		3E1FF3E52B09BF34004BCD74 /* MainActionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E1FF3E32B09BF34004BCD74 /* MainActionVC.xib */; };
 		3E1FF3E92B09C2C2004BCD74 /* MainActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1FF3E72B09C2C2004BCD74 /* MainActionCell.swift */; };
@@ -349,6 +351,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E140D812BBAEFC400BA9C9A /* CovertAudioSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovertAudioSuccessView.swift; sourceTree = "<group>"; };
+		3E140D852BBAEFE500BA9C9A /* CovertAudioSuccessView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CovertAudioSuccessView.xib; sourceTree = "<group>"; };
 		3E1FF3E22B09BF34004BCD74 /* MainActionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainActionVC.swift; sourceTree = "<group>"; };
 		3E1FF3E32B09BF34004BCD74 /* MainActionVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainActionVC.xib; sourceTree = "<group>"; };
 		3E1FF3E72B09C2C2004BCD74 /* MainActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainActionCell.swift; sourceTree = "<group>"; };
@@ -748,6 +752,15 @@
 				9A21E7BD685B68CC5B491B7F /* Pods-EasyAudio.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		3E140D802BBAEF9A00BA9C9A /* CovertAudioSuccess */ = {
+			isa = PBXGroup;
+			children = (
+				3E140D812BBAEFC400BA9C9A /* CovertAudioSuccessView.swift */,
+				3E140D852BBAEFE500BA9C9A /* CovertAudioSuccessView.xib */,
+			);
+			path = CovertAudioSuccess;
 			sourceTree = "<group>";
 		};
 		3E1FF3DD2B09BEBF004BCD74 /* MainAction */ = {
@@ -1321,6 +1334,7 @@
 		937237A027F9E4080077EDED /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3E140D802BBAEF9A00BA9C9A /* CovertAudioSuccess */,
 				93CFBF562B49829800698D58 /* FeaturesView */,
 				93BA936B29EBECEC00791DC3 /* SpeedView */,
 				93C5750829EAA239003BD015 /* FadeInOut */,
@@ -2244,6 +2258,7 @@
 				93CFBF5F2B49835200698D58 /* FeatureCell.xib in Resources */,
 				93913B00282FE4CF009DDCF6 /* Sample Video.mp4 in Resources */,
 				93C759C62B66478A00C133E9 /* PhotoVideoLibraryVC.storyboard in Resources */,
+				3E140D862BBAEFE500BA9C9A /* CovertAudioSuccessView.xib in Resources */,
 				3E2E573B2B54165300F15429 /* MenuImportFileVC.xib in Resources */,
 				9385EEB528BBC4BA00370E26 /* ManageAudioView.xib in Resources */,
 				93BBBBBF2A014E3A00FC33A2 /* EffectElementCell.xib in Resources */,
@@ -2367,6 +2382,7 @@
 				9372371C27F9E3710077EDED /* UIImageExtensions.swift in Sources */,
 				93BBBBC22A014E5A00FC33A2 /* EffectElementView.swift in Sources */,
 				9385EEAF28BB78F900370E26 /* PlayMusicVM.swift in Sources */,
+				3E140D822BBAEFC400BA9C9A /* CovertAudioSuccessView.swift in Sources */,
 				9372377227F9E38C0077EDED /* LabelExtension.swift in Sources */,
 				935905B92846526700B560D7 /* DDAbstractDatabaseLogger.m in Sources */,
 				9372377127F9E38C0077EDED /* ProductViewModel.swift in Sources */,
@@ -2692,7 +2708,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 15;
-				DEVELOPMENT_TEAM = VHSAF8Y3SF;
+				DEVELOPMENT_TEAM = 3TYP89QWY5;
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EasyAudio/Info.plist;
@@ -2716,7 +2732,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = haiphan.easyeditaudio1;
+				PRODUCT_BUNDLE_IDENTIFIER = haiphan.easyeditaudio;
 				PRODUCT_NAME = "Easy Edit Audio";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -2738,7 +2754,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 15;
-				DEVELOPMENT_TEAM = VHSAF8Y3SF;
+				DEVELOPMENT_TEAM = 3TYP89QWY5;
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EasyAudio/Info.plist;
@@ -2761,7 +2777,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = haiphan.easyeditaudio1;
+				PRODUCT_BUNDLE_IDENTIFIER = haiphan.easyeditaudio;
 				PRODUCT_NAME = "Easy Edit Audio";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

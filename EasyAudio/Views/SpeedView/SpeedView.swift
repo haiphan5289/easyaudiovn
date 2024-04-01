@@ -27,6 +27,11 @@ class SpeedView: UIView {
         setupUI()
         setupRX()
     }
+    
+    override func removeFromSuperview() {
+        super.removeFromSuperview()
+        audioView.removeFromSuperview()
+    }
 }
 extension SpeedView {
     

@@ -27,6 +27,11 @@ class VolumeView: UIView {
         setupRX()
     }
     
+    override func removeFromSuperview() {
+        super.removeFromSuperview()
+        audioView.removeFromSuperview()
+    }
+    
 }
 extension VolumeView {
     

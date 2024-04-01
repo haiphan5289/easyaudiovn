@@ -31,6 +31,11 @@ class FadeInOutView: UIView {
         setupRX()
     }
     
+    override func removeFromSuperview() {
+        super.removeFromSuperview()
+        audioView.removeFromSuperview()
+    }
+    
 }
 extension FadeInOutView {
     

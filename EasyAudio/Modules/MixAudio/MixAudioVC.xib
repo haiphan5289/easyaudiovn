@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -65,7 +65,7 @@
                                             <state key="normal" image="ic_arrow_white"/>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xim-pU-sBw">
-                                            <rect key="frame" x="28" y="0.0" width="270" height="50"/>
+                                            <rect key="frame" x="28" y="0.0" width="354" height="50"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Handling Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKB-a6-BPH">
                                                     <rect key="frame" x="100" y="15" width="126" height="20.5"/>
@@ -79,8 +79,8 @@
                                                 <constraint firstItem="pKB-a6-BPH" firstAttribute="centerY" secondItem="Xim-pU-sBw" secondAttribute="centerY" id="wZH-mo-cLu"/>
                                             </constraints>
                                         </view>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aqH-oa-9yE">
-                                            <rect key="frame" x="302" y="10.5" width="80" height="29"/>
+                                        <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aqH-oa-9yE">
+                                            <rect key="frame" x="382" y="10.5" width="80" height="29"/>
                                             <color key="backgroundColor" name="AppColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="80" id="SiY-iB-gSp"/>
@@ -108,7 +108,7 @@
                             </constraints>
                         </view>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="klz-au-SHF">
-                            <rect key="frame" x="0.0" y="58" width="414" height="602"/>
+                            <rect key="frame" x="0.0" y="58" width="414" height="544"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lyc-xF-Zub">
                                     <rect key="frame" x="0.0" y="0.0" width="1000" height="832"/>
@@ -138,7 +138,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9GQ-ou-F2e">
-                                    <rect key="frame" x="206.5" y="30" width="1" height="542"/>
+                                    <rect key="frame" x="206.5" y="27" width="1" height="490"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="1" id="r8s-hA-66j"/>
@@ -156,11 +156,11 @@
                             <viewLayoutGuide key="contentLayoutGuide" id="U2K-wN-qCM"/>
                             <viewLayoutGuide key="frameLayoutGuide" id="dwb-uA-6sB"/>
                         </scrollView>
-                        <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hM-fm-hDV">
-                            <rect key="frame" x="0.0" y="664" width="414" height="50"/>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hM-fm-hDV">
+                            <rect key="frame" x="0.0" y="610" width="414" height="50"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="g9V-zA-pVN">
-                                    <rect key="frame" x="79" y="0.0" width="256" height="50"/>
+                                    <rect key="frame" x="123" y="0.0" width="168" height="50"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llS-gf-7DM">
                                             <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
@@ -199,8 +199,8 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sfg-Q5-29M">
-                                            <rect key="frame" x="88" y="0.0" width="80" height="50"/>
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sfg-Q5-29M">
+                                            <rect key="frame" x="84" y="0.0" width="0.0" height="50"/>
                                             <color key="backgroundColor" name="AppColor"/>
                                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -221,7 +221,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1h-cb-ZXE">
-                                            <rect key="frame" x="176" y="0.0" width="80" height="50"/>
+                                            <rect key="frame" x="88" y="0.0" width="80" height="50"/>
                                             <color key="backgroundColor" name="AppColor"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" title="Export ">
@@ -237,7 +237,7 @@
                                     </subviews>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="g9V-zA-pVN" firstAttribute="centerX" secondItem="2hM-fm-hDV" secondAttribute="centerX" id="51d-7d-6St"/>
                                 <constraint firstItem="g9V-zA-pVN" firstAttribute="top" secondItem="2hM-fm-hDV" secondAttribute="top" id="V4B-NK-Esd"/>
@@ -635,13 +635,10 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiaryLabelColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29803921570000003" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

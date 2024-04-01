@@ -22,6 +22,12 @@ class VideoVC: UIViewController, BaseAudioProtocol {
         static let spacingCell: CGFloat = 8
     }
     
+    enum OpenFrom {
+        case dashboard, mute
+    }
+    
+    var openFrom: OpenFrom = .dashboard
+    
     // Add here outlets
     @IBOutlet weak var btAction: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -43,7 +49,7 @@ class VideoVC: UIViewController, BaseAudioProtocol {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.viewModel.getURLs()
-        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = self.openFrom == .dashboard
     }
     
 }

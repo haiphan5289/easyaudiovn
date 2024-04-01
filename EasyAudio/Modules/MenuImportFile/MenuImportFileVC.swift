@@ -14,7 +14,7 @@ import SVProgressHUD
 import VisionKit
 
 class BlockCapture {
-    let name: String
+    var name: String
     let block: (() -> Void)
     
     init(name: String, block: @escaping () -> Void) {
@@ -39,11 +39,42 @@ class MenuImportFileVC: UIViewController, SetupBaseCollection, BaseAudioProtocol
         setupUI()
         setupRX()
         
-        blockA = .init(name: "A", block: {
-            DispatchQueue.main.asyncAfter(deadline: .now()) {
-                self.work()
-            }
-        })
+//        blockA = .init(name: "A", block: {
+//            DispatchQueue.main.asyncAfter(deadline: .now()) {
+//                self.work()
+//            }
+//        })
+        
+        //case 2
+        //Gây retain cycle ở weak self, bở đi sẽ không bị
+//        blockB = .init(name: "B", block: {
+//            print("B work ")
+//        })
+//        
+//        let blockB = self.blockB
+//        
+//        blockA = .init(name: "A", block: {
+//            print("A work")
+//            UIView.animate(withDuration: 1) { [weak self] in
+//                blockB?.name = "B new"
+//            }
+//        })
+        
+        //case 3: retain cycle ở self.work()
+        //Do self là strong ref vì thế khi closure #2, #3 sẽ là strong
+        // Để không bị retain cycle thì ở closure #2, #3 gắn weak self
+        //Hoặc remove code guard let self = self else { return }, để weak self luôn là option
+//        blockA = .init(name: "A", block: { [weak self] in
+////            guard let self = self else { return }
+//            print("A work")
+//            self?.blockB = .init(name: "B", block: {
+//                print("B work")
+//                self?.work()
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//                    self?.work()
+//                }
+//            })
+//        })
     }
     
     deinit {

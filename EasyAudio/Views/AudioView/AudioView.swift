@@ -38,6 +38,7 @@ class AudioView: UIView {
     
     override func removeFromSuperview() {
         super.removeFromSuperview()
+        audioPLayManage.clearAction()
     }
     
 }

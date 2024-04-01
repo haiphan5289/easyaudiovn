@@ -105,6 +105,14 @@ extension MainActionVC {
                 switch type {
                 case .mute:
                     let merge = MuteFileVC.createVC()
+                    merge.moveActionHandler = { [weak owner] in
+                        guard let self = owner else { return }
+                        self.tabBarController?.selectedIndex = TabbarVC.TabbarItems.dashboard.rawValue
+                        let videoVC = VideoVC.createVCfromStoryBoard(storyboard: .video,
+                                                                             instantiateViewController: .videoVC)
+                        videoVC.openFrom = .mute
+                        self.navigationController?.pushViewController(videoVC)
+                    }
                     merge.hidesBottomBarWhenPushed = true
                     owner.navigationController?.pushViewController(merge, animated: true)
                 case .wifi:

@@ -27,6 +27,8 @@ class MuteFileVC: BaseVC, BaseAudioProtocol {
         case preview, export
     }
     
+    var moveActionHandler: (() -> Void)?
+    
     @IBOutlet var btExpots: [UIButton]!
     // Add here outlets
     @IBOutlet weak var videoAB: ABVideoRangeSlider!
@@ -41,6 +43,7 @@ class MuteFileVC: BaseVC, BaseAudioProtocol {
     @VariableReplay private var statusVideo: ActionMusic = .pause
     @VariableReplay private var audioRange: RangeTimeSlider = RangeTimeSlider.empty
     private var avplayerManager: AVPlayerManager = AVPlayerManager()
+    private let showLoading: BehaviorRelay<Bool> = BehaviorRelay(value: false)
     
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
@@ -95,19 +98,40 @@ extension MuteFileVC {
                 case .preview:
                     print()
                 case .export:
-                    AudioManage.shared.covertToAudio(url: self.videoAB.videoURL,
-                                                     folder: ConstantApp.FolderName.folderVideo.rawValue,
-                                                     type: .mp4) { [weak self] outputURL in
-                        DispatchQueue.main.async {
-                            self?.navigationController?.popViewController()
+                    self.showLoading.accept(true)
+                    AudioManage.shared.changeVolumeAudio(sourceURL: self.videoAB.videoURL,
+                                                         volume: 0,
+                                                         folderName: ConstantApp.FolderName.folderVideo.rawValue) { [weak self] outputURL in
+                        guard let self = self else { return }
+                        DispatchQueue.main.sync {
+                            let successView = CovertAudioSuccessView.loadXib()
+                            successView.moveActionHandler = { [weak self] in
+                                guard let self = self else { return }
+                                self.navigationController?.popViewController(animated: true, {
+                                    self.moveActionHandler?()
+                                })
+                            }
+                            self.view.addSubview(successView)
+                            successView.snp.makeConstraints { make in
+                                make.centerX.centerY.equalToSuperview()
+                            }
+                            self.showLoading.accept(false)
                         }
-                    } failure: { msg in
-                        self.showAlert(title: nil, message: msg)
+                    } failure: { [weak self] error in
+                        guard let self = self else { return }
+                        DispatchQueue.main.sync {
+                            self.showLoading.accept(false)
+                            self.showAlert(title: nil, message: error?.localizedDescription)
+                        }
                     }
-
                 }
             }.disposed(by: disposeBag)
         }
+        
+        showLoading
+            .asDriver()
+            .drive(self.rx.rxLoading)
+            .disposed(by: disposeBag)
         
         self.$statusVideo.bind { [weak self] stt in
             guard let wSelf = self else { return }
@@ -142,6 +166,7 @@ extension MuteFileVC {
         }.disposed(by: self.disposeBag)
         
         self.$audioRange
+            .skip(1)
             .asObservable()
             .debounce(.milliseconds(200), scheduler: MainScheduler.instance)
             .bind { [weak self] range in
@@ -210,16 +235,19 @@ extension MuteFileVC: AdditionAudioDelegate {
 }
 extension MuteFileVC: ImportWifiDelegate {
     func addURL(url: URL) {
+        showLoading.accept(true)
         AudioManage.shared.converVideofromPhotoLibraryToMP4(videoURL: url, folderName: ConstantApp.FolderName.folderEdit.rawValue) { [weak self] outputURL in
             guard let wSelf = self else { return }
             DispatchQueue.main.async {
                 wSelf.updateURLVideo(url: outputURL)
+                wSelf.showLoading.accept(false)
             }
         }
     }
 }
 extension MuteFileVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        showLoading.accept(true)
         self.dismiss(animated: true) {
             let videoURL = info[UIImagePickerController.InfoKey.mediaURL] as! URL
             AudioManage.shared.converVideofromPhotoLibraryToMP4(videoURL: videoURL, folderName: ConstantApp.FolderName.folderEdit.rawValue) { [weak self] outputURL in
@@ -227,6 +255,7 @@ extension MuteFileVC: UIImagePickerControllerDelegate, UINavigationControllerDel
                 DispatchQueue.main.async {
                     picker.dismiss(animated: true) {
                         wSelf.updateURLVideo(url: outputURL)
+                        wSelf.showLoading.accept(false)
                     }
                 }
             }
