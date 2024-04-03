@@ -96,7 +96,9 @@ extension MuteFileVC {
                 guard let self = self else { return }
                 switch type {
                 case .preview:
-                    print()
+                    let preview = PreviewVideoVC.createVC()
+                    preview.inputURL = self.videoAB.videoURL
+                    self.navigationController?.pushViewController(preview)
                 case .export:
                     self.showLoading.accept(true)
                     AudioManage.shared.changeVolumeAudio(sourceURL: self.videoAB.videoURL,
