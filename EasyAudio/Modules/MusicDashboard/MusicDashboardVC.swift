@@ -68,4 +68,9 @@ extension MusicDashboardVC {
                 
             }.disposed(by: disposeBag)
     }
+    
+    func stepToSleep() {
+        self.pageViewController?.setViewControllers([self.workVC], direction: .forward, animated: true)
+        self.segmentControl.selectedSegmentIndex = 2
+    }
 }

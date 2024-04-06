@@ -14,17 +14,17 @@ class TabbarVC: UITabBarController {
     enum TabbarItems: Int, CaseIterable {
         case mainAction, dashboard, setting
         
-        var viewController: UIViewController {
-            switch self {
-            case .mainAction: return MainActionVC.createVC()
-//            case .allFiles: return AllFilesVC.createVC()
-            case .dashboard: return MusicDashboardVC.createVCfromStoryBoard()
-//            case .video: return VideoVC.createVCfromStoryBoard(storyboard: .video,
-//                                                               instantiateViewController: .videoVC)
-//            case .work:  return MusicWorkVC.createVC()
-            case .setting: return SettingVC.createVC()
-            }
-        }
+//        var viewController: UIViewController {
+//            switch self {
+//            case .mainAction: return MainActionVC.createVC()
+////            case .allFiles: return AllFilesVC.createVC()
+//            case .dashboard: return MusicDashboardVC.createVCfromStoryBoard()
+////            case .video: return VideoVC.createVCfromStoryBoard(storyboard: .video,
+////                                                               instantiateViewController: .videoVC)
+////            case .work:  return MusicWorkVC.createVC()
+//            case .setting: return SettingVC.createVC()
+//            }
+//        }
         
         var image: UIImage? {
             switch self {
@@ -54,6 +54,9 @@ class TabbarVC: UITabBarController {
         }
     }
 
+    private let mainAction = MainActionVC.createVC()
+    private let dashboard = MusicDashboardVC.createVCfromStoryBoard()
+    private let setting = SettingVC.createVC()
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +80,8 @@ extension TabbarVC {
             tabBar.scrollEdgeAppearance = appearance
         }
         
-        self.viewControllers = TabbarItems.allCases.map { $0.viewController }
+        mainAction.delegate = self
+        self.viewControllers = [mainAction, dashboard, setting]
         
         TabbarItems.allCases.forEach { [weak self] type in
             guard let wSelf = self else { return }
@@ -86,10 +90,28 @@ extension TabbarVC {
                 vc.tabBarItem.image = type.image
             }
         }
+        
+        let fm = FileManager.default
+        let path = Bundle.main.resourcePath!
+
+        do {
+            let items = try fm.contentsOfDirectory(atPath: path)
+
+            for item in items {
+                print("Found item \(item)")
+            }
+        } catch {
+            // failed to read directory – bad permissions, perhaps?
+        }
     }
     
     private func setupRX() {
     }
     
 
+}
+extension TabbarVC: MainActionDelegate {
+    func moveToSleepMusic() {
+        dashboard.stepToSleep()
+    }
 }

@@ -125,6 +125,7 @@ extension MainActionVC {
                     owner.navigationController?.pushViewController(merge, animated: true)
                 case .musicToSleep:
                     owner.tabBarController?.selectedIndex = TabbarVC.TabbarItems.dashboard.rawValue
+                    owner.delegate?.moveToSleepMusic()
                 case .recording:
                     let merge = RecordingVC.createVC()
                     merge.hidesBottomBarWhenPushed = true

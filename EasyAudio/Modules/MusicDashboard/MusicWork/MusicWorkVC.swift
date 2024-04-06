@@ -63,7 +63,7 @@ extension MusicWorkVC {
         let list = [Bundle.main.url(forResource: "Chamber-Concerto-In-D-Major-RV-93-II-Largo-Gerald-Garcia", withExtension: ".mp3"),
                     Bundle.main.url(forResource: "NhacThien-Hoatau_qadg", withExtension: ".mp3"),
                     Bundle.main.url(forResource: "Suite-No-6-In-D-Major-After-BWV-1012-Gigue-Nigel-Nort", withExtension: ".mp3"),
-                    Bundle.main.url(forResource: "Chamber-VoUuNhacThien-Hoatau_qkyx", withExtension: ".mp3")]
+                    Bundle.main.url(forResource: "VoUuNhacThien-Hoatau_qkyx", withExtension: ".mp3")]
             .compactMap { $0 }
         self.sourceURLs.accept(list)
     }

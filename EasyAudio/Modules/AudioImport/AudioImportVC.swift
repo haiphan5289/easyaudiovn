@@ -22,11 +22,13 @@ class AudioImportVC: UIViewController {
     }
     
     var folderName: String = ""
+    var isNavigationBarHidden: Bool = true
     weak var delegate: AudioImportDelegate?
     // Add here outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btDismiss: UIButton!
     @IBOutlet weak var lbTitle: UILabel!
+    @IBOutlet weak var headerView: UIView!
     
     // Add here your view model
     private var viewModel: AudioImportVM!
@@ -39,6 +41,13 @@ class AudioImportVC: UIViewController {
         self.setupRX()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        title = "Select files"
+        self.navigationController?.isNavigationBarHidden = isNavigationBarHidden
+        headerView.isHidden = !isNavigationBarHidden
+    }
+    
 }
 extension AudioImportVC {
     
@@ -47,7 +56,7 @@ extension AudioImportVC {
         self.viewModel = AudioImportVM(folderName: self.folderName)
         self.tableView.register(AudioCell.nib, forCellReuseIdentifier: AudioCell.identifier)
         self.tableView.delegate = self
-        self.lbTitle.text = ConstantApp.FolderName.folderRecording.rawValue
+        self.lbTitle.text = "Select Files"
     }
     
     private func setupRX() {

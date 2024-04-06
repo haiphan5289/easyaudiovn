@@ -132,11 +132,29 @@ extension RecordingVC {
     private func stopRecording() {
         print("======= Recording \(self.recording.url)")
         self.recording.stop()
-        self.navigationController?.popViewController()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            self.moveToRecoring()
+        }
+    }
+    
+    private func moveToRecoring() {
+        let vc = AudioImportVC.createVC()
+        vc.folderName = ConstantApp.FolderName.folderRecording.rawValue
+        vc.delegate = self
+        vc.isNavigationBarHidden = false
+        self.navigationController?.pushViewController(vc)
     }
 }
 extension RecordingVC: RecorderDelegate {
     func audioMeterDidUpdate(_ dB: Float) {
         self.dbMeter.onNext(dB)
+    }
+}
+extension RecordingVC: AudioImportDelegate {
+    func selectAudio(url: URL) {
+        let vc = MixAudioVC.createVC()
+        vc.hidesBottomBarWhenPushed = true
+        vc.inputURL = url
+        self.navigationController?.pushViewController(vc, completion: nil)
     }
 }

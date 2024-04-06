@@ -132,6 +132,64 @@ extension MixAudioVC {
             self.addViewToStackView(url: url, distanceToLeft: 0)
         }
         
+//        let volumeView: VolumeView = .loadXib()
+//        self.view.addSubview(volumeView)
+//        volumeView.snp.makeConstraints { make in
+//            make.left.bottom.right.equalToSuperview()
+//        }
+//        volumeView.setTitle(title: "Volume")
+//        volumeView.actionHanler = { [weak self] volume in
+//            guard let self1 = self else { return }
+//            let volumeView: VolumeView = .loadXib()
+//            self1.view.addSubview(volumeView)
+//            volumeView.snp.makeConstraints { make in
+//                make.left.bottom.right.equalToSuperview()
+//            }
+//            volumeView.setTitle(title: "Volume")
+//            volumeView.actionHanler = { [weak self] volume in
+//                guard let self2 = self else { return }
+//                let volumeView: VolumeView = .loadXib()
+//                self2.view.addSubview(volumeView)
+//                volumeView.snp.makeConstraints { make in
+//                    make.left.bottom.right.equalToSuperview()
+//                }
+//                volumeView.setTitle(title: "Volume")
+//                volumeView.actionHanler = { [weak self] volume in
+//                    guard let self = self else { return }
+//                    
+//                    
+//                }
+//                
+//            }
+//        }
+//        volumeButton.rx.tap
+//            .withUnretained(self)
+//            .bind { owner, _ in
+//                guard let inputURL = owner.exportURL else {
+//                    return
+//                }
+//                let volumeView: VolumeView = .loadXib()
+//                owner.view.addSubview(volumeView)
+//                volumeView.snp.makeConstraints { make in
+//                    make.left.bottom.right.equalToSuperview()
+//                }
+//                volumeView.setTitle(title: "Volume")
+//                volumeView.setupAudioURL(url: inputURL)
+//                volumeView.actionHanler = { [weak self] volume in
+//                    guard let self = self else { return }
+//                    AudioManage.shared.changeVolumeAudio(sourceURL: inputURL,
+//                                                         volume: volume,
+//                                                         folderName: ConstantApp.FolderName.folderEdit.rawValue) { [weak self] outputURL in
+//                        guard let self = self else { return }
+//                        self.exportURL = outputURL
+//                    } failure: { [weak self] error in
+//                        guard let self = self, let text = error?.localizedDescription else { return }
+//                        self.showAlertTrigger.onNext(text)
+//                    }
+//                    volumeView.removeFromSuperview()
+//                }
+//            }.disposed(by: disposeBag)
+        
     }
     
     private func setupRX() {
@@ -194,6 +252,8 @@ extension MixAudioVC {
                     wSelf.autoRunTime()
                 case .pause:
                     wSelf.pauseAudio()
+                    wSelf.btsMusic[ActionMusic.play.rawValue].isHidden = false
+                    wSelf.btsMusic[ActionMusic.pause.rawValue].isHidden = true
                 case .backWard, .forWard:
                     var current = wSelf.audioPlayer.currentTime
                     if type == .backWard {
