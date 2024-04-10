@@ -63,6 +63,11 @@ class TabbarVC: UITabBarController {
         self.setupUI()
         self.setupRX()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
 }
 extension TabbarVC {
     
@@ -106,6 +111,10 @@ extension TabbarVC {
     }
     
     private func setupRX() {
+    }
+    
+    func moveToVideoDashboard() {
+        dashboard.stepToVideo()
     }
     
 

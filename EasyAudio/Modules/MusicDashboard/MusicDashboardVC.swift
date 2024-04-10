@@ -73,4 +73,9 @@ extension MusicDashboardVC {
         self.pageViewController?.setViewControllers([self.workVC], direction: .forward, animated: true)
         self.segmentControl.selectedSegmentIndex = 2
     }
+    
+    func stepToVideo() {
+        self.pageViewController?.setViewControllers([self.videoVC], direction: .forward, animated: true)
+        self.segmentControl.selectedSegmentIndex = 1
+    }
 }

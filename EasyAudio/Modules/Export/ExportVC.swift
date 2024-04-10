@@ -70,10 +70,13 @@ extension ExportVC {
             }
             let folder = (wSelf.openForm == .audio) ? ConstantApp.FolderName.folderAudio.rawValue : ConstantApp.FolderName.folderVideo.rawValue
             AudioManage.shared.changeNameFile(folderName: folder, oldURL: url, newName: name) { [weak self] outputURL in
-                guard let wSelf = self else { return }
+                guard let self = self else { return }
                 DispatchQueue.main.async {
                     let vc = TabbarVC()
-                    vc.selectedIndex = (wSelf.openForm == .audio) ? 0 : 1
+                    vc.selectedIndex = 1
+                    if self.openForm == .video {
+                        vc.moveToVideoDashboard()
+                    }
                     wSelf.navigationController?.pushViewController(vc, animated: true)
                 }
             } failure: { text in
