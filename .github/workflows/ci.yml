@@ -22,13 +22,13 @@ jobs:
           xcode-version: '14.3.1'
 
       - name: Build project
-  run: xcodebuild -scheme EasyAudio \
-    -sdk iphonesimulator \
-    -destination "platform=iOS Simulator,name=iPhone 14,OS=16.0" \
-    -configuration Debug \
-    CODE_SIGNING_REQUIRED=NO \
-    CODE_SIGN_IDENTITY="" \
-    build
+        run: xcodebuild -scheme EasyAudio \
+          -sdk iphonesimulator \
+          -destination "platform=iOS Simulator,name=iPhone 14,OS=16.0" \
+          -configuration Debug \
+          CODE_SIGNING_REQUIRED=NO \
+          CODE_SIGN_IDENTITY="" \
+          build
 
       - name: Run tests
         run: xcodebuild test -scheme EasyAudio -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.0' -enableCodeCoverage YES
@@ -38,5 +38,5 @@ jobs:
         with:
           name: test-results
           path: ./TestResults
-
-
+          
+          
