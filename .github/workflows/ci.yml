@@ -21,6 +21,9 @@ jobs:
         with:
           xcode-version: '14.3.1'
 
+      - name: Clean project
+        run: xcodebuild clean -scheme EasyAudio
+        
       - name: Build project
         run: |
           xcodebuild -scheme EasyAudio \
